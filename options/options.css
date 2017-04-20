@@ -1,0 +1,29 @@
+section.clear-options {
+  padding: 0.5em 0;
+  margin: 1em 0;
+}
+
+section.clear-options input,
+section.clear-options>select,
+#clear-button {
+  float: right;
+}
+
+label {
+  display: block;
+  padding: 0.2em 0;
+}
+
+label:hover {
+  background-color: lightblue;
+}
+
+.title {
+  font-size: 1.2em;
+  font-style: bold;
+  margin-bottom: 0.5em;
+}
+
+#save-button {
+  float: right;
+}

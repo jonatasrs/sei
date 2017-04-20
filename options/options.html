@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="options.css"/>
+  </head>
+
+  <body>
+
+    <fieldset>
+			<legend><b>Configurações</b></legend>
+			
+			<section class="clear-options">
+				<span class="title">Qual tema de estilo você está usando?</span>
+				<select id="theme">
+					<option value="white" selected>SEI Padrão</option> 
+					<option value="black">SEI Black</option>
+				</select>
+			</section>
+			
+			<hr>
+			
+			<section class="clear-options data-types">
+				<div class="title" >Quais ferramentas você deseja habilitar?</div>
+
+				<label>Prazo de atendimento (Incluir a data no texto do marcador no formato "<u>ATE dd/mm/aaaa</u>".)
+					<input type="checkbox" data-type="prazo" checked="true"/>
+				</label>
+				<label>Quantidade de dias (Incluir a data no texto do marcador no formato "<u>dd/mm/aaaa</u>".)
+					<input type="checkbox" data-type="qtddias"/>
+				</label>
+
+			</section>
+		</fieldset>
+
+    <input type="button" value="Salvar configurações" id="save-button"/>
+
+    <script src="options.js"></script>
+  </body>
+
+</html>
