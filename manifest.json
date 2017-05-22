@@ -3,7 +3,7 @@
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "1.5.0",
+  "version": "1.6.0pre",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://addons.mozilla.org/pt-BR/firefox/addon/sei/",
   "icons": {"48": "icons/sei_++.png"},
@@ -19,11 +19,16 @@
   "options_ui": {
     "page": "options/options.html"
   },
+  
+  "background": {
+    "scripts": ["background.js"]
+  },
 
   "content_scripts": [
     {
       "matches": ["*://*/sei/*", "*://*/sip/*"],
-      "js": ["altera_tabela.js"]
+      "css":["content_scripts.css"],
+      "js": ["content_scripts.js"]
     }
   ]
 }
