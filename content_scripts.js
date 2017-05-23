@@ -1,6 +1,6 @@
 /******************************************************************************
  SEI ++: Script que adiciona novas funcionalidades ao SEI
- Autor: Jonatas Evaristo / Diego Rossi
+ Autor: Jonatas Evaristo / Diego Rossi / Hebert M. Magalhães
 *******************************************************************************/
 
 /*** Calcula o numero de dias com base no texto do marcador */
@@ -83,6 +83,18 @@ function IncluirColunaTabela(IdTabela, TipoDeCalculo) {
 
 			FormatarTabela(table.rows[i], cell.innerHTML, TipoDeCalculo);
 		}
+		
+		/* Adiciona a ordenação na tabela "jquery.tablesorter" */
+		CorrigirTabela(IdTabela);
+		
+		if (!$(table).hasClass("tablesorter")) {
+			$(document).ready(function() {
+				$(table).tablesorter({ 
+					headers: {0: { sorter: false }, 1: {sorter: false }} 
+				});
+			});
+		}
+
 	}
 	return;
 }
@@ -117,6 +129,15 @@ function FormatarTabela(Linha, Valor, TipoDeCalculo) {
 			Linha.setAttribute("style","background-color: red;");
 		}
 	}
+}
+
+function CorrigirTabela(IdTabela) {
+	var insert = "</thead><tbody>";
+	var html = document.getElementById(IdTabela).innerHTML;
+	var passo1 = html.replace("body","head");
+	var position = passo1.indexOf("</tr>")+5;
+	var passo2 = [passo1.slice(0, position), insert, passo1.slice(position)].join('');
+	document.getElementById(IdTabela).innerHTML = passo2;
 }
 
 function ExecutarCalculoPrazo(TipoDeCalculo) {
