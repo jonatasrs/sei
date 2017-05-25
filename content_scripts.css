@@ -6,7 +6,7 @@
 	background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
 	background-position: center left;
 	background-repeat: no-repeat;
-	border: 1px dotted darkgray;
+	border-left: 1px dotted darkgray;
 }
 .tablesorter-default thead .headerSortUp,
 .tablesorter-default thead .tablesorter-headerSortUp,
@@ -25,7 +25,7 @@
 	font-size: inherit;
 	font-weight: inherit;
 	text-align: inherit;
-	padding-left: 4px;
+	padding-left: 15px;
 }
 
 .infraTrClara:hover {
