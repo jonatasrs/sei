@@ -127,18 +127,16 @@ function ExecutarCalculoPrazo(TipoDeCalculo) {
 
 /* Adiciona a ordenação na tabela "jquery.tablesorter" */
 function OrdenarTabela(IdTabela) {
-	var table = document.getElementById(IdTabela);
+	var table = $("#" + IdTabela);
 
 	if (!(table == null)) {
-		/* Corrige a tabela para utilizar o "jquery.tablesorter" */
-		var insert = "</thead><tbody>";
-		var html = table.innerHTML;
-		var passo1 = html.replace("body", "head");
-		var position = passo1.indexOf("</tr>") + 5;
-		var passo2 = [passo1.slice(0, position), insert, passo1.slice(position)].join('');
-		table.innerHTML = passo2;
-
+		/* Previne a execução redundante */
 		if (!$(table).hasClass("tablesorter")) {
+			/* Corrige a tabela para utilizar o "jquery.tablesorter" */
+			$("#" + IdTabela + " caption").after("<thead></thead>");
+			$("#" + IdTabela + " thead").append($("#" + IdTabela + " tbody tr:first-child"));
+
+			/*Execulta a ordenação */
 			$(document).ready(function () {
 				$(table).tablesorter({
 					headers: {0: {sorter: false}, 1: {sorter: false}}
