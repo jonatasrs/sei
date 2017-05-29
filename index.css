@@ -1,8 +1,8 @@
-html {
-  background-color: black;
+body {
   color: white;
+  background-color: black;
 }
 
-h1 {
-  color: blue;
+a:link {
+    color: lightblue;
 }
