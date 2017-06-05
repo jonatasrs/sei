@@ -5,16 +5,17 @@
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
   "version": "1.6.1",
   "developer": {
-		"name": "Jonatas Evaristo, Diego Rossi, Hebert Magalhães",
-		"url": "https://jonatasrs.github.io/sei/"
-	},
+    "name": "Jonatas Evaristo, Diego Rossi, Hebert Magalhães",
+    "url": "https://jonatasrs.github.io/sei/"
+  },
   "icons": {"48": "icons/sei_++.png"},
   "permissions": ["storage"],
 
   "applications": {
     "gecko": {
       "id": "jonatas@gov",
-      "strict_min_version": "52.0"
+      "strict_min_version": "52.0",
+      "update_url": "https://jonatasrs.github.io/sei/updates.json"
     }
   },
 
