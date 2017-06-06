@@ -3,6 +3,11 @@ body {
   background-color: black;
 }
 
+h2 {
+  text-decoration: underline;
+  font-style:  italic;
+}
+
 a:link {
     color: lightblue;
 }
