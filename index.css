@@ -1,6 +1,7 @@
 body {
   color: white;
   background-color: black;
+  margin: 30px;
 }
 
 h2 {
@@ -8,6 +9,21 @@ h2 {
   font-style:  italic;
 }
 
-a:link {
-    color: lightblue;
+a:link, a:visited {
+    color: #0066cc;
+}
+
+a:active {
+  color: green;
+}
+
+p {
+  color: lightgrey;
+  margin-left: 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 60px);
 }
