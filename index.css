@@ -25,5 +25,9 @@ p {
 footer {
   position: fixed;
   bottom: 0;
-  width: calc(100% - 60px);
+  left: 0;
+  right: 0;
+  background-color: black;
+  padding-left: 30;
+  padding-right: 30;
 }
