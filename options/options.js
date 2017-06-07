@@ -24,6 +24,7 @@ function SalvarConfiguracoes() {
     theme,
     CheckTypes
   });
+  alert("Salvo");
 }
 
 /******************************************************************************
