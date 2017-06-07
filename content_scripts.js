@@ -162,6 +162,9 @@ function checkStoredSettings(storedSettings) {
 	Theme = storedSettings.theme;
 	const CheckTypes = storedSettings.CheckTypes;
 
+	/* Adiciona o indentificador ++ no logo do SEI */
+	$("#divInfraBarraSistemaE").append("<div style='display: inline;font-size: 24px;'>++</div>");
+
 	/* Execulta os scripts na ao carregar a página */
 	for (let item of CheckTypes) {
 		switch (item) {
