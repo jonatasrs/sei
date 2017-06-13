@@ -1,7 +1,7 @@
 /******************************************************************************
-SEI ++: Script que adiciona novas funcionalidades ao SEI
-Autor: Jonatas Evaristo / Diego Rossi / Hebert M. Magalhães
- *******************************************************************************/
+ SEI ++: Script que adiciona novas funcionalidades ao SEI
+ Autor: Jonatas Evaristo / Diego Rossi / Hebert M. Magalhães
+*******************************************************************************/
 
 /*** Calcula o numero de dias com base no texto do marcador */
 function Calcular(item, TipoDeCalculo) {
@@ -171,6 +171,8 @@ function checkStoredSettings(storedSettings) {
 			case "prazo":
 			case "qtddias":
 				ExecutarCalculoPrazo(item);
+				break;
+			case "hidemsgupdate":
 				break;
 			default:
 				alert("Configuração não implementada: " + item);
