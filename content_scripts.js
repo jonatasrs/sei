@@ -130,26 +130,20 @@ function OrdenarTabela(IdTabela) {
 	var table = $("#" + IdTabela);
 
 	if (!(table == null)) {
-		/* Previne a execução redundante */
-		if (!$(table).hasClass("tablesorter")) {
-			/* Corrige a tabela para utilizar o "jquery.tablesorter" */
-			$("#" + IdTabela + " caption").after("<thead></thead>");
-			$("#" + IdTabela + " thead").append($("#" + IdTabela + " tbody tr:first-child"));
+		/* Corrige a tabela para utilizar o "jquery.tablesorter" */
+		$("#" + IdTabela + " caption").after("<thead></thead>");
+		$("#" + IdTabela + " thead").append($("#" + IdTabela + " tbody tr:first-child"));
 
-			/*Execulta a ordenação */
-			$(document).ready(function () {
-				$(table).tablesorter({
-					headers: {0: {sorter: false}, 1: {sorter: false}}
-				});
+		/*Execulta a ordenação */
+		$(document).ready(function () {
+			$(table).tablesorter({
+				headers: {0: {sorter: false}, 1: {sorter: false}}
 			});
-		}
+		});
 	}
 }
 
 /*** Configuracoes ************************************************************/
-/* Configuracao padrao */
-var defaultSettings = {theme: "white", CheckTypes: ["prazo"]};
-
 /* Generic error logger */
 function onError(e) {console.error(e);}
 
@@ -161,9 +155,13 @@ function checkStoredSettings(storedSettings) {
 
 	Theme = storedSettings.theme;
 	const CheckTypes = storedSettings.CheckTypes;
-
+	
+	/* Evita a execução redundante */
+	if ($("#seipp").attr("id") == "seipp") {return;}
+	
 	/* Adiciona o indentificador ++ no logo do SEI */
-	$("#divInfraBarraSistemaE").append("<div style='display: inline;font-size: 24px;'>++</div>");
+	$("#divInfraBarraSistemaE")
+	.append("<div id='seipp' style='display: inline;font-size: 24px;'>++</div>");
 
 	/* Execulta os scripts na ao carregar a página */
 	for (let item of CheckTypes) {
@@ -188,7 +186,8 @@ function checkStoredSettings(storedSettings) {
 /******************************************************************************
  * Inicio                                                                     *
  ******************************************************************************/
-var Theme = "";
+/* Configuracao padrao */
+var defaultSettings = {theme: "white", CheckTypes: ["prazo"]};
 
 const gettingStoredSettings = browser.storage.local.get();
 gettingStoredSettings.then(checkStoredSettings, onError);
