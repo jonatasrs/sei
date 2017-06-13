@@ -27,3 +27,10 @@ label:hover {
 #save-button {
   float: right;
 }
+#save-msg {
+  float: right;
+  color: red;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-top: 2px;
+}
