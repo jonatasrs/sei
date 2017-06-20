@@ -146,6 +146,9 @@ function checkStoredSettings(storedSettings) {
 	
 	/* Evita a execução redundante */
 	if ($("#seipp").attr("id") == "seipp") {return;}
+	if ($("#tblProcessosDetalhado").hasClass("tablesorter") ||
+		$("#tblProcessosGerados").hasClass("tablesorter") ||
+		$("#tblProcessosRecebidos").hasClass("tablesorter")) {return;}
 	
 	/* Adiciona o indentificador ++ no logo do SEI */
 	$("#divInfraBarraSistemaE")
@@ -161,7 +164,7 @@ function checkStoredSettings(storedSettings) {
 			case "hidemsgupdate":
 				break;
 			default:
-				alert("Configuração não implementada: " + item);
+				console.log("Configuração não implementada: " + item);
 		}
 	}
 
