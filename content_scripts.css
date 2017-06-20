@@ -1,5 +1,19 @@
 /* CSS */
 
+/* CSS for SEI++ */
+#seipp {
+	display: inline;
+	font-size: 18px;
+	filter: brightness(50%);
+}
+.seipp-alerta {
+	background-color: yellow;
+}
+.seipp-critico {
+	background-color: red;
+}
+/* CSS for SEI++ END */
+
 /* CSS for Tablesorter */
 .tablesorter-default .header,
 .tablesorter-default .tablesorter-header {
@@ -29,7 +43,7 @@
 	padding-left: 15px;
 }
 
-.infraTrClara:hover {
+.infraTrClara:hover, .seipp-alerta:hover, .seipp-critico:hover {
 	background-color: gray;
 }
 /* CSS for Tablesorter END */

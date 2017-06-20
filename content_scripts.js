@@ -89,32 +89,20 @@ function IncluirColunaTabela(IdTabela, TipoDeCalculo) {
 
 /* Formata a tabela pelos valores */
 function FormatarTabela(Linha, Valor, TipoDeCalculo) {
-	var status = "";
+	Linha.onmouseout=null;
+	Linha.onmouseover=null;
+
 	if (TipoDeCalculo == "qtddias") {
 		if (Valor > 20 & Valor < 31) {
-			status = "alerta";
+			$(Linha).attr("class", "seipp-alerta");
 		} else if (Valor > 30) {
-			status = "critico";
+			$(Linha).attr("class", "seipp-critico");
 		}
 	} else if (TipoDeCalculo == "prazo") {
 		if ((Valor >= 1 & Valor < 4) | Valor == "0") {
-			status = "alerta";
+			$(Linha).attr("class", "seipp-alerta");
 		} else if (Valor < 0) {
-			status = "critico";
-		}
-	}
-
-	if (status == "alerta") {
-		if (Theme == "black") {
-			Linha.setAttribute("style", "background-color: #330;");
-		} else {
-			Linha.setAttribute("style", "background-color: yellow;");
-		}
-	} else if (status == "critico") {
-		if (Theme == "black") {
-			Linha.setAttribute("style", "background-color: #300;");
-		} else {
-			Linha.setAttribute("style", "background-color: red;");
+			$(Linha).attr("class", "seipp-critico");
 		}
 	}
 }
@@ -161,7 +149,7 @@ function checkStoredSettings(storedSettings) {
 	
 	/* Adiciona o indentificador ++ no logo do SEI */
 	$("#divInfraBarraSistemaE")
-	.append("<div id='seipp' style='display: inline;font-size: 24px;'>++</div>");
+	.append("<div id='seipp'>++</div>");
 
 	/* Execulta os scripts na ao carregar a página */
 	for (let item of CheckTypes) {
