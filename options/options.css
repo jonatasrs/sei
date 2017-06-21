@@ -6,6 +6,7 @@ section.clear-options {
 section.clear-options input,
 section.clear-options>select,
 #clear-button {
+  display: block;
   float: right;
 }
 

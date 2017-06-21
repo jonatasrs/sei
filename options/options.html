@@ -13,7 +13,7 @@
 			
 			<section class="clear-options">
 				<span class="title">Qual tema de estilo você está usando?</span>
-				<select id="theme">
+				<select id="theme"  disabled title="Nesta versão o tema Black é habilitado com o 'SEI BLACK 1.5' no stylish.">
 					<option value="white" selected>SEI Padrão</option> 
 					<option value="black">SEI Black</option>
 				</select>
@@ -44,9 +44,10 @@
 			</section>
 			
 		</fieldset>
-
-    <input type="button" value="Salvar configurações" id="save-button"/>
-	<div id="save-msg"></div>
+	<div>
+	    <input type="button" value="Salvar configurações" id="save-button"/>
+		<div id="save-msg"></div>
+	</div>
 	
     <script src="options.js"></script>
   </body>
