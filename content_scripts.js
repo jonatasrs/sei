@@ -139,6 +139,7 @@ function onError(e) {console.error(e);}
 function checkStoredSettings(storedSettings) {
 	if (!storedSettings.theme || !storedSettings.CheckTypes) {
 		browser.storage.local.set(defaultSettings);
+		storedSettings = defaultSettings;
 	}
 
 	Theme = storedSettings.theme;
@@ -180,7 +181,13 @@ function checkStoredSettings(storedSettings) {
 /* Configuracao padrao */
 var defaultSettings = {theme: "white", CheckTypes: ["prazo"]};
 
-const gettingStoredSettings = browser.storage.local.get();
-gettingStoredSettings.then(checkStoredSettings, onError);
+const isChrome = (typeof browser === "undefined"); /* Chrome: */
+if (isChrome) {var browser = chrome;} /* Chrome: */
 
+if (isChrome) { /* Chrome: */
+	browser.storage.local.get(checkStoredSettings);
+} else {
+	const gettingStoredSettings = browser.storage.local.get();
+	gettingStoredSettings.then(checkStoredSettings, onError);
+}
 /*** Fim **********************************************************************/

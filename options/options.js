@@ -56,9 +56,15 @@ function onError(e) {
  * Ao abrir a pagina de opções, pega as configurações salvas e atualiza o for-*
  * mulário.                                                                   *
  ******************************************************************************/
-const PegarConfiguracoesSalvas = browser.storage.local.get();
-PegarConfiguracoesSalvas.then(AtualizaForm, onError);
+const isChrome = (typeof browser === "undefined"); /* Chrome: */
+if (isChrome) {var browser = chrome;} /* Chrome: */
 
+if (isChrome) { /* Chrome: */
+	browser.storage.local.get(AtualizaForm);
+} else {
+	const PegarConfiguracoesSalvas = browser.storage.local.get();
+	PegarConfiguracoesSalvas.then(AtualizaForm, onError);
+}
 /******************************************************************************
  * Configura o botao salvar.                                                  *
  ******************************************************************************/
