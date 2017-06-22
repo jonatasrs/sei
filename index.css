@@ -48,3 +48,7 @@ footer {
 strong {
   color: red;
 }
+
+div#vertical p {
+  display: flex;
+}
