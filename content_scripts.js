@@ -132,7 +132,9 @@ function OrdenarTabela(IdTabela) {
 }
 /***Verifica a existência de blocos de assinatura e altera a cor do texto no menu, caso exista*/
 function verificaBlocoAssinatura() {
-  var servidor = "https://sei.anatel.gov.br/sei/";
+  var servidor = window.location.protocol + "//" + window.location.hostname + "/sei/";
+  console.log(servidor);
+  //var servidor = "https://sei.anatel.gov.br/sei/";
   //var servidor = 'https://seihm.anatel.gov.br/sei/';
   var bloco = document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].getAttribute('href'); //obtem o link para o bloco de assinaturas, com respectivo hash
   var oReq = new XMLHttpRequest();
@@ -171,16 +173,16 @@ function reqListener() {
   }
   if (numBlocos > 0) {
     if(numDispParaArea > 0) {
-		html = "<img src=" + browser.extension.getURL("icons/iconRed.png") + ">";
+		html = "<img src=" + browser.extension.getURL("icons/iconRed.png") + " title='Blocos disponibilizados para minha área: "+numDispParaArea+"'>";
 	}
 	if(numDispPelaArea > 0) {
-		html += "<img src=" + browser.extension.getURL("icons/iconBlue.png") + ">";
+		html += "<img src=" + browser.extension.getURL("icons/iconBlue.png") + " title='Blocos disponibilizados pela minha área: "+numDispPelaArea+"'>";
 	}
 	if(numRetornado > 0) {
-		html += "<img src=" + browser.extension.getURL("icons/iconGreen.png") + ">";
+		html += "<img src=" + browser.extension.getURL("icons/iconGreen.png") + " title='Blocos retornados: "+numRetornado+"'>";
 	}
 	if(numAbertos > 0) {
-		html += "<img src=" + browser.extension.getURL("icons/iconBlack.png") + ">";
+		html += "<img src=" + browser.extension.getURL("icons/iconYellow.png") + " title='Blocos abertos: "+numAbertos+"'>";
 	}
 	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = '<b style="color:red;">Blocos de Assinatura </b>' + html;
 	var url = browser.extension.getURL();
