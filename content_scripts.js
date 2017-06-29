@@ -146,6 +146,7 @@ function reqListener() {
   var numDispPelaArea = 0;
   var numDispParaArea = 0;
   var numRetornado = 0;
+  var html = "";
   var tabela = this.responseXML.getElementById('divInfraAreaTabela').childNodes[1].getElementsByTagName('tr') //todas as linhas da tabela de blocos (caso exista)
   var numBlocos = tabela.length; //quantidade de linhas da tabela (zero, caso não tenha blocos, numero de blocos + 1 caso tenha)
   if (numBlocos != 0)
@@ -169,8 +170,21 @@ function reqListener() {
     numRetornado++;
   }
   if (numBlocos > 0) {
-    var html = '<b style="color:red;">' + numDispParaArea + '</b>' + '<b style="color:yellow;">' + numDispPelaArea + '</b>' + '<b style="color:green;">' + numRetornado + '</b>' + '<b>' + numAbertos + '</b>';
-    document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = '<b style="color:red;">Blocos de Assinatura </b>' + html;
+    if(numDispParaArea > 0) {
+		html = "<img src=" + browser.extension.getURL("icons/iconRed.png") + ">";
+	}
+	if(numDispPelaArea > 0) {
+		html += "<img src=" + browser.extension.getURL("icons/iconBlue.png") + ">";
+	}
+	if(numRetornado > 0) {
+		html += "<img src=" + browser.extension.getURL("icons/iconGreen.png") + ">";
+	}
+	if(numAbertos > 0) {
+		html += "<img src=" + browser.extension.getURL("icons/iconBlack.png") + ">";
+	}
+	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = '<b style="color:red;">Blocos de Assinatura </b>' + html;
+	var url = browser.extension.getURL();
+	console.log(url);
   }
 }
 
