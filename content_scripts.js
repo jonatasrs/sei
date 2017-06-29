@@ -132,10 +132,8 @@ function OrdenarTabela(IdTabela) {
 }
 /***Verifica a existência de blocos de assinatura e altera a cor do texto no menu, caso exista*/
 function verificaBlocoAssinatura() {
-  var servidor = window.location.protocol + "//" + window.location.hostname + "/sei/";
-  console.log(servidor);
-  //var servidor = "https://sei.anatel.gov.br/sei/";
-  //var servidor = 'https://seihm.anatel.gov.br/sei/';
+  var servidor = window.location.protocol + "//" + window.location.hostname + "/sei/"; //Obtém o caminho absoluto para a requisição assíncrona
+  //console.log(servidor);
   var bloco = document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].getAttribute('href'); //obtem o link para o bloco de assinaturas, com respectivo hash
   var oReq = new XMLHttpRequest();
   oReq.addEventListener('load', reqListener);
@@ -173,20 +171,19 @@ function reqListener() {
   }
   if (numBlocos > 0) {
     if(numDispParaArea > 0) {
-		html = "<img src=" + browser.extension.getURL("icons/iconRed.png") + " title='Blocos disponibilizados para minha área: "+numDispParaArea+"'>";
+		html = "<img src=" + browser.extension.getURL("icons/iconRed.png") + " class='seipp-alerta' title='Blocos disponibilizados para minha área: "+numDispParaArea+"'>";
 	}
 	if(numDispPelaArea > 0) {
-		html += "<img src=" + browser.extension.getURL("icons/iconBlue.png") + " title='Blocos disponibilizados pela minha área: "+numDispPelaArea+"'>";
+		html += "<img src=" + browser.extension.getURL("icons/iconBlue.png") + " class='seipp-alerta' title='Blocos disponibilizados pela minha área: "+numDispPelaArea+"'>";
 	}
 	if(numRetornado > 0) {
-		html += "<img src=" + browser.extension.getURL("icons/iconGreen.png") + " title='Blocos retornados: "+numRetornado+"'>";
+		html += "<img src=" + browser.extension.getURL("icons/iconGreen.png") + " class='seipp-alerta' title='Blocos retornados: "+numRetornado+"'>";
 	}
 	if(numAbertos > 0) {
-		html += "<img src=" + browser.extension.getURL("icons/iconYellow.png") + " title='Blocos abertos: "+numAbertos+"'>";
+		html += "<img src=" + browser.extension.getURL("icons/iconYellow.png") + " class='seipp-alerta' title='Blocos abertos: "+numAbertos+"'>";
 	}
-	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = '<b class="backgroundDestacado">Blocos de Assinatura </b>' + html;
-	var url = browser.extension.getURL();
-	console.log(url);
+	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = "<b class = 'seipp-alerta'> Blocos de Assinatura </b>" + html;
+	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].setAttribute("class", "seipp-alerta");
   }
 }
 
@@ -215,7 +212,7 @@ function checkStoredSettings(storedSettings) {
 	$("#divInfraBarraSistemaE")
 	.append("<div id='seipp'>++</div>");
 
-	/* Execulta os scripts na ao carregar a página */
+	/* Executa os scripts na ao carregar a página */
 	for (let item of CheckTypes) {
 		switch (item) {
 			case "prazo":
