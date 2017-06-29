@@ -184,7 +184,7 @@ function reqListener() {
 	if(numAbertos > 0) {
 		html += "<img src=" + browser.extension.getURL("icons/iconYellow.png") + " title='Blocos abertos: "+numAbertos+"'>";
 	}
-	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = '<b style="color:red;">Blocos de Assinatura </b>' + html;
+	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = '<b class="backgroundDestacado">Blocos de Assinatura </b>' + html;
 	var url = browser.extension.getURL();
 	console.log(url);
   }
