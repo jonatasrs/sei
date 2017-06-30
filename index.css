@@ -44,6 +44,9 @@ footer {
   padding-left: 30;
   padding-right: 30;
 }
+footer a {
+  color: lightblue;
+}
 
 strong {
   color: red;
