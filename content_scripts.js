@@ -130,6 +130,63 @@ function OrdenarTabela(IdTabela) {
 		});
 	}
 }
+/***Verifica a existência de blocos de assinatura e altera a cor do texto no menu, caso exista*/
+function verificaBlocoAssinatura() {
+  var servidor = window.location.protocol + "//" + window.location.hostname + "/sei/"; //Obtém o caminho absoluto para a requisição assíncrona
+  //console.log(servidor);
+  var bloco = document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].getAttribute('href'); //obtem o link para o bloco de assinaturas, com respectivo hash
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener('load', reqListener);
+  oReq.open('GET', servidor + bloco);
+  oReq.responseType = 'document';
+  oReq.send();
+}
+function reqListener() {
+  var numAbertos = 0;
+  var numDispPelaArea = 0;
+  var numDispParaArea = 0;
+  var numRetornado = 0;
+  var html = "";
+  var tabela = this.responseXML.getElementById('divInfraAreaTabela').childNodes[1].getElementsByTagName('tr') //todas as linhas da tabela de blocos (caso exista)
+  var numBlocos = tabela.length; //quantidade de linhas da tabela (zero, caso não tenha blocos, numero de blocos + 1 caso tenha)
+  if (numBlocos != 0)
+  numBlocos--; //não conta a linha de cabeçalho
+  //alert('Você tem ' + numBlocos + ' blocos de assinatura');
+  for (var i = 1; i <= numBlocos; i++) {
+    var linhas = tabela.item(i).getElementsByTagName('td'); //itera por todas as linhas, verifcando a terceira coluna (Estado)
+    var tipo = linhas.item(2).innerHTML; //terceira coluna (Estado)
+    if (tipo == 'Disponibilizado') {
+      var areaDisp = linhas.item(4).innerHTML; //se disponibilizado, verifica a Unidade de disponibilização.
+      if (areaDisp != '') { //se não estiver em branco, significa disponibilizado pela minha área
+        numDispPelaArea++;
+      } 
+      else
+      numDispParaArea++; //disponibilizado para a minha área
+    } 
+    else if (tipo == 'Aberto') {
+      numAbertos++;
+    } 
+    else
+    numRetornado++;
+  }
+  if (numBlocos > 0) {
+    if(numDispParaArea > 0) {
+		html = "<img src=" + browser.extension.getURL("icons/iconRed.png") + " class='seipp-alerta' title='Blocos disponibilizados para minha área: "+numDispParaArea+"'>";
+	}
+	if(numDispPelaArea > 0) {
+		html += "<img src=" + browser.extension.getURL("icons/iconBlue.png") + " class='seipp-alerta' title='Blocos disponibilizados pela minha área: "+numDispPelaArea+"'>";
+	}
+	if(numRetornado > 0) {
+		html += "<img src=" + browser.extension.getURL("icons/iconGreen.png") + " class='seipp-alerta' title='Blocos retornados: "+numRetornado+"'>";
+	}
+	if(numAbertos > 0) {
+		html += "<img src=" + browser.extension.getURL("icons/iconYellow.png") + " class='seipp-alerta' title='Blocos abertos: "+numAbertos+"'>";
+	}
+	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = "<b class = 'seipp-alerta'> Blocos de Assinatura </b>" + html;
+	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].setAttribute("class", "seipp-alerta");
+  }
+}
+
 
 /*** Configuracoes ************************************************************/
 /* Generic error logger */
@@ -155,13 +212,15 @@ function checkStoredSettings(storedSettings) {
 	$("#divInfraBarraSistemaE")
 	.append("<div id='seipp'>++</div>");
 
-	/* Execulta os scripts na ao carregar a página */
+	/* Executa os scripts na ao carregar a página */
 	for (let item of CheckTypes) {
 		switch (item) {
 			case "prazo":
 			case "qtddias":
 				ExecutarCalculoPrazo(item);
-				break;
+			break;
+			case "chkbloco":
+				verificaBlocoAssinatura();
 			case "hidemsgupdate":
 				break;
 			default:
@@ -174,6 +233,7 @@ function checkStoredSettings(storedSettings) {
 	OrdenarTabela("tblProcessosGerados");
 	OrdenarTabela("tblProcessosRecebidos");
 }
+
 
 /******************************************************************************
  * Inicio                                                                     *

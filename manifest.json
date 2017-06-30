@@ -27,9 +27,16 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*/sei/*", "*://*/sip/*"],
+      "matches": ["*://*/sei/*", "*://*/sip/*","*://seihm.anatel.gov.br/*"],
       "css":["content_scripts.css"],
       "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "content_scripts.js"]
     }
+  ],
+  
+  "web_accessible_resources": [
+    "icons/iconYellow.png",
+    "icons/iconBlue.png",
+    "icons/iconGreen.png",
+	"icons/iconRed.png"
   ]
 }
