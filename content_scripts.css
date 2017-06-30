@@ -12,6 +12,9 @@
 .seipp-critico {
 	background-color: red;
 }
+.seipp-assinatura {
+    background-color: #660 !important;
+}
 /* CSS for SEI++ END */
 
 /* CSS for Tablesorter */

@@ -1,0 +1,304 @@
+/* STYLISH: SEI-3.0_Black-Theme_1.5                                           *
+ * Autor: Jonatas Evaristo                                                    *
+ * VERSAO: 1.5                                                                */
+
+/*** VARIAVEIS ****************************************************************/
+:root {
+  --dark-gray: #363636;
+}
+
+/*** GLOBAL *******************************************************************/
+* {
+  color: white;
+  background-color: transparent;
+}
+html {
+  background-color: black;
+}
+input, button, textarea, select {
+  background-color: black !important;
+  color: inherit !important;
+}
+button *, span.infraTeclaAtalho {
+  color: inherit !important;
+}
+fieldset {
+  border-color: white !important;
+}
+legend {
+  color: inherit !important;
+  background-color: var(--dark-gray) !important;
+  border-color: white !important;
+}
+li a:hover {
+  background-color: darkblue !important;
+  color: white !important;
+}
+#tblTipoProcedimento, #tblSeries {
+  background-color: black !important;
+}
+.dd-options {
+  background-color: black !important;
+}
+.dd-option-selected, .dd-selected {
+  background: darkgreen !important;
+}
+/*table.resultado tr.resTituloRegistro * {
+  background-color: var(--dark-gray) !important;
+}*/
+table.resultado td.resSnippet, table.resultado td.metatag, table.resultado td.metatag * {
+  background-color: inherit !important;
+}
+img[src="/infra_css/imagens/ajuda.gif"] {
+  filter: invert(100%);
+}
+.totalEstatisticas {
+  background-color: darkblue !important;
+}
+#btnVisualizarAssinaturas {color: black !important;}
+th.tituloControle {background-color: transparent;}
+#divInfraAreaGlobal, #divAutenticacao, #divSistema {
+  background-color: transparent !important;
+}
+th.tituloControleExterno {
+  background-color: unset;
+}
+
+/*** Histórico do Processo **************************************************/
+.andamentoConcluido {background-color: black;}
+.andamentoAberto {background-color: darkgoldenrod;}
+.andamentoAberto td {color: black;}
+.andamentoAberto td a {color: blue;}
+
+/*** BARRA SISTEMA **********************************************************/
+div.infraBarraSistema{
+  background-image: none;
+  border-bottom-color: var(--dark-gray);
+}
+#divInfraBarraSistemaE img, #divComandos img {
+  filter: brightness(50%);
+}
+/****************************************************************************/
+
+/*** MENU LATERAL ***********************************************************/
+#main-menu {
+  background-color: var(--dark-gray) !important;
+}
+#main-menu li *{
+  background-color: black !important;;
+  color: inherit !important;;
+}
+#main-menu li a {
+  border-bottom-color: var(--dark-gray);
+}
+#main-menu li a:hover, #main-menu li a.highlighted {
+  background-color: darkblue !important;
+}
+#main-menu li a.highlighted span.sub-arrow, #main-menu li a:hover span.sub-arrow {
+  border-color: darkblue darkblue darkblue #555;
+}
+#main-menu li ul {
+  border-top-color: var(--dark-gray);
+  border-bottom-color: var(--dark-gray);
+  border-left-color: black;
+  border-right-color: black;
+}
+/****************************************************************************/
+
+/*** E-MAIL *****************************************************************/
+#s2id_hdnDestinatario ul.select2-choices, li.select2-search-choice {
+  background-image: none !important;
+}
+#s2id_hdnDestinatario *,#select2-drop, li.select2-search-choice,
+li.select2-search-choice *, li.select2-no-results, li.select2-searching {
+  background-color: black !important;
+}
+
+/*** TOOLTIP ****************************************************************/
+div.infraTooltipTitulo{
+  color: black !important;
+}
+div.infraTooltipTexto{
+  color: black !important;
+}
+/****************************************************************************/
+
+/*** infra-esquema-local.css */
+div.infraAreaGlobal {
+  border-color: var(--dark-gray);
+}
+a.ancoraPadraoPreta, caption.infraCaption, a.processoVisualizado {
+  color: inherit;
+}
+a.processoVisitado {
+  color: #3E8BFF; /*blue*/
+}
+label.infraLabelOpcional, label.infraLabelObrigatorio,
+label.infraLabelCheckbox, label.infraLabelRadio {
+  color: inherit;
+}
+a.ancoraSigla, a.ancoraHistoricoProcesso {
+  color: #0066ff;
+}
+a.ancoraOpcao {
+  color: inherit;
+}
+.infraSpanRealce {
+  background-color: darkgreen;
+}
+div.tituloProcessoDocumento, div.tituloProcessoDocumento label {
+  background-color: var(--dark-gray);
+  color: white;
+  border-bottom-color: black;
+}
+
+/*** infra-global-esquema.css */
+caption.infraCaption {
+  border-bottom-color: lightgray;
+}
+table.infraTable {
+  background-color: #555 !important;
+}
+th.infraTh, th.infraTh div {
+  background-color: #555;
+  background-image: none;
+}
+tr.infraTrClara {
+  background-color: black;
+}
+tr.infraTrEscura {
+  background-color: #333;
+}
+
+tr.infraTrMarcada {
+  background-color: #003800; /* Very DarkGreen */
+}
+tr.infraTrAcessada {
+  background-color: #FF9;
+}
+tr.infraTrAcessada a {
+  color: unset !important;
+}
+
+div.infraBarraComandos{
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+div.infraAreaDados{
+  border-bottom-color: transparent
+}
+div.infraAreaTelaD {
+  border-color: transparent;
+}
+.infraProcessando {
+  color: black !important;
+  background-color: transparent !important;
+  filter: invert(100%);
+}
+
+/*** infra-ajax.css *** Caixa de autocompletar ******************************/
+div.infraAjaxAutoCompletar {
+  background-color: black;
+}
+div.infraAjaxAutoCompletar a{
+  color:lightgray;
+}
+div.infraAjaxAutoCompletar li.selected {
+  background-color: darkblue;
+}
+.infraAjaxMarcarSelecao {
+  border-color: gray !important;;
+}
+
+/*** CALENDARIOS ************************************************************/
+#infraCalendario, #divCalendario .diaUtil {
+  background-color: black;
+  border: none;
+}
+.calendar_week_column, #infraCalendario .todaysDate,
+#divCalendario .diaFimDeSemana {
+  background-color: #333333 !important;
+  border: none;
+}
+#divCalendario .diaAtrasado {
+  background-color: darkred !important;
+}
+#divCalendario .diaConteudo a {
+  color: black;
+}
+
+/*** */
+div.infraBarraSuperior {
+  filter: brightness(70%);
+}
+
+/*** multiple-select.css */
+.ms-drop {
+  background-color: black
+}
+
+/*** ARVORE DE PROCESSOS ****************************************************/
+#divArvore {
+  border-bottom-color: white;
+}
+#divRelacionados {
+  border-top-color: white;
+}
+a.ancoraRelacionadosParcial {
+  color: inherit;
+}
+[src="imagens/sei_assinar_pequeno.gif"],
+[src="imagens/sei_autenticar_pequeno.gif"] {
+  filter: invert(100%)
+}
+/****************************************************************************/
+
+/*** scayt.css */
+.scayt-misspell-word {
+  color: inherit;
+}
+
+/*** PUBLICAÇÕES ELETRONICAS ************************************************/
+tr.trEspaco {
+  background-color: black;
+}
+/*** PESQUISA PUBLICA *******************************************************/
+tr.resTituloRegistro td {
+  background-color: var(--dark-gray) !important;
+} /* inline */
+/*** SEI NOVIDADES **********************************************************/
+div.tituloNovidade {
+  border-bottom-color: transparent;
+}
+/*** VISUALIZAR DOCUMENTOS ****************************************************/
+#titulo, #titulo label {
+  color: inherit;
+  background-color: var(--dark-gray) !important;
+  border-bottom-color: transparent;
+} /* inline */
+p.Texto_Fundo_Cinza_Maiusculas_Negrito, p.Item_Nivel1 {
+	background-color: var(--dark-gray);
+}
+th[style*="background-color"],
+td[style*="background-color: rgb(204, 204, 204)"] {
+	background-color: var(--dark-gray) !important;
+} /* inline */
+
+/*** TELA INICIAL *************************************************************/
+#divAreaRestrita {
+  background-color: inherit !important;
+}
+#divSistema {
+  filter: brightness(50%);
+}
+
+/* SEI++ */
+.seipp-alerta {
+  background-color: #330 !important;
+}
+.seipp-critico {
+  background-color: #300 !important;
+}
+.infraTrClara:hover, .seipp-alerta:hover, .seipp-critico:hover  {background-color: darkblue !important;}
+.infraTrClara:hover * {color: white !important;}
+

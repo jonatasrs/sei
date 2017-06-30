@@ -28,12 +28,19 @@
   "content_scripts": [
     {
       "matches": ["*://*/sei/*", "*://*/sip/*"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "js": ["content_scripts_core.js", "themes/themes.js"]
+    },
+    {
+      "matches": ["*://*/sei/*", "*://*/sip/*"],
       "css":["content_scripts.css"],
       "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "content_scripts.js"]
     }
   ],
   
   "web_accessible_resources": [
+    "themes/black.css",
     "icons/iconYellow.png",
     "icons/iconBlue.png",
     "icons/iconGreen.png",

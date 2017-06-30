@@ -171,19 +171,19 @@ function reqListener() {
   }
   if (numBlocos > 0) {
     if(numDispParaArea > 0) {
-		html = "<img src=" + browser.extension.getURL("icons/iconRed.png") + " class='seipp-alerta' title='Blocos disponibilizados para minha área: "+numDispParaArea+"'>";
+		html = "<img src=" + browser.extension.getURL("icons/iconRed.png") + " title='Blocos disponibilizados para minha área: "+numDispParaArea+"'>";
 	}
 	if(numDispPelaArea > 0) {
-		html += "<img src=" + browser.extension.getURL("icons/iconBlue.png") + " class='seipp-alerta' title='Blocos disponibilizados pela minha área: "+numDispPelaArea+"'>";
+		html += "<img src=" + browser.extension.getURL("icons/iconBlue.png") + " title='Blocos disponibilizados pela minha área: "+numDispPelaArea+"'>";
 	}
 	if(numRetornado > 0) {
-		html += "<img src=" + browser.extension.getURL("icons/iconGreen.png") + " class='seipp-alerta' title='Blocos retornados: "+numRetornado+"'>";
+		html += "<img src=" + browser.extension.getURL("icons/iconGreen.png") + " title='Blocos retornados: "+numRetornado+"'>";
 	}
 	if(numAbertos > 0) {
-		html += "<img src=" + browser.extension.getURL("icons/iconYellow.png") + " class='seipp-alerta' title='Blocos abertos: "+numAbertos+"'>";
+		html += "<img src=" + browser.extension.getURL("icons/iconYellow.png") + " title='Blocos abertos: "+numAbertos+"'>";
 	}
-	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = "<b class = 'seipp-alerta'> Blocos de Assinatura </b>" + html;
-	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].setAttribute("class", "seipp-alerta");
+	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = "<b> Blocos de Assinatura </b>" + html;
+	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].setAttribute("class", "seipp-assinatura");
   }
 }
 
@@ -240,9 +240,6 @@ function checkStoredSettings(storedSettings) {
  ******************************************************************************/
 /* Configuracao padrao */
 var defaultSettings = {theme: "white", CheckTypes: ["prazo"]};
-
-const isChrome = (typeof browser === "undefined"); /* Chrome: */
-if (isChrome) {var browser = chrome;} /* Chrome: */
 
 if (isChrome) { /* Chrome: */
 	browser.storage.local.get(checkStoredSettings);
