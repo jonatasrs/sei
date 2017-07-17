@@ -17,6 +17,7 @@ body {
 
 #text {
   margin: 30px;
+  margin-bottom: 70px;
 }
 
 h1 {
@@ -41,8 +42,8 @@ footer {
   right: 0;
   color: lightgray;
   background-color: #24292e;
-  padding-left: 30;
-  padding-right: 30;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 footer a {
   color: lightblue;
