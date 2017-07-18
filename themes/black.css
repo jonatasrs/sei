@@ -273,7 +273,8 @@ p.Texto_Fundo_Cinza_Maiusculas_Negrito, p.Item_Nivel1 {
 	background-color: var(--dark-gray);
 }
 th[style*="background-color"],
-td[style*="background-color: rgb(204, 204, 204)"] {
+td[style*="background-color: rgb(204, 204, 204)"],
+td[style*="background-color:rgb(204,204,204)"] {
 	background-color: var(--dark-gray) !important;
 } /* inline */
 
