@@ -81,27 +81,20 @@ div.infraBarraSistema{
 /****************************************************************************/
 
 /*** MENU LATERAL ***********************************************************/
-#main-menu {
+#main-menu, #main-menu ul {
   background-color: var(--dark-gray) !important;
+  border: none;
 }
-#main-menu li *{
-  background-color: black !important;;
-  color: inherit !important;;
+#main-menu li {
+  background-color: black;
 }
-#main-menu li a {
+#main-menu a {
+  color: inherit !important;
+  background-color: inherit;
   border-bottom-color: var(--dark-gray);
 }
 #main-menu li a:hover, #main-menu li a.highlighted {
   background-color: darkblue !important;
-}
-#main-menu li a.highlighted span.sub-arrow, #main-menu li a:hover span.sub-arrow {
-  border-color: darkblue darkblue darkblue #555;
-}
-#main-menu li ul {
-  border-top-color: var(--dark-gray);
-  border-bottom-color: var(--dark-gray);
-  border-left-color: black;
-  border-right-color: black;
 }
 /****************************************************************************/
 
