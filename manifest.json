@@ -35,7 +35,7 @@
     {
       "matches": ["*://*/sei/*", "*://*/sip/*"],
       "css":["content_scripts.css"],
-      "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "content_scripts.js"]
+      "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js", "content_scripts.js"]
     }
   ],
   
