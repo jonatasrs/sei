@@ -126,7 +126,8 @@ function OrdenarTabela(IdTabela) {
 		$(document).ready(function () {
 			$(table).tablesorter({
 				headers: {0: {sorter: false}, 1: {sorter: false}},
-				widgets: ["saveSort"], widgetOptions : {saveSort : true}
+				widgets: ["saveSort"], widgetOptions : {saveSort : true},
+				sortReset: true,
 			});
 		});
 	}

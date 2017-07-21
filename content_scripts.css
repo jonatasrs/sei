@@ -49,4 +49,9 @@
 .infraTrClara:hover, .seipp-alerta:hover, .seipp-critico:hover {
 	background-color: gray;
 }
+
+.tablesorter-headerAsc, .tablesorter-headerDesc {
+    background-color: gray !important;
+}
+
 /* CSS for Tablesorter END */
