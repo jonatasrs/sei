@@ -189,6 +189,31 @@ function reqListener() {
   }
 }
 
+/*** MENU SUSPENSO ************************************************************/
+function MenuSuspenso() {
+	if ($("#lnkInfraMenuSistema").attr("title").indexOf("Ocultar") != -1) {
+		$("#divInfraAreaTelaD").width("99%");
+		$("#divInfraAreaTelaE").hide();
+	}
+	$("#lnkInfraMenuSistema").remove();
+	$("#divInfraAreaTelaE").css({
+		"position": "absolute",
+		"display": "block",
+		"width": "auto"
+	});
+	$("#divInfraBarraSistemaE img").click(function(e){
+		e.stopPropagation(); /* impede a propagação do evento click */
+		$("#main-menu").toggle("fast");
+	});
+	$("#main-menu").hide();
+	$("#main-menu").addClass("seipp-menu");
+	$("#main-menu ul").addClass("seipp-menu");
+	$("#main-menu *").click(function(e){e.stopPropagation();})
+	/* Oculta o menu ao clicar fora */
+	$('body').click(function(){
+		if (!$("#main-menu").is(':hidden')){$("#main-menu").toggle("fast");}
+	});
+}
 
 /*** Configuracoes ************************************************************/
 /* Generic error logger */
@@ -220,9 +245,13 @@ function checkStoredSettings(storedSettings) {
 			case "prazo":
 			case "qtddias":
 				ExecutarCalculoPrazo(item);
-			break;
+				break;
 			case "chkbloco":
 				verificaBlocoAssinatura();
+				break;
+			case "menususp":
+				MenuSuspenso();
+				break;
 			case "hidemsgupdate":
 				break;
 			default:
