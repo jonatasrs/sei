@@ -224,7 +224,7 @@ function criaLink(i, e){
 	var a = document.createElement("span");
 	a.innerHTML = "C";
 	a.setAttribute("id","teste");
-	var link = $('<a><img src="'+browser.extension.getURL("icons/ect.png")+'"> </img></a>');
+	var link = $('<a><img src="'+browser.extension.getURL("icons/ect.png")+'" title="Preencher atualização de andamento (abra a tela de atualizar andamento antes de clicar!)"> </img></a>');
 	var sp = $(this).find("span");
 	console.log($(this).html());
 	var text = sp.text();
@@ -233,7 +233,7 @@ function criaLink(i, e){
 	var comunic = text.indexOf("Comunicado");
 	var fim = text.indexOf("(");
 	var nome = "";
-	if((inicio != -1)||(notif != -1)||(comunic != -1)){
+	if((inicio == 0)||(notif == 0)||(comunic == 0)){
 		nome = text.slice(0, fim);
 		var num = text.substring(fim + 1, text.length - 2);
 		console.log("-> " + nome + "- " + num);
