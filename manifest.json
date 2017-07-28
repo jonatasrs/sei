@@ -27,7 +27,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*/sei/*", "*://*/sip/*"],
+      "matches": ["*://*/sei/*", "*://*/sip/*","*://*/seihm/*"],
       "run_at": "document_start",
       "all_frames": true,
       "js": ["content_scripts_core.js", "themes/themes.js"]
@@ -44,6 +44,7 @@
     "icons/iconYellow.png",
     "icons/iconBlue.png",
     "icons/iconGreen.png",
-	"icons/iconRed.png"
+	"icons/iconRed.png",
+	"icons/ect.png"
   ]
 }
