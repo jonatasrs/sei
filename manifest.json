@@ -34,8 +34,14 @@
     },
     {
       "matches": ["*://*/sei/*", "*://*/sip/*"],
-      "css":["content_scripts.css"],
+	  "css":["content_scripts.css"],
       "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js", "content_scripts.js"]
+    },
+	{
+      "matches": ["https://seihm.anatel.gov.br/sei/controlador.php?acao=documento_receber*"],
+	  "all_frames": true,
+	  "css":["content_scripts.css"],
+      "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js", "content_scripts_teste.js"]
     }
   ],
   

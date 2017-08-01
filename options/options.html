@@ -4,6 +4,15 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="options.css"/>
+	<script>
+	function mostraDivConfig() {
+		if(document.getElementById("cliquemenos").checked){
+			document.getElementById("divFormato").style.visibility = "visible";
+		}
+		else
+			document.getElementById("divFormato").style.visibility = "hidden";
+	}
+	</script>
   </head>
 
   <body>
@@ -39,6 +48,30 @@
 				<label>Ferramenta de auto preenchimento do andamento do processo ao enviar Correspondência (Experimental)
 					<input type="checkbox" data-type="autopreencher"/>
 				</label>
+				<label>Clique menos
+					<input type="checkbox" id="cliquemenos" data-type="cliquemenos" onchange="mostraDivConfig()"/>
+				</label>
+				<div id="divFormato">
+					<fieldset>
+						<legend><b>Formato</b></legend>
+						<input type="radio" name="formato" id="rdNato" value="N" checked> Nato-digital<br>
+						<input type="radio" name="formato" id="rdDigitalizado" value="D"> Digitalizado nesta Unidade<br>
+					</fieldset>
+					<fieldset>
+						<legend><b>Nível de Acesso</b></legend>
+						<input type="radio" name="nivelAcesso" id="rdSigiloso" value="S"> Sigiloso<br>
+						<input type="radio" name="nivelAcesso" id="rdRestrito" value="R"> Restrito<br>
+						<input type="radio" name="nivelAcesso" id="rdPublico" value="P" checked> Público<br>
+						<label> Hipótese Legal (para os casos de documento sigiloso ou restrito):
+						<select id="hipoteseLegal">
+							<option value="34">Informações Pessoais</option>
+							<option value="45">Teste</option>
+							<option value="46">Teste 2</option>
+							<option value="47">Teste 3</option>
+						</select>
+						</label>
+					</fieldset>
+				</div>
 
 			</section>
 			

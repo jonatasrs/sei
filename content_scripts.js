@@ -133,13 +133,20 @@ function OrdenarTabela(IdTabela) {
 	}
 }
 /***Verifica a existência de blocos de assinatura e altera a cor do texto no menu, caso exista*/
+function localizaItemBloco() {
+	var element;
+	$("#main-menu li" ).each(function(index)
+                     {if($(this).text().indexOf("Assinatura") != -1)element = $(this);});
+	return element;
+}
 function verificaBlocoAssinatura() {
   var servidor = window.location.protocol + "//" + window.location.hostname + "/sei/"; //Obtém o caminho absoluto para a requisição assíncrona
   //console.log(servidor);
-  var bloco = document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].getAttribute('href'); //obtem o link para o bloco de assinaturas, com respectivo hash
+  var bloco = localizaItemBloco(); //obtem o elemento html para o bloco de assinaturas
+  var link = bloco.find("a").attr("href"); //link com hash
   var oReq = new XMLHttpRequest();
   oReq.addEventListener('load', reqListener);
-  oReq.open('GET', servidor + bloco);
+  oReq.open('GET', servidor + link);
   oReq.responseType = 'document';
   oReq.send();
 }
@@ -184,8 +191,8 @@ function reqListener() {
 	if(numAbertos > 0) {
 		html += "<img src=" + browser.extension.getURL("icons/iconYellow.png") + " title='Blocos abertos: "+numAbertos+"'>";
 	}
-	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].innerHTML = "<b> Blocos de Assinatura </b>" + html;
-	document.getElementById('main-menu').childNodes[15].getElementsByTagName('a') [0].setAttribute("class", "seipp-assinatura");
+	localizaItemBloco().find("a").html("<b> Blocos de Assinatura </b>" + html);
+	localizaItemBloco().find("a").attr("class", "seipp-assinatura");
   }
 }
 
