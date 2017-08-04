@@ -27,7 +27,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*/sei/*", "*://*/sip/*","*://*/seihm/*"],
+      "matches": ["*://*/sei/*", "*://*/sip/*"],
       "run_at": "document_start",
       "all_frames": true,
       "js": ["content_scripts_core.js", "themes/themes.js"]
