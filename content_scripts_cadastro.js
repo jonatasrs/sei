@@ -20,6 +20,7 @@ function autoFillDocument(formato, nivelAcesso, hipoteseLegal) {
 		setTimeout(function(){$("#selHipoteseLegal").val(hipoteseLegal);},500);
 	var html = '<span style="background-color:red"> Houve preenchimento de valores pré configurados nesta tela. Verifique se estão corretos! </span>';
 	$("#divInfraBarraComandosInferior #btnSalvar").before(html);
+	$("#divInfraBarraComandosSuperior #btnSalvar").before(html);
 	//console.log($("#divInfraBarraComandosInferior").html());
 
 }
