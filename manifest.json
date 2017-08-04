@@ -47,7 +47,7 @@
   
   "web_accessible_resources": [
     "themes/black.css",
-	"themes/PontoControleCores_Anatel.css",
+    "themes/PontoControleCores_Anatel.css",
     "icons/iconYellow.png",
     "icons/iconBlue.png",
     "icons/iconGreen.png",

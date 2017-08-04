@@ -21,6 +21,19 @@ function SetTheme(Options) {
 		link.media = 'all';
 		head.appendChild(link);
 	}
+	
+	/* (ANATEL) Anatel Ponto de controle cores */
+	if (Options.CheckTypes.indexOf("pontocoresanatel") != -1 &&
+		document.baseURI.indexOf("acao=editor_montar") == -1) {
+		var head  = document.getElementsByTagName('head')[0];
+		var link  = document.createElement('link');
+		link.id   = "seipp-pontocores-anatel";
+		link.rel  = 'stylesheet';
+		link.type = 'text/css';
+		link.href = browser.extension.getURL("themes/PontoControleCores_Anatel.css");
+		link.media = 'all';
+		head.appendChild(link);
+	}	
 }
 
 /******************************************************************************
