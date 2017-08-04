@@ -17,12 +17,29 @@ function SalvarConfiguracoes() {
     }
     return CheckTypes;
   }
-
+  function getFormato() {
+	if(document.querySelector("#rdNato").checked)
+		return "N";
+	else return "D";
+  }
+  function getNivelAcesso() {
+	if(document.querySelector("#rdSigiloso").checked)
+		return "S";
+	else if(document.querySelector("#rdRestrito").checked)
+			return "R";
+		else return "P";
+  }
+  const formato = getFormato();
+  const nivelAcesso = getNivelAcesso();
+  const hipoteseLegal = document.querySelector("#hipoteseLegal").value
   const theme = GetSelect();
   const CheckTypes = GetCheckboxs();
   browser.storage.local.set({
     theme,
-    CheckTypes
+    CheckTypes,
+	formato,
+	nivelAcesso,
+	hipoteseLegal
   });
   var date = new Date();
   var options = {day: '2-digit', month: '2-digit', year: 'numeric',
