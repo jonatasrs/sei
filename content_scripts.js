@@ -62,7 +62,7 @@ function IncluirColunaTabela(IdTabela, TipoDeCalculo) {
 	var table = document.getElementById(IdTabela);
 
 	if (!(table == null)) {
-		/* Inclui o cabeçario na tabela */
+		/* Inclui o cabeçalho na tabela */
 		var h = document.createElement("th");
 		h.setAttribute("class", "tituloControle");
 		if (TipoDeCalculo == "qtddias") {
