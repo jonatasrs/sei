@@ -4,7 +4,7 @@
 *******************************************************************************/
 
 /******************************************************************************
- * Execulta ao instalar ou atualizar o complemento.                           *
+ * Executa ao instalar ou atualizar o complemento.                           *
  ******************************************************************************/
 function handleInstalled(details) {
 	console.log(details.reason);
