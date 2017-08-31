@@ -3,7 +3,7 @@
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "2.2",
+  "version": "2.2.1",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/sei_++.png"},
@@ -20,7 +20,7 @@
   "options_ui": {
     "page": "options/options.html"
   },
-  
+
   "background": {
     "scripts": ["background.js"]
   },
@@ -44,7 +44,7 @@
       "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js", "content_scripts_cadastro.js"]
     }
   ],
-  
+
   "web_accessible_resources": [
     "themes/black.css",
     "themes/PontoControleCores_Anatel.css",
