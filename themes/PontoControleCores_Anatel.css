@@ -2,227 +2,227 @@
  * STYLISH: SEI-3.0_PontoControle-Cores                         *
  * Autor: Jonatas Evaristo / Nei Jobson                         *
  * VERSAO: 1.0 - adaptado ao sei++                              *
- * Orienta√ß√µes: O tema abaixo tem que ser adaptado para cada    *
- * √≥rg√£o, trocando o ‚Äúdomain‚Äù e alterando cada linha que define *
+ * OrientaÁıes: O tema abaixo tem que ser adaptado para cada    *
+ * Ûrg„o, trocando o ìdomainî e alterando cada linha que define *
  * a cor para cada Ponto de Controle. Para conhecer a lista de  *
- * nomes de cores poss√≠veis para uso, acesse o link:            *
+ * nomes de cores possÌveis para uso, acesse o link:            *
  * https://www.w3schools.com/colors/colors_names.asp            *
  ****************************************************************/
 
-a[onmouseover*="Outorga: Aguardando atribui√ß√£o"] img, img[title*="Outorga: Aguardando atribui√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="Outorga: Aguardando confirma√ß√£o de recebimento"] img, img[title*="Outorga: Aguardando confirma√ß√£o de recebimento"] {filter: grayscale(100%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="Outorga: Aguardando atribuiÁ„o"] img, img[title*="Outorga: Aguardando atribuiÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="Outorga: Aguardando confirmaÁ„o de recebimento"] img, img[title*="Outorga: Aguardando confirmaÁ„o de recebimento"] {filter: grayscale(100%) drop-shadow(4px 4px 4px SpringGreen);}
 a[onmouseover*="Outorga: Aguardando pagamento"] img, img[title*="Outorga: Aguardando pagamento"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Outorga: Aguardando provid√™ncia de outro setor"] img, img[title*="Outorga: Aguardando provid√™ncia de outro setor"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="Outorga: Aguardando publica√ß√£o"] img, img[title*="Outorga: Aguardando publica√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="Outorga: Aguardando providÍncia de outro setor"] img, img[title*="Outorga: Aguardando providÍncia de outro setor"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="Outorga: Aguardando publicaÁ„o"] img, img[title*="Outorga: Aguardando publicaÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Fuchsia);}
 a[onmouseover*="Outorga: Autocadastramento"] img, img[title*="Outorga: Autocadastramento"] {filter: invert(80%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="Outorga: Em an√°lise"] img, img[title*="Outorga: Em an√°lise"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="Outorga: Em exig√™ncia"] img, img[title*="Outorga: Em exig√™ncia"] {filter: opacity(70%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="Outorga: Em an·lise"] img, img[title*="Outorga: Em an·lise"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="Outorga: Em exigÍncia"] img, img[title*="Outorga: Em exigÍncia"] {filter: opacity(70%) drop-shadow(4px 4px 4px Cyan);}
 a[onmouseover*="Outorga: Encaminhado para assinatura"] img, img[title*="Outorga: Encaminhado para assinatura"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda √°rea Gestora"] img, img[title*="Altera√ß√£o Contratual: Aguarda √°rea Gestora"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda assinatura Ger√™ncia"] img, img[title*="Altera√ß√£o Contratual: Aguarda assinatura Ger√™ncia"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda assinatura SAF"] img, img[title*="Altera√ß√£o Contratual: Aguarda assinatura SAF"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda contratada"] img, img[title*="Altera√ß√£o Contratual: Aguarda contratada"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda empenho"] img, img[title*="Altera√ß√£o Contratual: Aguarda empenho"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda garantia"] img, img[title*="Altera√ß√£o Contratual: Aguarda garantia"] {filter: opacity(70%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda homologa√ß√£o de CCT"] img, img[title*="Altera√ß√£o Contratual: Aguarda homologa√ß√£o de CCT"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda √≠ndice de reajuste"] img, img[title*="Altera√ß√£o Contratual: Aguarda √≠ndice de reajuste"] {filter: invert(80%) drop-shadow(4px 4px 4px Cyan);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda outras provid√™ncias"] img, img[title*="Altera√ß√£o Contratual: Aguarda outras provid√™ncias"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda Parecer da PFE"] img, img[title*="Altera√ß√£o Contratual: Aguarda Parecer da PFE"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda publica√ß√£o"] img, img[title*="Altera√ß√£o Contratual: Aguarda publica√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px DodgerBlue);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda registro da AFFO"] img, img[title*="Altera√ß√£o Contratual: Aguarda registro da AFFO"] {filter: opacity(70%) drop-shadow(4px 4px 4px GreenYellow);}
-a[onmouseover*="Altera√ß√£o Contratual: Aguarda revis√£o Coordenador"] img, img[title*="Altera√ß√£o Contratual: Aguarda revis√£o Coordenador"] {filter: grayscale(100%) drop-shadow(4px 4px 4px LightPink);}
-a[onmouseover*="Altera√ß√£o Contratual: Conclu√≠do"] img, img[title*="Altera√ß√£o Contratual: Conclu√≠do"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumAquaMarine);}
-a[onmouseover*="Altera√ß√£o Contratual: Em an√°lise"] img, img[title*="Altera√ß√£o Contratual: Em an√°lise"] {filter: opacity(70%) drop-shadow(4px 4px 4px MediumVioletRed);}
-a[onmouseover*="Altera√ß√£o Contratual: Sem resposta da √°rea Gestora"] img, img[title*="Altera√ß√£o Contratual: Sem resposta da √°rea Gestora"] {filter: grayscale(100%) drop-shadow(4px 4px 4px NavajoWhite);}
-a[onmouseover*="Arbitragem: Acord√£o"] img, img[title*="Arbitragem: Acord√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda ·rea Gestora"] img, img[title*="AlteraÁ„o Contratual: Aguarda ·rea Gestora"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda assinatura GerÍncia"] img, img[title*="AlteraÁ„o Contratual: Aguarda assinatura GerÍncia"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda assinatura SAF"] img, img[title*="AlteraÁ„o Contratual: Aguarda assinatura SAF"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda contratada"] img, img[title*="AlteraÁ„o Contratual: Aguarda contratada"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda empenho"] img, img[title*="AlteraÁ„o Contratual: Aguarda empenho"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda garantia"] img, img[title*="AlteraÁ„o Contratual: Aguarda garantia"] {filter: opacity(70%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda homologaÁ„o de CCT"] img, img[title*="AlteraÁ„o Contratual: Aguarda homologaÁ„o de CCT"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda Ìndice de reajuste"] img, img[title*="AlteraÁ„o Contratual: Aguarda Ìndice de reajuste"] {filter: invert(80%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda outras providÍncias"] img, img[title*="AlteraÁ„o Contratual: Aguarda outras providÍncias"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda Parecer da PFE"] img, img[title*="AlteraÁ„o Contratual: Aguarda Parecer da PFE"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda publicaÁ„o"] img, img[title*="AlteraÁ„o Contratual: Aguarda publicaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda registro da AFFO"] img, img[title*="AlteraÁ„o Contratual: Aguarda registro da AFFO"] {filter: opacity(70%) drop-shadow(4px 4px 4px GreenYellow);}
+a[onmouseover*="AlteraÁ„o Contratual: Aguarda revis„o Coordenador"] img, img[title*="AlteraÁ„o Contratual: Aguarda revis„o Coordenador"] {filter: grayscale(100%) drop-shadow(4px 4px 4px LightPink);}
+a[onmouseover*="AlteraÁ„o Contratual: ConcluÌdo"] img, img[title*="AlteraÁ„o Contratual: ConcluÌdo"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumAquaMarine);}
+a[onmouseover*="AlteraÁ„o Contratual: Em an·lise"] img, img[title*="AlteraÁ„o Contratual: Em an·lise"] {filter: opacity(70%) drop-shadow(4px 4px 4px MediumVioletRed);}
+a[onmouseover*="AlteraÁ„o Contratual: Sem resposta da ·rea Gestora"] img, img[title*="AlteraÁ„o Contratual: Sem resposta da ·rea Gestora"] {filter: grayscale(100%) drop-shadow(4px 4px 4px NavajoWhite);}
+a[onmouseover*="Arbitragem: Acord„o"] img, img[title*="Arbitragem: Acord„o"] {filter: invert(80%) drop-shadow(4px 4px 4px BlueViolet);}
 a[onmouseover*="Arbitragem: Admissibilidade de Recurso"] img, img[title*="Arbitragem: Admissibilidade de Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px SpringGreen);}
 a[onmouseover*="Arbitragem: Arquivado"] img, img[title*="Arbitragem: Arquivado"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Arbitragem: Contrarraz√µes"] img, img[title*="Arbitragem: Contrarraz√µes"] {filter: invert(80%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="Arbitragem: Cumprimento de Decis√£o"] img, img[title*="Arbitragem: Cumprimento de Decis√£o"] {filter: opacity(70%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="Arbitragem: Contrarrazıes"] img, img[title*="Arbitragem: Contrarrazıes"] {filter: invert(80%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="Arbitragem: Cumprimento de Decis„o"] img, img[title*="Arbitragem: Cumprimento de Decis„o"] {filter: opacity(70%) drop-shadow(4px 4px 4px Fuchsia);}
 a[onmouseover*="Arbitragem: Despacho CAI"] img, img[title*="Arbitragem: Despacho CAI"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="Arbitragem: Informa√ß√µes (Defesa)"] img, img[title*="Arbitragem: Informa√ß√µes (Defesa)"] {filter: invert(80%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="Arbitragem: Informe de M√©rito"] img, img[title*="Arbitragem: Informe de M√©rito"] {filter: opacity(70%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="Arbitragem: InformaÁıes (Defesa)"] img, img[title*="Arbitragem: InformaÁıes (Defesa)"] {filter: invert(80%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="Arbitragem: Informe de MÈrito"] img, img[title*="Arbitragem: Informe de MÈrito"] {filter: opacity(70%) drop-shadow(4px 4px 4px Cyan);}
 a[onmouseover*="Arbitragem: Informe de Recurso"] img, img[title*="Arbitragem: Informe de Recurso"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="Arbitragem: Manifesta√ß√£o"] img, img[title*="Arbitragem: Manifesta√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="Arbitragem: Raz√µes Finais"] img, img[title*="Arbitragem: Raz√µes Finais"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="Arbitragem: ManifestaÁ„o"] img, img[title*="Arbitragem: ManifestaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="Arbitragem: Razıes Finais"] img, img[title*="Arbitragem: Razıes Finais"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
 a[onmouseover*="Arbitragem: Suspenso"] img, img[title*="Arbitragem: Suspenso"] {filter: grayscale(100%) drop-shadow(4px 4px 4px GreenYellow);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Alega√ß√µes Finais"] img, img[title*="Conflitos entre Ag√™ncias: Alega√ß√µes Finais"] {filter: invert(80%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Aneel - Aguarda M√©rito"] img, img[title*="Conflitos entre Ag√™ncias: Aneel - Aguarda M√©rito"] {filter: opacity(70%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Aneel - Aguarda Recurso"] img, img[title*="Conflitos entre Ag√™ncias: Aneel - Aguarda Recurso"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Arquivado"] img, img[title*="Conflitos entre Ag√™ncias: Arquivado"] {filter: invert(80%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Contrarraz√µes Recurso"] img, img[title*="Conflitos entre Ag√™ncias: Contrarraz√µes Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Cumprimento de Decis√£o"] img, img[title*="Conflitos entre Ag√™ncias: Cumprimento de Decis√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Despacho Decis√≥rio"] img, img[title*="Conflitos entre Ag√™ncias: Despacho Decis√≥rio"] {filter: invert(80%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Despacho Saneador"] img, img[title*="Conflitos entre Ag√™ncias: Despacho Saneador"] {filter: opacity(70%) drop-shadow(4px 4px 4px Cyan);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Informa√ß√µes (defesa)"] img, img[title*="Conflitos entre Ag√™ncias: Informa√ß√µes (defesa)"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Informe da SCP"] img, img[title*="Conflitos entre Ag√™ncias: Informe da SCP"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Informe de M√©rito"] img, img[title*="Conflitos entre Ag√™ncias: Informe de M√©rito"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Informe sobre Recurso"] img, img[title*="Conflitos entre Ag√™ncias: Informe sobre Recurso"] {filter: grayscale(100%) drop-shadow(4px 4px 4px GreenYellow);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Manifesta√ß√£o"] img, img[title*="Conflitos entre Ag√™ncias: Manifesta√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px LightPink);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Peti√ß√£o Inicial"] img, img[title*="Conflitos entre Ag√™ncias: Peti√ß√£o Inicial"] {filter: opacity(70%) drop-shadow(4px 4px 4px MediumAquaMarine);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Recurso"] img, img[title*="Conflitos entre Ag√™ncias: Recurso"] {filter: grayscale(100%) drop-shadow(4px 4px 4px MediumVioletRed);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Recurso Delibera√ß√£o"] img, img[title*="Conflitos entre Ag√™ncias: Recurso Delibera√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px NavajoWhite);}
-a[onmouseover*="Conflitos entre Ag√™ncias: Suspenso"] img, img[title*="Conflitos entre Ag√™ncias: Suspenso"] {filter: opacity(70%) drop-shadow(4px 4px 4px Silver);}
-a[onmouseover*="Demanda Externa: Aguardando an√°lise/resposta"] img, img[title*="Demanda Externa: Aguardando an√°lise/resposta"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="Demanda Externa: Aguardando concluir fiscaliza√ß√£o"] img, img[title*="Demanda Externa: Aguardando concluir fiscaliza√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="Demanda Externa: Aguardando intera√ß√£o de √°reas"] img, img[title*="Demanda Externa: Aguardando intera√ß√£o de √°reas"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="Conflitos entre AgÍncias: AlegaÁıes Finais"] img, img[title*="Conflitos entre AgÍncias: AlegaÁıes Finais"] {filter: invert(80%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="Conflitos entre AgÍncias: Aneel - Aguarda MÈrito"] img, img[title*="Conflitos entre AgÍncias: Aneel - Aguarda MÈrito"] {filter: opacity(70%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="Conflitos entre AgÍncias: Aneel - Aguarda Recurso"] img, img[title*="Conflitos entre AgÍncias: Aneel - Aguarda Recurso"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="Conflitos entre AgÍncias: Arquivado"] img, img[title*="Conflitos entre AgÍncias: Arquivado"] {filter: invert(80%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="Conflitos entre AgÍncias: Contrarrazıes Recurso"] img, img[title*="Conflitos entre AgÍncias: Contrarrazıes Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="Conflitos entre AgÍncias: Cumprimento de Decis„o"] img, img[title*="Conflitos entre AgÍncias: Cumprimento de Decis„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="Conflitos entre AgÍncias: Despacho DecisÛrio"] img, img[title*="Conflitos entre AgÍncias: Despacho DecisÛrio"] {filter: invert(80%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="Conflitos entre AgÍncias: Despacho Saneador"] img, img[title*="Conflitos entre AgÍncias: Despacho Saneador"] {filter: opacity(70%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="Conflitos entre AgÍncias: InformaÁıes (defesa)"] img, img[title*="Conflitos entre AgÍncias: InformaÁıes (defesa)"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="Conflitos entre AgÍncias: Informe da SCP"] img, img[title*="Conflitos entre AgÍncias: Informe da SCP"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="Conflitos entre AgÍncias: Informe de MÈrito"] img, img[title*="Conflitos entre AgÍncias: Informe de MÈrito"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="Conflitos entre AgÍncias: Informe sobre Recurso"] img, img[title*="Conflitos entre AgÍncias: Informe sobre Recurso"] {filter: grayscale(100%) drop-shadow(4px 4px 4px GreenYellow);}
+a[onmouseover*="Conflitos entre AgÍncias: ManifestaÁ„o"] img, img[title*="Conflitos entre AgÍncias: ManifestaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px LightPink);}
+a[onmouseover*="Conflitos entre AgÍncias: PetiÁ„o Inicial"] img, img[title*="Conflitos entre AgÍncias: PetiÁ„o Inicial"] {filter: opacity(70%) drop-shadow(4px 4px 4px MediumAquaMarine);}
+a[onmouseover*="Conflitos entre AgÍncias: Recurso"] img, img[title*="Conflitos entre AgÍncias: Recurso"] {filter: grayscale(100%) drop-shadow(4px 4px 4px MediumVioletRed);}
+a[onmouseover*="Conflitos entre AgÍncias: Recurso DeliberaÁ„o"] img, img[title*="Conflitos entre AgÍncias: Recurso DeliberaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px NavajoWhite);}
+a[onmouseover*="Conflitos entre AgÍncias: Suspenso"] img, img[title*="Conflitos entre AgÍncias: Suspenso"] {filter: opacity(70%) drop-shadow(4px 4px 4px Silver);}
+a[onmouseover*="Demanda Externa: Aguardando an·lise/resposta"] img, img[title*="Demanda Externa: Aguardando an·lise/resposta"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="Demanda Externa: Aguardando concluir fiscalizaÁ„o"] img, img[title*="Demanda Externa: Aguardando concluir fiscalizaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="Demanda Externa: Aguardando interaÁ„o de ·reas"] img, img[title*="Demanda Externa: Aguardando interaÁ„o de ·reas"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
 a[onmouseover*="Demanda Externa: Aguardando Parecer da PFE"] img, img[title*="Demanda Externa: Aguardando Parecer da PFE"] {filter: grayscale(100%) drop-shadow(4px 4px 4px GreenYellow);}
 a[onmouseover*="Demanda Externa: Aguardando resposta de prestadora"] img, img[title*="Demanda Externa: Aguardando resposta de prestadora"] {filter: invert(80%) drop-shadow(4px 4px 4px LightPink);}
 a[onmouseover*="Demanda Externa: Aguardando resposta do demandante"] img, img[title*="Demanda Externa: Aguardando resposta do demandante"] {filter: opacity(70%) drop-shadow(4px 4px 4px MediumAquaMarine);}
 a[onmouseover*="Demanda Externa: Aguardando resposta pelo FOCUS"] img, img[title*="Demanda Externa: Aguardando resposta pelo FOCUS"] {filter: grayscale(100%) drop-shadow(4px 4px 4px MediumVioletRed);}
 a[onmouseover*="Demanda Externa: Aguardando retorno de AR"] img, img[title*="Demanda Externa: Aguardando retorno de AR"] {filter: invert(80%) drop-shadow(4px 4px 4px NavajoWhite);}
-a[onmouseover*="Demanda Externa: Aguardando subs√≠dio"] img, img[title*="Demanda Externa: Aguardando subs√≠dio"] {filter: opacity(70%) drop-shadow(4px 4px 4px Silver);}
-a[onmouseover*="Fiscaliza√ß√£o: A√ß√£o conclu√≠da"] img, img[title*="Fiscaliza√ß√£o: A√ß√£o conclu√≠da"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="Fiscaliza√ß√£o: A√ß√£o em execu√ß√£o"] img, img[title*="Fiscaliza√ß√£o: A√ß√£o em execu√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="Fiscaliza√ß√£o: A√ß√£o em planejamento"] img, img[title*="Fiscaliza√ß√£o: A√ß√£o em planejamento"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Fiscaliza√ß√£o: Aguardando apoio policial"] img, img[title*="Fiscaliza√ß√£o: Aguardando apoio policial"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="Fiscaliza√ß√£o: Aguardando confirmar notifica√ß√£o"] img, img[title*="Fiscaliza√ß√£o: Aguardando confirmar notifica√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="Fiscaliza√ß√£o: Aguardando Mandado Busca e Apreens√£o"] img, img[title*="Fiscaliza√ß√£o: Aguardando Mandado Busca e Apreens√£o"] {filter: opacity(70%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="Fiscaliza√ß√£o: Aguardando Parecer da PFE"] img, img[title*="Fiscaliza√ß√£o: Aguardando Parecer da PFE"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="Fiscaliza√ß√£o: Aguardando recursos para execu√ß√£o"] img, img[title*="Fiscaliza√ß√£o: Aguardando recursos para execu√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px Cyan);}
-a[onmouseover*="Fiscaliza√ß√£o: Aguardando relat√≥rios parciais"] img, img[title*="Fiscaliza√ß√£o: Aguardando relat√≥rios parciais"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="Fiscaliza√ß√£o: Aguardando resposta da fiscalizada"] img, img[title*="Fiscaliza√ß√£o: Aguardando resposta da fiscalizada"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="Fiscaliza√ß√£o: Aguardando resposta demandante/FIGF"] img, img[title*="Fiscaliza√ß√£o: Aguardando resposta demandante/FIGF"] {filter: invert(80%) drop-shadow(4px 4px 4px DodgerBlue);}
-a[onmouseover*="Fiscaliza√ß√£o: Aprovar relat√≥rio de fiscaliza√ß√£o"] img, img[title*="Fiscaliza√ß√£o: Aprovar relat√≥rio de fiscaliza√ß√£o"] {filter: opacity(70%) drop-shadow(4px 4px 4px GreenYellow);}
-a[onmouseover*="Fiscaliza√ß√£o: Conferir relat√≥rio de fiscaliza√ß√£o"] img, img[title*="Fiscaliza√ß√£o: Conferir relat√≥rio de fiscaliza√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px LightPink);}
-a[onmouseover*="Fiscaliza√ß√£o: Elaborar relat√≥rio de fiscaliza√ß√£o"] img, img[title*="Fiscaliza√ß√£o: Elaborar relat√≥rio de fiscaliza√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumAquaMarine);}
-a[onmouseover*="Gest√£o de TI: Demanda de Solu√ß√£o de TI"] img, img[title*="Gest√£o de TI: Demanda de Solu√ß√£o de TI"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
-a[onmouseover*="Interconex√£o: Em exig√™ncia"] img, img[title*="Interconex√£o: Em exig√™ncia"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="Interconex√£o: Homologar"] img, img[title*="Interconex√£o: Homologar"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="Interconex√£o: Minuta encaminhada"] img, img[title*="Interconex√£o: Minuta encaminhada"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
-a[onmouseover*="Interconex√£o: Publicar"] img, img[title*="Interconex√£o: Publicar"] {filter: grayscale(100%) drop-shadow(4px 4px 4px GreenYellow);}
+a[onmouseover*="Demanda Externa: Aguardando subsÌdio"] img, img[title*="Demanda Externa: Aguardando subsÌdio"] {filter: opacity(70%) drop-shadow(4px 4px 4px Silver);}
+a[onmouseover*="FiscalizaÁ„o: AÁ„o concluÌda"] img, img[title*="FiscalizaÁ„o: AÁ„o concluÌda"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="FiscalizaÁ„o: AÁ„o em execuÁ„o"] img, img[title*="FiscalizaÁ„o: AÁ„o em execuÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="FiscalizaÁ„o: AÁ„o em planejamento"] img, img[title*="FiscalizaÁ„o: AÁ„o em planejamento"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="FiscalizaÁ„o: Aguardando apoio policial"] img, img[title*="FiscalizaÁ„o: Aguardando apoio policial"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="FiscalizaÁ„o: Aguardando confirmar notificaÁ„o"] img, img[title*="FiscalizaÁ„o: Aguardando confirmar notificaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="FiscalizaÁ„o: Aguardando Mandado Busca e Apreens„o"] img, img[title*="FiscalizaÁ„o: Aguardando Mandado Busca e Apreens„o"] {filter: opacity(70%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="FiscalizaÁ„o: Aguardando Parecer da PFE"] img, img[title*="FiscalizaÁ„o: Aguardando Parecer da PFE"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="FiscalizaÁ„o: Aguardando recursos para execuÁ„o"] img, img[title*="FiscalizaÁ„o: Aguardando recursos para execuÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="FiscalizaÁ„o: Aguardando relatÛrios parciais"] img, img[title*="FiscalizaÁ„o: Aguardando relatÛrios parciais"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="FiscalizaÁ„o: Aguardando resposta da fiscalizada"] img, img[title*="FiscalizaÁ„o: Aguardando resposta da fiscalizada"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="FiscalizaÁ„o: Aguardando resposta demandante/FIGF"] img, img[title*="FiscalizaÁ„o: Aguardando resposta demandante/FIGF"] {filter: invert(80%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="FiscalizaÁ„o: Aprovar relatÛrio de fiscalizaÁ„o"] img, img[title*="FiscalizaÁ„o: Aprovar relatÛrio de fiscalizaÁ„o"] {filter: opacity(70%) drop-shadow(4px 4px 4px GreenYellow);}
+a[onmouseover*="FiscalizaÁ„o: Conferir relatÛrio de fiscalizaÁ„o"] img, img[title*="FiscalizaÁ„o: Conferir relatÛrio de fiscalizaÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px LightPink);}
+a[onmouseover*="FiscalizaÁ„o: Elaborar relatÛrio de fiscalizaÁ„o"] img, img[title*="FiscalizaÁ„o: Elaborar relatÛrio de fiscalizaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumAquaMarine);}
+a[onmouseover*="Gest„o de TI: Demanda de SoluÁ„o de TI"] img, img[title*="Gest„o de TI: Demanda de SoluÁ„o de TI"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="Interconex„o: Em exigÍncia"] img, img[title*="Interconex„o: Em exigÍncia"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="Interconex„o: Homologar"] img, img[title*="Interconex„o: Homologar"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="Interconex„o: Minuta encaminhada"] img, img[title*="Interconex„o: Minuta encaminhada"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="Interconex„o: Publicar"] img, img[title*="Interconex„o: Publicar"] {filter: grayscale(100%) drop-shadow(4px 4px 4px GreenYellow);}
 a[onmouseover*="Normas FI: Aguardando retorno da PFE"] img, img[title*="Normas FI: Aguardando retorno da PFE"] {filter: invert(80%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="Normas FI: An√°lise da manifesta√ß√£o da PFE"] img, img[title*="Normas FI: An√°lise da manifesta√ß√£o da PFE"] {filter: opacity(70%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="Normas FI: An√°lise das contribui√ß√µes da CI/CP"] img, img[title*="Normas FI: An√°lise das contribui√ß√µes da CI/CP"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Normas FI: Aprova√ß√£o documentos e publica√ß√£o"] img, img[title*="Normas FI: Aprova√ß√£o documentos e publica√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="Normas FI: An·lise da manifestaÁ„o da PFE"] img, img[title*="Normas FI: An·lise da manifestaÁ„o da PFE"] {filter: opacity(70%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="Normas FI: An·lise das contribuiÁıes da CI/CP"] img, img[title*="Normas FI: An·lise das contribuiÁıes da CI/CP"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="Normas FI: AprovaÁ„o documentos e publicaÁ„o"] img, img[title*="Normas FI: AprovaÁ„o documentos e publicaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px Chartreuse);}
 a[onmouseover*="Normas FI: Consulta Interna em andamento"] img, img[title*="Normas FI: Consulta Interna em andamento"] {filter: opacity(70%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="Normas FI: Elabora√ß√£o das minutas de documentos"] img, img[title*="Normas FI: Elabora√ß√£o das minutas de documentos"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="Normas FI: Elabora√ß√£o de AIR"] img, img[title*="Normas FI: Elabora√ß√£o de AIR"] {filter: invert(80%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="Normas FI: Elabora√ß√£o documentos p√≥s Consulta"] img, img[title*="Normas FI: Elabora√ß√£o documentos p√≥s Consulta"] {filter: opacity(70%) drop-shadow(4px 4px 4px Cyan);}
-a[onmouseover*="Normas FI: Elaborando vers√£o final documentos"] img, img[title*="Normas FI: Elaborando vers√£o final documentos"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="Normas FI: ElaboraÁ„o das minutas de documentos"] img, img[title*="Normas FI: ElaboraÁ„o das minutas de documentos"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="Normas FI: ElaboraÁ„o de AIR"] img, img[title*="Normas FI: ElaboraÁ„o de AIR"] {filter: invert(80%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="Normas FI: ElaboraÁ„o documentos pÛs Consulta"] img, img[title*="Normas FI: ElaboraÁ„o documentos pÛs Consulta"] {filter: opacity(70%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="Normas FI: Elaborando vers„o final documentos"] img, img[title*="Normas FI: Elaborando vers„o final documentos"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrchid);}
 a[onmouseover*="Normas FI: Encaminhado para PRRE"] img, img[title*="Normas FI: Encaminhado para PRRE"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="Normas FI: Instaura√ß√£o do processo"] img, img[title*="Normas FI: Instaura√ß√£o do processo"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
-a[onmouseover*="PA: 1. Em instaura√ß√£o"] img, img[title*="PA: 1. Em instaura√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="PA: 2. Of√≠cio de comprova√ß√£o"] img, img[title*="PA: 2. Of√≠cio de comprova√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="PA: 3. Manifesta√ß√£o apresentada"] img, img[title*="PA: 3. Manifesta√ß√£o apresentada"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="Normas FI: InstauraÁ„o do processo"] img, img[title*="Normas FI: InstauraÁ„o do processo"] {filter: opacity(70%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="PA: 1. Em instauraÁ„o"] img, img[title*="PA: 1. Em instauraÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="PA: 2. OfÌcio de comprovaÁ„o"] img, img[title*="PA: 2. OfÌcio de comprovaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="PA: 3. ManifestaÁ„o apresentada"] img, img[title*="PA: 3. ManifestaÁ„o apresentada"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
 a[onmouseover*="PA: 4. Informe conclusivo"] img, img[title*="PA: 4. Informe conclusivo"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
 a[onmouseover*="PA: 5. Despacho"] img, img[title*="PA: 5. Despacho"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
 a[onmouseover*="PADO: 0. Aguarda Parecer da PFE"] img, img[title*="PADO: 0. Aguarda Parecer da PFE"] {filter: opacity(70%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="PADO: 0. Aprova√ß√£o interna"] img, img[title*="PADO: 0. Aprova√ß√£o interna"] {filter: grayscale(100%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="PADO: 0. Dilig√™ncia do Conselho Diretor"] img, img[title*="PADO: 0. Dilig√™ncia do Conselho Diretor"] {filter: invert(80%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="PADO: 0. Dilig√™ncia solicitada pela √Årea T√©cnica"] img, img[title*="PADO: 0. Dilig√™ncia solicitada pela √Årea T√©cnica"] {filter: opacity(70%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="PADO: 0. Publica√ß√£o de Edital"] img, img[title*="PADO: 0. Publica√ß√£o de Edital"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="PADO: 0. Suspens√£o administrativa"] img, img[title*="PADO: 0. Suspens√£o administrativa"] {filter: invert(80%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="PADO: 0. Suspens√£o judicial"] img, img[title*="PADO: 0. Suspens√£o judicial"] {filter: opacity(70%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="PADO: 1. Instaura√ß√£o - 1. Pado em instaura√ß√£o"] img, img[title*="PADO: 1. Instaura√ß√£o - 1. Pado em instaura√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Cyan);}
-a[onmouseover*="PADO: 2. Instru√ß√£o - 1. Of√≠cio defesa"] img, img[title*="PADO: 2. Instru√ß√£o - 1. Of√≠cio defesa"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="PADO: 2. Instru√ß√£o - 2. Aguarda defesa"] img, img[title*="PADO: 2. Instru√ß√£o - 2. Aguarda defesa"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="PADO: 2. Instru√ß√£o - 3. Defesa apresentada"] img, img[title*="PADO: 2. Instru√ß√£o - 3. Defesa apresentada"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DodgerBlue);}
-a[onmouseover*="PADO: 2. Instru√ß√£o - 4. Informe preliminar"] img, img[title*="PADO: 2. Instru√ß√£o - 4. Informe preliminar"] {filter: invert(80%) drop-shadow(4px 4px 4px GreenYellow);}
-a[onmouseover*="PADO: 2. Instru√ß√£o - 5. Of√≠cio alega√ß√µes"] img, img[title*="PADO: 2. Instru√ß√£o - 5. Of√≠cio alega√ß√µes"] {filter: opacity(70%) drop-shadow(4px 4px 4px LightPink);}
-a[onmouseover*="PADO: 2. Instru√ß√£o - 6. Informe conclusivo"] img, img[title*="PADO: 2. Instru√ß√£o - 6. Informe conclusivo"] {filter: grayscale(100%) drop-shadow(4px 4px 4px MediumAquaMarine);}
-a[onmouseover*="PADO: 3. Decis√≥ria - 1. Decis√£o"] img, img[title*="PADO: 3. Decis√≥ria - 1. Decis√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumVioletRed);}
-a[onmouseover*="PADO: 3. Decis√≥ria - 2. Of√≠cio decis√£o"] img, img[title*="PADO: 3. Decis√≥ria - 2. Of√≠cio decis√£o"] {filter: opacity(70%) drop-shadow(4px 4px 4px NavajoWhite);}
-a[onmouseover*="PADO: 3. Decis√≥ria - 3. Aguarda prazo recursal"] img, img[title*="PADO: 3. Decis√≥ria - 3. Aguarda prazo recursal"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Silver);}
-a[onmouseover*="PADO: 3. Decis√≥ria - 4. Ren√∫ncia/Ped. parcelamento"] img, img[title*="PADO: 3. Decis√≥ria - 4. Ren√∫ncia/Ped. parcelamento"] {filter: invert(80%) drop-shadow(4px 4px 4px Tomato);}
+a[onmouseover*="PADO: 0. AprovaÁ„o interna"] img, img[title*="PADO: 0. AprovaÁ„o interna"] {filter: grayscale(100%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="PADO: 0. DiligÍncia do Conselho Diretor"] img, img[title*="PADO: 0. DiligÍncia do Conselho Diretor"] {filter: invert(80%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="PADO: 0. DiligÍncia solicitada pela ¡rea TÈcnica"] img, img[title*="PADO: 0. DiligÍncia solicitada pela ¡rea TÈcnica"] {filter: opacity(70%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="PADO: 0. PublicaÁ„o de Edital"] img, img[title*="PADO: 0. PublicaÁ„o de Edital"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="PADO: 0. Suspens„o administrativa"] img, img[title*="PADO: 0. Suspens„o administrativa"] {filter: invert(80%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="PADO: 0. Suspens„o judicial"] img, img[title*="PADO: 0. Suspens„o judicial"] {filter: opacity(70%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="PADO: 1. InstauraÁ„o - 1. Pado em instauraÁ„o"] img, img[title*="PADO: 1. InstauraÁ„o - 1. Pado em instauraÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="PADO: 2. InstruÁ„o - 1. OfÌcio defesa"] img, img[title*="PADO: 2. InstruÁ„o - 1. OfÌcio defesa"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="PADO: 2. InstruÁ„o - 2. Aguarda defesa"] img, img[title*="PADO: 2. InstruÁ„o - 2. Aguarda defesa"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="PADO: 2. InstruÁ„o - 3. Defesa apresentada"] img, img[title*="PADO: 2. InstruÁ„o - 3. Defesa apresentada"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="PADO: 2. InstruÁ„o - 4. Informe preliminar"] img, img[title*="PADO: 2. InstruÁ„o - 4. Informe preliminar"] {filter: invert(80%) drop-shadow(4px 4px 4px GreenYellow);}
+a[onmouseover*="PADO: 2. InstruÁ„o - 5. OfÌcio alegaÁıes"] img, img[title*="PADO: 2. InstruÁ„o - 5. OfÌcio alegaÁıes"] {filter: opacity(70%) drop-shadow(4px 4px 4px LightPink);}
+a[onmouseover*="PADO: 2. InstruÁ„o - 6. Informe conclusivo"] img, img[title*="PADO: 2. InstruÁ„o - 6. Informe conclusivo"] {filter: grayscale(100%) drop-shadow(4px 4px 4px MediumAquaMarine);}
+a[onmouseover*="PADO: 3. DecisÛria - 1. Decis„o"] img, img[title*="PADO: 3. DecisÛria - 1. Decis„o"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumVioletRed);}
+a[onmouseover*="PADO: 3. DecisÛria - 2. OfÌcio decis„o"] img, img[title*="PADO: 3. DecisÛria - 2. OfÌcio decis„o"] {filter: opacity(70%) drop-shadow(4px 4px 4px NavajoWhite);}
+a[onmouseover*="PADO: 3. DecisÛria - 3. Aguarda prazo recursal"] img, img[title*="PADO: 3. DecisÛria - 3. Aguarda prazo recursal"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Silver);}
+a[onmouseover*="PADO: 3. DecisÛria - 4. Ren˙ncia/Ped. parcelamento"] img, img[title*="PADO: 3. DecisÛria - 4. Ren˙ncia/Ped. parcelamento"] {filter: invert(80%) drop-shadow(4px 4px 4px Tomato);}
 a[onmouseover*="PADO: 4. Recursal - 1. Rec. adm./Ped. recon. receb"] img, img[title*="PADO: 4. Recursal - 1. Rec. adm./Ped. recon. receb"] {filter: opacity(70%) drop-shadow(4px 4px 4px Salmon);}
 a[onmouseover*="PADO: 4. Recursal - 2. Efeito susp. em processam."] img, img[title*="PADO: 4. Recursal - 2. Efeito susp. em processam."] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
 a[onmouseover*="PADO: 4. Recursal - 3. Informe recursal"] img, img[title*="PADO: 4. Recursal - 3. Informe recursal"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="PADO: 4. Recursal - 4. Decis√£o admissib/retrata√ß√£o"] img, img[title*="PADO: 4. Recursal - 4. Decis√£o admissib/retrata√ß√£o"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="PADO: 4. Recursal - 5. Of√≠cio admissib./retrata√ß√£o"] img, img[title*="PADO: 4. Recursal - 5. Of√≠cio admissib./retrata√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="PADO: 4. Recursal - 6. Concluso para decis√£o"] img, img[title*="PADO: 4. Recursal - 6. Concluso para decis√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="PADO: 4. Recursal - 7. Decis√£o proferida"] img, img[title*="PADO: 4. Recursal - 7. Decis√£o proferida"] {filter: opacity(70%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="PADO: 4. Recursal - 8. Of√≠cio da Decis√£o"] img, img[title*="PADO: 4. Recursal - 8. Of√≠cio da Decis√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="PADO: 5. Trans. Julg. - 1. Publica√ß√£o"] img, img[title*="PADO: 5. Trans. Julg. - 1. Publica√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px Cyan);}
-a[onmouseover*="PADO: 5. Trans. Julg. - 2. Ag. quita√ß√£o/cump. det."] img, img[title*="PADO: 5. Trans. Julg. - 2. Ag. quita√ß√£o/cump. det."] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="PADO: 4. Recursal - 4. Decis„o admissib/retrataÁ„o"] img, img[title*="PADO: 4. Recursal - 4. Decis„o admissib/retrataÁ„o"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="PADO: 4. Recursal - 5. OfÌcio admissib./retrataÁ„o"] img, img[title*="PADO: 4. Recursal - 5. OfÌcio admissib./retrataÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="PADO: 4. Recursal - 6. Concluso para decis„o"] img, img[title*="PADO: 4. Recursal - 6. Concluso para decis„o"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="PADO: 4. Recursal - 7. Decis„o proferida"] img, img[title*="PADO: 4. Recursal - 7. Decis„o proferida"] {filter: opacity(70%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="PADO: 4. Recursal - 8. OfÌcio da Decis„o"] img, img[title*="PADO: 4. Recursal - 8. OfÌcio da Decis„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="PADO: 5. Trans. Julg. - 1. PublicaÁ„o"] img, img[title*="PADO: 5. Trans. Julg. - 1. PublicaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="PADO: 5. Trans. Julg. - 2. Ag. quitaÁ„o/cump. det."] img, img[title*="PADO: 5. Trans. Julg. - 2. Ag. quitaÁ„o/cump. det."] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrchid);}
 a[onmouseover*="PADO: Admitido no TAC Algar"] img, img[title*="PADO: Admitido no TAC Algar"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrange);}
 a[onmouseover*="PADO: Admitido no TAC Oi"] img, img[title*="PADO: Admitido no TAC Oi"] {filter: invert(80%) drop-shadow(4px 4px 4px DodgerBlue);}
 a[onmouseover*="PADO: Admitido no TAC Sercomtel"] img, img[title*="PADO: Admitido no TAC Sercomtel"] {filter: opacity(70%) drop-shadow(4px 4px 4px GreenYellow);}
-a[onmouseover*="PADO: Admitido no TAC Telef√¥nica"] img, img[title*="PADO: Admitido no TAC Telef√¥nica"] {filter: grayscale(100%) drop-shadow(4px 4px 4px LightPink);}
+a[onmouseover*="PADO: Admitido no TAC TelefÙnica"] img, img[title*="PADO: Admitido no TAC TelefÙnica"] {filter: grayscale(100%) drop-shadow(4px 4px 4px LightPink);}
 a[onmouseover*="PADO: Admitido no TAC TIM"] img, img[title*="PADO: Admitido no TAC TIM"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumAquaMarine);}
 a[onmouseover*="PADO: Admitido no TAC Unify"] img, img[title*="PADO: Admitido no TAC Unify"] {filter: opacity(70%) drop-shadow(4px 4px 4px MediumVioletRed);}
-a[onmouseover*="PADO: Retorno ao tr√¢mite de TAC"] img, img[title*="PADO: Retorno ao tr√¢mite de TAC"] {filter: grayscale(100%) drop-shadow(4px 4px 4px NavajoWhite);}
-a[onmouseover*="PADO: Revis√£o para o SFI"] img, img[title*="PADO: Revis√£o para o SFI"] {filter: invert(80%) drop-shadow(4px 4px 4px Silver);}
-a[onmouseover*="PADO: Revis√£o para o SFI - Prioridade"] img, img[title*="PADO: Revis√£o para o SFI - Prioridade"] {filter: opacity(70%) drop-shadow(4px 4px 4px Tomato);}
-a[onmouseover*="PADO: Revis√£o para o SFI - Revisado"] img, img[title*="PADO: Revis√£o para o SFI - Revisado"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Salmon);}
-a[onmouseover*="PAF: Aguardando Conclus√£o"] img, img[title*="PAF: Aguardando Conclus√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="PADO: Retorno ao tr‚mite de TAC"] img, img[title*="PADO: Retorno ao tr‚mite de TAC"] {filter: grayscale(100%) drop-shadow(4px 4px 4px NavajoWhite);}
+a[onmouseover*="PADO: Revis„o para o SFI"] img, img[title*="PADO: Revis„o para o SFI"] {filter: invert(80%) drop-shadow(4px 4px 4px Silver);}
+a[onmouseover*="PADO: Revis„o para o SFI - Prioridade"] img, img[title*="PADO: Revis„o para o SFI - Prioridade"] {filter: opacity(70%) drop-shadow(4px 4px 4px Tomato);}
+a[onmouseover*="PADO: Revis„o para o SFI - Revisado"] img, img[title*="PADO: Revis„o para o SFI - Revisado"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Salmon);}
+a[onmouseover*="PAF: Aguardando Conclus„o"] img, img[title*="PAF: Aguardando Conclus„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
 a[onmouseover*="PAF: Aguardando Parecer da PFE"] img, img[title*="PAF: Aguardando Parecer da PFE"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
 a[onmouseover*="PAF: Aguardando Recurso"] img, img[title*="PAF: Aguardando Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="PAF: Comunica√ß√£o de Decis√£o"] img, img[title*="PAF: Comunica√ß√£o de Decis√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="PAF: Em dilig√™ncia"] img, img[title*="PAF: Em dilig√™ncia"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="PAF: Informe de 1¬™ Inst√¢ncia"] img, img[title*="PAF: Informe de 1¬™ Inst√¢ncia"] {filter: opacity(70%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="PAF: Informe de 2¬™ Inst√¢ncia"] img, img[title*="PAF: Informe de 2¬™ Inst√¢ncia"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="PAF: Mat√©ria para Conselho Diretor"] img, img[title*="PAF: Mat√©ria para Conselho Diretor"] {filter: invert(80%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="PAF: ComunicaÁ„o de Decis„o"] img, img[title*="PAF: ComunicaÁ„o de Decis„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="PAF: Em diligÍncia"] img, img[title*="PAF: Em diligÍncia"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="PAF: Informe de 1™ Inst‚ncia"] img, img[title*="PAF: Informe de 1™ Inst‚ncia"] {filter: opacity(70%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="PAF: Informe de 2™ Inst‚ncia"] img, img[title*="PAF: Informe de 2™ Inst‚ncia"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="PAF: MatÈria para Conselho Diretor"] img, img[title*="PAF: MatÈria para Conselho Diretor"] {filter: invert(80%) drop-shadow(4px 4px 4px Cyan);}
 a[onmouseover*="PAF: Montar Processo"] img, img[title*="PAF: Montar Processo"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="PAF: Notifica√ß√£o por Edital de Intima√ß√£o"] img, img[title*="PAF: Notifica√ß√£o por Edital de Intima√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="PAF: Nova Impugna√ß√£o"] img, img[title*="PAF: Nova Impugna√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px DodgerBlue);}
-a[onmouseover*="PAF: Peti√ß√£o em An√°lise"] img, img[title*="PAF: Peti√ß√£o em An√°lise"] {filter: opacity(70%) drop-shadow(4px 4px 4px GreenYellow);}
-a[onmouseover*="PLAI: Aguardando an√°lise de pedido de deslacre"] img, img[title*="PLAI: Aguardando an√°lise de pedido de deslacre"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="PLAI: Aguardando an√°lise de recurso de decis√£o"] img, img[title*="PLAI: Aguardando an√°lise de recurso de decis√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="PLAI: Aguardando cassa√ß√£o de liminar"] img, img[title*="PLAI: Aguardando cassa√ß√£o de liminar"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="PLAI: Aguardando confirma√ß√£o de notifica√ß√£o"] img, img[title*="PLAI: Aguardando confirma√ß√£o de notifica√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="PLAI: Aguardando decis√£o adm sobre destina√ß√£o"] img, img[title*="PLAI: Aguardando decis√£o adm sobre destina√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="PLAI: Aguardando decis√£o judicial sobre destina√ß√£o"] img, img[title*="PLAI: Aguardando decis√£o judicial sobre destina√ß√£o"] {filter: opacity(70%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="PLAI: Aguardando despacho decis√≥rio FIGF"] img, img[title*="PLAI: Aguardando despacho decis√≥rio FIGF"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="PLAI: Aguardando despacho ordinat√≥rio Coord/GUO"] img, img[title*="PLAI: Aguardando despacho ordinat√≥rio Coord/GUO"] {filter: invert(80%) drop-shadow(4px 4px 4px Cyan);}
-a[onmouseover*="PLAI: Aguardando despacho ordinat√≥rio GR"] img, img[title*="PLAI: Aguardando despacho ordinat√≥rio GR"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="PLAI: Aguardando execu√ß√£o de deslacre/restitui√ß√£o"] img, img[title*="PLAI: Aguardando execu√ß√£o de deslacre/restitui√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="PLAI: Aguardando manifesta√ß√£o policial/judicial"] img, img[title*="PLAI: Aguardando manifesta√ß√£o policial/judicial"] {filter: invert(80%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="PAF: NotificaÁ„o por Edital de IntimaÁ„o"] img, img[title*="PAF: NotificaÁ„o por Edital de IntimaÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="PAF: Nova ImpugnaÁ„o"] img, img[title*="PAF: Nova ImpugnaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="PAF: PetiÁ„o em An·lise"] img, img[title*="PAF: PetiÁ„o em An·lise"] {filter: opacity(70%) drop-shadow(4px 4px 4px GreenYellow);}
+a[onmouseover*="PLAI: Aguardando an·lise de pedido de deslacre"] img, img[title*="PLAI: Aguardando an·lise de pedido de deslacre"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="PLAI: Aguardando an·lise de recurso de decis„o"] img, img[title*="PLAI: Aguardando an·lise de recurso de decis„o"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="PLAI: Aguardando cassaÁ„o de liminar"] img, img[title*="PLAI: Aguardando cassaÁ„o de liminar"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="PLAI: Aguardando confirmaÁ„o de notificaÁ„o"] img, img[title*="PLAI: Aguardando confirmaÁ„o de notificaÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="PLAI: Aguardando decis„o adm sobre destinaÁ„o"] img, img[title*="PLAI: Aguardando decis„o adm sobre destinaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="PLAI: Aguardando decis„o judicial sobre destinaÁ„o"] img, img[title*="PLAI: Aguardando decis„o judicial sobre destinaÁ„o"] {filter: opacity(70%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="PLAI: Aguardando despacho decisÛrio FIGF"] img, img[title*="PLAI: Aguardando despacho decisÛrio FIGF"] {filter: grayscale(100%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="PLAI: Aguardando despacho ordinatÛrio Coord/GUO"] img, img[title*="PLAI: Aguardando despacho ordinatÛrio Coord/GUO"] {filter: invert(80%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="PLAI: Aguardando despacho ordinatÛrio GR"] img, img[title*="PLAI: Aguardando despacho ordinatÛrio GR"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="PLAI: Aguardando execuÁ„o de deslacre/restituiÁ„o"] img, img[title*="PLAI: Aguardando execuÁ„o de deslacre/restituiÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="PLAI: Aguardando manifestaÁ„o policial/judicial"] img, img[title*="PLAI: Aguardando manifestaÁ„o policial/judicial"] {filter: invert(80%) drop-shadow(4px 4px 4px DodgerBlue);}
 a[onmouseover*="PLAI: Aguardando Parecer da PFE"] img, img[title*="PLAI: Aguardando Parecer da PFE"] {filter: opacity(70%) drop-shadow(4px 4px 4px GreenYellow);}
-a[onmouseover*="PLAI: Aguardando per√≠cia t√©cnica"] img, img[title*="PLAI: Aguardando per√≠cia t√©cnica"] {filter: grayscale(100%) drop-shadow(4px 4px 4px LightPink);}
+a[onmouseover*="PLAI: Aguardando perÌcia tÈcnica"] img, img[title*="PLAI: Aguardando perÌcia tÈcnica"] {filter: grayscale(100%) drop-shadow(4px 4px 4px LightPink);}
 a[onmouseover*="PLAI: Aguardando prazo para recurso administrativo"] img, img[title*="PLAI: Aguardando prazo para recurso administrativo"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumAquaMarine);}
 a[onmouseover*="PLAI: Aguardando referendo"] img, img[title*="PLAI: Aguardando referendo"] {filter: opacity(70%) drop-shadow(4px 4px 4px MediumVioletRed);}
-a[onmouseover*="PLAI: Conclu√≠do"] img, img[title*="PLAI: Conclu√≠do"] {filter: grayscale(100%) drop-shadow(4px 4px 4px NavajoWhite);}
+a[onmouseover*="PLAI: ConcluÌdo"] img, img[title*="PLAI: ConcluÌdo"] {filter: grayscale(100%) drop-shadow(4px 4px 4px NavajoWhite);}
 a[onmouseover*="PLAI: Em fase de desfazimento"] img, img[title*="PLAI: Em fase de desfazimento"] {filter: invert(80%) drop-shadow(4px 4px 4px Silver);}
 a[onmouseover*="PLAI: Referendado"] img, img[title*="PLAI: Referendado"] {filter: opacity(70%) drop-shadow(4px 4px 4px Tomato);}
-a[onmouseover*="Planejamento: Aguardando conclus√£o de chamado TI"] img, img[title*="Planejamento: Aguardando conclus√£o de chamado TI"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="Planejamento: Aguardando conclus„o de chamado TI"] img, img[title*="Planejamento: Aguardando conclus„o de chamado TI"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
 a[onmouseover*="Planejamento: Aguardando resposta das GRs/UOs"] img, img[title*="Planejamento: Aguardando resposta das GRs/UOs"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
 a[onmouseover*="Planejamento: Aguardando resposta do demandante"] img, img[title*="Planejamento: Aguardando resposta do demandante"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Planejamento: Aguardando valida√ß√£o de doc/etapa"] img, img[title*="Planejamento: Aguardando valida√ß√£o de doc/etapa"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="Protocolo: Aguardando autentica√ß√£o de servidor"] img, img[title*="Protocolo: Aguardando autentica√ß√£o de servidor"] {filter: invert(80%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="Protocolo: Em procedimento de convers√£o"] img, img[title*="Protocolo: Em procedimento de convers√£o"] {filter: opacity(70%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="Protocolo: Em procedimento de corre√ß√£o"] img, img[title*="Protocolo: Em procedimento de corre√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Protocolo: Em procedimento de desanexa√ß√£o"] img, img[title*="Protocolo: Em procedimento de desanexa√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="Protocolo: Em procedimento de expedi√ß√£o de Of√≠cio"] img, img[title*="Protocolo: Em procedimento de expedi√ß√£o de Of√≠cio"] {filter: opacity(70%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="Protocolo: Em procedimento de protocolo ordin√°rio"] img, img[title*="Protocolo: Em procedimento de protocolo ordin√°rio"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="Planejamento: Aguardando validaÁ„o de doc/etapa"] img, img[title*="Planejamento: Aguardando validaÁ„o de doc/etapa"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="Protocolo: Aguardando autenticaÁ„o de servidor"] img, img[title*="Protocolo: Aguardando autenticaÁ„o de servidor"] {filter: invert(80%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="Protocolo: Em procedimento de convers„o"] img, img[title*="Protocolo: Em procedimento de convers„o"] {filter: opacity(70%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="Protocolo: Em procedimento de correÁ„o"] img, img[title*="Protocolo: Em procedimento de correÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="Protocolo: Em procedimento de desanexaÁ„o"] img, img[title*="Protocolo: Em procedimento de desanexaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="Protocolo: Em procedimento de expediÁ„o de OfÌcio"] img, img[title*="Protocolo: Em procedimento de expediÁ„o de OfÌcio"] {filter: opacity(70%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="Protocolo: Em procedimento de protocolo ordin·rio"] img, img[title*="Protocolo: Em procedimento de protocolo ordin·rio"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Blue);}
 a[onmouseover*="Protocolo: Em procedimento de retorno de AR"] img, img[title*="Protocolo: Em procedimento de retorno de AR"] {filter: invert(80%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Admissibilidade Recurso"] img, img[title*="Reclama√ß√£o Administrativa: Admissibilidade Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Aguarda Parecer da PFE"] img, img[title*="Reclama√ß√£o Administrativa: Aguarda Parecer da PFE"] {filter: grayscale(100%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Alega√ß√µes Finais"] img, img[title*="Reclama√ß√£o Administrativa: Alega√ß√µes Finais"] {filter: invert(80%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Arquivado"] img, img[title*="Reclama√ß√£o Administrativa: Arquivado"] {filter: opacity(70%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Conclus√£o de M√©rito"] img, img[title*="Reclama√ß√£o Administrativa: Conclus√£o de M√©rito"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Contrarraz√µes Recurso"] img, img[title*="Reclama√ß√£o Administrativa: Contrarraz√µes Recurso"] {filter: invert(80%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Cumprimento de Decis√£o"] img, img[title*="Reclama√ß√£o Administrativa: Cumprimento de Decis√£o"] {filter: opacity(70%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Defesa"] img, img[title*="Reclama√ß√£o Administrativa: Defesa"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Cyan);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Despacho Decis√≥rio"] img, img[title*="Reclama√ß√£o Administrativa: Despacho Decis√≥rio"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Despacho Ord. Saneador"] img, img[title*="Reclama√ß√£o Administrativa: Despacho Ord. Saneador"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Informe da SCP"] img, img[title*="Reclama√ß√£o Administrativa: Informe da SCP"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DodgerBlue);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Informe de M√©rito"] img, img[title*="Reclama√ß√£o Administrativa: Informe de M√©rito"] {filter: invert(80%) drop-shadow(4px 4px 4px GreenYellow);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Informe sobre Recurso"] img, img[title*="Reclama√ß√£o Administrativa: Informe sobre Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px LightPink);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Manifesta√ß√£o"] img, img[title*="Reclama√ß√£o Administrativa: Manifesta√ß√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px MediumAquaMarine);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Peti√ß√£o Inicial"] img, img[title*="Reclama√ß√£o Administrativa: Peti√ß√£o Inicial"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumVioletRed);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Recurso"] img, img[title*="Reclama√ß√£o Administrativa: Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px NavajoWhite);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Recurso ao Conselho"] img, img[title*="Reclama√ß√£o Administrativa: Recurso ao Conselho"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Silver);}
-a[onmouseover*="Reclama√ß√£o Administrativa: Suspenso"] img, img[title*="Reclama√ß√£o Administrativa: Suspenso"] {filter: invert(80%) drop-shadow(4px 4px 4px Tomato);}
-a[onmouseover*="San√ß√£o Administrativa: Aguardando Alega√ß√µes Finais"] img, img[title*="San√ß√£o Administrativa: Aguardando Alega√ß√µes Finais"] {filter: opacity(70%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="San√ß√£o Administrativa: Aguardando Decis√£o (GR)"] img, img[title*="San√ß√£o Administrativa: Aguardando Decis√£o (GR)"] {filter: grayscale(100%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="San√ß√£o Administrativa: Aguardando Decis√£o (SAF)"] img, img[title*="San√ß√£o Administrativa: Aguardando Decis√£o (SAF)"] {filter: invert(80%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="San√ß√£o Administrativa: Aguardando Decis√£o (Sede)"] img, img[title*="San√ß√£o Administrativa: Aguardando Decis√£o (Sede)"] {filter: opacity(70%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="San√ß√£o Administrativa: Aguardando Defesa Pr√©via"] img, img[title*="San√ß√£o Administrativa: Aguardando Defesa Pr√©via"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Fuchsia);}
-a[onmouseover*="San√ß√£o Administrativa: Aguardando Parecer da PFE"] img, img[title*="San√ß√£o Administrativa: Aguardando Parecer da PFE"] {filter: invert(80%) drop-shadow(4px 4px 4px Blue);}
-a[onmouseover*="San√ß√£o Administrativa: Aguardando Recurso"] img, img[title*="San√ß√£o Administrativa: Aguardando Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px OrangeRed);}
-a[onmouseover*="San√ß√£o Administrativa: Analisando Alega√ß√µes Finais"] img, img[title*="San√ß√£o Administrativa: Analisando Alega√ß√µes Finais"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Cyan);}
-a[onmouseover*="San√ß√£o Administrativa: Analisando Defesa Pr√©via"] img, img[title*="San√ß√£o Administrativa: Analisando Defesa Pr√©via"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrchid);}
-a[onmouseover*="San√ß√£o Administrativa: Analisando Recurso"] img, img[title*="San√ß√£o Administrativa: Analisando Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrange);}
-a[onmouseover*="San√ß√£o Administrativa: Decis√£o do Recurso (GR)"] img, img[title*="San√ß√£o Administrativa: Decis√£o do Recurso (GR)"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DodgerBlue);}
-a[onmouseover*="San√ß√£o Administrativa: Decis√£o do Recurso (PR)"] img, img[title*="San√ß√£o Administrativa: Decis√£o do Recurso (PR)"] {filter: invert(80%) drop-shadow(4px 4px 4px GreenYellow);}
-a[onmouseover*="San√ß√£o Administrativa: Decis√£o do Recurso (SAF)"] img, img[title*="San√ß√£o Administrativa: Decis√£o do Recurso (SAF)"] {filter: opacity(70%) drop-shadow(4px 4px 4px LightPink);}
-a[onmouseover*="San√ß√£o Administrativa: Informe de Decis√£o"] img, img[title*="San√ß√£o Administrativa: Informe de Decis√£o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px MediumAquaMarine);}
-a[onmouseover*="San√ß√£o Administrativa: Informe do Recurso"] img, img[title*="San√ß√£o Administrativa: Informe do Recurso"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumVioletRed);}
-a[onmouseover*="TAC: Em an√°lise"] img, img[title*="TAC: Em an√°lise"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Tribut√°ria: Aguardando an√°lise"] img, img[title*="Tribut√°ria: Aguardando an√°lise"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
-a[onmouseover*="Tribut√°ria: Aguardando concluir fiscaliza√ß√£o"] img, img[title*="Tribut√°ria: Aguardando concluir fiscaliza√ß√£o"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
-a[onmouseover*="Tribut√°ria: Aguardando envio √† AFFO/MC"] img, img[title*="Tribut√°ria: Aguardando envio √† AFFO/MC"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
-a[onmouseover*="Tribut√°ria: Aguardando resposta da prestadora"] img, img[title*="Tribut√°ria: Aguardando resposta da prestadora"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
-a[onmouseover*="Tribut√°ria: Of√≠cio devolvido sem recebimento"] img, img[title*="Tribut√°ria: Of√≠cio devolvido sem recebimento"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Admissibilidade Recurso"] img, img[title*="ReclamaÁ„o Administrativa: Admissibilidade Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Aguarda Parecer da PFE"] img, img[title*="ReclamaÁ„o Administrativa: Aguarda Parecer da PFE"] {filter: grayscale(100%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="ReclamaÁ„o Administrativa: AlegaÁıes Finais"] img, img[title*="ReclamaÁ„o Administrativa: AlegaÁıes Finais"] {filter: invert(80%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Arquivado"] img, img[title*="ReclamaÁ„o Administrativa: Arquivado"] {filter: opacity(70%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Conclus„o de MÈrito"] img, img[title*="ReclamaÁ„o Administrativa: Conclus„o de MÈrito"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Contrarrazıes Recurso"] img, img[title*="ReclamaÁ„o Administrativa: Contrarrazıes Recurso"] {filter: invert(80%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Cumprimento de Decis„o"] img, img[title*="ReclamaÁ„o Administrativa: Cumprimento de Decis„o"] {filter: opacity(70%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Defesa"] img, img[title*="ReclamaÁ„o Administrativa: Defesa"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Despacho DecisÛrio"] img, img[title*="ReclamaÁ„o Administrativa: Despacho DecisÛrio"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Despacho Ord. Saneador"] img, img[title*="ReclamaÁ„o Administrativa: Despacho Ord. Saneador"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Informe da SCP"] img, img[title*="ReclamaÁ„o Administrativa: Informe da SCP"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Informe de MÈrito"] img, img[title*="ReclamaÁ„o Administrativa: Informe de MÈrito"] {filter: invert(80%) drop-shadow(4px 4px 4px GreenYellow);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Informe sobre Recurso"] img, img[title*="ReclamaÁ„o Administrativa: Informe sobre Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px LightPink);}
+a[onmouseover*="ReclamaÁ„o Administrativa: ManifestaÁ„o"] img, img[title*="ReclamaÁ„o Administrativa: ManifestaÁ„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px MediumAquaMarine);}
+a[onmouseover*="ReclamaÁ„o Administrativa: PetiÁ„o Inicial"] img, img[title*="ReclamaÁ„o Administrativa: PetiÁ„o Inicial"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumVioletRed);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Recurso"] img, img[title*="ReclamaÁ„o Administrativa: Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px NavajoWhite);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Recurso ao Conselho"] img, img[title*="ReclamaÁ„o Administrativa: Recurso ao Conselho"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Silver);}
+a[onmouseover*="ReclamaÁ„o Administrativa: Suspenso"] img, img[title*="ReclamaÁ„o Administrativa: Suspenso"] {filter: invert(80%) drop-shadow(4px 4px 4px Tomato);}
+a[onmouseover*="SanÁ„o Administrativa: Aguardando AlegaÁıes Finais"] img, img[title*="SanÁ„o Administrativa: Aguardando AlegaÁıes Finais"] {filter: opacity(70%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="SanÁ„o Administrativa: Aguardando Decis„o (GR)"] img, img[title*="SanÁ„o Administrativa: Aguardando Decis„o (GR)"] {filter: grayscale(100%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="SanÁ„o Administrativa: Aguardando Decis„o (SAF)"] img, img[title*="SanÁ„o Administrativa: Aguardando Decis„o (SAF)"] {filter: invert(80%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="SanÁ„o Administrativa: Aguardando Decis„o (Sede)"] img, img[title*="SanÁ„o Administrativa: Aguardando Decis„o (Sede)"] {filter: opacity(70%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="SanÁ„o Administrativa: Aguardando Defesa PrÈvia"] img, img[title*="SanÁ„o Administrativa: Aguardando Defesa PrÈvia"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Fuchsia);}
+a[onmouseover*="SanÁ„o Administrativa: Aguardando Parecer da PFE"] img, img[title*="SanÁ„o Administrativa: Aguardando Parecer da PFE"] {filter: invert(80%) drop-shadow(4px 4px 4px Blue);}
+a[onmouseover*="SanÁ„o Administrativa: Aguardando Recurso"] img, img[title*="SanÁ„o Administrativa: Aguardando Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px OrangeRed);}
+a[onmouseover*="SanÁ„o Administrativa: Analisando AlegaÁıes Finais"] img, img[title*="SanÁ„o Administrativa: Analisando AlegaÁıes Finais"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Cyan);}
+a[onmouseover*="SanÁ„o Administrativa: Analisando Defesa PrÈvia"] img, img[title*="SanÁ„o Administrativa: Analisando Defesa PrÈvia"] {filter: invert(80%) drop-shadow(4px 4px 4px DarkOrchid);}
+a[onmouseover*="SanÁ„o Administrativa: Analisando Recurso"] img, img[title*="SanÁ„o Administrativa: Analisando Recurso"] {filter: opacity(70%) drop-shadow(4px 4px 4px DarkOrange);}
+a[onmouseover*="SanÁ„o Administrativa: Decis„o do Recurso (GR)"] img, img[title*="SanÁ„o Administrativa: Decis„o do Recurso (GR)"] {filter: grayscale(100%) drop-shadow(4px 4px 4px DodgerBlue);}
+a[onmouseover*="SanÁ„o Administrativa: Decis„o do Recurso (PR)"] img, img[title*="SanÁ„o Administrativa: Decis„o do Recurso (PR)"] {filter: invert(80%) drop-shadow(4px 4px 4px GreenYellow);}
+a[onmouseover*="SanÁ„o Administrativa: Decis„o do Recurso (SAF)"] img, img[title*="SanÁ„o Administrativa: Decis„o do Recurso (SAF)"] {filter: opacity(70%) drop-shadow(4px 4px 4px LightPink);}
+a[onmouseover*="SanÁ„o Administrativa: Informe de Decis„o"] img, img[title*="SanÁ„o Administrativa: Informe de Decis„o"] {filter: grayscale(100%) drop-shadow(4px 4px 4px MediumAquaMarine);}
+a[onmouseover*="SanÁ„o Administrativa: Informe do Recurso"] img, img[title*="SanÁ„o Administrativa: Informe do Recurso"] {filter: invert(80%) drop-shadow(4px 4px 4px MediumVioletRed);}
+a[onmouseover*="TAC: Em an·lise"] img, img[title*="TAC: Em an·lise"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="Tribut·ria: Aguardando an·lise"] img, img[title*="Tribut·ria: Aguardando an·lise"] {filter: grayscale(100%) drop-shadow(4px 4px 4px BlueViolet);}
+a[onmouseover*="Tribut·ria: Aguardando concluir fiscalizaÁ„o"] img, img[title*="Tribut·ria: Aguardando concluir fiscalizaÁ„o"] {filter: invert(80%) drop-shadow(4px 4px 4px SpringGreen);}
+a[onmouseover*="Tribut·ria: Aguardando envio ‡ AFFO/MC"] img, img[title*="Tribut·ria: Aguardando envio ‡ AFFO/MC"] {filter: opacity(70%) drop-shadow(4px 4px 4px Yellow);}
+a[onmouseover*="Tribut·ria: Aguardando resposta da prestadora"] img, img[title*="Tribut·ria: Aguardando resposta da prestadora"] {filter: grayscale(100%) drop-shadow(4px 4px 4px Chartreuse);}
+a[onmouseover*="Tribut·ria: OfÌcio devolvido sem recebimento"] img, img[title*="Tribut·ria: OfÌcio devolvido sem recebimento"] {filter: invert(80%) drop-shadow(4px 4px 4px Fuchsia);}
 
