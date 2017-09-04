@@ -1,9 +1,9 @@
-const BaseName = "Seipp.procedimento_visualizar";
+const BaseName = "Seipp.arvore_visualizar";
 
 SavedOptions.CheckTypes.forEach(function(element) {
   switch (element) {
-    case "exibeinfointeressado":
-      ConsultarInteressado(BaseName);
+    case "atalhonovodoc":
+      NovoDocumento(BaseName);
       break;
     default:
       break;

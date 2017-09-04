@@ -53,6 +53,16 @@
         "cs_modules/procedimento_visualizar.ConsultarInteressado.js",
         "cs_modules/procedimento_visualizar.js"
       ]
+    },
+    {
+      "matches": ["*://*/sei/controlador.php?acao=arvore_visualizar*"],
+      "all_frames": true,
+      "css": ["cs_modules/core.css"],
+      "js": [
+        "lib/jquery-3.2.1.min.js",
+        "cs_modules/arvore_visualizar.NovoDocumento.js",
+        "cs_modules/arvore_visualizar.js"
+      ]
     }
   ],
 
