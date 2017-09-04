@@ -19,17 +19,17 @@
 
     <fieldset>
 			<legend><b>Configurações</b></legend>
-			
+
 			<section class="clear-options">
 				<span class="title">Escolha o tema a ser utilizado no SEI:</span>
 				<select id="theme"  title="Nesta versão o tema Black é habilitado com o 'SEI BLACK 1.5' no stylish.">
-					<option value="white" selected>SEI Padrão</option> 
+					<option value="white" selected>SEI Padrão</option>
 					<option value="black">SEI Black</option>
 				</select>
 			</section>
-			
+
 			<hr>
-			
+
 			<section class="clear-options data-types">
 				<div class="title" >Quais ferramentas você deseja habilitar?</div>
 
@@ -51,10 +51,16 @@
 				<label>ANATEL: Ponto de controle em cores (<strong>Somente para a Anatel</strong>)
 
 					<input type="checkbox" data-type="pontocoresanatel"/>
-				</label>
+        </label>
+        <label>Exibir Informações do interessado (<strong>Exibe Informações do interessado na árvore de processo.</strong>)
+					<input type="checkbox" data-type="exibeinfointeressado"/>
+        </label>
+        <label>Exibir atalho para novo documento (<strong>Exibe o atalho na árvore de processo.</strong>)
+					<input type="checkbox" data-type="atalhonovodoc"/>
+        </label>
 				<label>Clique menos (<strong>Facilidade Experimental para uso somente na Anatel</strong>)
 					<input type="checkbox" id="cliquemenos" data-type="cliquemenos" onchange="mostraDivConfig()"/>
-				</label>
+        </label>
 				<div id="divFormato">
 					<fieldset>
 						<legend><b>Formato</b></legend>
@@ -97,9 +103,9 @@
 					</fieldset>
 				</div>
 			</section>
-			
+
 			<hr>
-			
+
 			<section class="clear-options data-types">
 				<div class="title" >Notificações?</div>
 
@@ -107,13 +113,13 @@
 					<input type="checkbox" data-type="hidemsgupdate" />
 				</label>
 			</section>
-			
+
 		</fieldset>
 	<div>
 	    <input type="button" value="Salvar configurações" id="save-button"/>
 		<div id="save-msg"></div>
 	</div>
-	
+
     <script src="options.js"></script>
   </body>
 

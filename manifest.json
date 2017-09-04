@@ -30,18 +30,29 @@
       "matches": ["*://*/sei/*", "*://*/sip/*"],
       "run_at": "document_start",
       "all_frames": true,
-      "js": ["content_scripts_core.js", "themes/themes.js"]
+      "js": ["cs_modules/core.js", "themes/themes.js"]
     },
     {
       "matches": ["*://*/sei/*", "*://*/sip/*"],
-	  "css":["content_scripts.css"],
+      "css":["content_scripts.css"],
       "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js", "content_scripts.js"]
     },
-	{
+    {
       "matches": ["https://sei.anatel.gov.br/sei/controlador.php?acao=documento_receber*"],
-	  "all_frames": true,
-	  "css":["content_scripts.css"],
+      "all_frames": true,
+      "css":["content_scripts.css"],
       "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js", "content_scripts_cadastro.js"]
+    },
+    {
+      "matches": ["*://*/sei/controlador.php?acao=procedimento_visualizar*"],
+      "all_frames": true,
+      "css": ["cs_modules/core.css"],
+      "js": [
+        "lib/jquery-3.2.1.min.js",
+        "cs_modules/procedimento_visualizar.NovoDocumento.js",
+        "cs_modules/procedimento_visualizar.ConsultarInteressado.js",
+        "cs_modules/procedimento_visualizar.js"
+      ]
     }
   ],
 
@@ -51,7 +62,7 @@
     "icons/iconYellow.png",
     "icons/iconBlue.png",
     "icons/iconGreen.png",
-	"icons/iconRed.png",
-	"icons/ect.png"
+    "icons/iconRed.png",
+    "icons/ect.png"
   ]
 }

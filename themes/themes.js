@@ -7,6 +7,8 @@
  * Inicio                                                                     *
  ******************************************************************************/
 function SetTheme(Options) {
+  SavedOptions = Options;
+
 	if (Options.theme == "black" &&
 		document.baseURI.indexOf("acao=editor_montar") == -1) {
 		console.log(window.location.href);
@@ -21,7 +23,7 @@ function SetTheme(Options) {
 		link.media = 'all';
 		head.appendChild(link);
 	}
-	
+
 	/* (ANATEL) Anatel Ponto de controle cores */
 	if (Options.CheckTypes.indexOf("pontocoresanatel") != -1 &&
 		document.baseURI.indexOf("acao=editor_montar") == -1) {
@@ -33,7 +35,7 @@ function SetTheme(Options) {
 		link.href = browser.extension.getURL("themes/PontoControleCores_Anatel.css");
 		link.media = 'all';
 		head.appendChild(link);
-	}	
+	}
 }
 
 /******************************************************************************

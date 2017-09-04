@@ -1,0 +1,18 @@
+/** Module: consultas.js ******************************************************/
+#seipp_divp {
+  border-top: 1px dotted;
+  font-size: 14px;
+}
+#seipp_novodoc {
+  padding-bottom: 1em;
+}
+#seipp_link_novodoc {
+  text-decoration: none;
+}
+#seipp_link_novodoc span {
+  font-size: 1.2em;
+  padding-left: 0.5em;
+}
+#seipp_link_novodoc img {
+  border: .1em solid white;
+}
