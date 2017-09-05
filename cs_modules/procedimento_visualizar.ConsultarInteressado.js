@@ -18,7 +18,7 @@ function ConsultarInteressado(BaseName) {
 
   /* Pega o html da pagina de alteração do processo */
   var webhttp = new XMLHttpRequest();
-  webhttp.open('GET', 'https://sei.anatel.gov.br/sei/' + url, true);
+  webhttp.open('GET', GetBaseUrl() + url, true);
   webhttp.onload = function () {
     var html = webhttp.responseText;
 
