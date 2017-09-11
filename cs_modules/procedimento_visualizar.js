@@ -5,6 +5,9 @@ SavedOptions.CheckTypes.forEach(function(element) {
     case "exibeinfointeressado":
       ConsultarInteressado(BaseName);
       break;
+    case "autopreencher":
+      AutopreencherAndamento(BaseName);
+      break;
     default:
       break;
   }

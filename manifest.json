@@ -59,6 +59,7 @@
       "js": [
         "lib/jquery-3.2.1.min.js",
         "cs_modules/procedimento_visualizar.ConsultarInteressado.js",
+        "cs_modules/procedimento_visualizar.AutopreencherAndamento.js",
         "cs_modules/procedimento_visualizar.js"
       ]
     },
