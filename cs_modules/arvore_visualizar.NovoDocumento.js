@@ -1,5 +1,5 @@
 function NovoDocumento(BaseName) {
-  /** inicialização do módulo ***************************************************/
+  /** inicialização do módulo */
   var mconsole = new __mconsole(BaseName + ".NovoDocumento");
 
   /* Pega a url de inclusão de documento */
