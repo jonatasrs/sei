@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "SEI++",
+  "name": "SEI++ (Testing)",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "2.2.1",
+  "version": "2.99.0.0",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/sei_++.png"},
@@ -13,7 +13,7 @@
     "gecko": {
       "id": "jonatas@gov",
       "strict_min_version": "52.0",
-      "update_url": "https://jonatasrs.github.io/sei/updates.json"
+      "update_url": "https://jonatasrs.github.io/sei/updates-testing.json"
     }
   },
 
