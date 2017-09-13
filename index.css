@@ -56,3 +56,7 @@ strong {
 div#vertical p {
   display: flex;
 }
+
+#seitest {
+  padding-right: 4px;
+}
