@@ -41,5 +41,4 @@ function format_cpf(cpf) {
       "$1.$2.$3/$4-$5");
   } else mask = "";
   return mask;
-  form
 }
