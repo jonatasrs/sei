@@ -61,4 +61,3 @@ function ConsultarInteressado(BaseName) {
     $("#seipp_servico").text(processo.servico);
   }
 }
-

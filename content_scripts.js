@@ -73,14 +73,15 @@ function MenuSuspenso() {
 		$("#divInfraAreaTelaD").width("99%");
 		$("#divInfraAreaTelaE").hide();
 	}
-	$("#lnkInfraMenuSistema").remove();
+	$("#lnkInfraMenuSistema").hide();
 	$("#divInfraAreaTelaE").css({
 		"position": "absolute",
 		"display": "block",
 		"width": "auto"
 	});
 	$("#divInfraBarraSistemaE img").click(function(e){
-		e.stopPropagation(); /* impede a propagação do evento click */
+    e.stopPropagation(); /* impede a propagação do evento click */
+    $("#divInfraAreaTelaE").css({"display": "block"});
 		$("#main-menu").toggle("fast");
 	});
 	$("#main-menu").hide();

@@ -28,6 +28,16 @@ __mconsole.prototype.log = function(message){
   console.log(this.ModuleName + ": " + message);
 };
 
+function ModuleInit(BaseName){
+  if ($("head meta[name='" + BaseName + "'").attr("value") != "true"){
+    $("head").append("<meta name='" + BaseName + "' value='true'>");
+    console.log("true");
+    return true;
+  } else {
+    console.log("falso");
+    return false;
+  }
+}
 /*** Biblioteca de strings *****************************************************/
 
 /** Adiciona a mascara de CPF/CNPJ. */
