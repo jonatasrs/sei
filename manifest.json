@@ -12,7 +12,8 @@
   "applications": {
     "gecko": {
       "id": "jonatas@gov",
-      "strict_min_version": "52.0"
+      "strict_min_version": "52.0",
+      "update_url": "https://jonatasrs.github.io/sei/updates-testing.json"
     }
   },
 
