@@ -44,7 +44,7 @@ function SalvarConfiguracoes() {
   var date = new Date();
   var options = {day: '2-digit', month: '2-digit', year: 'numeric',
     hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false};
-  document.getElementById("save-msg").textContent = "[ Salvo em " + 
+  document.getElementById("save-msg").textContent = "[ Salvo em " +
     new Intl.DateTimeFormat('pt-BR', options).format(date) + " ]";
 }
 
@@ -63,6 +63,16 @@ function AtualizaForm(restoredSettings) {
       item.checked = false;
     }
   }
+  document.getElementById("cliquemenos").addEventListener("change", mostraDivConfig);
+  mostraDivConfig();
+}
+
+function mostraDivConfig() {
+  if(document.getElementById("cliquemenos").checked){
+    document.getElementById("divFormato").style.visibility = "visible";
+  }
+  else
+    document.getElementById("divFormato").style.visibility = "hidden";
 }
 
 function onError(e) {
