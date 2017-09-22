@@ -4,15 +4,6 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="options.css"/>
-	<script>
-	function mostraDivConfig() {
-		if(document.getElementById("cliquemenos").checked){
-			document.getElementById("divFormato").style.visibility = "visible";
-		}
-		else
-			document.getElementById("divFormato").style.visibility = "hidden";
-	}
-	</script>
   </head>
 
   <body>
@@ -59,8 +50,8 @@
 					<input type="checkbox" data-type="atalhonovodoc"/>
         </label>
 				<label>Clique menos (<strong>Facilidade Experimental para uso somente na Anatel</strong>)
-					<input type="checkbox" id="cliquemenos" data-type="cliquemenos" onchange="mostraDivConfig()"/>
-        </label>
+					<input type="checkbox" id="cliquemenos" data-type="cliquemenos"/>
+				</label>
 				<div id="divFormato">
 					<fieldset>
 						<legend><b>Formato</b></legend>
