@@ -14,6 +14,7 @@ function verificaBlocoAssinatura() {
   var servidor = window.location.protocol + "//" + window.location.hostname + "/sei/"; //Obtém o caminho absoluto para a requisição assíncrona
   //console.log(servidor);
   var bloco = localizaItemBloco(); //obtem o elemento html para o bloco de assinaturas
+  if (bloco == undefined) return;
   var link = bloco.find("a").attr("href"); //link com hash
   var oReq = new XMLHttpRequest();
   oReq.addEventListener('load', reqListener);
@@ -124,12 +125,12 @@ function checkStoredSettings(storedSettings) {
 			case "chkbloco":
 				verificaBlocoAssinatura();
 				break;
-			case "menususp":
+      case "menususp":
 				MenuSuspenso();
 				break;
 			default:
 				console.log("Configuração não implementada: " + item);
-		}
+    }
 	}
 }
 
