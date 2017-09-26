@@ -41,8 +41,10 @@
     {
       "matches": ["*://*/sei/controlador.php?acao=documento_receber*"],
       "all_frames": true,
-      "css":["content_scripts.css"],
-      "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js", "content_scripts_cadastro.js"]
+      "js": ["lib/jquery-3.2.1.min.js",
+        "cs_modules/documento_receber.AutopreencherDocumentoExterno.js",
+        "cs_modules/documento_receber.js"
+      ]
     },
     {
       "matches": ["*://*/sei/controlador.php?acao=procedimento_controlar*"],
