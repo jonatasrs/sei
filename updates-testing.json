@@ -2,8 +2,8 @@
   "addons": {
     "jonatas@gov": {
       "updates": [{
-        "version": "2.99.0.2",
-        "update_link": "https://jonatasrs.github.io/sei/sei-2.99.0.2-an+fx.xpi"
+        "version": "2.99.0.3",
+        "update_link": "https://jonatasrs.github.io/sei/sei-2.99.0.3-an+fx.xpi"
       }]
     }
   }
