@@ -8,8 +8,8 @@ function Main(Options) {
   /** Carrega as opções configuradas */
   SavedOptions = Options;
 
-	if (Options.theme != "white") {
-    Theme(BaseName);
+	if (SavedOptions.theme != "white") {
+    Theme(BaseName, SavedOptions.Theme);
   }
 
   SavedOptions.CheckTypes.forEach(function(element) {
@@ -35,7 +35,7 @@ function onError(e) {console.error(e);}
 
 setTimeout(function () {
 	if (isChrome) { /* Chrome: */
-		browser.storage.local.get(SetTheme);
+		browser.storage.local.get(Main);
 	} else {
 		const gettingStoredSettings = browser.storage.local.get();
 		gettingStoredSettings.then(Main, onError);
