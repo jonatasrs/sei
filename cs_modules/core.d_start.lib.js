@@ -52,3 +52,15 @@ function format_cpf(cpf) {
   } else mask = "";
   return mask;
 }
+
+/** Adicionar link css na página */
+function AdicionarLinkCss(doc, id, href) {
+  var head  = doc.getElementsByTagName('head')[0];
+  var link  = doc.createElement('link');
+  link.id   = id;
+  link.rel  = 'stylesheet';
+  link.type = 'text/css';
+  link.href = browser.extension.getURL(href);
+  link.media = 'all';
+  head.appendChild(link);
+}

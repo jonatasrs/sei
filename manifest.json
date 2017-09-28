@@ -31,17 +31,29 @@
       "run_at": "document_start",
       "css": ["cs_modules/core.css"],
       "all_frames": true,
-      "js": ["cs_modules/core.js", "themes/themes.js"]
+      "js": [
+        "cs_modules/core.d_start.lib.js",
+        "cs_modules/core.d_start.PontoControleCores.js",
+        "cs_modules/core.d_start.RedirecionarPagina.js",
+        "cs_modules/core.d_start.Theme.js",
+        "cs_modules/core.d_start.js"
+      ]
     },
     {
-      "matches": ["*://*/sei/*", "*://*/sip/*"],
-      "css":["content_scripts.css"],
-      "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js", "content_scripts.js"]
+      "matches": ["*://*/sei/controlador.php?acao=*", "*://*/sip/login.php*"],
+      "all_frames": true,
+      "js": [
+        "lib/jquery-3.2.1.min.js",
+        "cs_modules/core.d_idle.AdicionarIdentificadorSeipp.js",
+        "cs_modules/core.d_idle.MenuSuspenso.js",
+        "cs_modules/core.d_idle.VerificarBlocoAssinatura.js",
+        "cs_modules/core.d_idle.js"
+      ]
     },
     {
       "matches": ["*://*/sei/controlador.php?acao=documento_receber*"],
       "all_frames": true,
-      "js": ["lib/jquery-3.2.1.min.js",
+      "js": [
         "cs_modules/documento_receber.AutopreencherDocumentoExterno.js",
         "cs_modules/documento_receber.js"
       ]
@@ -49,7 +61,7 @@
     {
       "matches": ["*://*/sei/controlador.php?acao=procedimento_controlar*"],
       "js": [
-        "lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js",
+        "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js",
         "cs_modules/procedimento_controlar.IncluirCalculoPrazos.js",
         "cs_modules/procedimento_controlar.AdicionarOrdenacao.js",
         "cs_modules/procedimento_controlar.js"
@@ -59,7 +71,6 @@
       "matches": ["*://*/sei/controlador.php?acao=procedimento_visualizar*"],
       "all_frames": true,
       "js": [
-        "lib/jquery-3.2.1.min.js",
         "cs_modules/procedimento_visualizar.ConsultarInteressado.js",
         "cs_modules/procedimento_visualizar.AutopreencherAndamento.js",
         "cs_modules/procedimento_visualizar.js"
@@ -69,7 +80,6 @@
       "matches": ["*://*/sei/controlador.php?acao=arvore_visualizar*"],
       "all_frames": true,
       "js": [
-        "lib/jquery-3.2.1.min.js",
         "cs_modules/arvore_visualizar.NovoDocumento.js",
         "cs_modules/arvore_visualizar.js"
       ]
@@ -77,8 +87,8 @@
   ],
 
   "web_accessible_resources": [
-    "themes/black.css",
-    "themes/PontoControleCores_Anatel.css",
+    "cs_modules/themes/black.css",
+    "cs_modules/themes/PontoControleCores_Anatel.css",
     "icons/iconYellow.png",
     "icons/iconBlue.png",
     "icons/iconGreen.png",

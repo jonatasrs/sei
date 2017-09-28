@@ -144,6 +144,9 @@ div.tituloProcessoDocumento, div.tituloProcessoDocumento label {
   color: white;
   border-bottom-color: black;
 }
+tr.trVermelha {
+  background-color: #550000;
+}
 
 /*** infra-global-esquema.css */
 caption.infraCaption {
