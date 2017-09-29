@@ -2,21 +2,18 @@
  SEI ++: Script que adiciona novas funcionalidades ao SEI
  Autor: Jonatas Evaristo / Diego Rossi / Hebert M. Magalhães
 *******************************************************************************/
-const BaseName = "Seipp.core.d_idle";
+const ModName_idle = "Seipp.core.d_idle";
 
-console.log(BaseName);
-
-if (ModuleInit(BaseName)) {
-
-  AdicionarIdentificadorSeipp(BaseName);
+if (ModuleInit(ModName_idle)) {
+  AdicionarIdentificadorSeipp(ModName_idle);
 
   SavedOptions.CheckTypes.forEach(function(element) {
     switch (element) {
       case "chkbloco":
-        VerificarBlocoAssinatura(BaseName);
+        VerificarBlocoAssinatura(ModName_idle);
         break;
       case "menususp":
-        MenuSuspenso(BaseName);
+        MenuSuspenso(ModName_idle);
         break;
       default:
         break;

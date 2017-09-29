@@ -2,20 +2,21 @@
  SEI ++: Script que adiciona novas funcionalidades ao SEI
  Autor: Jonatas Evaristo
 *******************************************************************************/
-const BaseName = "Seipp.core.d_start";
+const ModName_start = "Seipp.core.d_start";
 
 function Main(Options) {
+  console.log(ModName_start + ": >>>");
   /** Carrega as opções configuradas */
   SavedOptions = Options;
 
 	if (SavedOptions.theme != "white") {
-    Theme(BaseName, SavedOptions.Theme);
+    Theme(ModName_start, SavedOptions.Theme);
   }
 
   SavedOptions.CheckTypes.forEach(function(element) {
     switch (element) {
       case "pontocoresanatel":
-        PontoControleCores(BaseName);
+        PontoControleCores(ModName_start);
         break;
       default:
         break;
@@ -24,7 +25,7 @@ function Main(Options) {
 
   if (window.location.href ==
     (window.location.protocol + "//" + window.location.hostname + "/sei/")) {
-    RedirecionarPagina(BaseName);
+    RedirecionarPagina(ModName_start);
   }
 }
 

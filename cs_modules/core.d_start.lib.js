@@ -22,16 +22,16 @@ function GetBaseUrl() {
 var __mconsole = function (ModuleName)
 {
   this.ModuleName = ModuleName;
-  console.log(this.ModuleName + ": Loading...");
+  console.log("  " + this.ModuleName + ": Loading...");
 }
 __mconsole.prototype.log = function(message){
-  console.log(this.ModuleName + ": " + message);
+  console.log("    * " + message);
 };
 
 function ModuleInit(BaseName){
   if ($("head meta[name='" + BaseName + "'").attr("value") != "true"){
     $("head").append("<meta name='" + BaseName + "' value='true'>");
-    console.log("true");
+    console.log(BaseName + ": >>> Inicialização dos sub-modulos...");
     return true;
   } else {
     console.log("falso");

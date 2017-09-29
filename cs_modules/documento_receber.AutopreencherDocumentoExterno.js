@@ -1,6 +1,6 @@
 function AutopreencherDocumentoExterno(BaseName, settings) {
   /** inicialização do módulo */
-  var mconsole = new __mconsole(BaseName + ".AdicionarOrdenacao");
+  var mconsole = new __mconsole(BaseName + ".AutopreencherDocumentoExterno");
 
   function autoFillDocument(formato, nivelAcesso, hipoteseLegal) {
     var data = new Date();

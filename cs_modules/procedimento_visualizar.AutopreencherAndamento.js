@@ -17,7 +17,6 @@ function AutopreencherAndamento(BaseName) {
     a.setAttribute("id","teste");
     var link = $('<a><img src="'+browser.extension.getURL("icons/ect.png")+'" title="Preencher atualização de andamento (abra a tela de atualizar andamento antes de clicar!)"> </img></a>');
     var sp = $(this).find("span");
-    console.log($(this).html());
     var text = sp.text();
     var inicio = text.indexOf("Ofício");
     var notif = text.indexOf("Notificação");
@@ -27,7 +26,7 @@ function AutopreencherAndamento(BaseName) {
     if((inicio == 0)||(notif == 0)||(comunic == 0)){
       nome = text.slice(0, fim);
       var num = text.substring(fim + 1, text.length - 2);
-      console.log("-> " + nome + "- " + num);
+      mconsole.log(nome + "- " + num);
       $(this).attr("style","color:red");
       $(this).after(link);
       link.click({name: nome, sei: num},enviarOficio);
