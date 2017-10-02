@@ -1,0 +1,86 @@
+<h1 class="seipp-options-title">Configurações do complemento SEI++</h1>
+<hr>
+
+<fieldset>
+  <legend>Configurações do SEI++</legend>
+
+  <section class="seipp-options">
+    <label class="title">Escolha o tema a ser utilizado no SEI:
+      <select id="theme" title="Teste o incrivel tema preto no SEI (SEI black)">
+        <option value="white" selected>SEI Padrão</option>
+        <option value="black">SEI Black</option>
+      </select>
+    </label>
+  </section>
+
+  <hr>
+
+  <section class="seipp-options">
+    <h2 class="seipp-options-subtitle">Quais ferramentas você deseja habilitar?</h2>
+
+    <input type="checkbox" data-type="prazo" />Prazo de atendimento (Incluir a data no texto do marcador no formato "<u>ATE dd/mm/aaaa</u>".)<br>
+    <input type="checkbox" data-type="qtddias" />Quantidade de dias (Incluir a data no texto do marcador no formato "<u>dd/mm/aaaa</u>".)<br>
+    <input type="checkbox" data-type="chkbloco" />Checagem de blocos de assinatura<br>
+    <input type="checkbox" data-type="menususp" />Menu do sistema suspenso (Ficará disponível no logo do SEI no canto esquerdo superior)<br>
+    <input type="checkbox" data-type="autopreencher" />Ferramenta de auto preenchimento do andamento do processo ao enviar Correspondência (<strong>Experimental</strong>)<br>
+    <input type="checkbox" data-type="pontocoresanatel" />ANATEL: Ponto de controle em cores (<strong>Somente para a Anatel</strong>)<br>
+    <input type="checkbox" data-type="exibeinfointeressado" />Exibir Informações do interessado (<strong>Exibe Informações do interessado na árvore de processo.</strong>)<br>
+    <input type="checkbox" data-type="atalhonovodoc" />Exibir atalho para novo documento (<strong>Exibe o atalho na árvore de processo.</strong>)<br>
+
+    <input type="checkbox" id="cliquemenos" data-type="cliquemenos" />Clique menos (<strong>Facilidade Experimental para uso somente na Anatel</strong>)<br>
+
+    <div id="divFormato">
+      <fieldset>
+        <legend>Formato</legend>
+          <input type="radio" name="formato" id="rdNato" value="N" checked> Nato-digital<br>
+          <input type="radio" name="formato" id="rdDigitalizado" value="D"> Digitalizado nesta Unidade<br>
+      </fieldset>
+      <fieldset>
+        <legend>Nível de Acesso</legend>
+        <input type="radio" name="nivelAcesso" id="rdSigiloso" disabled="disabled" value="S"> Sigiloso<br>
+        <input type="radio" name="nivelAcesso" id="rdRestrito" value="R"> Restrito<br>
+        <input type="radio" name="nivelAcesso" id="rdPublico" value="P" checked> Público<br>
+        <label>Hipótese Legal (para os casos de documento sigiloso ou restrito):
+        <select id="hipoteseLegal">
+          <option value="null"> </option>
+          <option value="40">Controle Interno (Art. 26, § 3º, da Lei nº 10.180/2001)</option>
+          <option value="45">Direito Autoral (Art. 24, III, da Lei nº 9.610/1998)</option>
+          <option value="33">Documento Preparatório (Art. 7º, § 3º, da Lei nº 12.527/2011)</option>
+          <option value="35">Fiscalização / Investigação da Anatel (Art. 174 da Lei nº 9.472/1997)</option>
+          <option value="34">Informação Pessoal (Art. 31 da Lei nº 12.527/2011)</option>
+          <option value="39">Informações Contábeis de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
+          <option value="38">Informações Econômico-Financeiras de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
+          <option value="37">Informações Operacionais de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
+          <option value="46">Informações Privilegiadas de Sociedades Anônimas (Art. 155, § 2º, da Lei nº 6.404/1976)</option>
+          <option value="36">Informações Técnicas de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
+          <option value="41">Interceptação de Comunicações Telefônicas (Art. 8º, caput, da Lei nº 9.296/1996)</option>
+          <option value="31">Investigação de Responsabilidade de Servidor (Art. 150 da Lei nº 8.112/1990)</option>
+          <option value="47">Livros e Registros Contábeis Empresariais (Art. 1.190 do Código Civil)</option>
+          <option value="48">Operações Bancárias (Art. 1º da Lei Complementar nº 105/2001)</option>
+          <option value="49">Proteção da Propriedade Intelectual de Software (Art. 2º da Lei nº 9.609/1998)</option>
+          <option value="43">Protocolo -Pendente Análise de Restrição de Acesso (Art. 6º, III, da Lei nº 12.527/2011)</option>
+          <option value="50">Segredo de Justiça no Processo Civil (Art. 189 do Código de Processo Civil)</option>
+          <option value="51">Segredo de Justiça no Processo Penal (Art. 201, § 6º, do Código de Processo Penal)</option>
+          <option value="52">Segredo Industrial (Art. 195, XIV, Lei nº 9.279/1996)</option>
+          <option value="53">Sigilo das Comunicações (Art. 3º, V, da Lei nº 9.472/1997)</option>
+          <option value="54">Sigilo de Empresa em Situação Falimentar (Art. 169 da Lei nº 11.101/2005)</option>
+          <option value="55">Sigilo do Inquérito Policial (Art. 20 do Código de Processo Penal)</option>
+          <option value="42">Situação Econômico-Financeira de Sujeito Passivo (Art. 198, caput, da Lei nº 5.172/1966 - CTN)</option>
+        </select>
+        </label>
+      </fieldset>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="seipp-options">
+    <h2 class="seipp-options-subtitle">Notificações?</h2>
+    <input type="checkbox" data-type="hidemsgupdate" />Desabilitar notificação de autualização?
+  </section>
+</fieldset>
+
+<div>
+  <input type="button" value="Salvar configurações" id="save-button" />
+  <div id="save-msg"></div>
+</div>

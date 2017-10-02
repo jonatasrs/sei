@@ -1,0 +1,20 @@
+.seipp-options input, .seipp-options select {
+  float: right;
+}
+
+.seipp-options label {
+  margin-left: 10px;
+}
+
+.seipp-options h2 {
+  font-weight: bold;
+  color: green;
+}
+
+.seipp-options-data {
+  display: list-item;  
+  padding: 5px;
+}
+.seipp-options-data:hover {
+  background-color: blue;
+}

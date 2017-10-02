@@ -83,10 +83,18 @@
         "cs_modules/arvore_visualizar.NovoDocumento.js",
         "cs_modules/arvore_visualizar.js"
       ]
+    },
+    {
+      "matches": ["*://*/sei/controlador.php?acao=infra_configurar*"],
+      "js": [
+        "cs_modules/infra_configurar.Options_ui.js",
+        "cs_modules/infra_configurar.js"
+      ]
     }
   ],
 
   "web_accessible_resources": [
+    "cs_modules/options_ui/options_ui.html",
     "cs_modules/themes/black.css",
     "cs_modules/themes/PontoControleCores_Anatel.css",
     "icons/iconYellow.png",
