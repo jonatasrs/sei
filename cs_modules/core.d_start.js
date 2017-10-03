@@ -7,7 +7,9 @@ const ModName_start = "Seipp.core.d_start";
 function Main(Options) {
   console.log(ModName_start + ": >>>");
   /** Carrega as opções configuradas */
-  SavedOptions = Options;
+  if (Options.theme != undefined) {
+    SavedOptions = Options;
+  }
 
 	if (SavedOptions.theme != "white") {
     Theme(ModName_start, SavedOptions.Theme);

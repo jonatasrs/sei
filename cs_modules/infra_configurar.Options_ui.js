@@ -85,13 +85,12 @@ function Options_ui(BaseName) {
       console.log(`Error: ${error}`);
     }
 
-    browser.storage.local.set({
-      theme,
-      CheckTypes,
-      formato,
-      nivelAcesso,
-      hipoteseLegal
-    }).then(null, onError);
+    var OptionsToSave = {theme, CheckTypes, formato, nivelAcesso, hipoteseLegal};
+    if (isChrome) {
+      browser.storage.local.set(OptionsToSave);
+    } else {
+      browser.storage.local.set(OptionsToSave).then(null, onError);
+    }
     alert("Salvo");
     window.location.assign(window.location.href);
   }
