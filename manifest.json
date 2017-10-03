@@ -3,7 +3,7 @@
   "name": "SEI++ Testing (Versão em desenvolvimento)",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "2.99.0.4",
+  "version": "2.99.0.5",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/sei_++_testing.png"},
@@ -15,10 +15,6 @@
       "strict_min_version": "52.0",
       "update_url": "https://jonatasrs.github.io/sei/updates-testing.json"
     }
-  },
-
-  "options_ui": {
-    "page": "options/options.html"
   },
 
   "background": {
@@ -86,6 +82,7 @@
     },
     {
       "matches": ["*://*/sei/controlador.php?acao=infra_configurar*"],
+      "css": ["cs_modules/options_ui/options_ui.css"],
       "js": [
         "cs_modules/infra_configurar.Options_ui.js",
         "cs_modules/infra_configurar.js"

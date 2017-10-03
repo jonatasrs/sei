@@ -299,3 +299,6 @@ td[style*="background-color:rgb(204,204,204)"] {
 .infraTrClara:hover, .seipp-alerta:hover, .seipp-critico:hover  {background-color: darkblue !important;}
 .infraTrClara:hover * {color: white !important;}
 
+.seipp-options label:hover {
+  background-color: darkblue !important;
+}
