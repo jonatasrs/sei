@@ -1,8 +1,6 @@
 const BaseName = "Seipp.procedimento_controlar";
 
 if (ModuleInit(BaseName)) {
-  AdicionarOrdenacao(BaseName);
-
   SavedOptions.CheckTypes.forEach(function(element) {
     switch (element) {
       case "prazo":
@@ -13,4 +11,5 @@ if (ModuleInit(BaseName)) {
         break;
     }
   }, this);
+  AdicionarOrdenacao(BaseName);
 }

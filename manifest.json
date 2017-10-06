@@ -36,7 +36,7 @@
       ]
     },
     {
-      "matches": ["*://*/sei/controlador.php?acao=*", "*://*/sip/login.php*"],
+      "matches": ["*://*/sei/controlador.php?acao=*", "*://*/sei/controlador_externo.php?acao=*"],
       "all_frames": true,
       "js": [
         "lib/jquery-3.2.1.min.js",
