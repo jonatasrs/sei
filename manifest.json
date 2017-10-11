@@ -3,7 +3,7 @@
   "name": "SEI++ Testing (Versão em desenvolvimento)",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "2.99.0.6",
+  "version": "2.99.0.7",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/sei_++_testing.png"},
@@ -29,7 +29,6 @@
       "all_frames": true,
       "js": [
         "cs_modules/core.d_start.lib.js",
-        "cs_modules/core.d_start.PontoControleCores.js",
         "cs_modules/core.d_start.RedirecionarPagina.js",
         "cs_modules/core.d_start.Theme.js",
         "cs_modules/core.d_start.js"
@@ -37,9 +36,11 @@
     },
     {
       "matches": ["*://*/sei/controlador.php?acao=*", "*://*/sei/controlador_externo.php?acao=*"],
+      "run_at": "document_idle",
       "all_frames": true,
       "js": [
         "lib/jquery-3.2.1.min.js",
+        "cs_modules/core.d_idle.PontoControleCores.js",
         "cs_modules/core.d_idle.AdicionarIdentificadorSeipp.js",
         "cs_modules/core.d_idle.MenuSuspenso.js",
         "cs_modules/core.d_idle.VerificarBlocoAssinatura.js",

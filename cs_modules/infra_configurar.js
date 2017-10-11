@@ -1,4 +1,4 @@
-const BaseName = "Seipp.infra_configurar";
+const BaseName = "infra_configurar";
 
 if (ModuleInit(BaseName)) {
   Options_ui(BaseName);

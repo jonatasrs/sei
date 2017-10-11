@@ -1,6 +1,6 @@
-const BaseName = "Seipp.procedimento_controlar";
+const BaseName = "procedimento_controlar";
 
-if (ModuleInit(BaseName)) {
+if (ModuleInit(BaseName, true)) {
   SavedOptions.CheckTypes.forEach(function(element) {
     switch (element) {
       case "prazo":

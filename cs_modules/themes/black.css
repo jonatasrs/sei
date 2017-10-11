@@ -296,7 +296,7 @@ td[style*="background-color:rgb(204,204,204)"] {
 .seipp-critico {
   background-color: #300 !important;
 }
-.infraTrClara:hover, .seipp-alerta:hover, .seipp-critico:hover  {background-color: darkblue !important;}
+.infraTrEscura:hover, .infraTrClara:hover, .seipp-alerta:hover, .seipp-critico:hover  {background-color: darkblue !important;}
 .infraTrClara:hover * {color: white !important;}
 
 .seipp-options label:hover {

@@ -4,14 +4,17 @@ var DefaultOptions = {
   theme: "white",
   CheckTypes: [
     "prazo"
-  ]};
+  ]
+};
+
+const CompName = "Seipp";
 
 /** Options salvas */
 var SavedOptions = DefaultOptions;
 
 /*** Verifica se está utilizando o navegador chrome ***************************/
 const isChrome = (typeof browser === "undefined"); /* Chrome: */
-if (isChrome) {var browser = chrome;} /* Chrome: */
+if (isChrome) { var browser = chrome; } /* Chrome: */
 
 /*** Url base do sei ***********************************************************/
 function GetBaseUrl() {
@@ -19,22 +22,31 @@ function GetBaseUrl() {
 }
 
 /*** MODULES: Generic class log ************************************************/
-var __mconsole = function (ModuleName)
-{
-  this.ModuleName = ModuleName;
-  console.log("  " + this.ModuleName + ": Loading...");
+function __mconsole(ModuleName) {
+  this.PModuleName = ModuleName;
+  console.log("[" + CompName + " " + Date.now() + "]  " + this.PModuleName + ": Loading...");
 }
-__mconsole.prototype.log = function(message){
-  console.log("    * " + message);
-};
+__mconsole.prototype.log = function(message) {
+    console.log("[" + CompName + " " + Date.now() + "]    "+ this.PModuleName+": " + message);
+}
 
-function ModuleInit(BaseName){
-  if ($("head meta[name='" + BaseName + "'").attr("value") != "true"){
-    $("head").append("<meta name='" + BaseName + "' value='true'>");
-    console.log(BaseName + ": >>> Inicialização dos sub-modulos...");
+function Init(BaseName) {
+  console.log("[" + CompName + " " + Date.now() + "]" + BaseName);
+}
+
+function ModuleInit(BaseName, PageReload = false) {
+  var ModName = CompName + "." + BaseName;
+  var IsModExec = $("head meta[name='" + ModName + "'").attr("value");
+
+  if (IsModExec != "true") {
+    $("head").append("<meta name='" + ModName + "' value='true'>");
+    console.log("[" + CompName + " " + Date.now() + "]" + BaseName);
     return true;
+  } else if (IsModExec == "true" && PageReload) {
+    window.location.assign(window.location.href);
+    console.log("[" + CompName + " " + Date.now() + "]" + BaseName + "Reload page");
+    return false;
   } else {
-    console.log("falso");
     return false;
   }
 }
@@ -55,10 +67,11 @@ function format_cpf(cpf) {
 
 /** Adicionar link css na página */
 function AdicionarLinkCss(doc, id, href) {
-  var head  = doc.getElementsByTagName('head')[0];
-  var link  = doc.createElement('link');
-  link.id   = id;
-  link.rel  = 'stylesheet';
+  var head = doc.getElementsByTagName('head')[0];
+  if (head == undefined) return;
+  var link = doc.createElement('link');
+  link.id = id;
+  link.rel = 'stylesheet';
   link.type = 'text/css';
   link.href = browser.extension.getURL(href);
   link.media = 'all';

@@ -1,4 +1,4 @@
-const BaseName = "Seipp.documento_receber";
+const BaseName = "documento_receber";
 
 if (ModuleInit(BaseName)) {
 

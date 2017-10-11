@@ -1,23 +1,25 @@
 /** Redireciona pagina para controle de processos */
-function RedirecionarPagina(BaseName) {
+function RedirecionarPagina(BaseName, num = 0) {
   /** inicialização do módulo */
   var mconsole = new __mconsole(BaseName + ".RedirecionarPagina");
 
-  if (window.location.href ==
-    (window.location.protocol + "//" + window.location.hostname + "/sei/")) {
-    setTimeout(function () {
-      var links = document.getElementById("main-menu").getElementsByTagName("a");
-      mconsole.log(links);
-      for (var index in links) {
-        if (links.hasOwnProperty(index)) {
-          var element = links[index];
+  mconsole.log("Tentativa " + num);
 
-          if (element.getAttribute("href").indexOf("controlador.php?acao=procedimento_controlar") != -1) {
-            window.location.assign(element.getAttribute("href"));
-          }
+  var menu = document.getElementById("main-menu");
+  if (menu != null) {
+    var links = menu.getElementsByTagName("a");
+    for (var index in links) {
+      if (links.hasOwnProperty(index)) {
+        var element = links[index];
+
+        if (element.getAttribute("href").indexOf("controlador.php?acao=procedimento_controlar") != -1) {
+          window.location.assign(element.getAttribute("href"));
         }
       }
-
-    }, 200);
+    }
+  } else if (num < 6) {
+    setTimeout(function () {
+      RedirecionarPagina(BaseName, num + 1);
+    }, 100);
   }
 }

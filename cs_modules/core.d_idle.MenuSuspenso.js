@@ -3,6 +3,8 @@ function MenuSuspenso(BaseName) {
   /** inicialização do módulo */
   var mconsole = new __mconsole(BaseName + ".MenuSuspenso");
 
+  if (!$("#main-menu").length) return;
+
   if ($("#lnkInfraMenuSistema").attr("title").indexOf("Ocultar") != -1) {
 		$("#divInfraAreaTelaD").width("99%");
 		$("#divInfraAreaTelaE").hide();

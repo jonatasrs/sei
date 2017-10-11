@@ -2,45 +2,37 @@
  SEI ++: Script que adiciona novas funcionalidades ao SEI
  Autor: Jonatas Evaristo
 *******************************************************************************/
-const ModName_start = "Seipp.core.d_start";
+const ModName_start = "core.d_start";
 
 function Main(Options) {
-  console.log(ModName_start + ": >>>");
+  Init(ModName_start);
+
   /** Carrega as opções configuradas */
   if (Options.theme != undefined) {
     SavedOptions = Options;
   }
 
-	if (SavedOptions.theme != "white") {
-    Theme(ModName_start, SavedOptions.Theme);
+  if (SavedOptions.theme != "white") {
+    setTimeout(function () {
+      Theme(ModName_start, SavedOptions.Theme);
+    }, 10);
   }
 
-  SavedOptions.CheckTypes.forEach(function(element) {
-    switch (element) {
-      case "pontocoresanatel":
-        PontoControleCores(ModName_start);
-        break;
-      default:
-        break;
-    }
-  }, this);
-
-  if (window.location.href ==
-    (window.location.protocol + "//" + window.location.hostname + "/sei/")) {
-    RedirecionarPagina(ModName_start);
+  if (window.location.href == GetBaseUrl()) {
+    setTimeout(function () {
+      RedirecionarPagina(ModName_start);
+    }, 100);
   }
 }
 
 /******************************************************************************
  * Inicio                                                                     *
  ******************************************************************************/
-function onError(e) {console.error(e);}
+function onError(e) { console.error(e); }
 
-setTimeout(function () {
-	if (isChrome) { /* Chrome: */
-		browser.storage.local.get(Main);
-	} else {
-		const gettingStoredSettings = browser.storage.local.get();
-		gettingStoredSettings.then(Main, onError);
-	}
-}, 10);
+if (isChrome) { /* Chrome: */
+  browser.storage.local.get(Main);
+} else {
+  const gettingStoredSettings = browser.storage.local.get();
+  gettingStoredSettings.then(Main, onError);
+}

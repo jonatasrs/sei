@@ -2,13 +2,9 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
   /** inicialização do módulo */
   var mconsole = new __mconsole(BaseName + ".IncluirCalculoPrazos");
 
-  ExecutarCalculoPrazo(TipoDeCalculo);
-
-  function ExecutarCalculoPrazo(TipoDeCalculo) {
-    IncluirColunaTabela("tblProcessosDetalhado", TipoDeCalculo);
-    IncluirColunaTabela("tblProcessosGerados", TipoDeCalculo);
-    IncluirColunaTabela("tblProcessosRecebidos", TipoDeCalculo);
-  }
+  IncluirColunaTabela("tblProcessosDetalhado", TipoDeCalculo);
+  IncluirColunaTabela("tblProcessosGerados", TipoDeCalculo);
+  IncluirColunaTabela("tblProcessosRecebidos", TipoDeCalculo);
 
   function IncluirColunaTabela(IdTabela, TipoDeCalculo) {
     var table = document.getElementById(IdTabela);

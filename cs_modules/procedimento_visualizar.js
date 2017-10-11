@@ -1,4 +1,4 @@
-const BaseName = "Seipp.procedimento_visualizar";
+const BaseName = "procedimento_visualizar";
 
 if (ModuleInit(BaseName)) {
   SavedOptions.CheckTypes.forEach(function(element) {
