@@ -10,6 +10,10 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
     var table = document.getElementById(IdTabela);
 
     if (!(table == null)) {
+      /* Remove os eventos da tabela */
+      table.parentNode.replaceChild(table.cloneNode(true), table);
+      table = document.getElementById(IdTabela);
+
       /* Inclui o cabeçalho na tabela */
       var h = document.createElement("th");
       h.setAttribute("class", "tituloControle");
@@ -92,9 +96,6 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
 
   /* Formata a tabela pelos valores */
   function FormatarTabela(Linha, Valor, TipoDeCalculo) {
-    Linha.onmouseout = null;
-    Linha.onmouseover = null;
-
     if (TipoDeCalculo == "qtddias") {
       if (Valor > 20 & Valor < 31) {
         $(Linha).attr("class", "seipp-alerta");
