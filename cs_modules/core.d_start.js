@@ -13,9 +13,7 @@ function Main(Options) {
   }
 
   if (SavedOptions.theme != "white") {
-    setTimeout(function () {
-      Theme(ModName_start, SavedOptions.Theme);
-    }, 10);
+    Theme(ModName_start, SavedOptions.Theme);
   }
 
   if (window.location.href == GetBaseUrl()) {

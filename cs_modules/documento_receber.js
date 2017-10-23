@@ -1,6 +1,7 @@
 const BaseName = "documento_receber";
 
 if (ModuleInit(BaseName)) {
+  ForcarReaberturaProcesso(BaseName);
 
   SavedOptions.CheckTypes.forEach(function(element) {
     switch (element) {

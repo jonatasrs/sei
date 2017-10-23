@@ -244,7 +244,8 @@ a.ancoraRelacionadosParcial {
   color: inherit;
 }
 [src="imagens/sei_assinar_pequeno.gif"],
-[src="imagens/sei_autenticar_pequeno.gif"] {
+[src="imagens/sei_autenticar_pequeno.gif"],
+[src="imagens/sei_autenticar_pequeno_nao_bloqueado.gif"]{
   filter: invert(100%)
 }
 /****************************************************************************/
