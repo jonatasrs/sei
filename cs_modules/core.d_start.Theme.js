@@ -1,18 +1,21 @@
-function Theme(BaseName, tema, num = 0) {
+function Theme(BaseName, tema) {
   /** inicialização do módulo */
   var mconsole = new __mconsole(BaseName + ".Theme");
 
-  if (document.baseURI.indexOf("acao=editor_montar") == -1) {
+  setTimeout(function () {
+    if (document.baseURI.indexOf("acao=editor_montar") == -1) {
+      AdicionarLinkCss(document, "seipp-theme", "cs_modules/themes/black.css");
+      CorrigirLinkCss();
+    }
+  }, 10);
+
+  function CorrigirLinkCss(num = 0) {
     setTimeout(function () {
-      mconsole.log(document.getElementsByTagName("body").length);
       if (document.getElementsByTagName("body").length == 1) {
-        mconsole.log(num);
-        AdicionarLinkCss(document, "seipp-theme", "cs_modules/themes/black.css");
+        document.getElementsByTagName("head")[0].appendChild(document.getElementById("seipp-theme"));
       } else if (num < 100) {
-        Theme(BaseName, tema, num + 1);
-      } else {
-        mconsole.log("Erro ao aplicar o tema!");
+        CorrigirLinkCss(num + 1);
       }
-    }, 100);
+    }, 10);
   }
 }

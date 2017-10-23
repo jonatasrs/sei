@@ -19,7 +19,7 @@ function Main(Options) {
   if (window.location.href == GetBaseUrl()) {
     setTimeout(function () {
       RedirecionarPagina(ModName_start);
-    }, 100);
+    }, 500);
   }
 }
 
