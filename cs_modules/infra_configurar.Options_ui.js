@@ -28,8 +28,11 @@ function Options_ui(BaseName) {
     $("#cliquemenos").on("change", mostraDivConfig);
 
     $("input[name='formato'][value="+SavedOptions.formato+"]").attr("checked", true);
-    $("input[name='formato']").on("change", MostraNivelAcesso);
-    MostraNivelAcesso();
+    $("input[name='formato']").on("change", MostraTipoConferencia);
+    $("#divtipoconferencia").hide();
+    MostraTipoConferencia();
+
+    $("#tipoconferencia").val(SavedOptions.tipoConferencia);
 
     mconsole.log("RESTRITO: " + SavedOptions.nivelAcesso);
     $("input[name='nivelAcesso']").on("change", MostraRestrito);
@@ -42,22 +45,19 @@ function Options_ui(BaseName) {
     $("#save-button").on("click", OptionsSave);
   }
 
-  function MostraNivelAcesso() {
+  function MostraTipoConferencia() {
     if ($("input[name='formato']:checked").val() == "D"){
-      $("#nivelacesso").hide("fast");
+      $("#divtipoconferencia").show("fast");
     } else {
-      $("#nivelacesso").show("fast");
+      $("#divtipoconferencia").hide("fast");
     }
-
   }
 
   function MostraRestrito() {
     if ($("#rdRestrito:checked").val() == "R") {
-      $("#lhipoteseLegal").show("fast");
-      $("#hipoteseLegal").show("fast");
+      $("#divhipoteseLegal").show("fast");
     } else {
-      $("#lhipoteseLegal").hide("fast");
-      $("#hipoteseLegal").hide("fast");
+      $("#divhipoteseLegal").hide("fast");
     }
   }
 
@@ -77,6 +77,7 @@ function Options_ui(BaseName) {
 
     var theme = $("#theme").val();
     var formato = $("input[name='formato']:checked").val();
+    var tipoConferencia = $("#tipoconferencia").val();
     var nivelAcesso = $("input[name='nivelAcesso']:checked").val();
     var hipoteseLegal = $("#hipoteseLegal").val();
     mconsole.log(nivelAcesso);
@@ -85,7 +86,7 @@ function Options_ui(BaseName) {
       console.log(`Error: ${error}`);
     }
 
-    var OptionsToSave = {theme, CheckTypes, formato, nivelAcesso, hipoteseLegal};
+    var OptionsToSave = {theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal};
     if (isChrome) {
       browser.storage.local.set(OptionsToSave);
     } else {

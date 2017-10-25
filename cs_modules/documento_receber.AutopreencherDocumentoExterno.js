@@ -2,14 +2,22 @@ function AutopreencherDocumentoExterno(BaseName, settings) {
   /** inicialização do módulo */
   var mconsole = new __mconsole(BaseName + ".AutopreencherDocumentoExterno");
 
-  function autoFillDocument(formato, nivelAcesso, hipoteseLegal) {
+  function autoFillDocument(formato, tipoConferencia, nivelAcesso, hipoteseLegal) {
     var data = new Date();
     var hoje = getFormattedDate(data);
     $("#txtDataElaboracao").val(hoje);
-    if(formato == "N")
-      $("#optNato").click();
-    else
-      $("#optDigitalizado").click();
+
+    setTimeout(function () {
+      if (formato == "N") {
+        $("#optNato").attr('checked','checked');
+        $("#optNato").click();
+      } else if (formato == "D") {
+        $("#optDigitalizado").attr('checked','checked');
+        $("#optDigitalizado").click();
+        $("#selTipoConferencia").val(tipoConferencia);
+      }
+    }, 500);
+
     switch(nivelAcesso) {
       case "R":
         $("#optRestrito").click();
@@ -39,5 +47,5 @@ function AutopreencherDocumentoExterno(BaseName, settings) {
 
     return day + '/' + month + '/' + year;
   }
-  autoFillDocument(settings.formato, settings.nivelAcesso, settings.hipoteseLegal);
+  autoFillDocument(settings.formato, settings.tipoConferencia, settings.nivelAcesso, settings.hipoteseLegal);
 }
