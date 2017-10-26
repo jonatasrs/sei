@@ -3,7 +3,7 @@
   "name": "SEI++ Testing (Versão em desenvolvimento)",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "2.99.0.11",
+  "version": "2.99.0.12",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/sei_++_testing.png"},
@@ -60,6 +60,7 @@
       "matches": ["*://*/sei/controlador.php?acao=procedimento_controlar*"],
       "js": [
         "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js",
+        "cs_modules/procedimento_controlar.CorrigirTabelas.js",
         "cs_modules/procedimento_controlar.IncluirCalculoPrazos.js",
         "cs_modules/procedimento_controlar.AdicionarOrdenacao.js",
         "cs_modules/procedimento_controlar.js"

@@ -77,3 +77,11 @@ function AdicionarLinkCss(doc, id, href) {
   link.media = 'all';
   head.appendChild(link);
 }
+
+function isNumOnly(str) {
+  if (isNaN(parseInt(str))) {
+    return false;
+  } else {
+    return true;
+  }
+}
