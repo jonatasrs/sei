@@ -10,8 +10,8 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
     var table = $(IdTabela);
 
     if ($(IdTabela).length > 0) {
-      /* Remove os eventos da tabela */
-      $(table).replaceWith($(table).clone());
+      /* Remove os eventos da tabela: Precisa para funcionar no Chrome */
+      RemoveAllOldEventListener(table);
       table = $(IdTabela);
 
       /* Inclui o cabeçalho na tabela */

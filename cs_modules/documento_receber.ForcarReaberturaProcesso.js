@@ -34,6 +34,10 @@ function ForcarReaberturaProcesso(BaseName) {
         var NovoConfirmarDados = "if($('#selUnidadesReabertura option').length>0){confirmarDados();} else {alert('O processo não está aberto em nenhuma unidade! Favor verificar');$('#selUnidadesReabertura').prop('style', 'background-color: red !important');}";
         $("#divInfraBarraComandosSuperior > #btnSalvar").attr("onclick", NovoConfirmarDados);
         $("#divInfraBarraComandosInferior > #btnSalvar").attr("onclick", NovoConfirmarDados);
+
+        /* Remove os eventos antigos: Precisa para funcionar no Chrome */
+        RemoveAllOldEventListener($("#divInfraBarraComandosSuperior > #btnSalvar"));
+        RemoveAllOldEventListener($("#divInfraBarraComandosInferior > #btnSalvar"));
       }
       /* Habilita os botões novamente */
       $("#divInfraBarraComandosSuperior > #btnSalvar").removeAttr("disabled");

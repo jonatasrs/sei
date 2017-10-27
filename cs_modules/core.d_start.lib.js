@@ -85,3 +85,12 @@ function isNumOnly(str) {
     return true;
   }
 }
+
+/**
+ * PARA CHROME: Remove todos velhos eventos.
+ * Necessário ao substutuir os eventos padrão.
+ * @param {HTMLElement} Elem
+ */
+function RemoveAllOldEventListener(Elem) {
+  $(Elem).replaceWith($(Elem).clone());
+}
