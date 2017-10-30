@@ -6,6 +6,18 @@ function Options_ui(BaseName) {
   $("#seipp-div-options-ui").load(
     browser.extension.getURL("cs_modules/options_ui/options_ui.html"), function () {
       $("#divInfraBarraComandosSuperior input").hide();
+      $(".seipp-options-title").append(" - Versão: " + browser.runtime.getManifest().version);
+
+      $("#divInfraBarraLocalizacao").css({
+        "padding-left": "10px",
+        "margin-top": "10px"
+      });
+      $("#frmInfraConfigurar, #seipp-div-options-ui").css({
+        "border" : "2px solid",
+        "padding": "10px",
+        "margin-top": "10px"
+      });
+
       OptionsLoad();
     }
   );
