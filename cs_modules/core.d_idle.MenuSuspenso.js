@@ -8,24 +8,33 @@ function MenuSuspenso(BaseName) {
   if ($("#lnkInfraMenuSistema").attr("title").indexOf("Ocultar") != -1) {
 		$("#divInfraAreaTelaD").width("99%");
 		$("#divInfraAreaTelaE").hide();
-	}
-	$("#lnkInfraMenuSistema").hide();
+  }
+  /* Oculta o botao de exibir menu */
+  $("#lnkInfraMenuSistema").hide();
+  $("#divInfraAreaTelaE > div > p").hide();
+  $("#divInfraAreaTelaE > div > img").attr("title", $("#divInfraAreaTelaE > div > p").text());
+  $("#divInfraAreaTelaE > div > div").hide();
+
 	$("#divInfraAreaTelaE").css({
 		"position": "absolute",
 		"display": "block",
-		"width": "auto"
-	});
+    "width": "auto",
+    "background-color" : "#d7d7d7"
+  });
+
+	$("#divInfraAreaTelaE > div").css({"border-bottom": "5px solid"});
+
 	$("#divInfraBarraSistemaE img").click(function(e){
     e.stopPropagation(); /* impede a propagação do evento click */
-    $("#divInfraAreaTelaE").css({"display": "block"});
-		$("#main-menu").toggle("fast");
-	});
-	$("#main-menu").hide();
-	$("#main-menu").addClass("seipp-menu");
+    $("#divInfraAreaTelaE").toggle("fast");
+  });
+
+	$("#divInfraAreaTelaE").hide();
+	$("#divInfraAreaTelaE").addClass("seipp-menu");
 	$("#main-menu ul").addClass("seipp-menu");
-	$("#main-menu *").click(function(e){e.stopPropagation();})
+	$("#divInfraAreaTelaE *").click(function(e){e.stopPropagation();})
 	/* Oculta o menu ao clicar fora */
 	$('body').click(function(){
-		if (!$("#main-menu").is(':hidden')){$("#main-menu").toggle("fast");}
+		if (!$("#divInfraAreaTelaE").is(':hidden')){$("#divInfraAreaTelaE").toggle("fast");}
 	});
 }

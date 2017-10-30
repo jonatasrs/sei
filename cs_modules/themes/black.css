@@ -85,8 +85,8 @@ div.infraBarraSistema{
   background-color: var(--dark-gray) !important;
   border: none;
 }
-#main-menu li {
-  background-color: black;
+#main-menu li, div.infraAreaTelaE {
+  background-color: black !important;
 }
 #main-menu a {
   color: inherit !important;
