@@ -16,7 +16,7 @@ function ForcarReaberturaProcesso(BaseName) {
     var a = text.indexOf("controlador.php?acao=unidade_selecionar_reabertura_processo");
     var b = text.indexOf("'", a);
     var url = text.substring(a, b);
-    url = GetBaseUrl() + url
+    url = GetBaseUrl() + url;
     mconsole.log("Url para verificar unidades: " + url);
 
     /* Verifircar se o processo está aberto em alguma das unidades que passou */

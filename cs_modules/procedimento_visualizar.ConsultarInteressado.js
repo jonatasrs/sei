@@ -15,24 +15,14 @@ function ConsultarInteressado(BaseName) {
   if (a == -1) { a = head.indexOf("controlador.php?acao=procedimento_consultar");}
   var b = head.indexOf("\"", a);
   var url = head.substring(a, b);
+  url = GetBaseUrl() + url
+  mconsole.log(url);
 
   /* Pega o html da pagina de alteração do processo */
-  var webhttp = new XMLHttpRequest();
-  webhttp.open('GET', GetBaseUrl() + url, true);
-  webhttp.onload = function () {
-    var html = webhttp.responseText;
-
-    a = html.indexOf('id=\"selTipoProcedimento');
-    a = html.indexOf('selected=\"selected', a);
-    a = html.indexOf('>', a) + 1;
-    b = html.indexOf('<', a);
-    processo.servico = html.substring(a, b);
-
-    a = html.indexOf('id=\"selInteressadosProcedimento');
-    a = html.indexOf('option', a);
-    a = html.indexOf('>', a) + 1;
-    b = html.indexOf('<', a);
-    processo.nome = html.substring(a, b);
+  var WebHttp = $.ajax({ url: url });
+  WebHttp.done(function (html) {
+    processo.servico = $(html).find("#selTipoProcedimento option[selected='selected']").text();
+    processo.nome = $(html).find("#selInteressadosProcedimento option:first").text();
 
     a = processo.nome.indexOf('(') + 1;
     b = processo.nome.indexOf(')', a);
@@ -40,8 +30,7 @@ function ConsultarInteressado(BaseName) {
     processo.nome = processo.nome.substring(0, a - 2);
 
     DetalheProcesso_Preencher();
-  };
-  webhttp.send();
+  });
 
   /** Funções *******************************************************************/
   function DetalheProcesso_Criar(params) {
