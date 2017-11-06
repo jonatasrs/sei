@@ -22,4 +22,6 @@ if (ModuleInit(ModName_idle)) {
         break;
     }
   }, this);
+
+  if (SavedOptions.InstallOrUpdate) IndicarConfiguracao(ModName_idle);
 }

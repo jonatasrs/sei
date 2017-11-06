@@ -4,7 +4,8 @@ var DefaultOptions = {
   theme: "white",
   CheckTypes: [
     "prazo"
-  ]
+  ],
+  InstallOrUpdate: true
 };
 
 const CompName = "Seipp";

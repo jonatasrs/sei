@@ -55,6 +55,12 @@ function Options_ui(BaseName) {
 
     mostraDivConfig();
     $("#save-button").on("click", OptionsSave);
+
+    if (SavedOptions.InstallOrUpdate) {
+      SavedOptions.InstallOrUpdate = false;
+      browser.storage.local.set(SavedOptions);
+      $("#lnkConfiguracaoSistema img").css({'animation': 'none'});
+    }
   }
 
   function MostraTipoConferencia() {
