@@ -3,6 +3,7 @@ function VerificarBlocoAssinatura(BaseName) {
   var mconsole = new __mconsole(BaseName + ".VerificarBlocoAssinatura");
 
   var bloco = localizaItemBloco(); //obtem o elemento html para o bloco de assinaturas
+  if (bloco == undefined) return; //FIX BUG: Caso não exista o menu, retorna.
   var link = bloco.find("a").attr("href"); //link com hash
   var xmlhttpr = $.get(GetBaseUrl() + link, parseResult);
 
