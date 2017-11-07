@@ -32,6 +32,10 @@
       "js": ["content_scripts_core.js", "themes/themes.js"]
     },
     {
+      "matches": ["*://*.gov.br/sei/*", "*://*.gov.br/sip/*"],
+      "js": ["lib/jquery-3.2.1.min.js", "selecionar_multiplos_processos.js"]
+    },
+    {
       "matches": ["*://*/sei/*", "*://*/sip/*"],
 	  "css":["content_scripts.css"],
       "js": ["lib/jquery-3.2.1.min.js", "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js", "content_scripts.js"]
