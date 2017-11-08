@@ -5,6 +5,7 @@ var DefaultOptions = {
   CheckTypes: [
     "prazo",
     "filtraporatribuicao",
+    "carregainformacaoblocos",
   ],
   InstallOrUpdate: true
 };

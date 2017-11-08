@@ -67,6 +67,7 @@
         "cs_modules/filtra_processos.Lib.js",
         "cs_modules/filtra_processos.PesquisarInformacoes.js",
         "cs_modules/filtra_processos.FiltraPorAtribuicao.js",
+        "cs_modules/filtra_processos.CarregaInformacaoBlocos.js",
         "cs_modules/procedimento_controlar.js"
       ]
     },
