@@ -13,4 +13,5 @@ if (ModuleInit(BaseName, true)) {
     }
   }, this);
   AdicionarOrdenacao(BaseName);
+  SelecionarMultiplosProcessos(BaseName);
 }
