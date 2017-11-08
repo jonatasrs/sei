@@ -3,7 +3,8 @@
 var DefaultOptions = {
   theme: "white",
   CheckTypes: [
-    "prazo"
+    "prazo",
+    "filtraporatribuicao",
   ],
   InstallOrUpdate: true
 };
