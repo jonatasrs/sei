@@ -17,4 +17,5 @@ if (ModuleInit(BaseName, true)) {
   }, this);
   AdicionarOrdenacao(BaseName);
   PesquisarInformacoes(BaseName);
+  CarregaInformacaoBlocos(BaseName);
 }

@@ -88,3 +88,9 @@
   border: .1em solid white;
 }
 /* CSS for Modules: consultas.js END */
+
+/* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js */
+.disabled {
+	color: graytext;
+}
+/* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js END */
