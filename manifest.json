@@ -68,6 +68,7 @@
         "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
         "cs_modules/procedimento_controlar.filtra_processos.FiltraPorAtribuicao.js",
         "cs_modules/procedimento_controlar.filtra_processos.CarregaInformacaoBlocos.js",
+        "cs_modules/procedimento_controlar.SelecionarMultiplosProcessos.js",
         "cs_modules/procedimento_controlar.js"
       ]
     },
@@ -102,13 +103,6 @@
       "js": [
         "cs_modules/infra_configurar.Options_ui.js",
         "cs_modules/infra_configurar.js"
-      ]
-    },
-    {
-      "matches": ["*://*.gov.br/sei/controlador.php?acao=procedimento_controlar*"],
-      "js": [
-        "lib/jquery-3.2.1.min.js",
-        "cs_modules/selecionar_multiplos_processos.main.js"
       ]
     }
   ],
