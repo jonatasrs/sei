@@ -8,9 +8,13 @@ if (ModuleInit(BaseName, true)) {
       case "qtddias":
         IncluirCalculoPrazos(BaseName, element);
         break;
+      case "filtraporatribuicao":
+    	  FiltraPorAtribuicao(BaseName);
+          break;
       default:
         break;
     }
   }, this);
   AdicionarOrdenacao(BaseName);
+  PesquisarInformacoes(BaseName);
 }
