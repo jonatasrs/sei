@@ -8,6 +8,15 @@ if (ModuleInit(BaseName, true)) {
       case "qtddias":
         IncluirCalculoPrazos(BaseName, element);
         break;
+      case "filtraporatribuicao":
+        FiltraPorAtribuicao(BaseName);
+        break;
+      case "carregainformacaoblocos":
+        CarregaInformacaoBlocos(BaseName);
+        break;
+      case "pesquisarinformacoes":
+        PesquisarInformacoes(BaseName);
+        break;
       default:
         break;
     }

@@ -3,7 +3,10 @@
 var DefaultOptions = {
   theme: "white",
   CheckTypes: [
-    "prazo"
+    "prazo",
+    "filtraporatribuicao",
+    "carregainformacaoblocos",
+    "pesquisarinformacoes"
   ],
   InstallOrUpdate: true
 };

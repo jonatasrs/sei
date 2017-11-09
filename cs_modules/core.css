@@ -6,10 +6,10 @@
 	font-size: 14px;
 	filter: brightness(50%);
 }
-.seipp-alerta {
+.infraTrseippalerta {
 	background-color: yellow;
 }
-.seipp-critico {
+.infraTrseippcritico {
 	background-color: red;
 }
 .seipp-assinatura {
@@ -88,3 +88,9 @@
   border: .1em solid white;
 }
 /* CSS for Modules: consultas.js END */
+
+/* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js */
+.disabled {
+	color: graytext;
+}
+/* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js END */
