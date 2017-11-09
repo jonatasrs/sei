@@ -53,7 +53,7 @@ function PesquisarInformacoes(BaseName) {
         if (pesquisaGrupo) {
             for (var i = 0; i < arrayTermo.length; i++) {
                 if (termosEncontrados.indexOf(arrayTermo[i]) === -1)
-                    console.log("Termo não encontrado: " + arrayTermo[i]);
+                    mconsole.log("Termo não encontrado: " + arrayTermo[i]);
             }
         }
 
