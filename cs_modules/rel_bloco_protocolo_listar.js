@@ -1,4 +1,4 @@
-const BaseName = "procedimento_controlar";
+const BaseName = "rel_bloco_protocolo_listar";
 
 if (ModuleInit(BaseName, true)) {
   PesquisarInformacoes(BaseName);

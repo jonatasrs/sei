@@ -78,15 +78,15 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
   function FormatarTabela(Linha, Valor, TipoDeCalculo) {
     if (TipoDeCalculo == "qtddias") {
       if (Valor > 20 & Valor < 31) {
-        $(Linha).attr("class", "seipp-alerta");
+        $(Linha).attr("class", "infraTrseippalerta");
       } else if (Valor > 30) {
-        $(Linha).attr("class", "seipp-critico");
+        $(Linha).attr("class", "infraTrseippcritico");
       }
     } else if (TipoDeCalculo == "prazo") {
       if ((Valor >= 1 & Valor < 4) | Valor == "0") {
-        $(Linha).attr("class", "seipp-alerta");
+        $(Linha).attr("class", "infraTrseippalerta");
       } else if (Valor < 0) {
-        $(Linha).attr("class", "seipp-critico");
+        $(Linha).attr("class", "infraTrseippcritico");
       }
     }
   }
