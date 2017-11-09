@@ -9,13 +9,17 @@ if (ModuleInit(BaseName, true)) {
         IncluirCalculoPrazos(BaseName, element);
         break;
       case "filtraporatribuicao":
-    	  FiltraPorAtribuicao(BaseName);
-          break;
+        FiltraPorAtribuicao(BaseName);
+        break;
+      case "carregainformacaoblocos":
+        CarregaInformacaoBlocos(BaseName);
+        break;
+      case "pesquisarinformacoes":
+        PesquisarInformacoes(BaseName);
+        break;
       default:
         break;
     }
   }, this);
   AdicionarOrdenacao(BaseName);
-  PesquisarInformacoes(BaseName);
-  CarregaInformacaoBlocos(BaseName);
 }

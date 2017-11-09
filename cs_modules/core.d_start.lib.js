@@ -6,6 +6,7 @@ var DefaultOptions = {
     "prazo",
     "filtraporatribuicao",
     "carregainformacaoblocos",
+    "pesquisarinformacoes"
   ],
   InstallOrUpdate: true
 };
