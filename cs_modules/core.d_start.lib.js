@@ -7,6 +7,7 @@ var DefaultOptions = {
     "filtraporatribuicao",
     "carregainformacaoblocos",
     "copiarnumeroprocessodocumento",
+    "retirarsobrestamentoreabrirembloco",
     "pesquisarinformacoes"
   ],
   InstallOrUpdate: true

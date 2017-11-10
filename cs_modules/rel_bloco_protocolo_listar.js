@@ -6,6 +6,9 @@ if (ModuleInit(BaseName, true)) {
       case "pesquisarinformacoes":
         PesquisarInformacoes(BaseName);
         break;
+      case "retirarsobrestamentoreabrirembloco":
+    	  RetirarSobrestamentoReabrirEmBloco(BaseName);
+          break;
       default:
         break;
     }
