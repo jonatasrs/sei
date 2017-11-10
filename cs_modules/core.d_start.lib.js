@@ -6,6 +6,7 @@ var DefaultOptions = {
     "prazo",
     "filtraporatribuicao",
     "carregainformacaoblocos",
+    "copiarnumeroprocessodocumento",
     "pesquisarinformacoes"
   ],
   InstallOrUpdate: true
