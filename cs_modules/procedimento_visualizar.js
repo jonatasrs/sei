@@ -9,6 +9,9 @@ if (ModuleInit(BaseName)) {
       case "autopreencher":
         AutopreencherAndamento(BaseName);
         break;
+      case "copiarnumeroprocessodocumento":
+    	  CopiarNumeroProcessoDocumento(BaseName);
+          break;
       default:
         break;
     }

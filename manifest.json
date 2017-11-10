@@ -78,6 +78,8 @@
         "cs_modules/lib.filtra_processos.js",
         "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
         "cs_modules/procedimento_controlar.SelecionarMultiplosProcessos.js",
+        "lib/jquery-ui.min.js",
+        "cs_modules/rel_bloco_protocolo_listar.RetirarSobrestamentoReabrirEmBloco.js",
         "cs_modules/rel_bloco_protocolo_listar.js"
       ]
     },
@@ -87,6 +89,7 @@
       "js": [
         "cs_modules/procedimento_visualizar.ConsultarInteressado.js",
         "cs_modules/procedimento_visualizar.AutopreencherAndamento.js",
+        "cs_modules/procedimento_visualizar.CopiarNumeroProcessoDocumento.js",
         "cs_modules/procedimento_visualizar.js"
       ]
     },
