@@ -10,4 +10,5 @@ if (ModuleInit(BaseName, true)) {
         break;
     }
   }, this);
+  SelecionarMultiplosProcessos(BaseName);
 }
