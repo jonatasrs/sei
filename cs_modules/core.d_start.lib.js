@@ -2,14 +2,7 @@
 /** Opção padrão caso não exista opções salvas. */
 var DefaultOptions = {
   theme: "white",
-  CheckTypes: [
-    "prazo",
-    "filtraporatribuicao",
-    "carregainformacaoblocos",
-    "copiarnumeroprocessodocumento",
-    "retirarsobrestamentoreabrirembloco",
-    "pesquisarinformacoes"
-  ],
+  CheckTypes: [],
   InstallOrUpdate: true
 };
 

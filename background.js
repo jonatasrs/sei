@@ -15,7 +15,9 @@ function handleInstalled(details) {
     item.InstallOrUpdate = true;
     browser.storage.local.set(item);
 
-    if (item.CheckTypes.indexOf("hidemsgupdate") == -1) {
+    if (item.CheckTypes == undefined) {
+      browser.tabs.create({ url: "https://jonatasrs.github.io/sei/" });
+    } else if (item.CheckTypes.indexOf("hidemsgupdate") == -1) {
       browser.tabs.create({ url: "https://jonatasrs.github.io/sei/" });
     }
   }
