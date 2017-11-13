@@ -6,10 +6,10 @@
 	font-size: 14px;
 	filter: brightness(50%);
 }
-.seipp-alerta {
+.infraTrseippalerta {
 	background-color: yellow;
 }
-.seipp-critico {
+.infraTrseippcritico {
 	background-color: red;
 }
 .seipp-assinatura {
@@ -17,6 +17,16 @@
 }
 .seipp-menu {
 	box-shadow: 10px 10px 10px black !important;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+    background-color: none;
+  }
+  to {
+    transform: rotate(359deg);
+    background-color: yellow;
+  }
 }
 /* CSS for SEI++ END */
 
@@ -49,7 +59,7 @@
 	padding-left: 15px;
 }
 
-.infraTrClara:hover, .seipp-alerta:hover, .seipp-critico:hover {
+.infraTrClara:hover, .infraTrseippalerta:hover, .infraTrseippcritico:hover {
 	background-color: gray;
 }
 
@@ -58,3 +68,29 @@
 }
 
 /* CSS for Tablesorter END */
+
+/* CSS for Modules: consultas.js */
+#seipp_divp {
+  border-top: 1px dotted;
+  font-size: 14px;
+}
+#seipp_novodoc {
+  padding-bottom: 1em;
+}
+#seipp_link_novodoc {
+  text-decoration: none;
+}
+#seipp_link_novodoc span {
+  font-size: 1.2em;
+  padding-left: 0.5em;
+}
+#seipp_link_novodoc img {
+  border: .1em solid white;
+}
+/* CSS for Modules: consultas.js END */
+
+/* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js */
+.disabled {
+	color: graytext;
+}
+/* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js END */

@@ -1,0 +1,21 @@
+.seipp-options-title {
+  font-weight: bold;
+}
+
+#theme, .seipp-options input{
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+#divFormato fieldset {
+  margin-left: 45px;
+}
+
+.seipp-options label {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.seipp-options label:hover {
+  background-color: lightblue;
+}

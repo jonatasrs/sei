@@ -85,8 +85,8 @@ div.infraBarraSistema{
   background-color: var(--dark-gray) !important;
   border: none;
 }
-#main-menu li {
-  background-color: black;
+#main-menu li, div.infraAreaTelaE {
+  background-color: black !important;
 }
 #main-menu a {
   color: inherit !important;
@@ -144,6 +144,9 @@ div.tituloProcessoDocumento, div.tituloProcessoDocumento label {
   color: white;
   border-bottom-color: black;
 }
+tr.trVermelha {
+  background-color: #550000;
+}
 
 /*** infra-global-esquema.css */
 caption.infraCaption {
@@ -161,10 +164,6 @@ tr.infraTrClara {
 }
 tr.infraTrEscura {
   background-color: #333;
-}
-
-tr.infraTrMarcada {
-  background-color: #003800; /* Very DarkGreen */
 }
 tr.infraTrAcessada {
   background-color: #FF9;
@@ -241,7 +240,8 @@ a.ancoraRelacionadosParcial {
   color: inherit;
 }
 [src="imagens/sei_assinar_pequeno.gif"],
-[src="imagens/sei_autenticar_pequeno.gif"] {
+[src="imagens/sei_autenticar_pequeno.gif"],
+[src="imagens/sei_autenticar_pequeno_nao_bloqueado.gif"]{
   filter: invert(100%)
 }
 /****************************************************************************/
@@ -287,12 +287,19 @@ td[style*="background-color:rgb(204,204,204)"] {
 }
 
 /* SEI++ */
-.seipp-alerta {
+.infraTrseippalerta {
   background-color: #330 !important;
 }
-.seipp-critico {
+.infraTrseippcritico {
   background-color: #300 !important;
 }
-.infraTrClara:hover, .seipp-alerta:hover, .seipp-critico:hover  {background-color: darkblue !important;}
+.infraTrEscura:hover, .infraTrClara:hover, .infraTrseippalerta:hover, .infraTrseippcritico:hover  {background-color: darkblue !important;}
 .infraTrClara:hover * {color: white !important;}
 
+.seipp-options label:hover {
+  background-color: darkblue !important;
+}
+
+tr.infraTrMarcada {
+  background-color: #003800 !important; /* Very DarkGreen */
+}

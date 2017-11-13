@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+      "target": "ES6"
+  },
+  "include": [
+      "cs_modules/*",
+      "lib/*"
+  ]
+}
