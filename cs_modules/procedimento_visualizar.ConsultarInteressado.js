@@ -3,7 +3,7 @@ function ConsultarInteressado(BaseName) {
   var mconsole = new __mconsole(BaseName + ".ConsultarInteressado");
 
   /** Variaveis *****************************************************************/
-  var processo = {numero: "",nome: "",cpf: "",servico: ""};
+  var processo = {numero: "",nome: "",sigla: "",servico: ""};
 
   processo.numero = $("#divArvore a:first span").text().replace(/\D/g, '');
   mconsole.log("Lendo dados do processo: " + processo.numero);
@@ -25,9 +25,11 @@ function ConsultarInteressado(BaseName) {
     processo.nome = $(html).find("#selInteressadosProcedimento option:first").text();
 
     a = processo.nome.indexOf('(') + 1;
-    b = processo.nome.indexOf(')', a);
-    processo.cpf = processo.nome.substring(a, b).replace(/\D/g, '');
-    processo.nome = processo.nome.substring(0, a - 2);
+    if (a != 0) {
+      b = processo.nome.indexOf(')', a);
+      processo.sigla = processo.nome.substring(a, b);
+      processo.nome = processo.nome.substring(0, a - 2);
+    }
 
     DetalheProcesso_Preencher();
   });
@@ -46,7 +48,7 @@ function ConsultarInteressado(BaseName) {
     $("#seipp_processo").text(processo.numero);
     $("#seipp_nome").attr("value", processo.nome);
     $("#seipp_nome").text(processo.nome);
-    $("#seipp_cpf").text(format_cpf(processo.cpf));
+    $("#seipp_cpf").text(processo.sigla);
     $("#seipp_servico").text(processo.servico);
   }
 }

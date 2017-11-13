@@ -29,6 +29,7 @@ function AutopreencherAndamento(BaseName) {
       mconsole.log(nome + "- " + num);
       $(this).attr("style","color:red");
       $(this).after(link);
+      $(this).after('<img src="/infra_css/imagens/espaco.gif">');
       link.click({name: nome, sei: num},enviarOficio);
     }
 
