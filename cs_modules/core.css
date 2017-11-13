@@ -59,7 +59,7 @@
 	padding-left: 15px;
 }
 
-.infraTrClara:hover, .seipp-alerta:hover, .seipp-critico:hover {
+.infraTrClara:hover, .infraTrseippalerta:hover, .infraTrseippcritico:hover {
 	background-color: gray;
 }
 
