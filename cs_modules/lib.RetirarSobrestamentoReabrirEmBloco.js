@@ -113,7 +113,7 @@ function RetirarSobrestamentoReabrirEmBloco(BaseName) {
 	    }).addClass('infraButton')
 	    .text('Reabrir Processo')
 	    .click(function() {
-	        var links = $('input.infraCheckbox:checked').parent().next().next().children('a');
+          var links = $("input.infraCheckbox:checked").parent().parent().find('a[href*="controlador.php?acao=procedimento_trabalhar"]');
 	        if (links.length === 0) {
 	            alert('Nenhum processo para reabrir selecionado.');
 	        } else {
