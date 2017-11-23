@@ -1,0 +1,28 @@
+/* CSS for Modules: MostrarAnotacao */
+#seipp_div_anotacao {
+	border-top: 1px dotted;
+  margin-top: 10px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+.seipp_anotacao {
+  display: block;
+  text-align: left;
+  color: #333;
+  position: relative;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 20px;
+  box-shadow: 8px 8px 5px rgb(110, 110, 110);
+  float: left;
+  background-color: rgb(234, 230, 114);
+  white-space: pre-wrap;
+  min-width: 150px;
+  max-width: 300px;
+  min-height: 120px;
+}
+.seipp-anotacao-red {
+  background-color: rgb(252, 70, 70);
+}
+/* CSS for Modules: MostrarAnotacao END */
