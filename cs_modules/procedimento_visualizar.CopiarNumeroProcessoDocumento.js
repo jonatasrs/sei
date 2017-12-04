@@ -78,7 +78,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	        }
 	    }
 
-	    [].forEach.call(document.querySelectorAll('#divArvore>div.infraArvore>a>span'), function(element, index) {
+      $('#divArvore>div.infraArvore a>span').not("[id*='PASTA']").not("[id*='AGUARDE']").each(function(index, element) {
 
 	        var numeroSei;
 	        var nomeDocumento;
@@ -95,7 +95,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	            var spanGeral = gerarInserirLink(element, numeroDocumento, numeroSei, nomeDocumento);
 	            gerarInserirCopy(element, 'Copiar Documento').addEventListener('click', function() { copiarNumero(spanGeral); });
 	        }
-	    });
+      });
 	}
 
 	setTimeout(iniciar, 400);
