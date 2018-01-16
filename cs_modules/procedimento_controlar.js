@@ -8,6 +8,9 @@ if (ModuleInit(BaseName, true)) {
       case "qtddias":
         IncluirCalculoPrazos(BaseName, element);
         break;
+      case "prioridade":        
+        IncluirPrioridadeProcesso(BaseName, element, SavedOptions.ConfiguracoesCores);
+        break;
       case "filtraporatribuicao":
         FiltraPorAtribuicao(BaseName);
         break;
