@@ -37,7 +37,7 @@ function Options_ui(BaseName) {
         mconsole.log("unchecked");
       }
     })  
-    
+    /*    
     var i = 0;
     $("input[type='text']").each(function () {          
       var item_cor = $(this);
@@ -45,6 +45,16 @@ function Options_ui(BaseName) {
         item_cor["0"].value = SavedOptions.ConfiguracoesCores[i].valor;
         i++;
       }      
+    });*/
+
+    if (SavedOptions.ConfiguracoesCores == undefined) { /* Se não existir esta configuração */
+      SavedOptions.ConfiguracoesCores = DefaultOptions.ConfiguracoesCores;
+    }
+    $("#divConfiguracaoPrioridade input[type='text']").each(function (index) {
+      var item_cor = $(this);
+      if (item_cor["0"].id.indexOf("cor_") != -1) {
+        item_cor["0"].value = SavedOptions.ConfiguracoesCores[index].valor;
+      }
     });
 
     $("#prioridade").on("change", mostraDivConfiguracaoPrioridade);

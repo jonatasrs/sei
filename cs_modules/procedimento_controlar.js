@@ -9,7 +9,7 @@ if (ModuleInit(BaseName, true)) {
         IncluirCalculoPrazos(BaseName, element);
         break;
       case "prioridade":        
-        IncluirPrioridadeProcesso(BaseName, element, SavedOptions.ConfiguracoesCores);
+        IncluirCorProcesso(BaseName, element, SavedOptions.ConfiguracoesCores);
         break;
       case "filtraporatribuicao":
         FiltraPorAtribuicao(BaseName);

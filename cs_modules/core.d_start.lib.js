@@ -4,7 +4,7 @@ var DefaultOptions = {
   theme: "white",
   CheckTypes: [],
   InstallOrUpdate: true,
- ConfiguracoesCores: [
+  ConfiguracoesCores: [
     {valor: "", cor: "00cc00"},
     {valor: "", cor: "ffff00"},
     {valor: "", cor: "ffb3cc"},
