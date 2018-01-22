@@ -171,7 +171,6 @@ tr.infraTrAcessada {
 tr.infraTrAcessada a {
   color: unset !important;
 }
-
 div.infraBarraComandos{
   border-top-color: transparent;
   border-bottom-color: transparent;
@@ -186,6 +185,12 @@ div.infraAreaTelaD {
   color: black !important;
   background-color: transparent !important;
   filter: invert(100%);
+}
+tr.infraTrMarcada td { /* remove a cor do td */
+  background-color: transparent !important;
+}
+tr.infraTrMarcada {
+  background-color: #003800 !important; /* Very DarkGreen */
 }
 
 /*** infra-ajax.css *** Caixa de autocompletar ******************************/
@@ -298,8 +303,4 @@ td[style*="background-color:rgb(204,204,204)"] {
 
 .seipp-options label:hover {
   background-color: darkblue !important;
-}
-
-tr.infraTrMarcada {
-  background-color: #003800 !important; /* Very DarkGreen */
 }
