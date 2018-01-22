@@ -36,28 +36,19 @@ function Options_ui(BaseName) {
         $(this).attr("checked", false);
         mconsole.log("unchecked");
       }
-    })  
-    /*    
-    var i = 0;
-    $("input[type='text']").each(function () {          
-      var item_cor = $(this);
-      if (item_cor["0"].id.indexOf("cor_") != -1) {  
-        item_cor["0"].value = SavedOptions.ConfiguracoesCores[i].valor;
-        i++;
-      }      
-    });*/
+    })
 
     if (SavedOptions.ConfiguracoesCores == undefined) { /* Se não existir esta configuração */
       SavedOptions.ConfiguracoesCores = DefaultOptions.ConfiguracoesCores;
     }
-    $("#divConfiguracaoPrioridade input[type='text']").each(function (index) {
+    $("#divConfigMarcarCorProcesso input[type='text']").each(function (index) {
       var item_cor = $(this);
       if (item_cor["0"].id.indexOf("cor_") != -1) {
         item_cor["0"].value = SavedOptions.ConfiguracoesCores[index].valor;
       }
     });
 
-    $("#prioridade").on("change", mostraDivConfiguracaoPrioridade);
+    $("#marcarcorprocesso").on("change", mostraDivConfigMarcarCorProcesso);
 
     $("#cliquemenos").on("change", mostraDivConfig);
 
@@ -77,8 +68,8 @@ function Options_ui(BaseName) {
 
     mostraDivConfig();
 
-    mostraDivConfiguracaoPrioridade();
-    
+    mostraDivConfigMarcarCorProcesso();
+
     $("#save-button").on("click", OptionsSave);
 
     if (SavedOptions.InstallOrUpdate) {
@@ -104,12 +95,12 @@ function Options_ui(BaseName) {
     }
   }
 
-  function mostraDivConfiguracaoPrioridade() {
-    if (document.getElementById("prioridade").checked) {
-      $("#divConfiguracaoPrioridade").show("fast");
+  function mostraDivConfigMarcarCorProcesso() {
+    if (document.getElementById("marcarcorprocesso").checked) {
+      $("#divConfigMarcarCorProcesso").show("fast");
     }
     else
-      $("#divConfiguracaoPrioridade").hide("fast");
+      $("#divConfigMarcarCorProcesso").hide("fast");
   }
 
   function mostraDivConfig() {
@@ -128,10 +119,10 @@ function Options_ui(BaseName) {
 
 
     var ConfiguracoesCores = [];
-    $("input[type='text']").each(function () {      
+    $("input[type='text']").each(function () {
       var item_cor = $(this);
       if (item_cor["0"].id.indexOf("cor_") != -1) {
-        var configuracao_cor = {cor: item_cor["0"].id.replace("cor_", "#"), valor: item_cor["0"].value};        
+        var configuracao_cor = {cor: item_cor["0"].id.replace("cor_", "#"), valor: item_cor["0"].value};
         ConfiguracoesCores.push(configuracao_cor);
       }
     });
