@@ -7,7 +7,7 @@
   margin-right: 10px;
 }
 
-#divFormato fieldset {
+#divFormato fieldset, #divConfigMarcarCorProcesso fieldset {
   margin-left: 45px;
 }
 

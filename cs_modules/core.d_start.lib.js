@@ -3,7 +3,14 @@
 var DefaultOptions = {
   theme: "white",
   CheckTypes: [],
-  InstallOrUpdate: true
+  InstallOrUpdate: true,
+  ConfiguracoesCores: [
+    {valor: "", cor: "00cc00"},
+    {valor: "", cor: "ffff00"},
+    {valor: "", cor: "ffb3cc"},
+    {valor: "", cor: "33ccff"},
+    {valor: "", cor: "bfbfbf"}
+  ]
 };
 
 const CompName = "Seipp";

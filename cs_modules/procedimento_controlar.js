@@ -8,6 +8,9 @@ if (ModuleInit(BaseName, true)) {
       case "qtddias":
         IncluirCalculoPrazos(BaseName, element);
         break;
+      case "marcarcorprocesso":
+        MarcarCorProcesso(BaseName);
+        break;
       case "filtraporatribuicao":
         FiltraPorAtribuicao(BaseName);
         break;

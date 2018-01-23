@@ -37,6 +37,19 @@ function Options_ui(BaseName) {
         mconsole.log("unchecked");
       }
     })
+
+    if (SavedOptions.ConfiguracoesCores == undefined) { /* Se não existir esta configuração */
+      SavedOptions.ConfiguracoesCores = DefaultOptions.ConfiguracoesCores;
+    }
+    $("#divConfigMarcarCorProcesso input[type='text']").each(function (index) {
+      var item_cor = $(this);
+      if (item_cor["0"].id.indexOf("cor_") != -1) {
+        item_cor["0"].value = SavedOptions.ConfiguracoesCores[index].valor;
+      }
+    });
+
+    $("#marcarcorprocesso").on("change", mostraDivConfigMarcarCorProcesso);
+
     $("#cliquemenos").on("change", mostraDivConfig);
 
     $("input[name='formato'][value="+SavedOptions.formato+"]").attr("checked", true);
@@ -54,6 +67,9 @@ function Options_ui(BaseName) {
     $("#hipoteseLegal").val(SavedOptions.hipoteseLegal);
 
     mostraDivConfig();
+
+    mostraDivConfigMarcarCorProcesso();
+
     $("#save-button").on("click", OptionsSave);
 
     if (SavedOptions.InstallOrUpdate) {
@@ -79,6 +95,14 @@ function Options_ui(BaseName) {
     }
   }
 
+  function mostraDivConfigMarcarCorProcesso() {
+    if (document.getElementById("marcarcorprocesso").checked) {
+      $("#divConfigMarcarCorProcesso").show("fast");
+    }
+    else
+      $("#divConfigMarcarCorProcesso").hide("fast");
+  }
+
   function mostraDivConfig() {
     if (document.getElementById("cliquemenos").checked) {
       $("#divFormato").show("fast");
@@ -93,6 +117,16 @@ function Options_ui(BaseName) {
       CheckTypes.push($(this).attr("data-type"));
     });
 
+
+    var ConfiguracoesCores = [];
+    $("input[type='text']").each(function () {
+      var item_cor = $(this);
+      if (item_cor["0"].id.indexOf("cor_") != -1) {
+        var configuracao_cor = {cor: item_cor["0"].id.replace("cor_", "#"), valor: item_cor["0"].value};
+        ConfiguracoesCores.push(configuracao_cor);
+      }
+    });
+
     var theme = $("#theme").val();
     var formato = $("input[name='formato']:checked").val();
     var tipoConferencia = $("#tipoconferencia").val();
@@ -104,7 +138,7 @@ function Options_ui(BaseName) {
       console.log(`Error: ${error}`);
     }
 
-    var OptionsToSave = {theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal};
+    var OptionsToSave = {theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, ConfiguracoesCores};
     if (isChrome) {
       browser.storage.local.set(OptionsToSave);
     } else {
