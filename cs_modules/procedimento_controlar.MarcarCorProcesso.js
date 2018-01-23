@@ -22,12 +22,12 @@ function MarcarCorProcesso(BaseName) {
     }
   }
 
-  function EscolherCor(item, Cores) {
+  function EscolherCor(item) {
     var Cores = SavedOptions.ConfiguracoesCores;
     item = item.substring(item.indexOf("onmouseover") + 40);
     item = item.substring(1, item.indexOf(');" onmouseout='));
     for (contador = 0; contador < Cores.length; contador++) {
-      if (item.indexOf(Cores[contador].valor) != "") {
+      if (Cores[contador].valor != "") {
         if (item.indexOf(Cores[contador].valor) != -1) {
           return Cores[contador].cor;
         }
