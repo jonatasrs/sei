@@ -113,6 +113,14 @@
       ]
     },
     {
+      "matches": ["*://*.br/sei/controlador.php?acao=anotacao_registrar*"],
+      "all_frames": true,
+      "js": [
+        "cs_modules/anotacao_registrar.AtualizarAnotacaoNaArvore.js",
+        "cs_modules/anotacao_registrar.js"
+      ]
+    },
+    {
       "matches": ["*://*.br/sei/controlador.php?acao=infra_configurar*"],
       "css": ["cs_modules/options_ui/options_ui.css"],
       "js": [
