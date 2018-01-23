@@ -165,8 +165,8 @@ tr.infraTrClara {
 tr.infraTrEscura {
   background-color: #333;
 }
-tr.infraTrAcessada {
-  background-color: #FF9;
+tr.infraTrAcessada td {
+  background-color: transparent !important;
 }
 tr.infraTrAcessada a {
   color: unset !important;
