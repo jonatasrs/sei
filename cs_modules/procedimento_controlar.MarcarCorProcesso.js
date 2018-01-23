@@ -11,8 +11,6 @@ function MarcarCorProcesso(BaseName) {
     var tabela = $(IdTabela);
 
     if ($(IdTabela).length > 0) {
-      /* Remove os eventos da tabela: Precisa para funcionar no Chrome */
-      RemoveAllOldEventListener(tabela);
       tabela = $(IdTabela);
 
       for (i = 1; i < tabela["0"].rows.length; i++) {
