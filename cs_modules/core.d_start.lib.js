@@ -75,6 +75,8 @@ function format_cpf(cpf) {
 function AdicionarLinkCss(doc, id, href) {
   var head = doc.getElementsByTagName('head')[0];
   if (head == undefined) return;
+  /* Sai se for o CKEditor */
+  if (head.getElementsByTagName('title')[0].getAttribute('data-cke-title') != undefined) return;
   var link = doc.createElement('link');
   link.id = id;
   link.rel = 'stylesheet';

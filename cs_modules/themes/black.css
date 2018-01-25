@@ -19,6 +19,12 @@ input, button, textarea, select {
   background-color: black !important;
   color: inherit !important;
 }
+option {
+  background-color: var(--dark-gray);
+}
+option:hover {
+  background-color: darkblue !important;
+}
 button *, span.infraTeclaAtalho {
   color: inherit !important;
 }
@@ -43,9 +49,6 @@ li a:hover {
 .dd-option-selected, .dd-selected {
   background: darkgreen !important;
 }
-/*table.resultado tr.resTituloRegistro * {
-  background-color: var(--dark-gray) !important;
-}*/
 table.resultado td.resSnippet, table.resultado td.metatag, table.resultado td.metatag * {
   background-color: inherit !important;
 }
@@ -192,6 +195,11 @@ tr.infraTrMarcada td { /* remove a cor do td */
 tr.infraTrMarcada {
   background-color: #003800 !important; /* Very DarkGreen */
 }
+tr.infraTrSelecionada,
+tr.infraTrSelecionada td,
+td.infraTdSelecionada{
+background-color:darkblue !important;
+}
 
 /*** infra-ajax.css *** Caixa de autocompletar ******************************/
 div.infraAjaxAutoCompletar {
@@ -231,7 +239,10 @@ div.infraBarraSuperior {
 
 /*** multiple-select.css */
 .ms-drop {
-  background-color: black
+  background-color: var(--dark-gray);
+}
+.ms-drop:hover {
+  background-color: darkblue;
 }
 
 /*** ARVORE DE PROCESSOS ****************************************************/
@@ -249,9 +260,9 @@ a.ancoraRelacionadosParcial {
 [src="imagens/sei_autenticar_pequeno_nao_bloqueado.gif"]{
   filter: invert(100%)
 }
-/****************************************************************************/
 
-/*** scayt.css */
+/*** scayt.css ****************************************************************/
+
 .scayt-misspell-word {
   color: inherit;
 }
@@ -269,19 +280,21 @@ div.tituloNovidade {
   border-bottom-color: transparent;
 }
 /*** VISUALIZAR DOCUMENTOS ****************************************************/
-#titulo, #titulo label {
-  color: inherit;
-  background-color: var(--dark-gray) !important;
-  border-bottom-color: transparent;
-} /* inline */
-p.Texto_Fundo_Cinza_Maiusculas_Negrito, p.Item_Nivel1 {
-	background-color: var(--dark-gray);
+#ifrArvoreHtml { /* Documento visualizado dentro do iframe */
+  background-color: white;
+  filter: brightness(90%);
 }
-th[style*="background-color"],
-td[style*="background-color: rgb(204, 204, 204)"],
-td[style*="background-color:rgb(204,204,204)"] {
-	background-color: var(--dark-gray) !important;
-} /* inline */
+/*** Ajuda da busca ***********************************************************/
+.texto {
+  color: inherit;
+  background: inherit;
+}
+.exemplo {
+  background: inherit;
+}
+.exemplo strong {
+  color: inherit;
+}
 
 /*** TELA INICIAL *************************************************************/
 #divAreaRestrita {
@@ -303,4 +316,9 @@ td[style*="background-color:rgb(204,204,204)"] {
 
 .seipp-options label:hover {
   background-color: darkblue !important;
+}
+
+/*** CKEditor *****************************************************************/
+.cke_dialog_contents_body input, .cke_dialog_contents_body select {
+  background-color: white !important;
 }

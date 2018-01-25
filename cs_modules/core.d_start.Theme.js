@@ -3,8 +3,10 @@ function Theme(BaseName, tema) {
   var mconsole = new __mconsole(BaseName + ".Theme");
 
   setTimeout(function () {
-    if (document.baseURI.indexOf("acao=editor_montar") == -1) {
+    if (document.baseURI.indexOf("acao=editor_montar") == -1 &&
+        document.baseURI.indexOf("acao=documento_visualizar") == -1) {
       AdicionarLinkCss(document, "seipp-theme", "cs_modules/themes/black.css");
+      mconsole.log(document.baseURI);
       CorrigirLinkCss();
     }
   }, 10);
