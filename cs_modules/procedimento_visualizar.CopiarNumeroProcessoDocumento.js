@@ -11,16 +11,16 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	    var linkSei = document.createElement('a');
 	    linkSei.id = 'lnkSei' + numeroDocumento;
 	    linkSei.className = 'ancoraSei';
-	    linkSei.innerHTML = numeroSei;
+      $(linkSei).append(numeroSei);
 
 	    var spanNotEditable = document.createElement('span');
 	    spanNotEditable.setAttribute('contenteditable', 'false');
 	    spanNotEditable.appendChild(linkSei);
 
 	    var spanGeral = document.createElement('span');
-	    if (nomeDocumento) spanGeral.innerHTML = nomeDocumento + ' (';
+	    if (nomeDocumento) $(spanGeral).append(nomeDocumento + ' (');
 	    spanGeral.appendChild(spanNotEditable);
-	    if (nomeDocumento) spanGeral.innerHTML += ')';
+	    if (nomeDocumento) $(spanGeral).append(')');
 	    spanGeral.style.display = 'none';
 
 	    var spanParent = element.parentNode;
