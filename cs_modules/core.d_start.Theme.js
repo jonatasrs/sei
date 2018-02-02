@@ -4,7 +4,9 @@ function Theme(BaseName, tema) {
 
   setTimeout(function () {
     if (document.baseURI.indexOf("acao=editor_montar") == -1 &&
-        document.baseURI.indexOf("acao=documento_visualizar") == -1) {
+        document.baseURI.indexOf("acao=documento_visualizar") == -1 &&
+        document.baseURI.indexOf("acao=base_conhecimento_visualizar") == -1 &&
+        document.baseURI.indexOf("acao=bloco_navegar") == -1) {
       AdicionarLinkCss(document, "seipp-theme", "cs_modules/themes/black.css");
       mconsole.log(document.baseURI);
       CorrigirLinkCss();
