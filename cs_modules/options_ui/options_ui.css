@@ -7,8 +7,8 @@
   margin-right: 10px;
 }
 
-#divFormato fieldset, #divConfigMarcarCorProcesso fieldset {
-  margin-left: 45px;
+.seipp-fieldset fieldset {
+  margin: 10px auto 10px 45px;
 }
 
 .seipp-options label {

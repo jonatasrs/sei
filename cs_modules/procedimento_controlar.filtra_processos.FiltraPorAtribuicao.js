@@ -77,19 +77,17 @@ function FiltraPorAtribuicao(BaseName) {
 	}
 
 	function adicionarOptionAtribuido(select, trs) {
-	    var nomes = getLinkAtribuido(trs).map(function() {
-	        return $(this).text();
-	    });
-
-	    $.each($.grep(nomes, function(value, index){
-	        return $.inArray(value, nomes) === index;
-	    }).sort(), function(index, element) {
+	    var nomes = {};
+		getLinkAtribuido(trs).each(function(index, alink) {
+			nomes[alink.innerHTML] = getAtribuido(alink);
+		});
+		Object.keys(nomes).sort().forEach(function(id) {
 	        select.append(
 	            newElement('option')
-	            .attr('value', element)
-	            .text('Ver processos atribuídos à ' + element)
+	            .attr('value', id)
+	            .text('Ver processos atribuídos à ' + nomes[id])
 	        );
-	    });
+		});
 	}
 
 	var classeFiltro = 'PorAtribuicao';
@@ -110,8 +108,10 @@ function FiltraPorAtribuicao(BaseName) {
 	    return trs.find('td:nth-child(4) a');
 	}
 
-	function getAtribuido(tr) {
-	    return getLinkAtribuido($(tr)).first().text();
+	function getAtribuido(alink) {
+		if (SavedOptions.filtraporatribuicao === 'nome')
+			return alink.title.substr(15);
+		return alink.innerHTML;
 	}
 
 	function getTabela(idTabelaProcessos) {
