@@ -5,7 +5,7 @@ function ConsultarInteressado(BaseName) {
   /** Variaveis *****************************************************************/
   var processo = {numero: "",interessado: "",sigla: "",tipo: ""};
 
-  processo.numero = $("#divArvore a:first span").text().replace(/\D/g, '');
+  processo.numero = $("#divArvore > a > span[id^='span']").text().replace(/\D/g, '');
   mconsole.log("Lendo dados do processo: " + processo.numero);
   DetalheProcesso_Criar();
 
