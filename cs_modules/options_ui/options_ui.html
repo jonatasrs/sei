@@ -26,7 +26,7 @@
     <label><input type="checkbox" id="marcarcorprocesso" data-type="marcarcorprocesso" />
     Controlar Cores dos Processos por Palavras Chaves na Especificação</label><br>
 
-    <div id="divConfigMarcarCorProcesso">
+    <div id="divConfigMarcarCorProcesso" class="seipp-fieldset">
       <fieldset>
         <legend>Configuração das Cores</legend>
         <table>
@@ -71,8 +71,20 @@
     <label><input type="checkbox" data-type="atalhonovodoc" />
     Exibir atalho para novo documento (<strong>Exibe o atalho na árvore de processo.</strong>)</label><br>
 
-    <label><input type="checkbox" data-type="filtraporatribuicao" />
+    <label><input type="checkbox" id="filtraporatribuicao" data-type="filtraporatribuicao" />
     Filtrar os processos por atribuição ou que não atribuidos.</label><br>
+
+    <div id="filtraporatribuicaoOptions" class="seipp-fieldset">
+      <fieldset>
+		<legend>Mostrar por</legend>
+
+        <label><input type="radio" name="filtraporatribuicaoRadio" value="login">
+        Login (<em id="loginUsuarioSistema"></em>)</label>
+
+        <label><input type="radio" name="filtraporatribuicaoRadio" value="nome">
+        Nome Completo (<em id="nomeUsuarioSistema"></em>)</label>
+      </fieldset>
+	</div>
 
     <label><input type="checkbox" data-type="carregainformacaoblocos" />
     Filtrar processos por informações dos blocos (Assinatura, Reunião, Interno)</label><br>
@@ -98,7 +110,7 @@
     <label><input type="checkbox" id="cliquemenos" data-type="cliquemenos" />
     Clique menos (<strong>Facilidade Experimental</strong>)</label><br>
 
-    <div id="divFormato">
+    <div id="divFormato" class="seipp-fieldset">
       <fieldset>
         <legend>Formato</legend>
 

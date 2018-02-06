@@ -70,6 +70,12 @@ function Options_ui(BaseName) {
 
     mostraDivConfigMarcarCorProcesso();
 
+	$("#nomeUsuarioSistema").text(getNomeUsuarioSistema());
+	$("#loginUsuarioSistema").text(getLoginUsuarioSistema());
+	$("input[name='filtraporatribuicaoRadio']").val([(SavedOptions.filtraporatribuicao || 'login')]);
+	$("#filtraporatribuicao").on("change", mostraFiltraPorAtribuicao);
+	mostraFiltraPorAtribuicao();
+
     $("#save-button").on("click", OptionsSave);
 
     if (SavedOptions.InstallOrUpdate) {
@@ -79,36 +85,46 @@ function Options_ui(BaseName) {
     }
   }
 
+  function getUsuarioSistema() {
+	return document.getElementById('lnkUsuarioSistema').title;
+  }
+
+  function getNomeUsuarioSistema() {
+	  let usuarioSistema = getUsuarioSistema();
+	  return usuarioSistema.substring(0, usuarioSistema.indexOf(' - '));
+  }
+
+  function getLoginUsuarioSistema() {
+	  let usuarioSistema = getUsuarioSistema();
+	  return usuarioSistema.substring(usuarioSistema.indexOf(' - ') + 3, usuarioSistema.indexOf('/'));
+  }
+
   function MostraTipoConferencia() {
-    if ($("input[name='formato']:checked").val() == "D"){
-      $("#divtipoconferencia").show("fast");
-    } else {
-      $("#divtipoconferencia").hide("fast");
-    }
+	toggle($("#divtipoconferencia"), $("input[name='formato']:checked").val() == "D");
   }
 
   function MostraRestrito() {
-    if ($("#rdRestrito:checked").val() == "R") {
-      $("#divhipoteseLegal").show("fast");
-    } else {
-      $("#divhipoteseLegal").hide("fast");
-    }
+	toggle($("#divhipoteseLegal"), $("#rdRestrito:checked").val() == "R");
   }
 
   function mostraDivConfigMarcarCorProcesso() {
-    if (document.getElementById("marcarcorprocesso").checked) {
-      $("#divConfigMarcarCorProcesso").show("fast");
-    }
-    else
-      $("#divConfigMarcarCorProcesso").hide("fast");
+	toggle($("#divConfigMarcarCorProcesso"), document.getElementById("marcarcorprocesso").checked);
   }
 
   function mostraDivConfig() {
-    if (document.getElementById("cliquemenos").checked) {
-      $("#divFormato").show("fast");
-    }
+	toggle($("#divFormato"), document.getElementById("cliquemenos").checked);
+  }
+
+  function mostraFiltraPorAtribuicao() {
+	toggle($("#filtraporatribuicaoOptions"), document.getElementById("filtraporatribuicao").checked);
+  }
+
+  function toggle(elemento, valor) {
+	let anim = "fast";
+    if (valor)
+      elemento.show(anim);
     else
-      $("#divFormato").hide("fast");
+      elemento.hide(anim);
   }
 
   function OptionsSave() {
@@ -132,13 +148,14 @@ function Options_ui(BaseName) {
     var tipoConferencia = $("#tipoconferencia").val();
     var nivelAcesso = $("input[name='nivelAcesso']:checked").val();
     var hipoteseLegal = $("#hipoteseLegal").val();
+    var filtraporatribuicao = $("input[name='filtraporatribuicaoRadio']:checked").val();
     mconsole.log(nivelAcesso);
 
     function onError(error) {
       console.log(`Error: ${error}`);
     }
 
-    var OptionsToSave = {theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, ConfiguracoesCores};
+    var OptionsToSave = {theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores};
     if (isChrome) {
       browser.storage.local.set(OptionsToSave);
     } else {
