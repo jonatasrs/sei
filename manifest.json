@@ -127,6 +127,14 @@
         "cs_modules/infra_configurar.Options_ui.js",
         "cs_modules/infra_configurar.js"
       ]
+    },
+    {
+      "matches": ["*://*.br/sei/controlador.php?acao=documento_gerar*"],
+      "all_frames": true,
+      "js": [
+        "cs_modules/documento_gerar.AumentaTamanho.js",
+        "cs_modules/documento_gerar.js"
+      ]
     }
   ],
 
