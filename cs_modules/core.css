@@ -51,6 +51,9 @@
 .tablesorter-default thead .sorter-false {
 	background-image: none;
 }
+.sorter-false > .tablesorter-header-inner {
+	padding-left: 0;
+}
 .tablesorter-header-inner {
 	font-size: inherit;
 	font-weight: inherit;
