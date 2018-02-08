@@ -37,11 +37,12 @@ function ConsultarInteressado(BaseName) {
 
   /** Funções *******************************************************************/
   function DetalheProcesso_Criar(params) {
-    $("#frmArvore").after("<div id='seipp_divp'/>");
-    $("#seipp_divp").append("<div id='seipp_processo'/>");
-    $("#seipp_divp").append("<div id='seipp_interessado'/>");
-    $("#seipp_divp").append("<div id='seipp_sigla'/>");
-    $("#seipp_divp").append("<div id='seipp_tipo'/>");
+    $("<div id='seipp_divp'/>")
+      .insertAfter("#frmArvore")
+      .append("<div id='seipp_processo'/>")
+      .append("<div id='seipp_interessado'/>")
+      .append("<div id='seipp_sigla'/>")
+      .after("<div id='seipp_tipo'/>");
   }
 
   function DetalheProcesso_Preencher() {
