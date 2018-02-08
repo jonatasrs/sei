@@ -20,14 +20,15 @@ function ConsultarInteressado(BaseName) {
   /* Pega o html da pagina de alteração do processo */
   var WebHttp = $.ajax({ url: url });
   WebHttp.done(function (html) {
-    processo.tipo = $(html).find("#selTipoProcedimento option[selected='selected']").text();
-    processo.interessado = $(html).find("#selInteressadosProcedimento option:first").text();
+    let $html = $(html);
+    processo.tipo = $html.find("#selTipoProcedimento option[selected='selected']").text();
+    processo.interessado = $html.find("#selInteressadosProcedimento option:first").text();
 
     a = processo.interessado.indexOf('(') + 1;
     if (a != 0) {
       b = processo.interessado.indexOf(')', a);
       processo.sigla = processo.interessado.substring(a, b);
-      processo.interessado = processo.interessado.substring(0, a - 2);
+      processo.interessado = processo.interessado.substring(0, a - 1).trim();
     }
 
     DetalheProcesso_Criar();
