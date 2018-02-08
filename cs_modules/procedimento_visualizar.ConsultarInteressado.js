@@ -7,7 +7,6 @@ function ConsultarInteressado(BaseName) {
 
   processo.numero = $("#divArvore > a > span[id^='span']").text().replace(/\D/g, '');
   mconsole.log("Lendo dados do processo: " + processo.numero);
-  DetalheProcesso_Criar();
 
   /** Pega a url de alteração do processo ***************************************/
   var head = $('head').html();
@@ -31,6 +30,7 @@ function ConsultarInteressado(BaseName) {
       processo.interessado = processo.interessado.substring(0, a - 2);
     }
 
+    DetalheProcesso_Criar();
     DetalheProcesso_Preencher();
   });
 
