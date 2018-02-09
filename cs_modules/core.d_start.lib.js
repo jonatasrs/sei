@@ -24,7 +24,7 @@ if (isChrome) { var browser = chrome; } /* Chrome: */
 
 /*** Url base do sei ***********************************************************/
 function GetBaseUrl() {
-  return window.location.protocol + "//" + window.location.hostname + "/sei/";
+  return window.location.origin + "/sei/";
 }
 
 /*** MODULES: Generic class log ************************************************/
