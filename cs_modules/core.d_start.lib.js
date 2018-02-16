@@ -10,7 +10,9 @@ var DefaultOptions = {
     {valor: "", cor: "ffb3cc"},
     {valor: "", cor: "33ccff"},
     {valor: "", cor: "bfbfbf"}
-  ]
+  ],
+  ConfPrazo: {Critico: 0, Alerta: 4},
+  ConfDias: {Critico: 30, Alerta: 20}
 };
 
 const CompName = "Seipp";

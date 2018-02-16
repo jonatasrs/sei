@@ -12,6 +12,9 @@ function Main(Options) {
     SavedOptions = Options;
   }
 
+  if (SavedOptions.ConfPrazo == undefined) { SavedOptions.ConfPrazo = DefaultOptions.ConfPrazo }
+  if (SavedOptions.ConfDias == undefined) { SavedOptions.ConfDias = DefaultOptions.ConfDias }
+
   if (SavedOptions.theme != "white") {
     Theme(ModName_start, SavedOptions.Theme);
   }

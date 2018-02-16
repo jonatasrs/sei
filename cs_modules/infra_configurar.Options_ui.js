@@ -76,6 +76,21 @@ function Options_ui(BaseName) {
 	$("#filtraporatribuicao").on("change", mostraFiltraPorAtribuicao);
 	mostraFiltraPorAtribuicao();
 
+    /* prazo */
+    $("#prazoalerta").val(SavedOptions.ConfPrazo.Alerta);
+    $("#prazocritico").val(SavedOptions.ConfPrazo.Critico);
+    $("input[data-type='prazo']").on("click", function () {
+      toggle($("#prazoOptions"), this.checked);
+    }).trigger("change");
+
+    /* dias */
+    $("#qtddiasalerta").val(SavedOptions.ConfDias.Alerta);
+    $("#qtddiascritico").val(SavedOptions.ConfDias.Critico);
+    $("input[data-type='qtddias']").on("change", function () {
+      toggle($("#qtddiasOptions"), this.checked);
+    }).trigger("change");
+
+    /* Salvar */
     $("#save-button").on("click", OptionsSave);
 
     if (SavedOptions.InstallOrUpdate) {
@@ -151,11 +166,20 @@ function Options_ui(BaseName) {
     var filtraporatribuicao = $("input[name='filtraporatribuicaoRadio']:checked").val();
     mconsole.log(nivelAcesso);
 
+    /* Prazo / Dias */
+    let ConfPrazo = { Critico: 0, Alerta: 0 };
+    let ConfDias = { Critico: 0, Alerta: 0 };
+    ConfPrazo.Alerta = parseInt($("#prazoalerta").val());
+    ConfPrazo.Critico = parseInt($("#prazocritico").val());
+    ConfDias.Alerta = parseInt($("#qtddiasalerta").val());
+    ConfDias.Critico = parseInt($("#qtddiascritico").val());
+    mconsole.log("CONFDIAS> alerta: " + ConfDias.Alerta + " critico:" + ConfDias.Critico);
+
     function onError(error) {
       console.log(`Error: ${error}`);
     }
 
-    var OptionsToSave = {theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores};
+    var OptionsToSave = {theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias };
     if (isChrome) {
       browser.storage.local.set(OptionsToSave);
     } else {

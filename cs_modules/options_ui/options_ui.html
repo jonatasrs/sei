@@ -20,8 +20,29 @@
     <label><input type="checkbox" data-type="prazo" />
     Prazo de atendimento (Incluir a data no texto do marcador no formato "<u>ATE dd/mm/aaaa</u>".)</label><br>
 
+    <div id="prazoOptions" class="seipp-fieldset">
+      <fieldset>
+        <legend>Personalizar alerta de cores nos prazos de atendimento em dias</legend>
+        <label class="infraTrseippalerta">Alerta:</label>
+        <input id="prazoalerta" type="number" name="prazoNumber" max="90" min="-90">
+        <label class="infraTrseippcritico">Critico:</label>
+        <input id="prazocritico" type="number" name="prazoNumber" max="90" min="-90">
+      </fieldset>
+    </div>
+
     <label><input type="checkbox" data-type="qtddias" />
     Quantidade de dias (Incluir a data no texto do marcador no formato "<u>dd/mm/aaaa</u>".)</label><br>
+
+    <div id="qtddiasOptions" class="seipp-fieldset">
+        <fieldset>
+          <legend>Personalizar alerta de cores na quantidade de dias em dias</legend>
+
+          <label class="infraTrseippalerta">Alerta:</label>
+          <input id="qtddiasalerta" type="number" name="qtddiasNumber" max="180" min="1">
+          <label class="infraTrseippcritico">Critico:</label>
+          <input id="qtddiascritico" type="number" name="qtddiasNumber" max="180" min="2">
+        </fieldset>
+      </div>
 
     <label><input type="checkbox" id="marcarcorprocesso" data-type="marcarcorprocesso" />
     Controlar Cores dos Processos por Palavras Chaves na Especificação</label><br>

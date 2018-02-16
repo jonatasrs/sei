@@ -76,16 +76,17 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
 
   /* Formata a tabela pelos valores */
   function FormatarTabela(Linha, Valor, TipoDeCalculo) {
+    if(Valor === "") return;
     if (TipoDeCalculo == "qtddias") {
-      if (Valor > 20 & Valor < 31) {
+      if (Valor > SavedOptions.ConfDias.Alerta && Valor <= SavedOptions.ConfDias.Critico) {
         $(Linha).attr("class", "infraTrseippalerta");
-      } else if (Valor > 30) {
+      } else if (Valor > SavedOptions.ConfDias.Critico) {
         $(Linha).attr("class", "infraTrseippcritico");
       }
     } else if (TipoDeCalculo == "prazo") {
-      if ((Valor >= 1 & Valor < 4) | Valor == "0") {
+      if (Valor >= SavedOptions.ConfPrazo.Critico && Valor < SavedOptions.ConfPrazo.Alerta) {
         $(Linha).attr("class", "infraTrseippalerta");
-      } else if (Valor < 0) {
+      } else if (Valor < SavedOptions.ConfPrazo.Critico) {
         $(Linha).attr("class", "infraTrseippcritico");
       }
     }
