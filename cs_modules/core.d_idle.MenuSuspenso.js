@@ -4,10 +4,10 @@ function MenuSuspenso(BaseName) {
   var mconsole = new __mconsole(BaseName + ".MenuSuspenso");
 
   if (!$("#main-menu").length) return;
+  $("#main-menu, #divInfraAreaTelaE").hide();
 
   if ($("#lnkInfraMenuSistema").attr("title").indexOf("Ocultar") != -1) {
 		$("#divInfraAreaTelaD").width("99%");
-		$("#divInfraAreaTelaE").hide();
   }
   /* Oculta o botao de exibir menu */
   $("#lnkInfraMenuSistema").hide();
@@ -26,15 +26,18 @@ function MenuSuspenso(BaseName) {
 
 	$("#divInfraBarraSistemaE img").click(function(e){
     e.stopPropagation(); /* impede a propagação do evento click */
+    if ($("#main-menu").attr("style") != undefined) {
+      $("#main-menu").removeAttr("style");
+      $("#divInfraAreaTelaE").hide();
+    }
     $("#divInfraAreaTelaE").toggle("fast");
   });
 
-	$("#divInfraAreaTelaE").hide();
 	$("#divInfraAreaTelaE").addClass("seipp-menu");
 	$("#main-menu ul").addClass("seipp-menu");
 	$("#divInfraAreaTelaE *").click(function(e){e.stopPropagation();})
 	/* Oculta o menu ao clicar fora */
 	$('body').click(function(){
 		if (!$("#divInfraAreaTelaE").is(':hidden')){$("#divInfraAreaTelaE").toggle("fast");}
-	});
+  });
 }
