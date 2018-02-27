@@ -19,4 +19,5 @@ if (ModuleInit(BaseName)) {
         break;
     }
   }, this);
+  AbrirDocumentoNovaAba(BaseName);
 }

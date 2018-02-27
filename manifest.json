@@ -101,6 +101,7 @@
         "cs_modules/procedimento_visualizar.AutopreencherAndamento.js",
         "cs_modules/procedimento_visualizar.CopiarNumeroProcessoDocumento.js",
         "cs_modules/procedimento_visualizar.MostrarAnotacao.js",
+        "cs_modules/procedimento_visualizar.AbrirDocumentoNovaAba.js",
         "cs_modules/procedimento_visualizar.js"
       ]
     },
