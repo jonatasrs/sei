@@ -37,3 +37,9 @@ const isChrome = (typeof browser === "undefined"); /* Chrome: */
 if (isChrome) { var browser = chrome; } /* Chrome: */
 
 browser.runtime.onInstalled.addListener(handleInstalled);
+
+if(!isChrome) {
+  browser.runtime.getBrowserInfo().then(function (info) {
+    browser.storage.local.set({version: info.version}).then(null, null);
+  });
+}
