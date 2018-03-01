@@ -18,6 +18,9 @@ if (ModuleInit(ModName_idle)) {
       case "pontocoresanatel":
         PontoControleCores(ModName_idle);
         break;
+      case "atalhopublicacoeseletronicas":
+        AtalhoPublicacoesEletronicas(ModName_idle);
+        break;
       default:
         break;
     }
