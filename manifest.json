@@ -77,7 +77,6 @@
     {
       "matches": ["*://*.br/sei/controlador.php?acao=rel_bloco_protocolo_listar*"],
       "js": [
-        "lib/jquery-ui.min.js",
         "cs_modules/lib.filtra_processos.js",
         "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
         "cs_modules/lib.SelecionarMultiplosProcessos.js",
@@ -88,7 +87,6 @@
         {
       "matches": ["*://*.br/sei/controlador.php?acao=controle_unidade_gerar*"],
       "js": [
-        "lib/jquery-ui.min.js",
         "cs_modules/lib.SelecionarMultiplosProcessos.js",
         "cs_modules/lib.RetirarSobrestamentoReabrirEmBloco.js",
         "cs_modules/controle_unidade_gerar.js"
