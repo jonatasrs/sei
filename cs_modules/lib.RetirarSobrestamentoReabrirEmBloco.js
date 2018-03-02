@@ -11,6 +11,10 @@ function RetirarSobrestamentoReabrirEmBloco(BaseName) {
 	var idTextoSaida = 'idTextoSaida';
 	var titleModal = 'Status da operação...';
 
+	var processosStatus;
+	var processosErro;
+	var qtdProcessoSucesso;
+
 	function newElement(elemento) {
 	    return $(document.createElement(elemento));
 	}
@@ -42,6 +46,7 @@ function RetirarSobrestamentoReabrirEmBloco(BaseName) {
 	        imprimirLog(numeroProcesso + ' (' + numeroChamada + '/4)...');
 	        $.get(resultado.href, null, callFunction).fail(function() {
 	            imprimirError(numeroProcesso + ' (Erro na chamada nº ' + numeroChamada + ')!');
+	            removerFinalizar(numeroProcesso, true);
 	        });
 	    } else {
 	        if (resultado) {
@@ -49,6 +54,7 @@ function RetirarSobrestamentoReabrirEmBloco(BaseName) {
 	        } else {
 	            imprimirError(numeroProcesso + ' (Erro na chamada nº ' + numeroChamada + ')!');
 	        }
+	        removerFinalizar(numeroProcesso, true);
 	    }
 	}
 
@@ -56,9 +62,22 @@ function RetirarSobrestamentoReabrirEmBloco(BaseName) {
 		return window.location.origin + '/sei/' + linkRelativo;
 	}
 
+	function removerFinalizar(numeroProcesso, houveErro) {
+		processosStatus.splice(processosStatus.indexOf(numeroProcesso), 1);
+		if (houveErro) processosErro.push(numeroProcesso); else qtdProcessoSucesso++;
+		if (processosStatus.length === 0) {
+			let strLog = (processosErro.length > 0 ? '\nHouve erro ao reabrir os seguintes processos:\n' + processosErro.join('\n') + '\n' : '')
+			+ '\nExecução finalizada com sucesso.'
+			+ '\nProcessos reabertos: ' + qtdProcessoSucesso
+			+ '\nProcessos com erro: ' + processosErro.length;
+			imprimirLog(strLog);
+		}
+	}
+
 	function removerSobrestamento(element, index, total) {
 
 	    var numeroProcesso = element.textContent;
+	    processosStatus.push(numeroProcesso);
 
 	    parseCall(function() {
 	        return {href: element.href};
@@ -89,10 +108,18 @@ function RetirarSobrestamentoReabrirEmBloco(BaseName) {
 	                        return {error: "Processo não se encontra sobrestado ou fechado"};
 	                }, function() {
 	                    imprimirLog(numeroProcesso + ' (Reaberto com sucesso!)');
+	                    removerFinalizar(numeroProcesso, false);
 	                }, numeroProcesso, 4);
 	            }, numeroProcesso, 3);
 	        }, numeroProcesso, 2);
 	    }, numeroProcesso, 1);
+	}
+
+	function apresentarDialogText(texto) {
+		let script = document.createElement('script');
+		script.textContent = texto;
+		document.head.appendChild(script);
+		script.remove();
 	}
 
 	$('html body').first().append(
@@ -101,7 +128,13 @@ function RetirarSobrestamentoReabrirEmBloco(BaseName) {
 	        newElement('textarea').attr({id: idTextoSaida, rows: '25', cols: '70'}).prop( "disabled", true )))
 	);
 
-	$('#' + idModalSaida).dialog({autoOpen: false, modal: true, width: 'auto'});
+	{
+		let script = document.createElement('script');
+		script.textContent = "function apresentarDialog(a) { let modalSaida = $('#" + idModalSaida + "'); return modalSaida.dialog.apply(modalSaida, arguments); }";
+		document.head.appendChild(script);
+	}
+
+	apresentarDialogText("apresentarDialog({autoOpen: false, modal: true, width: 'auto'});");
 
 	var textoSaida = $('#' + idTextoSaida);
 
@@ -119,7 +152,10 @@ function RetirarSobrestamentoReabrirEmBloco(BaseName) {
 	        } else {
 	            if (confirm('Confirma a reabertura dos processos selecionados?')) {
 	                textoSaida.val('');
-	                $('#' + idModalSaida).dialog('option', 'title', titleModal).dialog('open');
+	                processosStatus = [];
+	                processosErro = [];
+	                qtdProcessoSucesso = 0;
+	                apresentarDialogText("apresentarDialog('option', 'title', '" + titleModal + "'); apresentarDialog('open');");
 	                links.each(function(index, element) { removerSobrestamento(element, index, links.length); });
 	            }
 	        }
