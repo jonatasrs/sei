@@ -36,6 +36,10 @@ legend {
   background-color: var(--dark-gray) !important;
   border-color: white !important;
 }
+a:link {color: #0066ff;}
+a:visited {color: rgb(132, 0, 255);}
+a:hover {color: lightskyblue;}
+a:active {color: red;}
 li a:hover {
   background-color: darkblue !important;
   color: white !important;
@@ -51,9 +55,6 @@ li a:hover {
 }
 table.resultado td.resSnippet, table.resultado td.metatag, table.resultado td.metatag * {
   background-color: inherit !important;
-}
-img[src="/infra_css/imagens/ajuda.gif"] {
-  filter: invert(100%);
 }
 .totalEstatisticas {
   background-color: darkblue !important;
@@ -255,10 +256,14 @@ div.infraBarraSuperior {
 a.ancoraRelacionadosParcial {
   color: inherit;
 }
-[src="imagens/sei_assinar_pequeno.gif"],
-[src="imagens/sei_autenticar_pequeno.gif"],
-[src="imagens/sei_autenticar_pequeno_nao_bloqueado.gif"]{
-  filter: invert(100%)
+
+img[src*="aguarde.gif"],
+img[src*="aguarde_pequeno.gif"],
+img[src*="ajuda.gif"],
+img[src*="sei_assinar_pequeno.gif"],
+img[src*="sei_autenticar_pequeno.gif"],
+img[src*="sei_autenticar_pequeno_nao_bloqueado.gif"] {
+  filter: invert(100%);
 }
 
 /*** scayt.css ****************************************************************/
