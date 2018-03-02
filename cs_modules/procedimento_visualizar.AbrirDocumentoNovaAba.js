@@ -2,7 +2,7 @@ function AbrirDocumentoNovaAba(BaseName) {
   var mconsole = new __mconsole(BaseName + ".AbrirDocumentoNovaAba");
 
   function Executar() {
-    $("#divArvore > div > a[target='ifrVisualizacao']").each(function () {
+    $("#divArvore > div a[target='ifrVisualizacao']").each(function () {
       var href = $(this).attr("href");
       mconsole.log(href);
 
