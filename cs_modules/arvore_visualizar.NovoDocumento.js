@@ -7,7 +7,7 @@ function NovoDocumento(BaseName) {
   function EsperarAcoes(msec) {
     setTimeout(function () {
       if (msec <= 0) {
-        reutrn;
+        return;
       } else if ($("#divArvoreAcoes").children().length == 0) {
         mconsole.log("Esperando... " + msec);
         EsperarAcoes(msec - 10);
