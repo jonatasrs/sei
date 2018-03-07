@@ -14,21 +14,27 @@ function Theme(BaseName, tema) {
     if (AplicarLinkCss()) {
       AdicionarLinkCss(document, "seipp-theme", "cs_modules/themes/black.css");
       mconsole.log(document.baseURI);
-      CorrigirLinkCss();
+      CorrigirLinkCss(document, "seipp-theme");
     }
   }, 10);
 
-  function CorrigirLinkCss(num = 0) {
+  /** Adicionar link css na página */
+  function CorrigirLinkCss(doc, id, num = 0) {
     setTimeout(function () {
-      if (document.getElementsByTagName("body").length == 1) {
+      var head = doc.getElementsByTagName('head')[0];
+      if (head == undefined) return;
+      /* Sai se for o CKEditor */
+      var htitle = head.getElementsByTagName('title')[0];
+      if (htitle != undefined) { if (htitle.getAttribute('data-cke-title') != undefined) return; }
+      if (doc.getElementsByTagName("body").length == 1) {
         try {
-          document.getElementsByTagName("head")[0].appendChild(document.getElementById("seipp-theme"));
+          head.appendChild(doc.getElementById(id));
         } catch (error) {
-          alert("ERRO: " + document.baseURI + "\n" + error);
+          alert("ERRO: " + doc.baseURI + "\n" + error);
           console.log(error);
         }
       } else if (num < 100) {
-        CorrigirLinkCss(num + 1);
+        CorrigirLinkCss(doc, id, num + 1);
       }
     }, 10);
   }
@@ -36,7 +42,7 @@ function Theme(BaseName, tema) {
   function AplicarLinkCss() {
     var Aplicar = true;
     NaoAplicarNestasPaginas.forEach(function (item) {
-      if (document.baseURI.indexOf("acao=" + item) != -1) {Aplicar = false;}
+      if (document.baseURI.indexOf("acao=" + item) != -1) { Aplicar = false; }
     });
     return Aplicar;
   }
