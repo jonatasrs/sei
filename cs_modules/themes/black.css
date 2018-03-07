@@ -79,7 +79,7 @@ div.infraBarraSistema{
   background-image: none;
   border-bottom-color: var(--dark-gray);
 }
-#divInfraBarraSistemaE img, #divComandos img {
+#divInfraBarraSistemaE img:first-child, #divComandos img {
   filter: brightness(50%);
 }
 /****************************************************************************/

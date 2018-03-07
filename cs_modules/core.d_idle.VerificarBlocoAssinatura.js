@@ -59,6 +59,7 @@ function VerificarBlocoAssinatura(BaseName) {
       }
       localizaItemBloco().find("a").html("<b> Blocos de Assinatura </b>" + html);
       localizaItemBloco().find("a").attr("class", "seipp-assinatura");
+      if (SavedOptions.CheckTypes.indexOf("menususp") != -1) $("#divInfraBarraSistemaE").append("&nbsp;").append($(html));
     }
   }
 }
