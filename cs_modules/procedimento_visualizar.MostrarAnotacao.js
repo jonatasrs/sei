@@ -7,14 +7,15 @@ function MostrarAnotacao(BaseName) {
 
   /** Pega a url de alteração do processo ***************************************/
   var head = $('head').html();
-  var a = head.indexOf("controlador.php?acao=anotacao_registrar");
+  var a = head.indexOf("controlador.php?acao=anotacao_registrar&");
+  if (a == -1) return;
   var b = head.indexOf("\"", a);
   var url = head.substring(a, b);
-  url = GetBaseUrl() + url
+  url = GetBaseUrl() + url;
   mconsole.log(url);
 
   /* Pega o html da pagina de alteração do processo */
-  mconsole.log("Carregado dodos...");
+  mconsole.log("Carregado os dados...");
   var WebHttp = $.ajax({ url: url });
   WebHttp.done(function (html) {
     txanotacao = $(html).find("#txaDescricao").text();

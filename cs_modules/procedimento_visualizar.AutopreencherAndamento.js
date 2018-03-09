@@ -4,7 +4,7 @@ function AutopreencherAndamento(BaseName) {
 
   /** Pega a url de alteração do processo ***************************************/
   var head = $('head').html();
-  var a = head.indexOf("controlador.php?acao=procedimento_atualizar_andamento");
+  var a = head.indexOf("controlador.php?acao=procedimento_atualizar_andamento&");
   if (a == -1) return;
   var b = head.indexOf("\"", a);
   var url = head.substring(a, b);
