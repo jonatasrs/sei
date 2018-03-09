@@ -10,11 +10,15 @@ function ConsultarInteressado(BaseName) {
 
   /** Pega a url de alteração do processo ***************************************/
   var head = $('head').html();
-  var a = head.indexOf("controlador.php?acao=procedimento_alterar");
-  if (a == -1) { a = head.indexOf("controlador.php?acao=procedimento_consultar");}
+  var a = head.indexOf("controlador.php?acao=procedimento_alterar&");
+  if (a == -1) { a = head.indexOf("controlador.php?acao=procedimento_consultar&");}
+  if (a == -1) {
+    mconsole.log("Consulta não disponível para este processo!!!");
+    return;
+  }
   var b = head.indexOf("\"", a);
   var url = head.substring(a, b);
-  url = GetBaseUrl() + url
+  url = GetBaseUrl() + url;
   mconsole.log(url);
 
   /* Pega o html da pagina de alteração do processo */
