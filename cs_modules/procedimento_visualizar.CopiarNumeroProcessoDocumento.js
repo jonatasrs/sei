@@ -5,6 +5,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 
 	var srcImgCopiar = 'data:image/gif;base64,R0lGODdhEAAQAMZNAAQCBISCdERCPMzCpGxmVOzixHRyXCQiHKyijNzStGxqXPTu3FxaTMS6nBQWFHx2bPz23ExORNTKrGRmZDQyLOTavGxqZERCRPTq1HRyZMS6pAwKDKSejMzGrGRiXCwqJPz27HR2ZOzizLSqlNzWvGxuXPzy5FxeXCQeHOTaxGxuZERGRMS+pGRmXAQGBJSKdExGPNTGpCwmJPzy3GReVMy6nBwWFHx6bPz25NzOtGxmZDw6NPTu1HxyZAwODKSelNTGrCwuJPz67Hx2ZPTmzLSulOTWvHRuXOTexHRuZExGRMy+pGxmXP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ywAAAAAEAAQAAAHqoAnNEOEhYaEDDsMOCAgOIyOjZAQDAaMODOXlzNCjiFHJjOioQClAJmPISUYrKylrQA8oRklRLZEpbe3GAsZCgXABaXBwCIiGL4VSMulSMrLyyJJCkbVRqXW2SkqTAneCaXf4iQWLRLn56XoAOc55UDw8aYAQDExQBYeAwNL+/z7/Zb00+FhCYsaGhDWMIhQg4YlEwQAaUCx4sSKDYCscHHBg8ePID1e2BAIADs=';
 	var srcImgEspaco = '/infra_css/imagens/espaco.gif';
+  var idmod = "seipp-cnpd";
 
 	function gerarInserirLink(element, numeroDocumento, numeroSei, nomeDocumento) {
 
@@ -34,6 +35,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	    var imgCopiar = document.createElement('img');
 	    imgCopiar.src = srcImgCopiar;
 	    imgCopiar.title = title;
+	    imgCopiar.id = idmod + span.id.substr(4);
 
 	    var imgEspaco = document.createElement('img');
 	    imgEspaco.src = srcImgEspaco;
@@ -41,7 +43,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	    var spanParent = span.parentNode;
 	    spanParent.parentNode.insertBefore(imgCopiar, spanParent.nextSibling);
 	    spanParent.parentNode.insertBefore(imgEspaco, spanParent.nextSibling);
-
+	    mconsole.log("Link copiar adicionado: " + $(span).text());
 	    return imgCopiar;
 	}
 
@@ -68,7 +70,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 
 	function iniciar() {
 	    var span = document.querySelector('#divArvore>a>span');
-	    if (span) {
+	    if (span && $("#"+idmod + span.id.substr(4)).length == 0) {
 
 	        var numeroDocumento = getNumeroDocumento(span.id);
 	        if (numeroDocumento) {
@@ -78,12 +80,13 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	        }
 	    }
 
-      $('#divArvore>div.infraArvore a>span').not("[id*='PASTA']").not("[id*='AGUARDE']").each(function(index, element) {
+      $("#divArvore > div a[target='ifrVisualizacao'] > span").each(function(index, element) {
 
 	        var numeroSei;
 	        var nomeDocumento;
 	        var numeroDocumento = getNumeroDocumento(element.id);
 
+	        if ($("#"+idmod + element.id.substr(4)).length != 0) return;
 	        var resultNomeRegex = /^(.+)\s+\(?([0-9]{7,8})\)?$/.exec(element.title);
 	        if (resultNomeRegex) {
 	            nomeDocumento = resultNomeRegex[1];
@@ -98,5 +101,5 @@ function CopiarNumeroProcessoDocumento(BaseName) {
       });
 	}
 
-	setTimeout(iniciar, 400);
+	ExecutarNaArvore(mconsole,iniciar);
 }

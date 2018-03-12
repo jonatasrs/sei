@@ -1,6 +1,7 @@
 function AutopreencherAndamento(BaseName) {
   /** inicialização do módulo ***************************************************/
   var mconsole = new __mconsole(BaseName + ".AutopreencherAndamento");
+  var idmod = "seipp-aa";
 
   /** Pega a url de alteração do processo ***************************************/
   var head = $('head').html();
@@ -9,7 +10,7 @@ function AutopreencherAndamento(BaseName) {
   var b = head.indexOf("\"", a);
   var url = head.substring(a, b);
   mconsole.log(url);
-  setTimeout(verificaArvore, 400);
+  ExecutarNaArvore(mconsole, verificaArvore);
 
   /****Auto preenchimento do andamento*******************************************/
   function enviarOficio(event) {
@@ -20,9 +21,11 @@ function AutopreencherAndamento(BaseName) {
     });
   }
 
-  function criaLink(i, e) {
+  function criaLink() {
     var link = $('<a><img src="' + browser.extension.getURL("icons/ect.png") + '" title="Preencher atualização de andamento (abra a tela de atualizar andamento antes de clicar!)"> </img></a>');
     var sp = $(this).find("span");
+    if (sp.length == 0) return;
+    if ($("#" + idmod + $(this).attr("id").substr(6)).length != 0) return;
     var text = sp.text();
     var inicio = text.indexOf("Ofício");
     var notif = text.indexOf("Notificação");
@@ -32,16 +35,16 @@ function AutopreencherAndamento(BaseName) {
     if ((inicio == 0) || (notif == 0) || (comunic == 0)) {
       nome = text.slice(0, fim);
       var num = text.substring(fim + 1, text.length - 2);
-      mconsole.log(nome + "- " + num);
+      mconsole.log("Link adicionado: " + nome + "- " + num);
       $(this).attr("style", "color:red");
       $(this).after(link);
       $(this).after('<img src="/infra_css/imagens/espaco.gif">');
-      $(link).attr("href", url).attr("target", "ifrVisualizacao");
+      $(link).attr("id", idmod + $(this).attr("id").substr(6)).attr("href", url).attr("target", "ifrVisualizacao");
       link.click({ name: nome, sei: num }, enviarOficio);
     }
   }
 
   function verificaArvore() {
-    $("div[class='infraArvore']:last a[target='ifrVisualizacao']").each(criaLink);
+    $("#divArvore > div a[target='ifrVisualizacao']").each(criaLink);
   }
 }

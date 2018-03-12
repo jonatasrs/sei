@@ -7,7 +7,8 @@ function Theme(BaseName, tema) {
     "base_conhecimento_visualizar",
     "documento_imprimir_web",
     "bloco_navegar",
-    "documento_download_anexo"
+    "documento_download_anexo",
+    "procedimento_paginar"
   ];
 
   setTimeout(function () {

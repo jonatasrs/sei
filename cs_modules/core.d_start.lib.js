@@ -105,3 +105,23 @@ function isNumOnly(str) {
 function RemoveAllOldEventListener(Elem) {
   $(Elem).replaceWith($(Elem).clone());
 }
+
+/**
+ * Espera carregar elementos dentro de um elemento Raiz.
+ * @param {*} ElemRaiz Elemento Raiz (jquery select).
+ * @param {*} Elem Elemento a ser carregado (jquery select).
+ * @param {function} func Função a ser executada apos o carregamento.
+ * @param {number} TimeOut Tempo máximo de espera para carregar.
+ */
+function EsperaCarregar(Modlog, ElemRaiz, Elem, func, TimeOut = 3000) {
+  if (TimeOut <= 0) { Modlog.log("Script não executado: TIMEOUT"); return; }
+  setTimeout(function () {
+    if ($(ElemRaiz).find(Elem).length == 0) {
+      //Modlog.log(ElemRaiz + ": find -> " + Elem + " : carregando...");
+      EsperaCarregar(Modlog, ElemRaiz, Elem, func, TimeOut - 100);
+    } else {
+      Modlog.log(ElemRaiz + " : Script executado.");
+      func();
+    }
+  }, 100);
+}
