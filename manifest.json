@@ -30,6 +30,7 @@
         "cs_modules/core.d_start.lib.js",
         "cs_modules/core.d_start.RedirecionarPagina.js",
         "cs_modules/core.d_start.Theme.js",
+        "cs_modules/core.d_start.ExibirNomeDoProcesso.js",
         "cs_modules/core.d_start.js"
       ]
     },
