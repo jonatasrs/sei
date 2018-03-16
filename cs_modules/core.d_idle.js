@@ -23,6 +23,7 @@ if (ModuleInit(ModName_idle)) {
         break;
       case "exibirnomedoprocesso":
         ExibirNomeDoProcesso(ModName_idle);
+        break;
       default:
         break;
     }

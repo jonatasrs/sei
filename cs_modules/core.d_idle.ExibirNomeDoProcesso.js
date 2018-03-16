@@ -1,6 +1,7 @@
 function ExibirNomeDoProcesso(BaseName) {
   /** inicialização do módulo */
   var mconsole = new __mconsole(BaseName + ".ExibirNomeDoProcesso");
+
   var processos = document.getElementsByClassName("processoVisualizado");
   for (var i = 0; i < processos.length; i++) {
     var p = processos[i];
