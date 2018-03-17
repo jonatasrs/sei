@@ -5,14 +5,14 @@ function ExibirNomeDoProcesso(BaseName) {
   //mconsole.log("entrou2");
 
   var processos = document.getElementsByClassName("processoVisualizado");
+  var p = null;
   for (var i = 0; i < processos.length; i++) {
-    var p = processos[i];
-    var text = p.onmouseover+"";
-    var extracted = text.substring(text.lastIndexOf("(")+1,text.lastIndexOf(")"));
-    extracted = extracted.substring(1, extracted.lastIndexOf(",")-1);
-  
-    if (extracted.length>0){
-        p.innerText = extracted;
+    p = processos[i];
+    t = p.outerHTML;
+    t = t.substring(t.lastIndexOf("('") + 2,t.lastIndexOf(",") -1);
+    
+    if (t.length > 0){
+         p.innerText = t;
     }
   }
 }
