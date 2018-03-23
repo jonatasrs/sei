@@ -70,6 +70,21 @@
     background-color: gray !important;
 }
 
+.tablesorter-filter {
+  width: 100%;
+  border: 1px solid #bbb;
+}
+.tablesorter-filter.disabled {
+  display: none;
+}
+.tablesorter-filter-row.hideme {
+  display: none !important;
+}
+.tablesorter-filter-row td {
+  border-left: 1px dotted darkgray;
+  background-color: #dfdfdf;
+}
+
 /* CSS for Tablesorter END */
 
 /* CSS for Modules: consultas.js */

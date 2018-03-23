@@ -61,7 +61,7 @@ table.resultado td.resSnippet, table.resultado td.metatag, table.resultado td.me
 }
 #btnVisualizarAssinaturas {color: black !important;}
 th.tituloControle {background-color: transparent;}
-#divInfraAreaGlobal, #divAutenticacao, #divSistema {
+#divInfraAreaGlobal, #divAutenticacao, #divSistema, .tablesorter-filter-row td {
   background-color: transparent !important;
 }
 th.tituloControleExterno {
