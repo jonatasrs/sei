@@ -3,7 +3,7 @@ function ConsultarInteressado(BaseName) {
   var mconsole = new __mconsole(BaseName + ".ConsultarInteressado");
 
   /** Variaveis *****************************************************************/
-  var processo = {numero: "",interessado: "",sigla: "",tipo: ""};
+  var processo = {numero: "",interessado: "",descricao: "",tipo: ""};
 
   /** Pega a url de alteração do processo ***************************************/
   var head = $('head').html();
@@ -25,33 +25,32 @@ function ConsultarInteressado(BaseName) {
     processo.numero = $("#divArvore > a > span[id^='span']").text().replace(/\D/g, '');
     mconsole.log("Lendo dados do processo: " + processo.numero);
     processo.tipo = $html.find("#selTipoProcedimento option[selected='selected']").text();
-    processo.interessado = $html.find("#selInteressadosProcedimento option:first").text();
+    processo.descricao = $html.find("#txtDescricao").text();
+    processo.interessado = $html.find("#selInteressadosProcedimento").text();
 
-    a = processo.interessado.indexOf('(') + 1;
-    if (a != 0) {
-      b = processo.interessado.indexOf(')', a);
-      processo.sigla = processo.interessado.substring(a, b);
-      processo.interessado = processo.interessado.substring(0, a - 1).trim();
-    }
-
+    AjustaLargura();
     DetalheProcesso_Criar();
     DetalheProcesso_Preencher();
   });
 
   /** Funções *******************************************************************/
   function DetalheProcesso_Criar(params) {
-    $("<div id='seipp_divp'/>")
-      .insertAfter("#frmArvore")
-      .append("<div id='seipp_processo'/>")
-      .append("<div id='seipp_interessado'/>")
-      .append("<div id='seipp_sigla'/>")
-      .after("<div id='seipp_tipo'/>");
+    $("<div id='detalhes' style='margin-left: 300px; border: 1px solid #000;'/>")
+      .insertAfter("#divInformacao")
+      .append('<div id="divProtocoloExibir" class="infraAreaDados" style="height:4.5em; clear: none;"><label id="lblProtocoloExibir" for="txtProtocoloExibir" accesskey="" class="infraLabelObrigatorio">Protocolo:</label><input id="txtProtocoloExibir" name="txtProtocoloExibir" class="infraText infraReadOnly" readonly="readonly" type="text"><label id="lblDtaGeracaoExibir" for="txtDtaGeracaoExibir" accesskey="" class="infraLabelObrigatorio">Data de Autuação:</label><input id="txtDtaGeracaoExibir" name="txtDtaGeracaoExibir" class="infraText infraReadOnly" readonly="readonly" tabindex="507" type="text"></div>')
+      .append('<div id="divTipoProcedimento" class="infraAreaDados" style="height:4.5em; clear: none;"><label id="lblTipoProcedimento" for="selTipoProcedimento" accesskey="" class="infraLabelObrigatorio">Tipo do Processo:</label><input id="selTipoProcedimento" name="selTipoProcedimento" class="infraText infraReadOnly" readonly="readonly" style="width: 300px;"></div>')
+      .append('<div id="divDescricao" class="infraAreaDados" style="height:4.7em; clear: none;"><label id="lblDescricao" for="txtDescricao" accesskey="" class="infraLabelOpcional">Especificação:</label><input id="txtDescricao" name="txtDescricao" class="infraText infraReadOnly" type="text" style="width: 300px;"></div>')
+      .after('<div id="divInteressados" class="infraAreaDados" style="height:11em; clear: none;"><label id="lblInteressadosProcedimento" for="txtInteressadoProcedimento" accesskey="I" class="infraLabelOpcional"><span class="infraTeclaAtalho">I</span>nteressados:</label><br/><textarea id="txtInteressadosProcedimento" name="txtInteressadosProcedimento" class="infraText infraReadOnly" readonly="readonly" style="width: 500px;"></textarea></div>');
   }
 
   function DetalheProcesso_Preencher() {
-    $("#seipp_processo").attr("value", processo.numero).attr("title", "Número do processo").text(processo.numero);
-    $("#seipp_interessado").attr("value", processo.interessado).attr("title", "Nome do interessado").text(processo.interessado);
-    $("#seipp_sigla").attr("title", "Sigla do interessado").text(processo.sigla);
-    $("#seipp_tipo").attr("title", "Tipo de processo").text(processo.tipo);
+    $("#txtProtocoloExibir").attr("value", processo.numero);
+    $("#txtInteressadosProcedimento").attr("text", processo.interessado);
+    $("#txtDescricao").attr("value", processo.descricao);
+    $("#selTipoProcedimento").attr("value", processo.tipo);
+  }
+
+  function AjustaLargura() {
+    $("#divInformacao").css('width', '300px');
   }
 }
