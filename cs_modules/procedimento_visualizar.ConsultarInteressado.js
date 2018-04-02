@@ -5,9 +5,6 @@ function ConsultarInteressado(BaseName) {
   /** Variaveis *****************************************************************/
   var processo = {numero: "",interessado: "",sigla: "",tipo: ""};
 
-  processo.numero = $("#divArvore > a > span[id^='span']").text().replace(/\D/g, '');
-  mconsole.log("Lendo dados do processo: " + processo.numero);
-
   /** Pega a url de alteração do processo ***************************************/
   var head = $('head').html();
   var a = head.indexOf("controlador.php?acao=procedimento_alterar&");
@@ -25,6 +22,8 @@ function ConsultarInteressado(BaseName) {
   var WebHttp = $.ajax({ url: url });
   WebHttp.done(function (html) {
     let $html = $(html);
+    processo.numero = $("#divArvore > a > span[id^='span']").text().replace(/\D/g, '');
+    mconsole.log("Lendo dados do processo: " + processo.numero);
     processo.tipo = $html.find("#selTipoProcedimento option[selected='selected']").text();
     processo.interessado = $html.find("#selInteressadosProcedimento option:first").text();
 
