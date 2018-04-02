@@ -48,7 +48,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	}
 
 	function getNumeroDocumento(text) {
-	    var resultIdRegex = /^span([0-9]{7,8})$/g.exec(text);
+	    var resultIdRegex = /^span([0-9]{1,9})$/g.exec(text);
 	    if (resultIdRegex) return resultIdRegex[1];
 	}
 
