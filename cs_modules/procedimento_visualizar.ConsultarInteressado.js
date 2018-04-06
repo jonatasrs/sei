@@ -38,13 +38,26 @@ function ConsultarInteressado(BaseName) {
       .insertAfter("#frmArvore")
       .append("<div id='seipp_processo'/>")
       .append("<div id='seipp_tipo'/>")
-      .append("<div id='seipp_interessado'/>");
+      .append("<div id='seipp_interessados'/>");
 
   }
 
   function DetalheProcesso_Preencher() {
     $("#seipp_processo").attr("value", processo.numero).attr("title", "Número do processo").text(processo.numero);
-    $("#seipp_interessado").attr("value", processo.interessados).attr("title", "Nome do interessado").html(processo.interessados.join("<br>"));
+    $.each(processo.interessados, function (index, nome) {
+      let sigla;
+      mconsole.log(nome);
+
+      a = nome.indexOf('(') + 1;
+      if (a != 0) {
+        b = nome.indexOf(')', a);
+        sigla = nome.substring(a, b);
+        nome = nome.substring(0, a - 2);
+      }
+      $("#seipp_interessados").append("<div class='seipp_interessado' title='Interessado'>" + nome + "</div>");
+      $("#seipp_interessados").append("<div class='seipp_sigla' title='sigla'>" + sigla + "</div>");
+    });
+    //$("#seipp_interessados").attr("value", processo.interessados).attr("title", "Nome do interessado").html(processo.interessados.join("<br>"));
     $("#seipp_tipo").attr("title", "Tipo de processo").text(processo.tipo);
   }
 
