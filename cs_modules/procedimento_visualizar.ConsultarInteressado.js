@@ -57,7 +57,6 @@ function ConsultarInteressado(BaseName) {
       $("#seipp_interessados").append("<div class='seipp_interessado' title='Interessado'>" + nome + "</div>");
       $("#seipp_interessados").append("<div class='seipp_sigla' title='sigla'>" + sigla + "</div>");
     });
-    //$("#seipp_interessados").attr("value", processo.interessados).attr("title", "Nome do interessado").html(processo.interessados.join("<br>"));
     $("#seipp_tipo").attr("title", "Tipo de processo").text(processo.tipo);
   }
 
