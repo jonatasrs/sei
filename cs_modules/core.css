@@ -94,9 +94,12 @@
   padding: 1em 0 0;
   font-size: 1.4em;
 }
-#seipp_tipo {
+.seipp_interessado {
+  padding-left: 0.6em;
+  white-space: nowrap;
+}
+.seipp_sigla {
   padding-left: 1.2em;
-  font-size: 1.2em;
   white-space: nowrap;
 }
 #seipp_novodoc {
