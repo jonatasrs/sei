@@ -21,6 +21,9 @@ if (ModuleInit(ModName_idle)) {
       case "atalhopublicacoeseletronicas":
         AtalhoPublicacoesEletronicas(ModName_idle);
         break;
+      case "exibirnomedoprocesso":
+        ExibirNomeDoProcesso(ModName_idle);
+        break;
       default:
         break;
     }
