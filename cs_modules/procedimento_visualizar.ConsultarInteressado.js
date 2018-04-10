@@ -39,7 +39,6 @@ function ConsultarInteressado(BaseName) {
       .append("<div id='seipp_processo'/>")
       .append("<div id='seipp_tipo'/>")
       .append("<div id='seipp_interessados'/>");
-
   }
 
   function DetalheProcesso_Preencher() {
@@ -61,11 +60,16 @@ function ConsultarInteressado(BaseName) {
   }
 
   function ExibirDadosProcesso($html) {
-    setTimeout(function () {
+    mconsole.log("ExibirDadosProcesso");
+    var iframe = window.parent.document.getElementById('ifrVisualizacao');
+    var $iframe = $(iframe);
+
+    $iframe.on("load", function () {
       // https://stackoverflow.com/questions/726816/how-to-access-iframe-parent-page-using-jquery/726866
       // https://stackoverflow.com/questions/6316979/selecting-an-element-in-iframe-jquery
-      var iframe = window.parent.document.getElementById('ifrVisualizacao');
-      var $iframe = $(iframe);
+      if ($iframe.contents().find("#divArvoreHtml iframe").length != 0) {$(this).off("load"); return; }
+      else if ($iframe.contents().find("#divInformacao").length == 0) {$(this).off("load"); return; }
+
       var mask_processo = $("#divArvore > a > span[id^='span']").text();
       var interessados = $html.find("#selInteressadosProcedimento option").map(function () { return $(this).text(); }).get();
       var descricao = $html.find("#txtDescricao").val();
@@ -94,6 +98,7 @@ function ConsultarInteressado(BaseName) {
       $newiframe.contents().find("#txtInteressadosProcedimento").css("height", "50px");
 
       mconsole.log("Fechou");
-    }, 3000);
+      $(this).off("load");
+    });
   }
 }
