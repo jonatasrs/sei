@@ -2,7 +2,20 @@
 /** Opção padrão caso não exista opções salvas. */
 var DefaultOptions = {
   theme: "white",
-  CheckTypes: [],
+  CheckTypes: [
+    "prazo",
+    "qtddias",
+    "chkbloco",
+    "exibeinfointeressado",
+    "atalhonovodoc",
+    "filtraporatribuicao",
+    "carregainformacaoblocos",
+    "pesquisarinformacoes",
+    "copiarnumeroprocessodocumento",
+    "retirarsobrestamentoreabrirembloco",
+    "mostraranotacao",
+    "atalhopublicacoeseletronicas"
+  ],
   InstallOrUpdate: true,
   ConfiguracoesCores: [
     {valor: "", cor: "00cc00"},
