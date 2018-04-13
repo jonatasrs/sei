@@ -323,6 +323,10 @@ div.tituloNovidade {
   background-color: darkblue !important;
 }
 
+a.seipp-assinatura {
+  background-color: #660 !important;
+}
+
 /*** CKEditor *****************************************************************/
 .cke_dialog_contents_body input, .cke_dialog_contents_body select {
   background-color: white !important;
