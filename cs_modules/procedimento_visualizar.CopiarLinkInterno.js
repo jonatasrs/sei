@@ -22,6 +22,7 @@ function CopiarLinkInterno(BaseName) {
           $copy.val(linkurl + id).select();
           try {
             document.execCommand("copy");
+            AnimacaoFade(this);
           } catch (error) {
             alert("Erro ao copiar o link!");
           }

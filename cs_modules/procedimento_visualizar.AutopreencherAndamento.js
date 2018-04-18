@@ -19,6 +19,7 @@ function AutopreencherAndamento(BaseName) {
       $(this).contents().find("#txaDescricao").val(textoPadrao.replace('%nome', event.data.name).replace('%num', event.data.sei));
       $(this).off("load");
     });
+    AnimacaoFade(this);
   }
 
   function criaLink() {

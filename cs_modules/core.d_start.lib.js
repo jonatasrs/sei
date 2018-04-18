@@ -139,3 +139,11 @@ function EsperaCarregar(Modlog, ElemRaiz, Elem, func, TimeOut = 3000) {
     }
   }, 100);
 }
+
+/**
+ * Raliza a animação Fadein/Fadeout no elemento.
+ * @param {HTMLElement} Elem
+ */
+function AnimacaoFade(Elem) {
+  $(Elem).fadeOut(200).fadeIn(200);
+}

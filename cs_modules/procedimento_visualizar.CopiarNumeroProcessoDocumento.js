@@ -60,7 +60,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	    sel.removeAllRanges();
 	    sel.addRange(range);
 	    try {
-	        document.execCommand('copy');
+          document.execCommand('copy');
 	        sel.removeAllRanges();
 	    } catch (err) {
 	        alert('Infelizmente, seu sistema não permite copiar automaticamente. Pressione Ctrl + C para copiar.');
@@ -76,7 +76,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	        if (numeroDocumento) {
 
 	            var spanGeral = gerarInserirLink(span, numeroDocumento, span.innerHTML.trim());
-	            gerarInserirCopy(span, 'Copiar Número do Processo').addEventListener('click', function() { copiarNumero(spanGeral); });
+	            gerarInserirCopy(span, 'Copiar Número do Processo').addEventListener('click', function() {AnimacaoFade(this); copiarNumero(spanGeral); });
 	        }
 	    }
 
@@ -96,7 +96,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	        if (numeroSei && numeroDocumento && nomeDocumento) {
 
 	            var spanGeral = gerarInserirLink(element, numeroDocumento, numeroSei, nomeDocumento);
-	            gerarInserirCopy(element, 'Copiar Documento').addEventListener('click', function() { copiarNumero(spanGeral); });
+	            gerarInserirCopy(element, 'Copiar Documento').addEventListener('click', function() {AnimacaoFade(this); copiarNumero(spanGeral); });
 	        }
       });
 	}

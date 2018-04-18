@@ -1,3 +1,9 @@
+/* CSS for Modules */
+div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hover {
+  opacity: 0.7;
+}
+/* CSS for Modules: END */
+
 /* CSS for Modules: MostrarAnotacao */
 #seipp_div_anotacao {
   display: flex;
