@@ -12,6 +12,7 @@ var DefaultOptions = {
     "carregainformacaoblocos",
     "pesquisarinformacoes",
     "copiarnumeroprocessodocumento",
+    "copiarlinkinterno",
     "retirarsobrestamentoreabrirembloco",
     "mostraranotacao",
     "atalhopublicacoeseletronicas"

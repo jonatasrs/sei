@@ -29,6 +29,9 @@ if (ModuleInit(BaseName)) {
       case "mostraranotacao":
         MostrarAnotacao(BaseName);
         break;
+      case "copiarlinkinterno":
+        CopiarLinkInterno(BaseName);
+        break;
       default:
         break;
     }
