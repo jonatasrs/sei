@@ -44,7 +44,7 @@ function ConsultarInteressado(BaseName) {
   function DetalheProcesso_Preencher() {
     $("#seipp_processo").attr("value", processo.numero).attr("title", "Número do processo").text(processo.numero);
     $.each(processo.interessados, function (index, nome) {
-      let sigla;
+      let sigla = "";
       mconsole.log(nome);
 
       a = nome.indexOf('(') + 1;
