@@ -53,6 +53,10 @@ function AdicionarOrdenacao(BaseName) {
       var tx = $(caption).text();
       $(caption).text(tx.replace(/\d+/g, data.filteredRows));
       mconsole.log(idt + ": Registros filtrados > " + data.filteredRows);
+
+      /** Impede a seleção de itens filtrados da tabela, ao clicar em selecionar todos. */
+      $(tabela).find("tbody > tr:visible > td > input").removeAttr("disabled");
+      $(tabela).find("tbody > tr:hidden > td > input").attr("disabled", "");
     })
   });
 }
