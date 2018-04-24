@@ -19,6 +19,20 @@ function PesquisarInformacoes(BaseName) {
         var pesquisaGrupo = false;
         var arrayTermo;
         var texto = this.value.toLowerCase();
+
+        /** Impede o conflito com o script: procedimento_controlar.AdicionarOrdenacao.js */
+        var tablesorterfilter = false;
+        $('#tblProcessosDetalhado, #tblProcessosGerados, #tblProcessosRecebidos').each(function (index, tabela) {
+          var filter = $.tablesorter.getFilters($(tabela));
+          $.each(filter, function (index, value) {
+            if (value != "") tablesorterfilter = true;
+          });
+        });
+        if (tablesorterfilter) {
+          mconsole.log("Pesquisa de informações não realizada, pois a tabela já exite pesquisa na tabela");
+          return;
+        };
+
         if (texto) {
             if (regexPesquisaOu.test(texto)) {
                 arrayTermo = texto.substring(1, texto.length - 1).match(/\S+/g);

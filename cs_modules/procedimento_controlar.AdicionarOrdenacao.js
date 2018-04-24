@@ -43,9 +43,11 @@ function AdicionarOrdenacao(BaseName) {
       .prepend('<input id="limpar" value="Limpar filtro" type="button" class="infraButton">').prepend("&nbsp;")
       .prepend('<input id="filtrar" value="Filtrar tabela" type="button" class="infraButton">');
     $(this).parent().find("#filtrar").on("click", function () {
+      RemoverFiltroPesquisa($(tabela));
       $(tabela).find(".tablesorter-filter-row").removeClass("hideme");
     });
     $(this).parent().find("#limpar").on("click", function () {
+      RemoverFiltroPesquisa($(tabela));
       $(tabela).trigger('filterReset');
     });
     $(tabela).on("filterEnd", function (event, data) {
@@ -59,4 +61,15 @@ function AdicionarOrdenacao(BaseName) {
       $(tabela).find("tbody > tr:hidden > td > input").attr("disabled", "");
     })
   });
+
+  /**
+   * Impede o conflito com o script: lib.filtra_processos.PesquisarInformacoes.js
+   * @param {*} params
+   */
+  function RemoverFiltroPesquisa($tabela) {
+    if ($tabela.attr("data-filtro") != undefined) {
+      removerFiltroTabela($tabela, $tabela.find('tbody>tr[class^="infraTr"]'), "PorPesquisa");
+    }
+  }
+
 }
