@@ -13,7 +13,7 @@ function Options_ui(BaseName) {
         "margin-top": "10px"
       });
       $("#frmInfraConfigurar, #seipp-div-options-ui").css({
-        "border" : "2px solid",
+        "border": "2px solid",
         "padding": "10px",
         "margin-top": "10px"
       });
@@ -26,8 +26,10 @@ function Options_ui(BaseName) {
    * Atualiza o formulário com as configurações salvas.                         *
    ******************************************************************************/
   function OptionsLoad() {
+    /* Tema */
     $("#theme").val(SavedOptions.theme);
 
+    /* Checkbox's */
     $("input[type='checkbox']").each(function () {
       if (SavedOptions.CheckTypes.indexOf($(this).attr("data-type")) != -1) {
         $(this).attr("checked", true);
@@ -38,6 +40,7 @@ function Options_ui(BaseName) {
       }
     })
 
+    /* Marcar cor processo */
     if (SavedOptions.ConfiguracoesCores == undefined) { /* Se não existir esta configuração */
       SavedOptions.ConfiguracoesCores = DefaultOptions.ConfiguracoesCores;
     }
@@ -47,48 +50,49 @@ function Options_ui(BaseName) {
         item_cor["0"].value = SavedOptions.ConfiguracoesCores[index].valor;
       }
     });
+    $("#marcarcorprocesso").prev().on("click", function () {
+      $("#divConfigMarcarCorProcesso").toggle("fast");
+    });
 
-    $("#marcarcorprocesso").on("change", mostraDivConfigMarcarCorProcesso);
+    /* Click Menos */
+    $("#cliquemenos").prev().on("click", function () {
+      $("#divFormato").toggle("fast");
+    });
 
-    $("#cliquemenos").on("change", mostraDivConfig);
-
-    $("input[name='formato'][value="+SavedOptions.formato+"]").attr("checked", true);
+    $("input[name='formato'][value=" + SavedOptions.formato + "]").attr("checked", true);
     $("input[name='formato']").on("change", MostraTipoConferencia);
     $("#divtipoconferencia").hide();
     MostraTipoConferencia();
-
     $("#tipoconferencia").val(SavedOptions.tipoConferencia);
 
     mconsole.log("RESTRITO: " + SavedOptions.nivelAcesso);
     $("input[name='nivelAcesso']").on("change", MostraRestrito);
-    $("input[name='nivelAcesso'][value="+SavedOptions.nivelAcesso+"]").attr("checked", true);
+    $("input[name='nivelAcesso'][value=" + SavedOptions.nivelAcesso + "]").attr("checked", true);
     MostraRestrito();
 
     $("#hipoteseLegal").val(SavedOptions.hipoteseLegal);
 
-    mostraDivConfig();
-
-    mostraDivConfigMarcarCorProcesso();
-
-	$("#nomeUsuarioSistema").text(getNomeUsuarioSistema());
-	$("#loginUsuarioSistema").text(getLoginUsuarioSistema());
-	$("input[name='filtraporatribuicaoRadio']").val([(SavedOptions.filtraporatribuicao || 'login')]);
-	$("#filtraporatribuicao").on("change", mostraFiltraPorAtribuicao);
-	mostraFiltraPorAtribuicao();
+    /* Filtrar por atribuição */
+    $("#nomeUsuarioSistema").text(getNomeUsuarioSistema());
+    $("#loginUsuarioSistema").text(getLoginUsuarioSistema());
+    $("input[name='filtraporatribuicaoRadio']").val([(SavedOptions.filtraporatribuicao || 'login')]);
+    $("#filtraporatribuicao").prev().on("click", function () {
+      $("#filtraporatribuicaoOptions").toggle("fast");
+    });
 
     /* prazo */
     $("#prazoalerta").val(SavedOptions.ConfPrazo.Alerta);
     $("#prazocritico").val(SavedOptions.ConfPrazo.Critico);
-    $("input[data-type='prazo']").on("click", function () {
-      toggle($("#prazoOptions"), this.checked);
-    }).trigger("change");
+    $("input[data-type='prazo']").prev().on("click", function () {
+      $("#prazoOptions").toggle("fast");
+    });
 
     /* dias */
     $("#qtddiasalerta").val(SavedOptions.ConfDias.Alerta);
     $("#qtddiascritico").val(SavedOptions.ConfDias.Critico);
-    $("input[data-type='qtddias']").on("change", function () {
-      toggle($("#qtddiasOptions"), this.checked);
-    }).trigger("change");
+    $("input[data-type='qtddias']").prev().on("click", function () {
+      $("#qtddiasOptions").toggle("fast");
+    });
 
     /* Salvar */
     $("#save-button").on("click", OptionsSave);
@@ -96,46 +100,34 @@ function Options_ui(BaseName) {
     if (SavedOptions.InstallOrUpdate) {
       SavedOptions.InstallOrUpdate = false;
       browser.storage.local.set(SavedOptions);
-      $("#lnkConfiguracaoSistema img").css({'animation': 'none'});
+      $("#lnkConfiguracaoSistema img").css({ 'animation': 'none' });
     }
   }
 
   function getUsuarioSistema() {
-	return document.getElementById('lnkUsuarioSistema').title;
+    return document.getElementById('lnkUsuarioSistema').title;
   }
 
   function getNomeUsuarioSistema() {
-	  let usuarioSistema = getUsuarioSistema();
-	  return usuarioSistema.substring(0, usuarioSistema.indexOf(' - '));
+    let usuarioSistema = getUsuarioSistema();
+    return usuarioSistema.substring(0, usuarioSistema.indexOf(' - '));
   }
 
   function getLoginUsuarioSistema() {
-	  let usuarioSistema = getUsuarioSistema();
-	  return usuarioSistema.substring(usuarioSistema.indexOf(' - ') + 3, usuarioSistema.indexOf('/'));
+    let usuarioSistema = getUsuarioSistema();
+    return usuarioSistema.substring(usuarioSistema.indexOf(' - ') + 3, usuarioSistema.indexOf('/'));
   }
 
   function MostraTipoConferencia() {
-	toggle($("#divtipoconferencia"), $("input[name='formato']:checked").val() == "D");
+    toggle($("#divtipoconferencia"), $("input[name='formato']:checked").val() == "D");
   }
 
   function MostraRestrito() {
-	toggle($("#divhipoteseLegal"), $("#rdRestrito:checked").val() == "R");
-  }
-
-  function mostraDivConfigMarcarCorProcesso() {
-	toggle($("#divConfigMarcarCorProcesso"), document.getElementById("marcarcorprocesso").checked);
-  }
-
-  function mostraDivConfig() {
-	toggle($("#divFormato"), document.getElementById("cliquemenos").checked);
-  }
-
-  function mostraFiltraPorAtribuicao() {
-	toggle($("#filtraporatribuicaoOptions"), document.getElementById("filtraporatribuicao").checked);
+    toggle($("#divhipoteseLegal"), $("#rdRestrito:checked").val() == "R");
   }
 
   function toggle(elemento, valor) {
-	let anim = "fast";
+    let anim = "fast";
     if (valor)
       elemento.show(anim);
     else
@@ -153,7 +145,7 @@ function Options_ui(BaseName) {
     $("input[type='text']").each(function () {
       var item_cor = $(this);
       if (item_cor["0"].id.indexOf("cor_") != -1) {
-        var configuracao_cor = {cor: item_cor["0"].id.replace("cor_", "#"), valor: item_cor["0"].value};
+        var configuracao_cor = { cor: item_cor["0"].id.replace("cor_", "#"), valor: item_cor["0"].value };
         ConfiguracoesCores.push(configuracao_cor);
       }
     });
@@ -179,7 +171,7 @@ function Options_ui(BaseName) {
       console.log(`Error: ${error}`);
     }
 
-    var OptionsToSave = {theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias };
+    var OptionsToSave = { theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias };
     if (isChrome) {
       browser.storage.local.set(OptionsToSave);
     } else {

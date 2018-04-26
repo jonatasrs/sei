@@ -322,7 +322,12 @@ div.tituloNovidade {
 .seipp-options label:hover {
   background-color: darkblue !important;
 }
-
+.toggle-options, .toggle-options:visited {
+  color: #0066ff !important;
+}
+.toggle-options > span {
+  filter: invert(100%);
+}
 a.seipp-assinatura {
   background-color: #660 !important;
 }

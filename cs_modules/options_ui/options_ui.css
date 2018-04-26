@@ -2,11 +2,14 @@
   font-weight: bold;
 }
 
-#theme, .seipp-options input{
+.seipp-options input{
   margin-left: 20px;
   margin-right: 10px;
 }
 
+.seipp-fieldset {
+  display: none;
+}
 .seipp-fieldset fieldset {
   margin: 10px auto 10px 45px;
 }
@@ -20,24 +23,28 @@
   background-color: lightblue;
 }
 .card_label{
-	text-align: center;
+  text-align: center;
+  font-weight: bold;
 }
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0px 8px 0 gray;
     transition: 0.3s;
     width: 40%;
-	background-color: #f2f2f2;
 	margin: auto;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0px 16px 0 gray;
 }
 
 .container {
     padding: 2px 16px;
 	border-top: 1px solid lightgray;
 }
+.container:hover {
+  box-shadow: inset 0 0 5px blue;
+}
+
 /* Tooltip container */
 .tooltip {
     position: relative;
@@ -54,19 +61,25 @@
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
- 
-    
     position: absolute;
     z-index: 1;
 }
-
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
 .toggle-label{
   font-family: arial;
-  width: 95%;
+  width: 100%;
+  align-self: center;
+}
+.toggle-options {
+  display: flex;
+  color: blue;
+  text-decoration: underline;
+  flex-shrink: 0;
+  align-self: center;
+  font-size: 1.2em;
 }
 .toggle {
   -webkit-appearance: none;
@@ -81,10 +94,11 @@
   outline: none;
   border: none;
   cursor: pointer;
-  background-color: #707070;
+  background-color: gray !important;
   transition: background-color ease 0.3s;
+  flex-shrink: 0;
+  align-self: center;
 }
-
 .toggle:before {
   content: "on off";
   display: block;
@@ -109,14 +123,26 @@
 }
 
 .toggle:checked {
-  background-color: #4CD964;
+  background-color: green !important;
 }
-
 .toggle:checked:before {
   left: 32px;
 }
 .flex-container{
   display: flex;
   height: auto;
-  align-items: center;
+  align-items: stretch;
+}
+.toggle-select {
+  height: 24px;
+  margin: 4px;
+  flex-shrink: 0;
+  align-self: center;
+}
+.option-save {
+  width: 40%;
+  margin-top: 20px;
+}
+.option-save input {
+  border-style: solid;
 }
