@@ -1,223 +1,241 @@
-<h1 class="seipp-options-title">Configurações do complemento SEI++</h1>
+<div class="flex-container"><h1 class="seipp-options-title">Configurações do complemento SEI++</h1></div>
 <hr>
 
-<fieldset id="seipp-options-fs">
-  <legend>Configurações do SEI++</legend>
-
-  <section class="seipp-options">
-    <select id="theme" title="Teste o incrivel tema preto no SEI (SEI black)">
-        <option value="white" selected>SEI Padrão</option>
-        <option value="black">SEI Black</option>
-      </select>
-    <label class="title">Escolha o tema a ser utilizado no SEI:</label>
-  </section>
-
-  <hr>
-
-  <section class="seipp-options">
-    <h2 class="seipp-options-subtitle">Quais ferramentas você deseja habilitar?</h2>
-
-    <label><input type="checkbox" data-type="prazo" />
-    Prazo de atendimento (Incluir a data no texto do marcador no formato "<u>ATE dd/mm/aaaa</u>".)</label><br>
-
-    <div id="prazoOptions" class="seipp-fieldset">
-      <fieldset>
-        <legend>Personalizar alerta de cores nos prazos de atendimento em dias</legend>
-        <label class="infraTrseippalerta">Alerta:</label>
-        <input id="prazoalerta" type="number" name="prazoNumber" max="90" min="-90">
-        <label class="infraTrseippcritico">Critico:</label>
-        <input id="prazocritico" type="number" name="prazoNumber" max="90" min="-90">
-      </fieldset>
-    </div>
-
-    <label><input type="checkbox" data-type="qtddias" />
-    Quantidade de dias (Incluir a data no texto do marcador no formato "<u>dd/mm/aaaa</u>".)</label><br>
-
-    <div id="qtddiasOptions" class="seipp-fieldset">
-        <fieldset>
-          <legend>Personalizar alerta de cores na quantidade de dias em dias</legend>
-
-          <label class="infraTrseippalerta">Alerta:</label>
-          <input id="qtddiasalerta" type="number" name="qtddiasNumber" max="180" min="1">
-          <label class="infraTrseippcritico">Critico:</label>
-          <input id="qtddiascritico" type="number" name="qtddiasNumber" max="180" min="2">
-        </fieldset>
-      </div>
-
-    <label><input type="checkbox" id="marcarcorprocesso" data-type="marcarcorprocesso" />
-    Controlar Cores dos Processos por Palavras Chaves na Especificação</label><br>
-
-    <div id="divConfigMarcarCorProcesso" class="seipp-fieldset">
-      <fieldset>
-        <legend>Configuração das Cores</legend>
-        <table>
-          <tr>
-            <td>Palavra chave para a cor&nbsp;&nbsp;</td>
-            <td style="width:21px;height:21px;background-color:#00cc00"></td>
-            <td>:<input type="text" id="cor_00cc00"/></td>
-          </tr>
-          <tr>
-            <td>Palavra chave para a cor&nbsp;&nbsp;</td>
-            <td style="width:21px;height:21px;background-color:#ffff00"></td>
-            <td>:<input type="text" id="cor_ffff00"/></td>
-          </tr>
-          <tr>
-            <td>Palavra chave para a cor&nbsp;&nbsp;</td>
-            <td style="width:21px;height:21px;background-color:#ffb3cc"></td>
-            <td>:<input type="text" id="cor_ffb3cc"/></td>
-          </tr>
-          <tr>
-            <td>Palavra chave para a cor&nbsp;&nbsp;</td>
-            <td style="width:21px;height:21px;background-color:#33ccff"></td>
-            <td>:<input type="text" id="cor_33ccff"/></td>
-          </tr>
-          <tr>
-            <td>Palavra chave para a cor&nbsp;&nbsp;</td>
-            <td style="width:21px;height:21px;background-color:#bfbfbf"></td>
-            <td>:<input type="text" id="cor_bfbfbf"/></td>
-          </tr>
-        </table>
-      </fieldset>
-    </div>
-
-    <label><input type="checkbox" data-type="chkbloco" />
-    Checagem de blocos de assinatura</label><br>
-
-    <label><input type="checkbox" data-type="menususp" />
-    Menu do sistema suspenso (Ficará disponível no logo do SEI no canto esquerdo superior)</label><br>
-
-    <label><input type="checkbox" data-type="exibeinfointeressado" />
-    Exibir Informações do interessado (<strong>Exibe Informações do interessado na árvore de processo.</strong>)</label><br>
-
-    <label><input type="checkbox" data-type="atalhonovodoc" />
-    Exibir atalho para novo documento (<strong>Exibe o atalho na árvore de processo.</strong>)</label><br>
-
-    <label><input type="checkbox" id="filtraporatribuicao" data-type="filtraporatribuicao" />
-    Filtrar os processos por atribuição ou que não atribuidos.</label><br>
-
-    <div id="filtraporatribuicaoOptions" class="seipp-fieldset">
-      <fieldset>
-		<legend>Mostrar por</legend>
-
-        <label><input type="radio" name="filtraporatribuicaoRadio" value="login">
-        Login (<em id="loginUsuarioSistema"></em>)</label>
-
-        <label><input type="radio" name="filtraporatribuicaoRadio" value="nome">
-        Nome Completo (<em id="nomeUsuarioSistema"></em>)</label>
-      </fieldset>
-	</div>
-
-    <label><input type="checkbox" data-type="carregainformacaoblocos" />
-    Filtrar processos por informações dos blocos (Assinatura, Reunião, Interno)</label><br>
-
-    <label><input type="checkbox" data-type="pesquisarinformacoes" />
-    Filtrar processos pela pesquisa de informações. Utiliza o campo de pesquisa da barra superior.</label><br>
-
-    <label><input type="checkbox" data-type="copiarnumeroprocessodocumento" />
-    Permite copiar o número do processo e o número do documento (no formato de link do SEI)</label><br>
-
-    <label><input type="checkbox" data-type="copiarlinkinterno" />
-    Permite copiar o link interno do processo sem hash, para acesso por usuários internos logados.</label><br>
-
-    <label><input type="checkbox" data-type="retirarsobrestamentoreabrirembloco" />
-    Retirar Sobrestamento ou Reabrir vários processos em blocos (Interno, Reunião ou Assinatura)</label><br>
-
-    <label><input type="checkbox" data-type="mostraranotacao" />
-    Mostrar conteúdo da anotação do processo na na árvore de processo. (Exibe a anotação no Estilo bloco adesivo)</label><br>
-
-    <label><input type="checkbox" data-type="autopreencher" />
-    ANATEL: Ferramenta de auto preenchimento do andamento do processo ao enviar Correspondência (<strong>Experimental</strong>)</label><br>
-
-    <label><input type="checkbox" data-type="pontocoresanatel" />
-    ANATEL: Ponto de controle em cores (<strong>Somente para a Anatel</strong>)</label><br>
-
-    <label><input type="checkbox" data-type="atalhopublicacoeseletronicas" />
-    Exibir link de atalho para Publicações Eletrônicas</label><br>
-
-    <label><input type="checkbox" id="cliquemenos" data-type="cliquemenos" />
-    Clique menos (<strong>Facilidade Experimental</strong>)</label><br>
-
-    <div id="divFormato" class="seipp-fieldset">
-      <fieldset>
-        <legend>Formato</legend>
-
-        <label><input type="radio" name="formato" id="rdNato" value="N" checked>
-        Nato-digital</label><br>
-
-        <label><input type="radio" name="formato" id="rdDigitalizado" value="D">
-        Digitalizado nesta Unidade</label>
-
-        <div id="divtipoconferencia">
-          <label id="ltipoconferencia">Tipo de Conferência:</label><br>
-          <select id="tipoconferencia">
-              <option value="null"> </option>
-              <option value="1">Documento Original</option>
-              <option value="2">Cópia Autenticada por Cartório</option>
-              <option value="3">Cópia Autenticada Administrativamente</option>
-              <option value="4">Cópia Simples</option>
-          </select>
+<!-- *** Html das opções configuraveis ************************************* -->
+<!-- *********************************************************************** -->
+<h2 class="card_label">Gestão e controle de processos</h2>
+<div class="card">
+    <div class="container">
+        <div class="flex-container">
+            <label class="toggle-label" >Prazo de atendimento <div class="tooltip">?<span class="tooltiptext">Cria uma coluna para controle de prazo. Incluir a data no texto do marcador no formato "<u>ATE dd/mm/aaaa</u>"</span></div></label>
+            <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
+            <input class="toggle" type="checkbox" data-type="prazo" />
         </div>
-
-
-      </fieldset>
-
-      <fieldset id="nivelacesso">
-        <legend>Nível de Acesso</legend>
-
-        <label><input type="radio" name="nivelAcesso" id="rdSigiloso" disabled="disabled" value="S">
-        Sigiloso</label><br>
-
-        <label><input type="radio" name="nivelAcesso" id="rdRestrito" value="R">
-        Restrito</label><br>
-
-        <label><input type="radio" name="nivelAcesso" id="rdPublico" value="P" checked>
-        Público</label>
-
-        <div id="divhipoteseLegal">
-          <label id="lhipoteseLegal">Hipótese Legal (para os casos de documento sigiloso ou restrito):</label><br>
-          <select id="hipoteseLegal">
-            <option value="null"> </option>
-            <option value="40">Controle Interno (Art. 26, § 3º, da Lei nº 10.180/2001)</option>
-            <option value="45">Direito Autoral (Art. 24, III, da Lei nº 9.610/1998)</option>
-            <option value="33">Documento Preparatório (Art. 7º, § 3º, da Lei nº 12.527/2011)</option>
-            <option value="35">Fiscalização / Investigação da Anatel (Art. 174 da Lei nº 9.472/1997)</option>
-            <option value="34">Informação Pessoal (Art. 31 da Lei nº 12.527/2011)</option>
-            <option value="39">Informações Contábeis de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
-            <option value="38">Informações Econômico-Financeiras de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
-            <option value="37">Informações Operacionais de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
-            <option value="46">Informações Privilegiadas de Sociedades Anônimas (Art. 155, § 2º, da Lei nº 6.404/1976)</option>
-            <option value="36">Informações Técnicas de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
-            <option value="41">Interceptação de Comunicações Telefônicas (Art. 8º, caput, da Lei nº 9.296/1996)</option>
-            <option value="31">Investigação de Responsabilidade de Servidor (Art. 150 da Lei nº 8.112/1990)</option>
-            <option value="47">Livros e Registros Contábeis Empresariais (Art. 1.190 do Código Civil)</option>
-            <option value="48">Operações Bancárias (Art. 1º da Lei Complementar nº 105/2001)</option>
-            <option value="49">Proteção da Propriedade Intelectual de Software (Art. 2º da Lei nº 9.609/1998)</option>
-            <option value="43">Protocolo -Pendente Análise de Restrição de Acesso (Art. 6º, III, da Lei nº 12.527/2011)</option>
-            <option value="50">Segredo de Justiça no Processo Civil (Art. 189 do Código de Processo Civil)</option>
-            <option value="51">Segredo de Justiça no Processo Penal (Art. 201, § 6º, do Código de Processo Penal)</option>
-            <option value="52">Segredo Industrial (Art. 195, XIV, Lei nº 9.279/1996)</option>
-            <option value="53">Sigilo das Comunicações (Art. 3º, V, da Lei nº 9.472/1997)</option>
-            <option value="54">Sigilo de Empresa em Situação Falimentar (Art. 169 da Lei nº 11.101/2005)</option>
-            <option value="55">Sigilo do Inquérito Policial (Art. 20 do Código de Processo Penal)</option>
-            <option value="42">Situação Econômico-Financeira de Sujeito Passivo (Art. 198, caput, da Lei nº 5.172/1966 - CTN)</option>
-          </select>
+        <div id="prazoOptions" class="seipp-fieldset">
+            <fieldset>
+                <legend>Personalizar alerta de cores nos prazos de atendimento em dias</legend>
+                <label class="infraTrseippalerta">Alerta:</label>
+                <input id="prazoalerta" type="number" name="prazoNumber" max="90" min="-90">
+                <label class="infraTrseippcritico">Critico:</label>
+                <input id="prazocritico" type="number" name="prazoNumber" max="90" min="-90">
+            </fieldset>
         </div>
-      </fieldset>
     </div>
-  </section>
+    <div class="container">
+        <div class="flex-container">
+            <label class="toggle-label">Quantidade de dias <div class="tooltip">?<span class="tooltiptext">Incluir a data no texto do marcador no formato "<u>dd/mm/aaaa</u>"</span></div></label>
+            <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
+            <input class="toggle" type="checkbox" data-type="qtddias" />
+        </div>
+        <div id="qtddiasOptions" class="seipp-fieldset">
+            <fieldset>
+                <legend>Personalizar alerta de cores na quantidade de dias em dias</legend>
+                <label class="infraTrseippalerta">Alerta:</label>
+                <input id="qtddiasalerta" type="number" name="qtddiasNumber" max="180" min="1">
+                <label class="infraTrseippcritico">Critico:</label>
+                <input id="qtddiascritico" type="number" name="qtddiasNumber" max="180" min="2">
+            </fieldset>
+        </div>
+    </div>
+    <div class="container">
+        <div class="flex-container">
+            <label class="toggle-label">Filtrar os processos por atribuição ou que não atribuidos.</label>
+            <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
+            <input class="toggle" type="checkbox" id="filtraporatribuicao" data-type="filtraporatribuicao" />
+        </div>
+        <div id="filtraporatribuicaoOptions" class="seipp-fieldset">
+            <fieldset>
+		            <legend>Mostrar por</legend>
+                <label><input type="radio" name="filtraporatribuicaoRadio" value="login">Login (<em id="loginUsuarioSistema"></em>)</label>
+                <label><input type="radio" name="filtraporatribuicaoRadio" value="nome">Nome Completo (<em id="nomeUsuarioSistema"></em>)</label>
+            </fieldset>
+	   </div>
+    </div>
+    <div class="container flex-container">
+        <label class="toggle-label">Filtrar processos por informações dos blocos (Assinatura, Reunião, Interno)</label>
+        <input class="toggle" type="checkbox" data-type="carregainformacaoblocos" />
+    </div>
+    <div class="container flex-container">
+        <label class="toggle-label">Filtrar processos pela pesquisa de informações. Utiliza o campo de pesquisa da barra superior.</label>
+        <input class="toggle" type="checkbox" data-type="pesquisarinformacoes" />
+    </div>
+    <div class="container flex-container">
+        <label class="toggle-label">Retirar Sobrestamento ou Reabrir vários processos em blocos (Interno, Reunião ou Assinatura)</label>
+        <input class="toggle" type="checkbox" data-type="retirarsobrestamentoreabrirembloco" />
+    </div>
+    <div class="container flex-container">
+        <label class="toggle-label">Checagem de blocos de assinatura</label>
+          <input class="toggle" type="checkbox" data-type="chkbloco" />
+    </div>
+    <div class="container">
+        <div class="flex-container">
+          <label class="toggle-label">Controlar Cores dos Processos por Palavras Chaves na Especificação</label>
+          <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
+          <input  class="toggle" type="checkbox" id="marcarcorprocesso" data-type="marcarcorprocesso" />
+        </div>
+        <div id="divConfigMarcarCorProcesso" class="seipp-fieldset">
+          <fieldset>
+            <legend>Configuração das Cores</legend>
+            <table>
+                <tr>
+                    <td>Palavra chave para a cor&nbsp;&nbsp;</td>
+                    <td style="width:21px;height:21px;background-color:#00cc00"></td>
+                    <td>:<input type="text" id="cor_00cc00"/></td>
+                </tr>
+                <tr>
+                    <td>Palavra chave para a cor&nbsp;&nbsp;</td>
+                    <td style="width:21px;height:21px;background-color:#ffff00"></td>
+                    <td>:<input type="text" id="cor_ffff00"/></td>
+                </tr>
+                <tr>
+                    <td>Palavra chave para a cor&nbsp;&nbsp;</td>
+                    <td style="width:21px;height:21px;background-color:#ffb3cc"></td>
+                    <td>:<input type="text" id="cor_ffb3cc"/></td>
+                </tr>
+                <tr>
+                    <td>Palavra chave para a cor&nbsp;&nbsp;</td>
+                    <td style="width:21px;height:21px;background-color:#33ccff"></td>
+                    <td>:<input type="text" id="cor_33ccff"/></td>
+                </tr>
+                <tr>
+                    <td>Palavra chave para a cor&nbsp;&nbsp;</td>
+                    <td style="width:21px;height:21px;background-color:#bfbfbf"></td>
+                    <td>:<input type="text" id="cor_bfbfbf"/></td>
+                </tr>
+            </table>
+          </fieldset>
+        </div>
+	  </div>
+</div>
 
-  <hr>
+<!-- *********************************************************************** -->
+<h2 class="card_label">Produtividade em processos e documentos</h2>
+<div class="card">
+  <div class="container flex-container">
+        <label class="toggle-label">Exibir Informações do interessado (<strong>Exibe Informações do interessado na árvore de processo.</strong>)</label>
+        <input class="toggle" type="checkbox" data-type="exibeinfointeressado" />
+  </div>
+  <div class="container flex-container">
+      <label class="toggle-label">Exibir atalho para novo documento (<strong>Exibe o atalho na árvore de processo.</strong>)</label>
+      <input class="toggle" type="checkbox" data-type="atalhonovodoc" />
+  </div>
+	<div class="container flex-container">
+	    <label class="toggle-label">Permite copiar o número do processo e o número do documento (no formato de link do SEI)</label>
+      <input class="toggle" type="checkbox" data-type="copiarnumeroprocessodocumento" />
+  </div>
+  <div class="container flex-container">
+    <label class="toggle-label">Permite copiar o link interno do processo sem hash, para acesso por usuários internos logados.</label>
+    <input class="toggle" type="checkbox" data-type="copiarlinkinterno" />
+  </div>
+	<div class="container flex-container">
+	    <label class="toggle-label">Mostrar conteúdo da anotação do processo na na árvore de processo. (Exibe a anotação no Estilo bloco adesivo)</label>
+      <input class="toggle" type="checkbox" data-type="mostraranotacao" />
+  </div>
+  <div class="container">
+        <div class="flex-container">
+          <label class="toggle-label">Clique menos (<strong>Facilidade Experimental</strong>)</label>
+          <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
+          <input class="toggle" type="checkbox" id="cliquemenos" data-type="cliquemenos" />
+        </div>
+        <div id="divFormato" class="seipp-fieldset">
+            <fieldset>
+                <legend>Formato</legend>
+                <label><input type="radio" name="formato" id="rdNato" value="N" checked>Nato-digital</label><br>
+                <label><input type="radio" name="formato" id="rdDigitalizado" value="D">Digitalizado nesta Unidade</label>
+                <div id="divtipoconferencia">
+                    <label id="ltipoconferencia">Tipo de Conferência:</label><br>
+                    <select id="tipoconferencia">
+                        <option value="null"> </option>
+                        <option value="1">Documento Original</option>
+                        <option value="2">Cópia Autenticada por Cartório</option>
+                        <option value="3">Cópia Autenticada Administrativamente</option>
+                        <option value="4">Cópia Simples</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset id="nivelacesso">
+                <legend>Nível de Acesso</legend>
+                <label><input type="radio" name="nivelAcesso" id="rdSigiloso" disabled="disabled" value="S">Sigiloso</label><br>
+                <label><input type="radio" name="nivelAcesso" id="rdRestrito" value="R">Restrito</label><br>
+                <label><input type="radio" name="nivelAcesso" id="rdPublico" value="P" checked>Público</label>
+                <div id="divhipoteseLegal">
+                    <label id="lhipoteseLegal">Hipótese Legal (para os casos de documento sigiloso ou restrito):</label><br>
+                    <select id="hipoteseLegal">
+                        <option value="null"> </option>
+                        <option value="40">Controle Interno (Art. 26, § 3º, da Lei nº 10.180/2001)</option>
+                        <option value="45">Direito Autoral (Art. 24, III, da Lei nº 9.610/1998)</option>
+                        <option value="33">Documento Preparatório (Art. 7º, § 3º, da Lei nº 12.527/2011)</option>
+                        <option value="35">Fiscalização / Investigação da Anatel (Art. 174 da Lei nº 9.472/1997)</option>
+                        <option value="34">Informação Pessoal (Art. 31 da Lei nº 12.527/2011)</option>
+                        <option value="39">Informações Contábeis de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
+                        <option value="38">Informações Econômico-Financeiras de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
+                        <option value="37">Informações Operacionais de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
+                        <option value="46">Informações Privilegiadas de Sociedades Anônimas (Art. 155, § 2º, da Lei nº 6.404/1976)</option>
+                        <option value="36">Informações Técnicas de Empresa (Art. 39, parágrafo único, da Lei nº 9.472/1997)</option>
+                        <option value="41">Interceptação de Comunicações Telefônicas (Art. 8º, caput, da Lei nº 9.296/1996)</option>
+                        <option value="31">Investigação de Responsabilidade de Servidor (Art. 150 da Lei nº 8.112/1990)</option>
+                        <option value="47">Livros e Registros Contábeis Empresariais (Art. 1.190 do Código Civil)</option>
+                        <option value="48">Operações Bancárias (Art. 1º da Lei Complementar nº 105/2001)</option>
+                        <option value="49">Proteção da Propriedade Intelectual de Software (Art. 2º da Lei nº 9.609/1998)</option>
+                        <option value="43">Protocolo -Pendente Análise de Restrição de Acesso (Art. 6º, III, da Lei nº 12.527/2011)</option>
+                        <option value="50">Segredo de Justiça no Processo Civil (Art. 189 do Código de Processo Civil)</option>
+                        <option value="51">Segredo de Justiça no Processo Penal (Art. 201, § 6º, do Código de Processo Penal)</option>
+                        <option value="52">Segredo Industrial (Art. 195, XIV, Lei nº 9.279/1996)</option>
+                        <option value="53">Sigilo das Comunicações (Art. 3º, V, da Lei nº 9.472/1997)</option>
+                        <option value="54">Sigilo de Empresa em Situação Falimentar (Art. 169 da Lei nº 11.101/2005)</option>
+                        <option value="55">Sigilo do Inquérito Policial (Art. 20 do Código de Processo Penal)</option>
+                        <option value="42">Situação Econômico-Financeira de Sujeito Passivo (Art. 198, caput, da Lei nº 5.172/1966 - CTN)</option>
+                    </select>
+                </div>
+            </fieldset>
+        </div>
+  </div>
+</div>
 
-  <section class="seipp-options">
-    <h2 class="seipp-options-subtitle">Notificações?</h2>
+<!-- *********************************************************************** -->
+<h2 class="card_label">Interface e Apresentação</h2>
+<div class="card">
+    <div class="container flex-container">
+        <label class="toggle-label">Escolha o tema a ser utilizado no SEI:</label>
+        <select id="theme" class="toggle-select" title="Teste o incrivel tema preto no SEI (SEI black)">
+            <option value="white" selected>SEI Padrão</option>
+            <option value="black">SEI Black</option>
+        </select>
+    </div>
+    <div class="container flex-container">
+        <label class="toggle-label">Menu do sistema suspenso (Ficará disponível no logo do SEI no canto esquerdo superior)</label>
+        <input class="toggle" type="checkbox" data-type="menususp" />
+	  </div>
+</div>
 
-    <label><input type="checkbox" data-type="hidemsgupdate" />
-    Desabilitar notificação de autualização?</label><br>
+<!-- *********************************************************************** -->
+<h2 class="card_label">Anatel</h2>
+<div class="card">
+    <div class="container flex-container">
+        <label class="toggle-label" >Ferramenta de auto preenchimento do andamento do processo ao enviar Correspondência (<strong>Experimental</strong>)</label>
+        <input class="toggle" type="checkbox" data-type="autopreencher" />
+    </div>
+    <div class="container flex-container">
+        <label class="toggle-label">Ponto de controle em cores </label>
+        <input class="toggle" type="checkbox" data-type="pontocoresanatel" />
+    </div>
+</div>
 
-  </section>
-</fieldset>
+<!-- *********************************************************************** -->
+<h2 class="card_label">Outros...</h2>
+<div class="card">
+    <div class="container flex-container">
+        <label class="toggle-label">Desabilitar notificação de autualização?</label>
+        <input class="toggle" type="checkbox" data-type="hidemsgupdate" />
+    </div>
+    <div class="container flex-container">
+        <label class="toggle-label">Exibir link de atalho para Publicações Eletrônicas</label>
+        <input class="toggle" type="checkbox" data-type="atalhopublicacoeseletronicas" />
+    </div>
+</div>
+<!-- *** FIM da opções ***************************************************** -->
 
-<div>
+<div class="option-save">
   <input type="button" value="Salvar configurações" id="save-button" />
   <div id="save-msg"></div>
 </div>
