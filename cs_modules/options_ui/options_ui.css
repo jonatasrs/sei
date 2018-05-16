@@ -30,7 +30,8 @@
     box-shadow: 0 0px 8px 0 gray;
     transition: 0.3s;
     width: 40%;
-	margin: auto;
+  margin: auto;
+  min-width: 430px;
 }
 
 .card:hover {
@@ -55,14 +56,15 @@
 /* Tooltip text */
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
+    width: 300px;
+    background-color: #fcfc99;
+    color: black;
+    border: 1px solid darkgray;
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
     position: absolute;
-    z-index: 1;
+    z-index: 3;
 }
 
 .tooltip:hover .tooltiptext {

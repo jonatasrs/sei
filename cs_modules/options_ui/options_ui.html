@@ -7,7 +7,12 @@
 <div class="card">
     <div class="container">
         <div class="flex-container">
-            <label class="toggle-label" >Prazo de atendimento <div class="tooltip">?<span class="tooltiptext">Cria uma coluna para controle de prazo. Incluir a data no texto do marcador no formato "<u>ATE dd/mm/aaaa</u>"</span></div></label>
+            <label class="toggle-label" >
+                Prazo de atendimento
+                <div class="tooltip">?<span class="tooltiptext">
+                        Cria uma coluna para controle de prazo. Deve-se incluir a data no texto do marcador no formato "ATE dd/mm/aaaa".
+                </span></div>
+            </label>
             <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
             <input class="toggle" type="checkbox" data-type="prazo" />
         </div>
@@ -23,7 +28,12 @@
     </div>
     <div class="container">
         <div class="flex-container">
-            <label class="toggle-label">Quantidade de dias <div class="tooltip">?<span class="tooltiptext">Incluir a data no texto do marcador no formato "<u>dd/mm/aaaa</u>"</span></div></label>
+            <label class="toggle-label">
+                Quantidade de dias
+                <div class="tooltip">?<span class="tooltiptext">
+                        Cria uma coluna para controle de dias. Deve-se incluir a data no texto do marcador no formato "dd/mm/aaaa".
+                </span></div>
+            </label>
             <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
             <input class="toggle" type="checkbox" data-type="qtddias" />
         </div>
@@ -39,7 +49,12 @@
     </div>
     <div class="container">
         <div class="flex-container">
-            <label class="toggle-label">Filtrar os processos por atribuição ou que não atribuidos.</label>
+            <label class="toggle-label">
+                Filtrar por atribuição
+                <div class="tooltip">?<span class="tooltiptext">
+                        Permite filtrar os processos por atribuição ou que não estão atribuídos.
+                </span></div>
+            </label>
             <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
             <input class="toggle" type="checkbox" id="filtraporatribuicao" data-type="filtraporatribuicao" />
         </div>
@@ -52,26 +67,51 @@
 	   </div>
     </div>
     <div class="container flex-container">
-        <label class="toggle-label">Filtrar processos por informações dos blocos (Assinatura, Reunião, Interno)</label>
+        <label class="toggle-label">
+            Filtrar processos por blocos
+            <div class="tooltip">?<span class="tooltiptext">
+                Permite filtrar processos pelas informações dos blocos (Assinatura, Reunião, Interno).
+            </span></div>
+        </label>
         <input class="toggle" type="checkbox" data-type="carregainformacaoblocos" />
     </div>
     <div class="container flex-container">
-        <label class="toggle-label">Filtrar processos pela pesquisa de informações. Utiliza o campo de pesquisa da barra superior.</label>
+        <label class="toggle-label">
+            Filtrar processos pela pesquisa de informações
+            <div class="tooltip">?<span class="tooltiptext">
+                Filtra processos utilizando o campo de pesquisa da barra superior.
+            </span></div>
+        </label>
         <input class="toggle" type="checkbox" data-type="pesquisarinformacoes" />
     </div>
     <div class="container flex-container">
-        <label class="toggle-label">Retirar Sobrestamento ou Reabrir vários processos em blocos (Interno, Reunião ou Assinatura)</label>
+        <label class="toggle-label">
+            Reabrir e retirar sobrestamento dos processos
+            <div class="tooltip">?<span class="tooltiptext">
+                Adiciona botão para reabrir e retitar sobrestamento no processos em blocos Interno, Reunião ou Assinatura.
+            </span></div>
+        </label>
         <input class="toggle" type="checkbox" data-type="retirarsobrestamentoreabrirembloco" />
     </div>
     <div class="container flex-container">
-        <label class="toggle-label">Checagem de blocos de assinatura</label>
-          <input class="toggle" type="checkbox" data-type="chkbloco" />
+        <label class="toggle-label">
+            Checagem de blocos de assinatura
+            <div class="tooltip">?<span class="tooltiptext">
+                Identifica no menu, se existem blocos de assinatura.
+            </span></div>
+        </label>
+        <input class="toggle" type="checkbox" data-type="chkbloco" />
     </div>
     <div class="container">
         <div class="flex-container">
-          <label class="toggle-label">Controlar Cores dos Processos por Palavras Chaves na Especificação</label>
-          <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
-          <input  class="toggle" type="checkbox" id="marcarcorprocesso" data-type="marcarcorprocesso" />
+            <label class="toggle-label">
+                Marcador de processos
+                <div class="tooltip">?<span class="tooltiptext">
+                    Permite marcar com cores os processos pela Palavras Chaves na especificação.
+                </span></div>
+            </label>
+            <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
+            <input class="toggle" type="checkbox" id="marcarcorprocesso" data-type="marcarcorprocesso" />
         </div>
         <div id="divConfigMarcarCorProcesso" class="seipp-fieldset">
           <fieldset>
@@ -111,31 +151,61 @@
 <!-- *********************************************************************** -->
 <h2 class="card_label">Produtividade em processos e documentos</h2>
 <div class="card">
-  <div class="container flex-container">
-        <label class="toggle-label">Exibir Informações do interessado (<strong>Exibe Informações do interessado na árvore de processo.</strong>)</label>
+    <div class="container flex-container">
+        <label class="toggle-label">
+            Exibir Informações do interessado
+            <div class="tooltip">?<span class="tooltiptext">
+                Exibe Informações do interessado na árvore de processo.
+            </span></div>
+        </label>
         <input class="toggle" type="checkbox" data-type="exibeinfointeressado" />
+    </div>
+    <div class="container flex-container">
+        <label class="toggle-label">
+            Exibir botão novo documento
+            <div class="tooltip">?<span class="tooltiptext">
+                Sempre exibir o botão novo documento  na árvore de processo.
+            </span></div>
+        </label>
+        <input class="toggle" type="checkbox" data-type="atalhonovodoc" />
+    </div>
+	<div class="container flex-container">
+	    <label class="toggle-label">
+            Botão copiar o número do processo/documento [C]
+            <div class="tooltip">?<span class="tooltiptext">
+                Exibe um botão para copiar o numero do processo/documento no formato de link do SEI.
+            </span></div>
+        </label>
+        <input class="toggle" type="checkbox" data-type="copiarnumeroprocessodocumento" />
   </div>
   <div class="container flex-container">
-      <label class="toggle-label">Exibir atalho para novo documento (<strong>Exibe o atalho na árvore de processo.</strong>)</label>
-      <input class="toggle" type="checkbox" data-type="atalhonovodoc" />
+        <label class="toggle-label">
+            Botão copiar o link interno do processo sem hash [L]
+            <div class="tooltip">?<span class="tooltiptext">
+                Exibe um botão para copiar o link sem hash, para acesso por usuários internos logados.
+            </span></div>
+        </label>
+        <input class="toggle" type="checkbox" data-type="copiarlinkinterno" />
   </div>
 	<div class="container flex-container">
-	    <label class="toggle-label">Permite copiar o número do processo e o número do documento (no formato de link do SEI)</label>
-      <input class="toggle" type="checkbox" data-type="copiarnumeroprocessodocumento" />
-  </div>
-  <div class="container flex-container">
-    <label class="toggle-label">Permite copiar o link interno do processo sem hash, para acesso por usuários internos logados.</label>
-    <input class="toggle" type="checkbox" data-type="copiarlinkinterno" />
-  </div>
-	<div class="container flex-container">
-	    <label class="toggle-label">Mostrar conteúdo da anotação do processo na na árvore de processo. (Exibe a anotação no Estilo bloco adesivo)</label>
+	    <label class="toggle-label">
+            Exibir anotação
+            <div class="tooltip">?<span class="tooltiptext">
+                Mostrar conteúdo da anotação do processo na árvore de processo no Estilo bloco adesivo.
+            </span></div>
+        </label>
       <input class="toggle" type="checkbox" data-type="mostraranotacao" />
   </div>
   <div class="container">
         <div class="flex-container">
-          <label class="toggle-label">Clique menos (<strong>Facilidade Experimental</strong>)</label>
-          <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
-          <input class="toggle" type="checkbox" id="cliquemenos" data-type="cliquemenos" />
+            <label class="toggle-label">
+                Clique menos (Experimental!)
+                <div class="tooltip">?<span class="tooltiptext">
+                    Facilidade Experimental, que permite auto preencher campos ao criar documento externo no processo.
+                </span></div>
+            </label>
+            <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
+            <input class="toggle" type="checkbox" id="cliquemenos" data-type="cliquemenos" />
         </div>
         <div id="divFormato" class="seipp-fieldset">
             <fieldset>
@@ -196,14 +266,24 @@
 <h2 class="card_label">Interface e Apresentação</h2>
 <div class="card">
     <div class="container flex-container">
-        <label class="toggle-label">Escolha o tema a ser utilizado no SEI:</label>
+        <label class="toggle-label">
+            Aplicar tema
+            <div class="tooltip">?<span class="tooltiptext">
+                Permite alterar o estilo visual do SEI
+            </span></div>
+        </label>
         <select id="theme" class="toggle-select" title="Teste o incrivel tema preto no SEI (SEI black)">
             <option value="white" selected>SEI Padrão</option>
             <option value="black">SEI Black</option>
         </select>
     </div>
     <div class="container flex-container">
-        <label class="toggle-label">Menu do sistema suspenso (Ficará disponível no logo do SEI no canto esquerdo superior)</label>
+        <label class="toggle-label">
+            Menu suspenso
+            <div class="tooltip">?<span class="tooltiptext">
+                Altera a forma de apresentação do menu do sistema, permitindo que fique suspenso. O Menu fica disponível ao clicar no logo do SEI no canto esquerdo superior.
+            </span></div>
+        </label>
         <input class="toggle" type="checkbox" data-type="menususp" />
 	  </div>
 </div>
@@ -212,11 +292,21 @@
 <h2 class="card_label">Anatel</h2>
 <div class="card">
     <div class="container flex-container">
-        <label class="toggle-label" >Ferramenta de auto preenchimento do andamento do processo ao enviar Correspondência (<strong>Experimental</strong>)</label>
+        <label class="toggle-label" >
+            Botão atualizar andamento para envido de correspondências
+            <div class="tooltip">?<span class="tooltiptext">
+                Ferramenta que autopreenche o histórico de andamento do processo para envio de correspondência pelo protocolo sede da Anatel.
+            </span></div>
+        </label>
         <input class="toggle" type="checkbox" data-type="autopreencher" />
     </div>
     <div class="container flex-container">
-        <label class="toggle-label">Ponto de controle em cores </label>
+        <label class="toggle-label">
+            Ponto de controle em cores
+            <div class="tooltip">?<span class="tooltiptext">
+                Altera a cor dos pontos de controle da Anatel.
+            </span></div>
+        </label>
         <input class="toggle" type="checkbox" data-type="pontocoresanatel" />
     </div>
 </div>
@@ -225,11 +315,21 @@
 <h2 class="card_label">Outros...</h2>
 <div class="card">
     <div class="container flex-container">
-        <label class="toggle-label">Desabilitar notificação de autualização?</label>
+        <label class="toggle-label">
+            Desabilitar notificação de atualização
+            <div class="tooltip">?<span class="tooltiptext">
+                Exite a página de informações sobre a atualização e novas funções adicionadas à versão.
+            </span></div>
+        </label>
         <input class="toggle" type="checkbox" data-type="hidemsgupdate" />
     </div>
     <div class="container flex-container">
-        <label class="toggle-label">Exibir link de atalho para Publicações Eletrônicas</label>
+        <label class="toggle-label">
+            Link Publicações Eletrônicas
+            <div class="tooltip">?<span class="tooltiptext">
+                Exibir link de atalho para Publicações Eletrônicas.
+            </span></div>
+        </label>
         <input class="toggle" type="checkbox" data-type="atalhopublicacoeseletronicas" />
     </div>
 </div>
