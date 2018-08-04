@@ -22,7 +22,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/*"],
+      "matches": ["*://*.br/sei/*", "*://*.br/sip/*", "*://*.gov.br/*"],
       "run_at": "document_start",
       "css": ["cs_modules/core.css"],
       "all_frames": true,
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/controlador.php?acao=*", "*://*.br/sei/controlador_externo.php?acao=*"],
+      "matches": ["*://*.br/*controlador.php?acao=*", "*://*.br/*controlador_externo.php?acao=*"],
       "run_at": "document_idle",
       "all_frames": true,
       "js": [
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/controlador.php?acao=documento_receber*"],
+      "matches": ["*://*.br/*controlador.php?acao=documento_receber*"],
       "all_frames": true,
       "js": [
         "cs_modules/documento_receber.ForcarReaberturaProcesso.js",
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/controlador.php?acao=procedimento_controlar*"],
+      "matches": ["*://*.br/*controlador.php?acao=procedimento_controlar*"],
       "js": [
         "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js",
         "cs_modules/procedimento_controlar.CorrigirTabelas.js",
@@ -75,7 +75,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/controlador.php?acao=rel_bloco_protocolo_listar*"],
+      "matches": ["*://*.br/*controlador.php?acao=rel_bloco_protocolo_listar*"],
       "js": [
         "cs_modules/lib.filtra_processos.js",
         "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
@@ -85,7 +85,7 @@
       ]
     },
         {
-      "matches": ["*://*.br/sei/controlador.php?acao=controle_unidade_gerar*"],
+      "matches": ["*://*.br/*controlador.php?acao=controle_unidade_gerar*"],
       "js": [
         "cs_modules/lib.SelecionarMultiplosProcessos.js",
         "cs_modules/lib.RetirarSobrestamentoReabrirEmBloco.js",
@@ -93,7 +93,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/controlador.php?acao=procedimento_visualizar*"],
+      "matches": ["*://*.br/*controlador.php?acao=procedimento_visualizar*"],
       "all_frames": true,
       "css": ["cs_modules/procedimento_visualizar.css"],
       "js": [
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/controlador.php?acao=arvore_visualizar*"],
+      "matches": ["*://*.br/*controlador.php?acao=arvore_visualizar*"],
       "all_frames": true,
       "js": [
         "cs_modules/arvore_visualizar.NovoDocumento.js",
@@ -115,7 +115,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/controlador.php?acao=anotacao_registrar*"],
+      "matches": ["*://*.br/*controlador.php?acao=anotacao_registrar*"],
       "all_frames": true,
       "js": [
         "cs_modules/anotacao_registrar.AtualizarAnotacaoNaArvore.js",
@@ -123,7 +123,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/controlador.php?acao=infra_configurar*"],
+      "matches": ["*://*.br/*controlador.php?acao=infra_configurar*"],
       "css": ["cs_modules/options_ui/options_ui.css"],
       "js": [
         "cs_modules/infra_configurar.Options_ui.js",
@@ -131,7 +131,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/controlador.php?acao=documento_gerar*"],
+      "matches": ["*://*.br/*controlador.php?acao=documento_gerar*"],
       "all_frames": true,
       "js": [
         "cs_modules/documento_gerar.AumentaTamanho.js",
