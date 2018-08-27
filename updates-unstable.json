@@ -4,7 +4,7 @@
       "updates": [{
         "version": "4.4.99.4",
         "update_link": "http://10.220.8.9/seipp/sei-4.4.99.4-an+fx.xpi",
-        "update_hash": "sha256:7bbc9b711f2af83a9fbab5fb799250f62a2f2dd7f6ae8af9d9bb4cd0291e3ccb"
+        "update_hash": "sha256:3a572656afcd148cfbc10eeb8c6a69519b865ac1d536b93a0c48686c0ad2f9ef"
       }]
     }
   }
