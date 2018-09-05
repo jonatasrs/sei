@@ -2,9 +2,9 @@
   "addons": {
     "jonatas@gov": {
       "updates": [{
-        "version": "4.4.99.5",
-        "update_link": "http://10.220.8.9/seipp/sei-4.4.99.5-an+fx.xpi",
-        "update_hash": "sha256:fb91655849b0f57bc5e43c9b0defc802b57ba23c6540a73051ce0657c3f25e32"
+        "version": "4.4.99.6",
+        "update_link": "http://10.220.8.9/seipp/sei-4.4.99.6-an+fx.xpi",
+        "update_hash": "sha256:1498a2b8b9ca091fe6ccb905f4f7ef5f12261cf1281bd1f5852022292c43cbeb"
       }]
     }
   }
