@@ -37,5 +37,6 @@ if (ModuleInit(BaseName)) {
     }
   }, this);
   AbrirDocumentoNovaAba(BaseName);
+  Dropzone.iniciar(BaseName);
 }
 

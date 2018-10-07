@@ -103,6 +103,7 @@
         "cs_modules/procedimento_visualizar.MostrarAnotacao.js",
         "cs_modules/procedimento_visualizar.AbrirDocumentoNovaAba.js",
         "cs_modules/procedimento_visualizar.CopiarLinkInterno.js",
+        "cs_modules/procedimento_visualizar.Dropzone.js",
         "cs_modules/procedimento_visualizar.js"
       ]
     },
@@ -149,6 +150,7 @@
     "icons/iconGreen.png",
     "icons/iconRed.png",
     "icons/ect.png",
-    "icons/link.png"
+    "icons/link.png",
+    "icons/fileUpload.png"
   ]
 }
