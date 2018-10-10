@@ -69,8 +69,8 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
 
 .dropzone-icon {
   display: inline-block;
-  height: 60px;
-  width: 60px;
+  height: 36px;
+  width: 36px;
   cursor: default;
 }
 

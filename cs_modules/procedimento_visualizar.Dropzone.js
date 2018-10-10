@@ -1,5 +1,9 @@
 var Dropzone = {};
 
+/* 
+	Dropzone.utils
+	Objeto com algumas funções úteis
+*/
 Dropzone.utils = {
 
 	formatarNumero: function(number) {
@@ -33,27 +37,54 @@ Dropzone.utils = {
 };
 
 
-Dropzone.ui = {
+/* 
+	Dropzone.ui
+	IIFE que controla o estado da view
+*/
 
-	adicionarDropzone: function() {  
+Dropzone.ui = (function() {
 
-  		var dropzoneEl = $(`
-  			<div class='dropzone-wrapper'>
-  				<div class='dropzone-bg'></div>
-  				<div class='dropzone-ui'>
-    				<img class='dropzone-icon' src='${browser.extension.getURL("icons/fileUpload.png")}'>
-    				<p class='dropzone-label'>Arraste aqui...</p>
-  				</div>
+	var ui = {};
+	
+	ui.wrapper = $(`
+		<div class='dropzone-wrapper'>
+			<div class='dropzone-bg'></div>
+			<div class='dropzone-ui'>
+			<img class='dropzone-icon'>
+			<p class='dropzone-label'></p>
 			</div>
-		`);
+		</div>
+	`);
 
-		dropzoneEl.appendTo("body");
+	ui.icon = ui.wrapper.find('.dropzone-icon');
+	ui.label = ui.wrapper.find('.dropzone-label');
+
+	function mudarIcone(icone) {
+		ui.icon.attr('src', browser.extension.getURL(`icons/${icone}`));
+	}
+
+	function mudarLabel(texto) {
+		ui.label.text(texto);
+	}	
+
+
+	function adicionarDropzone() {
+
+		mudarLabel('Arraste aqui...');
+		mudarIcone('fileUpload.png');
+
+		ui.wrapper.appendTo("body");
+
+		ui.wrapper.show();
 
 		window.addEventListener('drop', function(evt) {
 			evt.preventDefault();
-			dropzoneEl.hide();
+			mudarIcone('aguarde.gif');
 			if (!evt.dataTransfer.files || evt.dataTransfer.files.length === 0) return;
     		for (var i = 0; i < evt.dataTransfer.files.length; i++) {
+    			/* TODO: guardar as referências dos uploads e fazer um reload quando todos terminarem */
+    			/* TODO: deixar o spinner enquando faz o upload */
+    			/* TODO: criar handler/erro, mostrar mensagem e reload */
     			var http = new Dropzone.http(evt.dataTransfer.files[i]);
 				http.inserirDocumentoExterno();
     		}
@@ -64,21 +95,32 @@ Dropzone.ui = {
 		});  
 
 		window.addEventListener('dragenter', function(evt) {
-			dropzoneEl.show();
+			/* TODO: checar se é file */
+			ui.wrapper.show();
 		});
 
 		window.addEventListener('dragleave', function(evt) {
 			evt.preventDefault();
 			if (evt.relatedTarget === null) {
-				dropzoneEl.hide();
+				ui.wrapper.hide();
 			}
 		});		
 
-	},
+	};
 
-};
+	return {
+		adicionarDropzone: adicionarDropzone
+	};
+
+})();
 
 
+
+/* 
+	Dropzone.http
+	Função que deve ser construída (new) para cada upload.
+	Faz uma série de requisições AJAX que permite criar o documento externo com o anexo informado como parâmetro.
+*/
 Dropzone.http = function(arquivoParaUpload) {
 	this.arquivoParaUpload = arquivoParaUpload;
 };
@@ -275,7 +317,7 @@ Dropzone.http.prototype.passos = {
 				processData: false,
 				success: function(resposta) {
 					/* TODO: checar se código de resposta é 302 */
-					location.reload();
+					//location.reload();
 				}.bind(this),
 			});
 		},
@@ -291,6 +333,11 @@ Dropzone.http.prototype.inserirDocumentoExterno = function() {
 };
 
 
+
+/*
+	Dropzone.iniciar
+	Função invocada para iniciar a dropzone
+*/
 Dropzone.iniciar = function() {
 	Dropzone.ui.adicionarDropzone();
 };
