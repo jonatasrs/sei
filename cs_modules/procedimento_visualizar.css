@@ -77,7 +77,7 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
 .dropzone-label {
   display: block;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   color: #424242;
 }
 
