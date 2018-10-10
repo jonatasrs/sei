@@ -66,6 +66,10 @@ Dropzone.ui = (function() {
 		ui.label.text(texto);
 	}	
 
+	function mudarProgresso(progresso) {
+		mudarTexto('Criando documentos...' + progresso + '%');
+	}
+
 
 	function adicionarDropzone() {
 
@@ -77,7 +81,7 @@ Dropzone.ui = (function() {
 		window.addEventListener('drop', function(evt) {
 			evt.preventDefault();
 			mudarIcone('aguarde.gif');
-			mudarTexto('Criando documentos...');
+			mudarProgresso(0);
 			if (!evt.dataTransfer.files || evt.dataTransfer.files.length === 0) return;
     		for (var i = 0; i < evt.dataTransfer.files.length; i++) {
     			Dropzone.jobs.adicionar(evt.dataTransfer.files[i]);
@@ -104,15 +108,16 @@ Dropzone.ui = (function() {
 	};
 
 	return {
-		adicionarDropzone: adicionarDropzone
+		adicionarDropzone: adicionarDropzone,
+		mudarProgresso: mudarProgresso,
 	};
 
 })();
 
 
 /* 
-	Dropzone.ui
-	IIFE que controla o estado da view
+	Dropzone.jobs
+	IIFE que gerencia os jobs de inserção de documentos
 */
 
 Dropzone.jobs = (function() {
@@ -124,18 +129,31 @@ Dropzone.jobs = (function() {
 			arquivo: arquivoParaUpload,
 			nome: arquivoParaUpload.name,
 			status: 'em_andamento',
+			progresso: 0,
 		}
 		jobs.push(job);
 	}
 
 	function executar() {
 		jobs.forEach(function(job) {
-			var http = new Dropzone.http(job.arquivo, function(novoStatus) {
+			var http = new Dropzone.http(job.arquivo, function(novoStatus, novoProgresso) {
 				job.status = novoStatus;
+				job.progresso = novoProgresso || 0;
+				atualizaProgresso();
 				verificarSeCompletou();
 			});
 			http.inserirDocumentoExterno();
 		});
+	}
+
+	function atualizaProgresso() {
+		var totalProgresso = jobs.reduce(function(anterior, job) {
+			if (job.status === 'em_andamento') return anterior + job.progresso;
+			if (job.status === 'erro') return anterior + 1;
+			if (job.status === 'completo') return anterior + 1;
+		}, 0);
+		var progresso = Math.trunc((totalProgresso / jobs.length) * 100);
+		Dropzone.ui.mudarProgresso(progresso)
 	}
 
 	function verificarSeCompletou() {
@@ -300,6 +318,17 @@ Dropzone.http.prototype.passos = {
 				contentType: false,
 				processData: false,
 				data: data,
+				xhr: function() {
+					var xhr = $.ajaxSettings.xhr();
+					if (xhr.upload) {
+						xhr.upload.onprogress = function (e) {
+							if (e.lengthComputable) {
+								this.fnNovoStatus('em_andamento', (e.loaded / e.total));
+							}
+						}.bind(this);
+					}
+					return xhr;
+				}.bind(this),				
 				success: function(uploadIdentificador) {
 					var usuarioEUnidade = this.passos['3'].obterUsuarioEUnidade(resposta);
 					if (usuarioEUnidade === null) {
@@ -390,6 +419,7 @@ Dropzone.http.prototype.passos = {
 
 		},
 
+		/* como o ajax não deteca um redirect (302), temos que verificar se a página que retornou é a correta */
 		paginaRetornouCorretamente: function(resposta) {
 			var regex = /<div id="divArvoreHtml"><\/div>/gm
 			var resultado = regex.exec(resposta);
@@ -402,14 +432,12 @@ Dropzone.http.prototype.passos = {
 				url: dados.url,
 				method: 'POST',
 				data: dados.data,
-				processData: false,
 				success: function(data, textStatus, xhr) {
 					if (this.passos['4'].paginaRetornouCorretamente.call(this, data)) {
-						this.fnNovoStatus('completo');	
+						this.fnNovoStatus('completo', 1);	
 					} else {
 		  				Dropzone.log("Erro ao inserir documento externo: ocorreu um erro ao concluir a inserção do novo documento (redirecionou para a página errada).");
 						this.fnNovoStatus('erro');	
-						
 					}
 				}.bind(this),
 		  		error: function() {
