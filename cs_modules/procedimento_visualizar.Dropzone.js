@@ -380,11 +380,13 @@ Dropzone.http.prototype.passos = {
 			form['hdnIdTipoProcedimento'] = $resposta.find('#hdnIdTipoProcedimento').attr('value');
 			form['hdnSinBloqueado'] = $resposta.find('#hdnSinBloqueado').attr('value');
 
+			var nomeDoDocumento = this.arquivoParaUpload.name.replace(/\.[^/.]+$/, '').slice(0,49)
+
 			var postFields = {
 				hdnInfraTipoPagina: form['hdnInfraTipoPagina'], 						selSerie: form['selSerie'],
 				txtDataElaboracao: Dropzone.utils.hoje(),				 				txtProtocoloDocumentoTextoBase: '',
 				rdoTextoInicial: 'N', 													hdnIdDocumentoTextoBase: '',
-				txtNumero: this.arquivoParaUpload.name.slice(0,49), 					rdoFormato: 'N',
+				txtNumero: nomeDoDocumento,							 					rdoFormato: 'N',
 				selTipoConferencia: 'null',					 							txtDescricao: '',
 				txtRemetente: '', 														hdnIdRemetente: '',
 				txtInteressado: '', 													hdnIdInteressado: '',
