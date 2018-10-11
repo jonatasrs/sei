@@ -261,16 +261,25 @@
         </div>
   </div>
 
-  <div class="container flex-container">
-        <label class="toggle-label">
-            Incluir documentos externos ao arrastar arquivos
-            <div class="tooltip">?<span class="tooltiptext">
-                Cria automaticamente documentos externos quando se arrasta arquivos para dentro da árvore de documentos na visualização do processo.
-            </span></div>
-        </label>
-      <input class="toggle" type="checkbox" data-type="incluirdocaoarrastar" />
-  </div>
+  <div class="container">
+      <div class="flex-container">
+            <label class="toggle-label">
+                Incluir documentos externos ao arrastar arquivos
+                <div class="tooltip">?<span class="tooltiptext">
+                    Cria automaticamente documentos externos quando se arrasta arquivos para dentro da árvore de documentos na visualização do processo.
+                </span></div>
+            </label>
+            <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
+            <input class="toggle" type="checkbox" id="incluirdocaoarrastar" data-type="incluirdocaoarrastar" />
+      </div>
+        <div id="divConfigIncluirDocAoArrastar" class="seipp-fieldset">
+            <fieldset>
+                <legend>Documento Padrão</legend>
+                <input type="input" id="incluirDocAoArrastar_TipoDocPadrao" value="" style="width: 100%;">
+            </fieldset>
+        </div>
 
+  </div>
 </div>
 
 <!-- *********************************************************************** -->

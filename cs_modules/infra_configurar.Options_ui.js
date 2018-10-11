@@ -52,11 +52,16 @@ function Options_ui(BaseName) {
     });
     $("#marcarcorprocesso").prev().on("click", function () {
       $("#divConfigMarcarCorProcesso").toggle("fast");
-    });
 
     /* Click Menos */
     $("#cliquemenos").prev().on("click", function () {
       $("#divFormato").toggle("fast");
+    });
+    });
+
+    /* dropzone */
+    $("#incluirdocaoarrastar").prev().on("click", function () {
+      $("#divConfigIncluirDocAoArrastar").toggle("fast");
     });
 
     $("input[name='formato'][value=" + SavedOptions.formato + "]").attr("checked", true);
@@ -71,6 +76,8 @@ function Options_ui(BaseName) {
     MostraRestrito();
 
     $("#hipoteseLegal").val(SavedOptions.hipoteseLegal);
+
+    $("#incluirDocAoArrastar_TipoDocPadrao").val(SavedOptions.incluirDocAoArrastar_TipoDocPadrao || DefaultOptions.incluirDocAoArrastar_TipoDocPadrao);
 
     /* Filtrar por atribuição */
     $("#nomeUsuarioSistema").text(getNomeUsuarioSistema());
@@ -167,11 +174,13 @@ function Options_ui(BaseName) {
     ConfDias.Critico = parseInt($("#qtddiascritico").val());
     mconsole.log("CONFDIAS> alerta: " + ConfDias.Alerta + " critico:" + ConfDias.Critico);
 
+    var incluirDocAoArrastar_TipoDocPadrao = $("#incluirDocAoArrastar_TipoDocPadrao").val();
+
     function onError(error) {
       console.log(`Error: ${error}`);
     }
 
-    var OptionsToSave = { theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias };
+    var OptionsToSave = { theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias, incluirDocAoArrastar_TipoDocPadrao };
     if (isChrome) {
       browser.storage.local.set(OptionsToSave);
     } else {

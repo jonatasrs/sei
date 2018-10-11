@@ -360,8 +360,9 @@ Dropzone.http.prototype.passos = {
 		escolherTipoDocumentoExterno: function(select) {
 			var options = select.find('option');
 			var tipoDocumento = null;
+			var tipoPadrao = SavedOptions.incluirDocAoArrastar_TipoDocPadrao || 'Anexo';
 			options.each(function() {
-				if ($(this).text().trim() === 'Anexo') tipoDocumento = $(this).attr('value');
+				if ($(this).text().trim() === tipoPadrao) tipoDocumento = $(this).attr('value');
 			});
 			return !tipoDocumento ? options.eq(1).attr('value') : tipoDocumento;
 		},
