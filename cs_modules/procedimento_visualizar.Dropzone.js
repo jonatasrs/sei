@@ -217,11 +217,11 @@ Dropzone.http.prototype.passos = {
 				return;
 			}
 		  	$.ajax({ 
-		  		url: urlDocExterno,
+		  		url: GetBaseUrl() + urlDocExterno,
 		  		success: function(resposta) {
 		  			this.passos['2'].abrirPagina.call(this,resposta);
 		  		}.bind(this),
-		  		error: function(error) {
+		  		error: function() {
 		  			Dropzone.log("Erro ao inserir documento externo: ocorreu um erro ao abrir a página de inserir documento.");
 					this.fnNovoStatus('erro');
 		  		}.bind(this),
@@ -254,7 +254,7 @@ Dropzone.http.prototype.passos = {
 				return;
 			}
 			$.ajax({
-				url: urlNovoDocExterno,
+				url: GetBaseUrl() + urlNovoDocExterno,
 				success: function(resposta) {
 					this.passos['3'].enviarArquivo.call(this, resposta);
 				}.bind(this),
@@ -313,7 +313,7 @@ Dropzone.http.prototype.passos = {
 			var data = new FormData();
 			data.append('filArquivo', this.arquivoParaUpload, this.arquivoParaUpload.name);
 			$.ajax({
-				url: urlUpload,
+				url: GetBaseUrl() + urlUpload,
 				method: 'POST',
 				contentType: false,
 				processData: false,
@@ -432,7 +432,7 @@ Dropzone.http.prototype.passos = {
 		submeterFormulario: function(hdnAnexos, resposta) {
 			var dados = this.passos['4'].obterDados.call(this, hdnAnexos, resposta);
 			$.ajax({
-				url: dados.url,
+				url: GetBaseUrl() + dados.url,
 				method: 'POST',
 				data: dados.data,
 				success: function(data, textStatus, xhr) {
