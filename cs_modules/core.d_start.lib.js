@@ -15,7 +15,8 @@ var DefaultOptions = {
     "copiarlinkinterno",
     "retirarsobrestamentoreabrirembloco",
     "mostraranotacao",
-    "atalhopublicacoeseletronicas"
+    "atalhopublicacoeseletronicas",
+    "incluirdocaoarrastar"
   ],
   InstallOrUpdate: true,
   ConfiguracoesCores: [
