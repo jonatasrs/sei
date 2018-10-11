@@ -203,10 +203,10 @@ Dropzone.http.prototype.passos = {
 
 		obterUrl: function() {
 			var ultimaScriptTag = document.getElementsByTagName('script')[document.getElementsByTagName('script').length-1];		
-			var regex = /(?<=^Nos\[0\].acoes = '<a href=").*?(?=" tabindex="451")/m;
+			var regex = /^Nos\[0\].acoes = '<a href="(.*?)" tabindex="451"/m;
 			var resultado = regex.exec(ultimaScriptTag.innerHTML);
 			if (resultado === null) return null;
-			return resultado[0];
+			return resultado[1];
 		},
 
 		abrirPagina: function() {
@@ -221,7 +221,7 @@ Dropzone.http.prototype.passos = {
 		  		success: function(resposta) {
 		  			this.passos['2'].abrirPagina.call(this,resposta);
 		  		}.bind(this),
-		  		error: function() {
+		  		error: function(error) {
 		  			Dropzone.log("Erro ao inserir documento externo: ocorreu um erro ao abrir a página de inserir documento.");
 					this.fnNovoStatus('erro');
 		  		}.bind(this),
@@ -240,10 +240,10 @@ Dropzone.http.prototype.passos = {
 	'2': { 
 
 		obterUrl: function(resposta) {
-			var regex = /(?<=<a href=").*?(?=" tabindex="1003" class="ancoraOpcao"> Externo<\/a>)/m
+			var regex = /<a href="(.*?)" tabindex="1003" class="ancoraOpcao"> Externo<\/a>/m
 			var resultado = regex.exec(resposta)
 			if (resultado === null) return null;
-			return resultado[0];
+			return resultado[1];
 		},
 
 		abrirPagina: function(resposta) {
@@ -276,10 +276,10 @@ Dropzone.http.prototype.passos = {
 	'3': { 
 
 		obterURLUpload: function(resposta) {
-			var regex = /(?<=^\s*objUpload = new infraUpload\('frmAnexos',').+?(?='\);)/m;
+			var regex = /^\s*objUpload = new infraUpload\('frmAnexos','(.+?)'\);/m;
 			var resultado = regex.exec(resposta)
 			if (resultado === null) return null;
-			return resultado[0];			
+			return resultado[1];			
 		},
 
 		obterUsuarioEUnidade: function(resposta) {
@@ -475,6 +475,7 @@ Dropzone.log = function(mconsole, texto) {
 	Função invocada para iniciar a dropzone
 */
 Dropzone.iniciar = function(Basename) {
+
 	Dropzone.ui.adicionarDropzone();
 
   	var mconsole = new __mconsole(BaseName + ".Dropzone");
