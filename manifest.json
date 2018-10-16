@@ -45,6 +45,7 @@
         "cs_modules/core.d_idle.VerificarBlocoAssinatura.js",
         "cs_modules/core.d_idle.IndicarConfiguracao.js",
         "cs_modules/core.d_idle.AtalhoPublicacoesEletronicas.js",
+        "cs_modules/core.d_idle.MostrarEspecificacao.js",
         "cs_modules/core.d_idle.js"
       ]
     },
