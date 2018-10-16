@@ -52,11 +52,11 @@ function Options_ui(BaseName) {
     });
     $("#marcarcorprocesso").prev().on("click", function () {
       $("#divConfigMarcarCorProcesso").toggle("fast");
+    });
 
     /* Click Menos */
     $("#cliquemenos").prev().on("click", function () {
       $("#divFormato").toggle("fast");
-    });
     });
 
     /* dropzone */
