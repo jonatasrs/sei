@@ -32,6 +32,9 @@ if (ModuleInit(BaseName)) {
       case "copiarlinkinterno":
         CopiarLinkInterno(BaseName);
         break;
+      case "incluirdocaoarrastar":
+        Dropzone.iniciar(BaseName);
+        break;
       default:
         break;
     }

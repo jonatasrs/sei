@@ -34,3 +34,51 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   background-color: rgb(252, 70, 70);
 }
 /* CSS for Modules: MostrarAnotacao END */
+
+
+/* CSS for Modules: Dropzone */
+.dropzone-wrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px dashed #424242;
+  border-radius: 4px;
+}
+
+.dropzone-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #f2f2f2;
+  opacity: 0.8;
+}
+
+.dropzone-ui {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  transform: translate(0, -50%);
+  text-align: center;
+}
+
+.dropzone-icon {
+  display: inline-block;
+  height: 36px;
+  width: 36px;
+  cursor: default;
+}
+
+.dropzone-label {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #424242;
+}
+
+/* CSS for Modules: Dropzone END */
