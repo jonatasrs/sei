@@ -22,7 +22,7 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
 
       /* Inclui os itens na tabela */
       $(IdTabela + " > tbody > tr").each(function (index) {
-        var cell = $("<td/>").attr("valign", "top").attr("align", "center")
+        var cell = $("<td/>").attr("valign", "center").attr("align", "center")
                    .text(Calcular(this, TipoDeCalculo));
 
         $(this).append(cell);

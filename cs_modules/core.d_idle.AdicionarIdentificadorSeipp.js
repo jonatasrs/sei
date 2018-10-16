@@ -9,8 +9,7 @@ function AdicionarIdentificadorSeipp(BaseName) {
     browser.storage.local.get("version").then(function (params) {
       var version = parseInt(params.version);
       if (version < 56) {
-        $("#seipp").append(" [Atualize o Firefox!!!] ")
-          .attr("title", "Firefox " + version + " - Você está utilizando uma versão antiga do Firefox, não compativel com alguns recursos do SEI++")
+        $("#seipp").attr("title", "Firefox " + version + " - Você está utilizando uma versão antiga do Firefox, não compativel com alguns recursos do SEI++")
           .css({ "font-weight": "bold", "color": "red", "filter": "none", "background-color": "black" });
       }
     }, null);
