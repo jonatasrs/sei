@@ -46,6 +46,7 @@
         "cs_modules/core.d_idle.IndicarConfiguracao.js",
         "cs_modules/core.d_idle.AtalhoPublicacoesEletronicas.js",
         "cs_modules/core.d_idle.MostrarEspecificacao.js",
+        "cs_modules/core.d_idle.SubstituirIcones.js",
         "cs_modules/core.d_idle.js"
       ]
     },
@@ -153,6 +154,20 @@
     "icons/ect.png",
     "icons/link.png",
     "icons/fileUpload.png",
-    "icons/aguarde.gif"
+    "icons/aguarde.gif",
+    "icons/acompanhamento.png",
+    "icons/andamento.png",
+    "icons/assinar.png",
+    "icons/atribuir.png",
+    "icons/bloco.png",
+    "icons/blocoassinatura.png",
+    "icons/cancelar.png",
+    "icons/controle.png",
+    "icons/detalhes.png",
+    "icons/editar.png",
+    "icons/enviar.png",
+    "icons/incluir.gif",
+    "icons/publicar.png",
+    "icons/reabrir.png"
   ]
 }
