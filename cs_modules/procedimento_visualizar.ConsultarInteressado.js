@@ -38,24 +38,11 @@ function ConsultarInteressado(BaseName) {
       .insertAfter("#frmArvore")
       .append("<div id='seipp_processo'/>")
       .append("<div id='seipp_tipo'/>")
-      .append("<div id='seipp_interessados'/>");
+      .after("<div id='seipp_interessados' style='text-align:left; font-size:12px; padding-left:5px;'>" + processo.interessados.join("<br/>") + "</div>");
   }
 
   function DetalheProcesso_Preencher() {
-    $("#seipp_processo").attr("value", processo.numero).attr("title", "Número do processo").text(processo.numero);
-    $.each(processo.interessados, function (index, nome) {
-      let sigla = "";
-      mconsole.log(nome);
-
-      a = nome.indexOf('(') + 1;
-      if (a != 0) {
-        b = nome.indexOf(')', a);
-        sigla = nome.substring(a, b);
-        nome = nome.substring(0, a - 2);
-      }
-      $("#seipp_interessados").append("<div class='seipp_interessado' title='Interessado'>" + nome + "</div>");
-      $("#seipp_interessados").append("<div class='seipp_sigla' title='sigla'>" + sigla + "</div>");
-    });
+    $("#seipp_interessados").attr("title", "Interessado(s)");
     $("#seipp_tipo").attr("title", "Tipo de processo").text(processo.tipo);
   }
 
@@ -85,7 +72,7 @@ function ConsultarInteressado(BaseName) {
       $("<div id='detalhes' style='margin-left: 300px; border: 1px solid; padding: 2px;'/>")
         .insertAfter($iframe.contents().find("#divInformacao"))
         .append('<div id="divInfraBarraLocalizacao" class="infraBarraLocalizacao" style="display:block;">Dados do Processo</div>')
-        .append('<div id="divProtocoloExibir" class="infraAreaDados" style="height:4.5em; clear: both;"><label id="lblProtocoloExibir" for="txtProtocoloExibir" accesskey="" class="infraLabelObrigatorio">Protocolo:</label><input style="width140px;" id="txtProtocoloExibir" name="txtProtocoloExibir" class="infraText infraReadOnly" readonly="readonly" type="text" value="' + mask_processo + '"><label id="lblDtaGeracaoExibir" for="txtDtaGeracaoExibir" accesskey="" class="infraLabelObrigatorio" style="margin-left: 20px;">Data de Autuação:</label><input type="text" id="txtDtaGeracaoExibir" name="txtDtaGeracaoExibir" class="infraText infraReadOnly" readonly="readonly" /></div>')
+        .append('<div id="divProtocoloExibir" class="infraAreaDados" style="height:4.5em; clear: both;"><label id="lblProtocoloExibir" for="txtProtocoloExibir" accesskey="" class="infraLabelObrigatorio">Protocolo:</label><input id="txtProtocoloExibir" name="txtProtocoloExibir" class="infraText infraReadOnly" readonly="readonly" type="text" style="width:150px;" value="' + mask_processo + '"><label id="lblDtaGeracaoExibir" for="txtDtaGeracaoExibir" accesskey="" class="infraLabelObrigatorio" style="margin-left: 20px;">Data de Autuação:</label><input type="text" id="txtDtaGeracaoExibir" name="txtDtaGeracaoExibir" class="infraText infraReadOnly" readonly="readonly" /></div>')
         .append('<div id="divTipoProcedimento" class="infraAreaDados" style="height:4.5em; clear: none;"><label id="lblTipoProcedimento" for="selTipoProcedimento" accesskey="" class="infraLabelObrigatorio">Tipo do Processo:</label><input id="selTipoProcedimento" name="selTipoProcedimento" class="infraText infraReadOnly" readonly="readonly" style="width: 95%;" value="' + processo.tipo + '"></div>')
         .append('<div id="divDescricao" class="infraAreaDados" style="height:4.7em; clear: none;"><label id="lblDescricao" for="txtDescricao" accesskey="" class="infraLabelOpcional">Especificação:</label><input id="txtDescricao" name="txtDescricao" class="infraText infraReadOnly" readonly="readonly" type="text" style="width: 95%;"></div>')
         .append('<div id="divInteressados" class="infraAreaDados" style="height:11em; clear: none;"><label id="lblInteressadosProcedimento" for="txtInteressadoProcedimento" accesskey="I" class="infraLabelOpcional"><span class="infraTeclaAtalho">I</span>nteressados:</label><br/><textarea id="txtInteressadosProcedimento" name="txtInteressadosProcedimento" class="infraText infraReadOnly" readonly="readonly" style="width: 95%";>' + interessados.join("\n") + '</textarea></div>');
