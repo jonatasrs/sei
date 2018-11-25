@@ -3,7 +3,7 @@
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "4.2",
+  "version": "4.2.2",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/sei_++.png"},
@@ -46,7 +46,6 @@
         "cs_modules/core.d_idle.IndicarConfiguracao.js",
         "cs_modules/core.d_idle.AtalhoPublicacoesEletronicas.js",
         "cs_modules/core.d_idle.MostrarEspecificacao.js",
-        "cs_modules/core.d_idle.SubstituirIcones.js",
         "cs_modules/core.d_idle.js"
       ]
     },
@@ -154,20 +153,6 @@
     "icons/ect.png",
     "icons/link.png",
     "icons/fileUpload.png",
-    "icons/aguarde.gif",
-    "icons/acompanhamento.png",
-    "icons/andamento.png",
-    "icons/assinar.png",
-    "icons/atribuir.png",
-    "icons/bloco.png",
-    "icons/blocoassinatura.png",
-    "icons/cancelar.png",
-    "icons/controle.png",
-    "icons/detalhes.png",
-    "icons/editar.png",
-    "icons/enviar.png",
-    "icons/incluir.gif",
-    "icons/publicar.png",
-    "icons/reabrir.png"
+    "icons/aguarde.gif"
   ]
 }
