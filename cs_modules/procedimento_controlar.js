@@ -24,7 +24,19 @@ if (ModuleInit(BaseName, true)) {
         break;
     }
   }, this);
-  AdicionarOrdenacao(BaseName);
+
+
+  /* Ao invés de injetar este script, carregá-lo via script tag,
+    para que seja acessível pelas funções cujo contexto é a página, e não a extensão. */
+  runExtensionScript('lib/jquery.tablesorter.min.js');
+  runExtensionScript('lib/jquery.tablesorter.widgets.min.js');
+
+  /* Ao invés de injetar o AdicionarOrdenacao, carregá-lo no contexto da página */
+  runExtensionScript(
+    'cs_modules/procedimento_controlar.AdicionarOrdenacao.js',
+    `AdicionarOrdenacao('${BaseName}');`
+  );
+
   SelecionarMultiplosProcessos(BaseName);
   ConfirmarAntesConcluir(BaseName);
 }
