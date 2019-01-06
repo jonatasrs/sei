@@ -87,7 +87,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	        var numeroDocumento = getNumeroDocumento(element.id);
 
 	        if ($("#"+idmod + element.id.substr(4)).length != 0) return;
-	        var resultNomeRegex = /^(.+)\s+\(?([0-9]{7,9})\)?$/.exec(element.title);
+	        var resultNomeRegex = /^(.+)\s+\(?([0-9]{7,11})\)?$/.exec(element.title);
 	        if (resultNomeRegex) {
 	            nomeDocumento = resultNomeRegex[1];
 	            numeroSei = resultNomeRegex[2];
