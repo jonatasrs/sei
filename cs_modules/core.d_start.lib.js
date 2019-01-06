@@ -55,7 +55,7 @@ __mconsole.prototype.log = function(message) {
 }
 
 /* adicionar função de log no contexto da página */
-runCodeInGloblal(`
+execOnPage(`
 
   function __mconsole(ModuleName) {
     this.PModuleName = ModuleName;
@@ -139,13 +139,13 @@ function RemoveAllOldEventListener(Elem) {
     $('#${elementID}').replaceWith($('#${elementID}').clone());
   `;
 
-  runCodeInGloblal(codeToRun);
+  execOnPage(codeToRun);
 
 }
 
 /* Função que permite executar um código arbitrário
   no contexto da página, e não da extensão */
-function runCodeInGloblal(code) {
+function execOnPage(code) {
   var script = document.createElement('script');
   script.textContent = code;
   (document.head||document.documentElement).appendChild(script);
@@ -159,12 +159,12 @@ function runCodeInGloblal(code) {
   Lembre-se de o script deve ter sua permissão concedida
   no 'web_accessible_resources' do manifest.
 */
-function runExtensionScript(scriptName, codeOnLoad) {
+function addScriptToPage(scriptName, codeOnLoad) {
   var script = document.createElement('script');
   (document.head||document.documentElement).appendChild(script);
   if (codeOnLoad) { 
     script.onload = function() {
-      runCodeInGloblal(codeOnLoad);
+      execOnPage(codeOnLoad);
     }
   }
   script.src = chrome.extension.getURL(scriptName);
