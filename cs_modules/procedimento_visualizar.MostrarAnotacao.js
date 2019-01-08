@@ -24,7 +24,7 @@ function MostrarAnotacao(BaseName) {
     mconsole.log("Texto: " + txanotacao);
 
     if (txanotacao != "") {
-      $("body").append("<div id='seipp_div_anotacao'/>");
+      $("#container").append("<div id='seipp_div_anotacao'/>");
       $("#seipp_div_anotacao").append("<div class='seipp_anotacao'/>");
       $("div.seipp_anotacao").text(txanotacao);
       if (prioridade) {
