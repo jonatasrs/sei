@@ -54,6 +54,20 @@ __mconsole.prototype.log = function(message) {
     console.log("[" + CompName + " " + Date.now() + "]    "+ this.PModuleName+": " + message);
 }
 
+/* adicionar função de log no contexto da página */
+execOnPage(`
+
+  function __mconsole(ModuleName) {
+    this.PModuleName = ModuleName;
+    console.log("[${CompName} " + Date.now() + "]  " + this.PModuleName + ": Loading...");
+  }
+  __mconsole.prototype.log = function(message) {
+      console.log("[${CompName} " + Date.now() + "]    "+ this.PModuleName+": " + message);
+  }
+
+`);
+
+
 function Init(BaseName) {
   console.log("[" + CompName + " " + Date.now() + "]" + BaseName);
 }
@@ -119,7 +133,41 @@ function isNumOnly(str) {
  * @param {HTMLElement} Elem
  */
 function RemoveAllOldEventListener(Elem) {
-  $(Elem).replaceWith($(Elem).clone());
+  var elementID = Elem.attr('id');
+
+  var codeToRun = `
+    $('#${elementID}').replaceWith($('#${elementID}').clone());
+  `;
+
+  execOnPage(codeToRun);
+
+}
+
+/* Função que permite executar um código arbitrário
+  no contexto da página, e não da extensão */
+function execOnPage(code) {
+  var script = document.createElement('script');
+  script.textContent = code;
+  (document.head||document.documentElement).appendChild(script);
+  script.remove();
+}
+
+/*
+  Função que carrega um script externo
+  no contexto da página, e não da extensão.
+
+  Lembre-se de o script deve ter sua permissão concedida
+  no 'web_accessible_resources' do manifest.
+*/
+function addScriptToPage(scriptName, codeOnLoad) {
+  var script = document.createElement('script');
+  (document.head||document.documentElement).appendChild(script);
+  if (codeOnLoad) { 
+    script.onload = function() {
+      execOnPage(codeOnLoad);
+    }
+  }
+  script.src = chrome.extension.getURL(scriptName);
 }
 
 /**
