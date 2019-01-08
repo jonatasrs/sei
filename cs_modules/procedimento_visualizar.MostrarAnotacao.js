@@ -23,8 +23,9 @@ function MostrarAnotacao(BaseName) {
         mconsole.log("Prioridade: " + prioridade);
     mconsole.log("Texto: " + txanotacao);
 
+    let $element = $("#container").length > 0 ? $("#container") : $("body");
     if (txanotacao != "") {
-      $("#container").append("<div id='seipp_div_anotacao'/>");
+      $element.append("<div id='seipp_div_anotacao'/>");
       $("#seipp_div_anotacao").append("<div class='seipp_anotacao'/>");
       $("div.seipp_anotacao").text(txanotacao);
       if (prioridade) {
