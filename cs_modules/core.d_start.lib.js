@@ -161,6 +161,7 @@ function execOnPage(code) {
 */
 function addScriptToPage(scriptName, codeOnLoad) {
   var script = document.createElement('script');
+  script.async = false;
   (document.head||document.documentElement).appendChild(script);
   if (codeOnLoad) { 
     script.onload = function() {
