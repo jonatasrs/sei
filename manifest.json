@@ -61,6 +61,7 @@
     {
       "matches": ["*://*.br/*controlador.php?acao=procedimento_controlar*"],
       "js": [
+        "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js",
         "cs_modules/procedimento_controlar.CorrigirTabelas.js",
         "cs_modules/procedimento_controlar.ConfirmarAntesConcluir.js",
         "cs_modules/procedimento_controlar.IncluirCalculoPrazos.js",
