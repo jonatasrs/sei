@@ -70,7 +70,49 @@ Dropzone.ui = (function() {
 		mudarTexto('Criando documentos...' + progresso + '%');
 	}
 
+	function adicionarBtnAdicionarAnexos(){
 
+		var div = document.createElement("div");
+		div.id="btnAddAnexos"
+		div.style="margin-top: 15px;"
+		var img = document.createElement("img");
+		img.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACwSURBVDhP7dIxDkFBEMbxQaWh0Ep0Ej067WsUOgUNPadQSdzBDTROwAFe4wBuIBKNQvD/9hGFeG8kSl/yy+5ssrNbjKWkjgiVUH2ZGa644YAO3NHLujxGCSvEcKcPvVwIldkQl2TrywBq8GnNzL/BDxt0H+sSJ7gbPOegiDWOmEDzoAHLTANq0ArVKwvsk2168thihzbKGOGMKVypYgP9RDTKc+Tgjn7SRA81HbzH7A6nWkADFccafAAAAABJRU5ErkJggg==";
+		var a = document.createElement("a");
+		a.innerHTML = '  Adicionar Anexos';
+
+		var label = document.createElement("label");
+		label.style = "border: 1px solid #ccc;display: inline-block;padding: 4px 4px;cursor: pointer;";
+		label.setAttribute("for","pdf-upload")
+		
+		label.appendChild(img);
+		label.appendChild(a);
+
+		div.appendChild(label);
+		
+		
+		var btn = document.createElement("input");
+		btn.type = 'file';
+		btn.id = 'pdf-upload';
+		btn.style="visibility:hidden;";
+		btn.multiple = 'multiple';
+		div.appendChild(btn);
+		document.querySelector("#divConsultarAndamento").before(div);
+		
+		
+		btn.addEventListener("change", function(evt){
+			evt.preventDefault();
+			mudarIcone('aguarde.gif');
+			mudarProgresso(0);
+			if (!evt.target.files || evt.target.files.length === 0) return;
+			for (var i = 0; i < evt.target.files.length; i++) {
+				Dropzone.jobs.adicionar(evt.target.files[i]);
+			}
+			Dropzone.jobs.executar();
+		});
+
+	}
+
+	
 	function adicionarDropzone() {
 
 		mudarTexto('Arraste aqui...');
@@ -109,6 +151,7 @@ Dropzone.ui = (function() {
 
 	return {
 		adicionarDropzone: adicionarDropzone,
+		adicionarBtnAdicionarAnexos: adicionarBtnAdicionarAnexos,
 		mudarProgresso: mudarProgresso,
 	};
 
@@ -357,10 +400,10 @@ Dropzone.http.prototype.passos = {
 	'4': { 
 
 		/* dá preferência por documento que seja denominado Anexo. Se não, escolhe o primeiro. */
-		escolherTipoDocumentoExterno: function(select) {
+		escolherTipoDocumentoExterno: function(select, tipo) {
 			var options = select.find('option');
 			var tipoDocumento = null;
-			var tipoPadrao = SavedOptions.incluirDocAoArrastar_TipoDocPadrao || 'Anexo';
+			var tipoPadrao = tipo || 'Anexos';
 			options.each(function() {
 				if ($(this).text().trim() === tipoPadrao) tipoDocumento = $(this).attr('value');
 			});
@@ -371,23 +414,23 @@ Dropzone.http.prototype.passos = {
 		obterDados: function(hdnAnexos, resposta) {
 			var $resposta = $(resposta);
 			var urlParaEnvio = $resposta.find('form#frmDocumentoCadastro').attr('action');
+			var customPostFields = Dropzone.custonPostFields(this.arquivoParaUpload);
 			var form = {};
 			form['hdnInfraTipoPagina'] = $resposta.find('#hdnInfraTipoPagina').attr('value');
 			form['hdnInfraTipoPagina'] = $resposta.find('#hdnInfraTipoPagina').attr('value');
-			form['selSerie'] = this.passos['4'].escolherTipoDocumentoExterno($resposta.find('#selSerie')); 
+			form['selSerie'] = this.passos['4'].escolherTipoDocumentoExterno($resposta.find('#selSerie'), customPostFields.tipoDocumento); 
 			form['hdnStaDocumento'] = $resposta.find('#hdnStaDocumento').attr('value');
 			form['hdnIdUnidadeGeradoraProtocolo'] = $resposta.find('#hdnIdUnidadeGeradoraProtocolo').attr('value');
 			form['hdnIdProcedimento'] = $resposta.find('#hdnIdProcedimento').attr('value');
 			form['hdnIdTipoProcedimento'] = $resposta.find('#hdnIdTipoProcedimento').attr('value');
 			form['hdnSinBloqueado'] = $resposta.find('#hdnSinBloqueado').attr('value');
 
-			var nomeDoDocumento = this.arquivoParaUpload.name.replace(/\.[^/.]+$/, '').slice(0,49)
 
 			var postFields = {
 				hdnInfraTipoPagina: form['hdnInfraTipoPagina'], 						selSerie: form['selSerie'],
-				txtDataElaboracao: Dropzone.utils.hoje(),				 				txtProtocoloDocumentoTextoBase: '',
+				txtDataElaboracao: customPostFields.txtDataElaboracao,				 				txtProtocoloDocumentoTextoBase: '',
 				rdoTextoInicial: 'N', 													hdnIdDocumentoTextoBase: '',
-				txtNumero: nomeDoDocumento,							 					rdoFormato: 'N',
+				txtNumero: customPostFields.txtNumero,							 					rdoFormato: 'N',
 				selTipoConferencia: 'null',					 							txtDescricao: '',
 				txtRemetente: '', 														hdnIdRemetente: '',
 				txtInteressado: '', 													hdnIdInteressado: '',
@@ -455,7 +498,58 @@ Dropzone.http.prototype.passos = {
 
 };
 
+Dropzone.custonPostFields = function (arquivoParaUpload){
+	var fields = {
+		txtNumero:arquivoParaUpload.name.replace(/\.[^/.]+$/, '').slice(0,49),
+		txtDataElaboracao:Dropzone.utils.hoje(),
+		tipoDocumento:SavedOptions.incluirDocAoArrastar_TipoDocPadrao+'s'
+	};
 
+    /** exemplo custom SavedOptions.incluirDocAoArrastar_TipoDocPadrao
+	*[
+	*	{
+	*		"rxTestarNome":"P [0-9]+-[0-9]{4}",
+	*		"rxCopiarNumero":"[P][-_ ]([0-9]+)[-_]([0-9]{4})([^.]*).*",
+	*		"rxCopiarNumeroReplace":"$1/$2$3",
+	*		"rxFlags":"i",
+	*		"tipoDeDocumento": "Previsão de Pagamento"
+	*	},
+	*	{
+	*		"rxTestarNome":"NL [0-9]+-[0-9]{4}",
+	*		"rxCopiarNumero":"[NL][-_ ]([0-9]+)[-_]([0-9]{4})([^.]*).*",
+	*		"rxCopiarNumeroReplace":"$1/$2$3",
+	*		"rxFlags":"i",
+	*		"tipoDeDocumento": "Previsão de Pagamento"
+	*	}
+	*]
+	*/
+		
+	if (/rxTestarNome/i.test(SavedOptions.incluirDocAoArrastar_TipoDocPadrao)){
+		
+		var customFields = JSON.parse(SavedOptions.incluirDocAoArrastar_TipoDocPadrao);
+		
+		customFields.forEach( function(item){
+			var rx = new RegExp(item.rxTestarNome);
+
+			if (rx.test(arquivoParaUpload.name)){
+				if (item.rxFlags.length > 0){
+					fields.txtNumero = arquivoParaUpload.name.replace(new RegExp(item.rxCopiarNumero, item.rxFlags), item.rxCopiarNumeroReplace);
+				} else {
+					fields.txtNumero = arquivoParaUpload.name.replace(new RegExp(item.rxCopiarNumero), item.rxCopiarNumeroReplace);
+				}
+				fields.tipoDocumento = item.tipoDeDocumento;
+			}
+			
+		});
+
+	}
+
+
+	
+
+
+	return fields;
+};
 Dropzone.http.prototype.inserirDocumentoExterno = function() {
 	this.passos['1'].abrirPagina.call(this);
 };
@@ -477,7 +571,8 @@ Dropzone.log = function(mconsole, texto) {
 Dropzone.iniciar = function(Basename) {
 
 	Dropzone.ui.adicionarDropzone();
-
+	Dropzone.ui.adicionarBtnAdicionarAnexos();
+	
   	var mconsole = new __mconsole(BaseName + ".Dropzone");
   	Dropzone.log = Dropzone.log.bind(this, mconsole);
 };
