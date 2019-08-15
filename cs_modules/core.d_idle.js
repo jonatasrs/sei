@@ -6,7 +6,6 @@ const ModName_idle = "core.d_idle";
 
 if (ModuleInit(ModName_idle)) {
   AdicionarIdentificadorSeipp(ModName_idle);
-
   SavedOptions.CheckTypes.forEach(function(element) {
     switch (element) {
       case "chkbloco":
@@ -24,6 +23,8 @@ if (ModuleInit(ModName_idle)) {
       case "especificacao":
         MostrarEspecificacao(ModName_idle);
         break;
+      case "no_buttons":
+        NoButtons(ModName_idle);
       default:
         break;
     }
