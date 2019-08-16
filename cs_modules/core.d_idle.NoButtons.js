@@ -7,16 +7,18 @@
  * **/
 function NoButtons(BaseName){
   var mconsole = new __mconsole(BaseName + ".NoButtons");
-  console.error("vamos buscar");
-  setTimeout(removerBotoes, 2000);
+  window.addEventListener('load', removerBotoes);
+  //$('#ifrVisualizacao').ready(removeInFrame);
+  var ifr = document.getElementById('ifrVisualizacao');
+  ifr.addEventListener('load', removerBotoes);
 }
-function removerBotoes(){
-  console.log("No timeout");
+
+function removerBotoes(event){
   var botoes = document.querySelectorAll("a.botaoSEI img");
+  console.error("Botões!!!!!!!!!!!!", this, botoes);
   for ( var i=0; i<botoes.length; i++){
     var e = botoes[i];
     var message = e.getAttribute('title');
-    console.log(message, e , "será")
     if (!message){
       message = e.getAttribute('alt');
     }
@@ -29,3 +31,4 @@ function removerBotoes(){
     }
   }
 }
+
