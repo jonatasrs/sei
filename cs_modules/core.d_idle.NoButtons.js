@@ -16,17 +16,8 @@ function removerBotoes(event){
   var botoes = document.querySelectorAll("a.botaoSEI img");
   for ( var i=0; i<botoes.length; i++){
     var e = botoes[i];
-    var message = e.getAttribute('title');
-    if (!message){
-      message = e.getAttribute('alt');
-    }
-    if (e.parentElement){
-      var p = e.parentElement;
-      p.innerHTML = message;
-      p.style.display = "inline-block";
-      p.style.margin = "2px 5px";
-      p.style.fontSize = "1.6em";
-    }
+    e.setAttribute('src','noimage');
+    e.parentElement.classList.add('no-image');
   }
 }
 
