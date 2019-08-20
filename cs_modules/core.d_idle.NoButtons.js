@@ -16,7 +16,7 @@ function removerBotoes(event){
   var botoes = document.querySelectorAll("a.botaoSEI img");
   for ( var i=0; i<botoes.length; i++){
     var e = botoes[i];
-    e.setAttribute('src','noimage');
+    e.setAttribute('src','#');
     e.parentElement.classList.add('no-image');
   }
 }
