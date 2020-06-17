@@ -20,6 +20,9 @@ if (ModuleInit(BaseName, true)) {
       case "pesquisarinformacoes":
         PesquisarInformacoes(BaseName);
         break;
+        case "especificacaoresumida":
+        PesquisarInformacoes(BaseName);
+        break;
       default:
         break;
     }
