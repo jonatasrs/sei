@@ -1,4 +1,5 @@
 function ListaPorEspecificacao(BaseName) {
+
     var processosVisualizados = document.querySelectorAll('.processoVisualizado')
     var processosNaoVisualizados = document.querySelectorAll('.processoNaoVisualizado')
 
