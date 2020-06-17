@@ -23,6 +23,9 @@ if (ModuleInit(ModName_idle)) {
       case "especificacao":
         MostrarEspecificacao(ModName_idle);
         break;
+      case "especificacaoresumida":
+        MostrarEspecificacao(ModName_idle);
+        break;
       case "no_buttons":
         NoButtons(ModName_idle);
       default:

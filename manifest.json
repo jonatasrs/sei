@@ -72,6 +72,8 @@
         "cs_modules/procedimento_controlar.filtra_processos.FiltraPorAtribuicao.js",
         "cs_modules/procedimento_controlar.filtra_processos.CarregaInformacaoBlocos.js",
         "cs_modules/lib.SelecionarMultiplosProcessos.js",
+        "cs_modules/procedimento_controlar.ListaPorEspecificacao.js"
+        "cs_modules/"
         "cs_modules/procedimento_controlar.js"
       ]
     },
