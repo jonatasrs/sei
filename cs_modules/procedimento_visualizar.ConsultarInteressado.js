@@ -22,7 +22,7 @@ function ConsultarInteressado(BaseName) {
   var WebHttp = $.ajax({ url: url });
   WebHttp.done(function (html) {
     let $html = $(html);
-    processo.numero = $("#divArvore > a > span[id^='span']").text().replace(/\D/g, '');
+    processo.numero = $(".infraArvoreNoSelecionado").text();
     mconsole.log("Lendo dados do processo: " + processo.numero);
     processo.tipo = $html.find("#selTipoProcedimento option[selected='selected']").text();
     processo.interessados = $html.find("#selInteressadosProcedimento option").map(function () { return $(this).text(); }).get();
@@ -57,7 +57,7 @@ function ConsultarInteressado(BaseName) {
       if ($iframe.contents().find("#divArvoreHtml iframe").length != 0) {$(this).off("load"); return; }
       else if ($iframe.contents().find("#divInformacao").length == 0) {$(this).off("load"); return; }
 
-      var mask_processo = $("#divArvore > a > span[id^='span']").text();
+      var mask_processo = $(".infraArvoreNoSelecionado").text();
       var interessados = $html.find("#selInteressadosProcedimento option").map(function () { return $(this).text(); }).get();
       var descricao = $html.find("#txtDescricao").val();
       var data = $html.find("#txtDtaGeracaoExibir").val();
