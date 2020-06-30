@@ -122,3 +122,7 @@
 	color: graytext;
 }
 /* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js END */
+
+.no-image img{
+  background-color: white !important;
+}
