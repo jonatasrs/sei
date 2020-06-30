@@ -22,7 +22,7 @@ if (ModuleInit(ModName_idle)) {
         break;
       case "especificacao":
         MostrarEspecificacao(ModName_idle);
-        break;
+        break;      
       case "no_buttons":
         NoButtons(ModName_idle);
       default:
