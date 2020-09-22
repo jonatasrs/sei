@@ -68,8 +68,11 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	    spanGeral.style.display = 'none';
 	}
 
-	function iniciar() {
-	    var span = document.querySelector('#divArvore>a>span');
+	function iniciar() {		
+		let span = document.querySelector('#divArvore>a>span');
+		if (!span) {
+			span = document.querySelector(".infraArvore > a[target='ifrVisualizacao'] > span");
+		}
 	    if (span && $("#"+idmod + span.id.substr(4)).length == 0) {
 
 	        var numeroDocumento = getNumeroDocumento(span.id);
