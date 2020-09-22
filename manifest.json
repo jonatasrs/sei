@@ -106,6 +106,7 @@
         "cs_modules/procedimento_visualizar.AbrirDocumentoNovaAba.js",
         "cs_modules/procedimento_visualizar.CopiarLinkInterno.js",
         "cs_modules/procedimento_visualizar.Dropzone.js",
+        "cs_modules/procedimento_visualizar.AlterarTitulo.js",
         "cs_modules/procedimento_visualizar.js"
       ]
     },
