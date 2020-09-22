@@ -8,15 +8,17 @@ function Options_ui(BaseName) {
       $("#divInfraBarraComandosSuperior input").hide();
       $(".seipp-options-title").append(" - Versão: " + browser.runtime.getManifest().version);
 
-      browser.storage.local.get("version").then(function (params) {
-        var version = parseInt(params.version);
-        mconsole.log(version)
-        if (version < 68) {
-          $(".seipp-options-title").append("<div id='seipp-div-options-ui-alert' />")
-          $("#seipp-div-options-ui-alert").append("Firefox " + version + " - Você está utilizando uma versão antiga do Firefox, alguns recursos do SEI++ podem não ser compativeis. Atualize o navegador.")
-            .css({ "font-weight": "bold", "color": "red", "filter": "none", "background-color": "black" });
-        }
-      }, null);
+      if (!isChrome) {
+        browser.storage.local.get("version").then(function (params) {
+          var version = parseInt(params.version);
+          mconsole.log(version)
+          if (version < 68) {
+            $(".seipp-options-title").append("<div id='seipp-div-options-ui-alert' />")
+            $("#seipp-div-options-ui-alert").append("Firefox " + version + " - Você está utilizando uma versão antiga do Firefox, alguns recursos do SEI++ podem não ser compativeis. Atualize o navegador.")
+              .css({ "font-weight": "bold", "color": "red", "filter": "none", "background-color": "black" });
+          }
+        }, null);
+      }
 
       $("#divInfraBarraLocalizacao").css({
         "padding-left": "10px",
