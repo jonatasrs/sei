@@ -88,6 +88,31 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   margin-top: 10px;
 }
 
+.seipp_sem_anotacao {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  max-width: 200px;
+}
+
+.seipp_sem_anotacao > p, .seipp_sem_anotacao > p > a {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+}
+
+.seipp_icone_nota {
+  background: url('chrome-extension://__MSG_@@extension_id__/icons/note.png');
+  background-size: 22px 23px;
+  background-position: center;
+  background-repeat: no-repeat;  
+  min-width: 22px;
+  width: 22px;
+  height: 23px;
+  margin-right: 5px;
+}
 
 /* CSS for Modules: MostrarAnotacao END */
 

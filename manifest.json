@@ -157,6 +157,7 @@
     "icons/fileUpload.png",
     "icons/aguarde.gif",
     "icons/editNote.png",
+    "icons/note.png",
     "cs_modules/procedimento_controlar.AdicionarOrdenacao.js",
     "lib/jquery.tablesorter.min.js",
     "lib/jquery.tablesorter.widgets.min.js"
