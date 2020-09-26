@@ -40,6 +40,7 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   color: #333;  
   font-size: 20px;
   white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .seipp_anotacao_btn_editar {
@@ -80,6 +81,12 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   height: auto;
   min-height: 120px;
 }
+
+.seipp_anotacao_txt_editar:focus {
+  outline: none !important;
+  background-color: #fff;
+}  
+
 
 .seipp_anotacao_prioridade > input.infraCheckbox {
   margin-left: 0;
