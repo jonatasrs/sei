@@ -49,7 +49,7 @@ function MostrarAnotacao(BaseName) {
               <a href='#' class='seipp_anotacao_btn_editar'></a>
               <p class='seipp_anotacao_texto'>${txanotacao}</p>
               <div class='seipp_anotacao_editar'>
-                <textarea class='seipp_anotacao_txt_editar'></textarea>
+                <textarea class='seipp_anotacao_txt_editar' maxlength='500'></textarea>
                 <div class='seipp_anotacao_prioridade'>
                   <input type="checkbox" id="chkSinPrioridade" name="chkSinPrioridade" class="infraCheckbox" ${prioridade ? 'checked' : null}>
                   <label id="lblSinPrioridade" for="chkSinPrioridade" accesskey="" class="infraLabelCheckbox">Prioridade</label>
