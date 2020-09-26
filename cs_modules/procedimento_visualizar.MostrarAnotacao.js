@@ -50,8 +50,10 @@ function MostrarAnotacao(BaseName) {
               <p class='seipp_anotacao_texto'>${txanotacao}</p>
               <div class='seipp_anotacao_editar'>
                 <textarea class='seipp_anotacao_txt_editar'></textarea>
-                <button value="Cancelar" class="infraButton seipp_anotacao_btn_cancelar_editar">Cancelar</button>
-                <button value="Salvar" class="infraButton seipp_anotacao_btn_salvar_edicao">Salvar</button>
+                <div>
+                  <button value="Cancelar" class="infraButton seipp_anotacao_btn_cancelar_editar">Cancelar</button>
+                  <button value="Salvar" class="infraButton seipp_anotacao_btn_salvar_edicao">Salvar</button>
+                </div>
               </div>
             </div>
           </div>
