@@ -41,14 +41,15 @@ function MostrarAnotacao(BaseName) {
       mconsole.log("frmAnotacaoCadastro: " + hdnInfraTipoPagina);
       mconsole.log("postUrl: " + postUrl);
 
+      console.log(browser.extension.getURL('icons/editNote.png'));
       
       $('#seipp_div_anotacao').append(`
         <div class='seipp_sem_anotacao'>
-          <div class='seipp_icone_nota'></div>
+          <img class='seipp_icone_nota' src='${browser.extension.getURL('icons/note.png')}'/>
           <p>Este processo não possui anotações. <a href='#' class='seipp_anotacao_criar_nota'>Clique aqui</a> para criar uma nota.</p>
         </div>
         <div class='seipp_anotacao'>
-          <a href='#' class='seipp_anotacao_btn_editar'></a>
+          <a href='#' class='seipp_anotacao_btn_editar'><img class='seipp_anotacao_ic_editar' src='${browser.extension.getURL('icons/editNote.png')}'/></a>
           <p class='seipp_anotacao_texto'>${txanotacao}</p>
           <div class='seipp_anotacao_editar'>
             <textarea class='seipp_anotacao_txt_editar' maxlength='500'></textarea>

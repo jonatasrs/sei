@@ -45,17 +45,18 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
 .seipp_anotacao_btn_editar {
   display: block;
   position: absolute;
-  background: url('chrome-extension://__MSG_@@extension_id__/icons/editNote.png');
-  background-size: 18px 18px;
-  background-position: center;
-  background-repeat: no-repeat;
   top: 0px;
   right: 0px;
   padding: 7px;
   width: 18px;
   height: 18px;
-  opacity: 0.0;
+  opacity: 0;
   transition: opacity 0.15s ease;
+}
+
+.seipp_anotacao_ic_editar {
+  width: 18px;
+  height: 18px;
 }
 
 .seipp_anotacao:hover .seipp_anotacao_btn_editar {
@@ -104,10 +105,6 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
 }
 
 .seipp_icone_nota {
-  background: url('chrome-extension://__MSG_@@extension_id__/icons/note.png');
-  background-size: 22px 23px;
-  background-position: center;
-  background-repeat: no-repeat;  
   min-width: 22px;
   width: 22px;
   height: 23px;
