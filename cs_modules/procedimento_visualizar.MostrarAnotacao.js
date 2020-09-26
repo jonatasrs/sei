@@ -27,7 +27,9 @@ function MostrarAnotacao(BaseName) {
     if (txanotacao != "") {
       $element.append("<div id='seipp_div_anotacao'/>");
       $("#seipp_div_anotacao").append("<div class='seipp_anotacao'/>");
-      $("div.seipp_anotacao").text(txanotacao);
+      $("#seipp_div_anotacao div.seipp_anotacao").append("<a href='#' class='seipp_anotacao_btn_editar'></a>");
+      $("#seipp_div_anotacao div.seipp_anotacao").append("<p class='seipp_anotacao_texto'></p>");
+      $("div.seipp_anotacao p.seipp_anotacao_texto").text(txanotacao);
       if (prioridade) {
         $("div.seipp_anotacao").addClass("seipp-anotacao-red");
       }
