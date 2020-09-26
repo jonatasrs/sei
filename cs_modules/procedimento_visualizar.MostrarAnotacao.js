@@ -20,19 +20,50 @@ function MostrarAnotacao(BaseName) {
   WebHttp.done(function (html) {
     txanotacao = $(html).find("#txaDescricao").text();
     prioridade = ($(html).find("#chkSinPrioridade:checked").length > 0) ? true : false;
-        mconsole.log("Prioridade: " + prioridade);
+    mconsole.log("Prioridade: " + prioridade);
     mconsole.log("Texto: " + txanotacao);
 
     let $element = $("#container").length > 0 ? $("#container") : $("body");
     if (txanotacao != "") {
-      $element.append("<div id='seipp_div_anotacao'/>");
-      $("#seipp_div_anotacao").append("<div class='seipp_anotacao'/>");
-      $("#seipp_div_anotacao div.seipp_anotacao").append("<a href='#' class='seipp_anotacao_btn_editar'></a>");
-      $("#seipp_div_anotacao div.seipp_anotacao").append("<p class='seipp_anotacao_texto'></p>");
-      $("div.seipp_anotacao p.seipp_anotacao_texto").text(txanotacao);
+      $element.append(`
+        <div id='seipp_div_anotacao'>
+          <div class='seipp_anotacao'>
+            <a href='#' class='seipp_anotacao_btn_editar'></a>
+            <p class='seipp_anotacao_texto'>${txanotacao}</p>
+            <div class='seipp_anotacao_editar'>
+              <textarea class='seipp_anotacao_txt_editar'></textarea>
+              <button value="Cancelar" class="infraButton seipp_anotacao_btn_cancelar_editar">Cancelar</button>
+              <button value="Salvar" class="infraButton seipp_anotacao_btn_salvar_edicao">Salvar</button>
+            </div>
+          </div>
+        </div>
+      `);
       if (prioridade) {
         $("div.seipp_anotacao").addClass("seipp-anotacao-red");
       }
+      $('a.seipp_anotacao_btn_editar').on('click', function(e) { 
+        editarNota();
+        e.preventDefault();
+      });
+
+      $('button.seipp_anotacao_btn_cancelar_editar').on('click', function(e) { 
+        cancelarEditarNota();
+        e.preventDefault();
+      });
     }
   });
+
+  function editarNota() {
+    $('a.seipp_anotacao_btn_editar').hide();
+    $('textarea.seipp_anotacao_txt_editar').width($('p.seipp_anotacao_texto').width());
+    $('p.seipp_anotacao_texto').hide();
+    $('textarea.seipp_anotacao_txt_editar').text($('p.seipp_anotacao_texto').text());
+    $('div.seipp_anotacao_editar').show();
+  }
+
+  function cancelarEditarNota() {
+    $('a.seipp_anotacao_btn_editar').show();
+    $('p.seipp_anotacao_texto').show();
+    $('div.seipp_anotacao_editar').hide();
+  }
 }

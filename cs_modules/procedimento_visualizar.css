@@ -66,6 +66,19 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   opacity: 0.8;
 }
 
+.seipp_anotacao_editar {
+  display: none;
+  min-width: 150px;
+}
+
+.seipp_anotacao_txt_editar {
+  width: 100%;
+  resize: vertical;
+  color: #333;  
+  font-size: 20px;
+  height: auto;
+  min-height: 120px;
+}
 
 /* CSS for Modules: MostrarAnotacao END */
 
