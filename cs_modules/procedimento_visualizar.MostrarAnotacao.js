@@ -50,7 +50,11 @@ function MostrarAnotacao(BaseName) {
               <p class='seipp_anotacao_texto'>${txanotacao}</p>
               <div class='seipp_anotacao_editar'>
                 <textarea class='seipp_anotacao_txt_editar'></textarea>
-                <div>
+                <div class='seipp_anotacao_prioridade'>
+                  <input type="checkbox" id="chkSinPrioridade" name="chkSinPrioridade" class="infraCheckbox" ${prioridade ? 'checked' : null}>
+                  <label id="lblSinPrioridade" for="chkSinPrioridade" accesskey="" class="infraLabelCheckbox">Prioridade</label>
+                </div>
+                <div class='seipp_anotacao_botoes'>
                   <button value="Cancelar" class="infraButton seipp_anotacao_btn_cancelar_editar">Cancelar</button>
                   <button value="Salvar" class="infraButton seipp_anotacao_btn_salvar_edicao">Salvar</button>
                 </div>
@@ -101,11 +105,12 @@ function MostrarAnotacao(BaseName) {
   function salvarNota() {
     var txaDescricao = $('textarea.seipp_anotacao_txt_editar').val();
     txaDescricao = escapeComponent(txaDescricao);
+    var chkSinPrioridade = $('#chkSinPrioridade').is(':checked') ? 'on' : 'off';
 
     $.post({
       url: postUrl,
       contentType: 'application/x-www-form-urlencoded;charset=ISO-8859-1',
-      data: `hdnInfraTipoPagina=${hdnInfraTipoPagina}&sbmRegistrarAnotacao=Salvar&txaDescricao=${txaDescricao}&hdnIdProtocolo=${hdnIdProtocolo}`,
+      data: `hdnInfraTipoPagina=${hdnInfraTipoPagina}&sbmRegistrarAnotacao=Salvar&txaDescricao=${txaDescricao}&hdnIdProtocolo=${hdnIdProtocolo}&chkSinPrioridade=${chkSinPrioridade}`,
       complete: function(jqXHR, textStatus ) {
         mostrarNota();
       }

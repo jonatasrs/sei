@@ -75,10 +75,19 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   width: 100%;
   resize: vertical;
   color: #333;  
-  font-size: 20px;
+  font-size: 13px;
   height: auto;
   min-height: 120px;
 }
+
+.seipp_anotacao_prioridade > input.infraCheckbox {
+  margin-left: 0;
+}
+
+.seipp_anotacao_botoes {
+  margin-top: 10px;
+}
+
 
 /* CSS for Modules: MostrarAnotacao END */
 
