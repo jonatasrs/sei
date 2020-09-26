@@ -40,9 +40,7 @@ function MostrarAnotacao(BaseName) {
       mconsole.log("hdnInfraTipoPagina: " + hdnInfraTipoPagina);
       mconsole.log("frmAnotacaoCadastro: " + hdnInfraTipoPagina);
       mconsole.log("postUrl: " + postUrl);
-
-      console.log(browser.extension.getURL('icons/editNote.png'));
-      
+     
       $('#seipp_div_anotacao').append(`
         <div class='seipp_sem_anotacao'>
           <img class='seipp_icone_nota' src='${browser.extension.getURL('icons/note.png')}'/>
@@ -129,8 +127,7 @@ function MostrarAnotacao(BaseName) {
     if (txaDescricao === '') chkSinPrioridade = 'off';
 
     $.post({
-      url: postUrl,
-      contentType: 'application/x-www-form-urlencoded;charset=ISO-8859-1',
+      url: `${GetBaseUrl()}${postUrl}`,
       data: `hdnInfraTipoPagina=${hdnInfraTipoPagina}&sbmRegistrarAnotacao=Salvar&txaDescricao=${txaDescricao}&hdnIdProtocolo=${hdnIdProtocolo}&chkSinPrioridade=${chkSinPrioridade}`,
       complete: function(jqXHR, textStatus ) {
         mostrarNota();
