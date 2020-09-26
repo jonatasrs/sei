@@ -104,8 +104,9 @@ function MostrarAnotacao(BaseName) {
 
   function salvarNota() {
     var txaDescricao = $('textarea.seipp_anotacao_txt_editar').val();
-    txaDescricao = escapeComponent(txaDescricao);
+    txaDescricao = escapeComponent(txaDescricao.trim());
     var chkSinPrioridade = $('#chkSinPrioridade').is(':checked') ? 'on' : 'off';
+    if (txaDescricao === '') chkSinPrioridade = 'off';
 
     $.post({
       url: postUrl,
