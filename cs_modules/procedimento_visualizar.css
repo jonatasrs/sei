@@ -7,25 +7,24 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
 /* CSS for Modules: MostrarAnotacao */
 #seipp_div_anotacao {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
 	border-top: 1px dotted;
   margin-top: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 20px;
+  min-width: 200px;
 }
 .seipp_anotacao {
   display: block;
-  text-align: left;
-  color: #333;
   position: relative;
-  margin: 0 auto;
-  padding: 20px;
-  font-size: 20px;
+  margin: 0;
+  padding: 25px 25px; 
   box-shadow: 8px 8px 5px rgb(110, 110, 110);
-  float: left;
   background-color: rgb(234, 230, 114);
-  white-space: pre-wrap;
   min-width: 150px;
   max-width: 300px;
   min-height: 120px;
@@ -33,6 +32,92 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
 .seipp-anotacao-red {
   background-color: rgb(252, 70, 70);
 }
+
+.seipp_anotacao_texto {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  color: #333;  
+  font-size: 20px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.seipp_anotacao_btn_editar {
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 7px;
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.seipp_anotacao_ic_editar {
+  width: 18px;
+  height: 18px;
+}
+
+.seipp_anotacao:hover .seipp_anotacao_btn_editar {
+  opacity: 0.5;
+}
+
+.seipp_anotacao_btn_editar:hover {
+  opacity: 0.8;
+}
+
+.seipp_anotacao_editar {
+  display: none;
+  min-width: 150px;
+}
+
+.seipp_anotacao_txt_editar {
+  width: 100%;
+  resize: vertical;
+  color: #333;  
+  font-size: 13px;
+  height: auto;
+  min-height: 120px;
+}
+
+.seipp_anotacao_txt_editar:focus {
+  outline: none !important;
+  background-color: #fff;
+}  
+
+
+.seipp_anotacao_prioridade > input.infraCheckbox {
+  margin-left: 0;
+}
+
+.seipp_anotacao_botoes {
+  margin-top: 10px;
+}
+
+.seipp_sem_anotacao {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  max-width: 200px;
+}
+
+.seipp_sem_anotacao > p, .seipp_sem_anotacao > p > a {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+}
+
+.seipp_icone_nota {
+  min-width: 22px;
+  width: 22px;
+  height: 23px;
+  margin-right: 5px;
+}
+
 /* CSS for Modules: MostrarAnotacao END */
 
 
