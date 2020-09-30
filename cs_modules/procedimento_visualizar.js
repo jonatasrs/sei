@@ -41,5 +41,6 @@ if (ModuleInit(BaseName)) {
   }, this);
   AbrirDocumentoNovaAba(BaseName);
   AlterarTitulo(BaseName);
+  DuplicarDocumento(BaseName);
 }
 
