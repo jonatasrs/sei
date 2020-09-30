@@ -107,7 +107,7 @@
         "cs_modules/procedimento_visualizar.CopiarLinkInterno.js",
         "cs_modules/procedimento_visualizar.Dropzone.js",
         "cs_modules/procedimento_visualizar.AlterarTitulo.js",
-        "cs_modules/procedimento_visualizar.DuplicarDocumento.js",
+        "cs_modules/procedimento_visualizar.DocumentoModelo.js",
         "cs_modules/procedimento_visualizar.js"
       ]
     },
@@ -155,7 +155,7 @@
     "icons/iconRed.png",
     "icons/ect.png",
     "icons/link.png",
-    "icons/duplicar.png",
+    "icons/modelo.png",
     "icons/fileUpload.png",
     "icons/aguarde.gif",
     "icons/editNote.png",
