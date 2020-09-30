@@ -3,7 +3,7 @@ function OrdenarSelect() {
   const firstOption = select.val();
 
   select.html(select.children('option').sort((a, b) => {
-    const aIsBigger = a.text.substring(14) > b.text.substring(14);
+    const aIsBigger = a.text.split(' - ')[1] > b.text.split(' - ')[1];
 
     if (aIsBigger) return 1;
     if (!aIsBigger) return -1;
