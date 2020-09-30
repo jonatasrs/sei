@@ -1,4 +1,6 @@
 function OrdenarSelect() {
+  if (!SavedOptions.CheckTypes.includes('ordenaratribuirprocesso')) return;
+
   const select = $('#selAtribuicao');
   const firstOption = select.val();
 
