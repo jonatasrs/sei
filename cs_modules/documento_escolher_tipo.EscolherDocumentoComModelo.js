@@ -70,8 +70,6 @@ function EscolherDocumentoComModelo(BaseName) {
         titulo.append(subtitulo);
     }
 
-    $(document).ready(function() {
-        verificarSeHaModeloSelecionado();
-    })
+    verificarSeHaModeloSelecionado();
 
 }
