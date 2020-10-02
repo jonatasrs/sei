@@ -1,5 +1,7 @@
 const BaseName = "documento_escolher_tipo";
 
 if (ModuleInit(BaseName)) {
-    EscolherDocumentoComModelo(BaseName);
+    if (SavedOptions.usardocumentocomomodelo) {
+        EscolherDocumentoComModelo(BaseName);
+    }
 }

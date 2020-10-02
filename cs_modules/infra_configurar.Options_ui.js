@@ -113,6 +113,8 @@ function Options_ui(BaseName) {
       $("#qtddiasOptions").toggle("fast");
     });
 
+    $("input[name='usardocumentocomomodelo']").prop("checked", !!SavedOptions.usardocumentocomomodelo);
+
     /* Salvar */
     $("#save-button").on("click", OptionsSave);
 
@@ -176,7 +178,7 @@ function Options_ui(BaseName) {
     var hipoteseLegal = $("#hipoteseLegal").val();
     var filtraporatribuicao = $("input[name='filtraporatribuicaoRadio']:checked").val();
     mconsole.log(nivelAcesso);
-
+    
     /* Prazo / Dias */
     let ConfPrazo = { Critico: 0, Alerta: 0 };
     let ConfDias = { Critico: 0, Alerta: 0 };
@@ -185,14 +187,16 @@ function Options_ui(BaseName) {
     ConfDias.Alerta = parseInt($("#qtddiasalerta").val());
     ConfDias.Critico = parseInt($("#qtddiascritico").val());
     mconsole.log("CONFDIAS> alerta: " + ConfDias.Alerta + " critico:" + ConfDias.Critico);
-
+    
     var incluirDocAoArrastar_TipoDocPadrao = $("#incluirDocAoArrastar_TipoDocPadrao").val();
+    
+    const usardocumentocomomodelo = $("input[name='usardocumentocomomodelo']").is(":checked");
 
     function onError(error) {
       console.log(`Error: ${error}`);
     }
 
-    var OptionsToSave = { theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias, incluirDocAoArrastar_TipoDocPadrao };
+    var OptionsToSave = { theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias, incluirDocAoArrastar_TipoDocPadrao, usardocumentocomomodelo };
     if (isChrome) {
       browser.storage.local.set(OptionsToSave);
     } else {

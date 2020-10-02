@@ -29,6 +29,7 @@ var DefaultOptions = {
   ConfPrazo: {Critico: 0, Alerta: 4},
   ConfDias: {Critico: 30, Alerta: 20},
   incluirDocAoArrastar_TipoDocPadrao: "Anexo",
+  usardocumentocomomodelo: true,
 };
 
 const CompName = "Seipp";

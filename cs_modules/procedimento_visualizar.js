@@ -41,6 +41,7 @@ if (ModuleInit(BaseName)) {
   }, this);
   AbrirDocumentoNovaAba(BaseName);
   AlterarTitulo(BaseName);
-  DocumentoModelo(BaseName);
+  if (SavedOptions.usardocumentocomomodelo) {
+    DocumentoModelo(BaseName);
+  }   
 }
-
