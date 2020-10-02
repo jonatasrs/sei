@@ -3,8 +3,8 @@ function EscolherDocumentoComModelo(BaseName) {
     /** inicialização do módulo */
     var mconsole = new __mconsole(BaseName + ".EscolherDocumentoComModelo");
 
-    
-    function verificarSeHaModeloSalvo() {
+    /* busca no storage se teve algum documento modelo selecionado */
+    function verificarSeHaModeloSelecionado() {
         carregarDadosStorage({
             'seipp.procedimento_visualizar.DocumentoModelo.documento': null,
             'seipp.procedimento_visualizar.DocumentoModelo.descricao': null,
@@ -17,22 +17,57 @@ function EscolherDocumentoComModelo(BaseName) {
                     documento: dados['seipp.procedimento_visualizar.DocumentoModelo.documento'],
                     descricao: dados['seipp.procedimento_visualizar.DocumentoModelo.descricao'],
                 };
-                atualizarTitulo(dadosDocSEI);
+                carregarModelo(dadosDocSEI);
             }
 
         })
     }
 
+    function carregarModelo(dadosDocSEI) {
+        atualizarTitulo(dadosDocSEI.documento);
+        adivinharTipoDocumento(dadosDocSEI.descricao);
+    }
+    
+    /* a partir da descrição do documento modelo, tenta adivinhar qual é o tipo do novo documento */
+    function adivinharTipoDocumento(descricao) {
+        let tipo = descricao;
+        
+        /** 
+            'Minuta de Documento' => 'Documento'
+            'Minuta Documento' => 'Documento'
+        */        
+        tipo = descricao.replace(/Minuta(:?\sde)?\s*/,'');
 
-    function atualizarTitulo(dadosDocSEI) {
+        /** 
+            'Documento 123' => 'Documento'
+        */        
+        tipo = tipo.replace(/\s*[0-9]+$/,'');
+
+        tipo = tipo.trim();
+
+        const linksTipos = $('a.ancoraOpcao');
+        linksTipos.each(function() {
+            const linkTipo = $(this);
+            const linkDescr = linkTipo.text().trim();
+            if (linkDescr === tipo) {
+                $('#txtFiltro').val(tipo);
+                $('#txtFiltro')[0].dispatchEvent(new KeyboardEvent('keyup'));
+                return false;
+            }
+        });
+
+    }
+
+    /* adiciona o documento SEI modelo ao lado do título "Gerar Documento" */
+    function atualizarTitulo(documento) {
         const titulo = $('div.infraBarraLocalizacao');
         const subtitulo = $('<div />', {
             class: 'seipp-documento-modelo',
-            text: `Modelo: SEI ${dadosDocSEI.documento}`,
+            text: `Modelo: SEI ${documento}`,
         });
         titulo.append(subtitulo);
     }
 
-    verificarSeHaModeloSalvo();
+    verificarSeHaModeloSelecionado();
 
 }
