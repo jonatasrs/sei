@@ -198,3 +198,37 @@ function EsperaCarregar(Modlog, ElemRaiz, Elem, func, TimeOut = 3000) {
 function AnimacaoFade(Elem) {
   $(Elem).fadeOut(200).fadeIn(200);
 }
+
+/**
+ * Carrega dados do storage
+ */
+function carregarDadosStorage(dados, fnSucesso, fnErro) {
+  if (isChrome) {
+      chrome.storage.local.get(dados, function(items) {
+        if (chrome.runtime.lastError) {
+          if (fnErro) fnErro();
+        } else {
+          if (fnSucesso) fnSucesso(items);
+        }
+      });
+  } else {
+      browser.storage.local.get(dados).then(fnSucesso, fnErro);
+  }
+}
+
+/**
+ * Salva dados do storage
+ */
+function salvarDadosStorage(dados, fnSucesso, fnErro) {
+  if (isChrome) {
+      chrome.storage.local.set(dados, function() {
+        if (chrome.runtime.lastError) {
+          if (fnErro) fnErro();
+        } else {
+          if (fnSucesso) fnSucesso();
+        }
+      });
+  } else {
+      browser.storage.local.set(dados).then(fnSucesso, fnErro);
+  }
+}
