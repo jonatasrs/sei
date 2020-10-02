@@ -149,6 +149,7 @@
       "all_frames": true,
       "js": [
         "cs_modules/documento_gerar.AumentaTamanho.js",
+        "cs_modules/documento_gerar.GerarDocumentoComModelo.js",
         "cs_modules/documento_gerar.js"
       ]
     }

@@ -1,4 +1,6 @@
 const BaseName = "documento_gerar";
 
-if (ModuleInit(BaseName))
+if (ModuleInit(BaseName)) {
   AumentaTamanho(BaseName);
+  GerarDocumentoComModelo(BaseName);  
+}
