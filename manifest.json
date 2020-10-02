@@ -112,6 +112,15 @@
       ]
     },
     {
+      "matches": ["*://*.br/*controlador.php?acao=documento_escolher_tipo*"],
+      "all_frames": true,
+      "css": ["cs_modules/documento_escolher_tipo.css"],
+      "js": [
+        "cs_modules/documento_escolher_tipo.EscolherDocumentoComModelo.js",
+        "cs_modules/documento_escolher_tipo.js"
+      ]
+    },    
+    {
       "matches": ["*://*.br/*controlador.php?acao=arvore_visualizar*"],
       "all_frames": true,
       "js": [
