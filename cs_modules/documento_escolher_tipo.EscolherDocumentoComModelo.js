@@ -50,8 +50,10 @@ function EscolherDocumentoComModelo(BaseName) {
             const linkTipo = $(this);
             const linkDescr = linkTipo.text().trim();
             if (linkDescr === tipo) {
-                $('#txtFiltro').val(tipo);
-                $('#txtFiltro')[0].dispatchEvent(new KeyboardEvent('keyup'));
+                $('#txtFiltro').val(tipo).trigger('change');
+                setTimeout(function() {
+                    $('#txtFiltro')[0].dispatchEvent(new KeyboardEvent('keyup'));
+                }, 100);
                 return false;
             }
         });
@@ -68,6 +70,8 @@ function EscolherDocumentoComModelo(BaseName) {
         titulo.append(subtitulo);
     }
 
-    verificarSeHaModeloSelecionado();
+    $(document).ready(function() {
+        verificarSeHaModeloSelecionado();
+    })
 
 }
