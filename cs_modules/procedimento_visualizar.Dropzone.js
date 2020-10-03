@@ -32,7 +32,12 @@ Dropzone.utils = {
 			ret = Math.round(numBytes/1024* 100) / 100 +' Kb';
 		}
 		return ret;
-	}  
+	},
+
+	// encodeURIComponent para ISO-8859-1
+	escapeComponent: function(str) {  
+		return escape(str).replace(/\+/g, '%2B');
+	}	
 };
 
 
@@ -176,7 +181,7 @@ Dropzone.jobs = (function() {
 		/* quando há algum erro */
 		if (jobsComErro.length > 0) {
 			var jobsStr = jobsComErro.map(function(job) { return job.nome; }).join(', ');
-			alert('Ocorreu um erro ao incluir documento externo com o(s) seguinte(s) anexo(s): ' + jobsStr + '.')
+			alert('Ocorreu um erro ao incluir documento externo com o(s) seguinte(s) anexo(s): ' + jobsStr + '. Verifique se o processo encontra-se aberto na unidade.')
 		}
 
 		/* recarrega a página sempre que os jobs terminam, independente se erro ou sucesso */
@@ -416,12 +421,11 @@ Dropzone.http.prototype.passos = {
 				hdnAssuntoIdentificador: '',
 			}
 
-			/* montar post body */
+			/* montar post body */		
 			var postData = '';
 			for (var k in postFields) {
 				if (postData !== '') postData = postData + '&';
-				var valor = encodeURIComponent(postFields[k]);
-				if (k === 'hdnAnexos') valor = valor.replace(/%C2/g,''); /* por alguma razão, esse parâmetro vai mal formado para o servidor */
+				var valor = Dropzone.utils.escapeComponent(postFields[k]);
 				postData = postData + k + '=' + valor;
 			}
 			
