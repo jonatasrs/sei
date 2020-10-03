@@ -93,21 +93,22 @@ Dropzone.ui = (function() {
 		ui.wrapper.appendTo("body");
 
 		window.addEventListener('drop', function(evt) {
-			if (!checkarContemArquivos(evt.dataTransfer)) return;
 			evt.preventDefault();
+			if (!checkarContemArquivos(evt.dataTransfer)) return;
 			mudarIcone('aguarde.gif');
 			mudarProgresso(0);
     		for (var i = 0; i < evt.dataTransfer.files.length; i++) {
-    			Dropzone.jobs.adicionar(evt.dataTransfer.files[i]);
+				Dropzone.jobs.adicionar(evt.dataTransfer.files[i]);
     		}
     		Dropzone.jobs.executar();
 		});
-
+		
 		window.addEventListener('dragover', function(evt) {
 			evt.preventDefault();
 		});  
-
+		
 		window.addEventListener('dragenter', function(evt) {
+			evt.preventDefault();
 			if (!checkarContemArquivos(evt.dataTransfer)) return;
 			ui.wrapper.show();
 		});
