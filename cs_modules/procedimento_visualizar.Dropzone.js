@@ -71,6 +71,15 @@ Dropzone.ui = (function() {
 	}
 
 
+	function checkarContemArquivos(dataTransfer) {
+		return (
+			dataTransfer &&
+			dataTransfer.files &&
+			dataTransfer.types &&
+			dataTransfer.types.indexOf('Files') > -1
+		);
+	}
+
 	function adicionarDropzone() {
 
 		mudarTexto('Arraste aqui...');
@@ -79,10 +88,10 @@ Dropzone.ui = (function() {
 		ui.wrapper.appendTo("body");
 
 		window.addEventListener('drop', function(evt) {
+			if (!checkarContemArquivos(evt.dataTransfer)) return;
 			evt.preventDefault();
 			mudarIcone('aguarde.gif');
 			mudarProgresso(0);
-			if (!evt.dataTransfer.files || evt.dataTransfer.files.length === 0) return;
     		for (var i = 0; i < evt.dataTransfer.files.length; i++) {
     			Dropzone.jobs.adicionar(evt.dataTransfer.files[i]);
     		}
@@ -94,7 +103,8 @@ Dropzone.ui = (function() {
 		});  
 
 		window.addEventListener('dragenter', function(evt) {
-			if (!evt.dataTransfer || !evt.dataTransfer.files) return;
+			if (!checkarContemArquivos(evt.dataTransfer)) return;
+			Dropzone.log(evt.dataTransfer.files);
 			ui.wrapper.show();
 		});
 
