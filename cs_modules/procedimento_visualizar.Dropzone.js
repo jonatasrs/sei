@@ -109,7 +109,6 @@ Dropzone.ui = (function() {
 
 		window.addEventListener('dragenter', function(evt) {
 			if (!checkarContemArquivos(evt.dataTransfer)) return;
-			Dropzone.log(evt.dataTransfer.files);
 			ui.wrapper.show();
 		});
 
