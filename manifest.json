@@ -107,9 +107,19 @@
         "cs_modules/procedimento_visualizar.CopiarLinkInterno.js",
         "cs_modules/procedimento_visualizar.Dropzone.js",
         "cs_modules/procedimento_visualizar.AlterarTitulo.js",
+        "cs_modules/procedimento_visualizar.DocumentoModelo.js",
         "cs_modules/procedimento_visualizar.js"
       ]
     },
+    {
+      "matches": ["*://*.br/*controlador.php?acao=documento_escolher_tipo*"],
+      "all_frames": true,
+      "css": ["cs_modules/documento_escolher_tipo.css"],
+      "js": [
+        "cs_modules/documento_escolher_tipo.EscolherDocumentoComModelo.js",
+        "cs_modules/documento_escolher_tipo.js"
+      ]
+    },    
     {
       "matches": ["*://*.br/*controlador.php?acao=arvore_visualizar*"],
       "all_frames": true,
@@ -139,6 +149,7 @@
       "all_frames": true,
       "js": [
         "cs_modules/documento_gerar.AumentaTamanho.js",
+        "cs_modules/documento_gerar.GerarDocumentoComModelo.js",
         "cs_modules/documento_gerar.js"
       ]
     }
@@ -154,6 +165,7 @@
     "icons/iconRed.png",
     "icons/ect.png",
     "icons/link.png",
+    "icons/modelo.png",
     "icons/fileUpload.png",
     "icons/aguarde.gif",
     "icons/editNote.png",
