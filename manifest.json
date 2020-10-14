@@ -152,6 +152,14 @@
         "cs_modules/documento_gerar.GerarDocumentoComModelo.js",
         "cs_modules/documento_gerar.js"
       ]
+    },
+    {
+      "matches": ["*://*.br/*controlador.php?acao=procedimento_atribuicao_cadastrar*"],
+      "all_frames": true,
+      "js": [
+        "cs_modules/procedimento_atribuicao_cadastrar.OrdenarSelect.js",
+        "cs_modules/procedimento_atribuicao_cadastrar.js"
+      ]
     }
   ],
 
