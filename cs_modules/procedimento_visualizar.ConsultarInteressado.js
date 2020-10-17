@@ -32,8 +32,10 @@ function ConsultarInteressado(BaseName) {
     ExibirDadosProcesso($html);
 
     /* adiciona as informações sobre o interessado */
-    let urlEditarInteressado = obterUrl_EditarInteressado(html);
-    if (urlEditarInteressado) abrir_EditarInteressado(urlEditarInteressado);
+    if (SavedOptions.CheckTypes.includes('mostrardetalhesinteressados')) {
+      let urlEditarInteressado = obterUrl_EditarInteressado(html);
+      if (urlEditarInteressado) abrir_EditarInteressado(urlEditarInteressado);
+    }
   });
 
   /** Funções *******************************************************************/
