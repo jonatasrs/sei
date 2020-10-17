@@ -25,20 +25,104 @@ function ConsultarInteressado(BaseName) {
     processo.numero = $(".infraArvoreNoSelecionado").text();
     mconsole.log("Lendo dados do processo: " + processo.numero);
     processo.tipo = $html.find("#selTipoProcedimento option[selected='selected']").text();
-    processo.interessados = $html.find("#selInteressadosProcedimento option").map(function () { return $(this).text(); }).get();
+    processo.interessados = $html.find("#selInteressadosProcedimento option").map(function () { return { id: $(this).val(), nome: $(this).text() }; }).get();
 
     DetalheProcesso_Criar();
     DetalheProcesso_Preencher();
     ExibirDadosProcesso($html);
+
+    /* adiciona as informações sobre o interessado */
+    if (SavedOptions.CheckTypes.includes('mostrardetalhesinteressados')) {
+      let urlEditarInteressado = obterUrl_EditarInteressado(html);
+      if (urlEditarInteressado) abrir_EditarInteressado(urlEditarInteressado);
+    }
   });
 
   /** Funções *******************************************************************/
+
+  function obterUrl_EditarInteressado(html) {
+    let regex = /^\s*seiAlterarContato\(valor, 'selInteressadosProcedimento', 'frmProcedimentoCadastro','(.*)'\);/m;
+    let resultado = regex.exec(html);
+    return resultado !== null ? resultado[1] : null;
+  }
+
+  function obterUrl_dadosInteressado(html) {
+    let regex = /^\s*objAjaxDadosContatoAssociado = new infraAjaxComplementar\(null,'(.*)'\);/m;
+    let resultado = regex.exec(html);
+    return resultado !== null ? resultado[1] : null;
+  }
+
+  function abrir_EditarInteressado(urlEditarInteressado) {
+    $.ajax({
+      url: GetBaseUrl() + urlEditarInteressado,
+      success: function(resposta) {
+        let urlCarregarDados = obterUrl_dadosInteressado(resposta);
+        if (urlCarregarDados) abrir_DetalhesInteressados(urlCarregarDados);
+      },
+    });
+  }
+
+  function abrir_DetalhesInteressados(urlCarregarDados) {
+    $('#seipp_interessados > div').each(function() {
+      let elInteressado = $(this);
+      let idContato = elInteressado.data('id');
+      if (!idContato) return;
+      abrir_DetalhesInteressado(urlCarregarDados, idContato, elInteressado);
+    });
+  }
+
+  function ler_campoInteressado(resposta, nomeCampo, prefixo) {
+    let campo = resposta.querySelector(`complemento[nome='${nomeCampo}']`);
+    return campo && campo.textContent.length > 0
+      ? `${prefixo ? prefixo : ''}${campo.textContent}`
+      : null;
+  }
+
+  function abrir_DetalhesInteressado(urlCarregarDados, idContato, elInteressado) {
+    $.ajax({
+      url: GetBaseUrl() + urlCarregarDados,
+      method: 'POST',
+      data: `id_contato_associado=${idContato}`,
+      success: function(resposta) {
+        let dados = [
+          ler_campoInteressado(resposta, 'Endereco'),
+          ler_campoInteressado(resposta, 'Complemento'),
+          ler_campoInteressado(resposta, 'Bairro'),
+          ler_campoInteressado(resposta, 'NomeCidade'),
+          ler_campoInteressado(resposta, 'SiglaUf'),
+          ler_campoInteressado(resposta, 'NomePais'),
+          ler_campoInteressado(resposta, 'Cep', 'CEP '),
+        ];
+        preencher_DetalhesInteressado(elInteressado, dados);
+      },
+    });
+  }
+
+  function preencher_DetalhesInteressado(elInteressado, dados) {
+    let detalheInteressado = $('<p />', {
+      class: 'seipp-detalhe-interessado',
+      text: dados.filter(Boolean).join(', '),
+    });
+    elInteressado.append(detalheInteressado);
+  };
+
   function DetalheProcesso_Criar(params) {
     $("<div id='seipp_divp'/>")
       .insertAfter("#frmArvore")
       .append("<div id='seipp_processo'/>")
       .append("<div id='seipp_tipo'/>")
-      .after("<div id='seipp_interessados' style='text-align:left; font-size:12px; padding-left:5px;'>" + processo.interessados.join("<br/>") + "</div>");
+      .after("<div id='seipp_interessados' style='text-align:left; font-size:12px; padding-left:5px;'></div>");
+    
+      processo.interessados.forEach(function(interessado) {
+        $('#seipp_interessados').append(`
+          <div data-id="${interessado.id}">
+            <p class="seipp-interessado">
+              <img height="10" width="12" src="${browser.extension.getURL('icons/interessado.png')}"/>
+              <span>${interessado.nome}</span>
+            </p>
+          </div>
+        `);
+      });
   }
 
   function DetalheProcesso_Preencher() {
