@@ -71,10 +71,11 @@ function ConsultarInteressado(BaseName) {
     });
   }
 
-  function ler_campoInteressado(resposta, campo) {
-    return resposta.querySelector(`complemento[nome='${campo}']`)
-      ? resposta.querySelector(`complemento[nome='${campo}']`).textContent
-      : '';
+  function ler_campoInteressado(resposta, nomeCampo, prefixo) {
+    let campo = resposta.querySelector(`complemento[nome='${nomeCampo}']`);
+    return campo && campo.textContent.length > 0
+      ? `${prefixo ? prefixo : ''}${campo.textContent}`
+      : null;
   }
 
   function abrir_DetalhesInteressado(urlCarregarDados, idContato, elInteressado) {
@@ -83,16 +84,15 @@ function ConsultarInteressado(BaseName) {
       method: 'POST',
       data: `id_contato_associado=${idContato}`,
       success: function(resposta) {
-        let dados = {
-          nome: ler_campoInteressado(resposta, 'Nome'),
-          endereco: ler_campoInteressado(resposta, 'Endereco'),
-          complemento: ler_campoInteressado(resposta, 'Complemento'),
-          bairro: ler_campoInteressado(resposta, 'Bairro'),
-          siglaUF: ler_campoInteressado(resposta, 'SiglaUf'),
-          cidade: ler_campoInteressado(resposta, 'NomeCidade'),
-          pais: ler_campoInteressado(resposta, 'NomePais'),
-          cep: ler_campoInteressado(resposta, 'Cep'),
-        }
+        let dados = [
+          ler_campoInteressado(resposta, 'Endereco'),
+          ler_campoInteressado(resposta, 'Complemento'),
+          ler_campoInteressado(resposta, 'Bairro'),
+          ler_campoInteressado(resposta, 'NomeCidade'),
+          ler_campoInteressado(resposta, 'SiglaUf'),
+          ler_campoInteressado(resposta, 'NomePais'),
+          ler_campoInteressado(resposta, 'Cep', 'CEP '),
+        ];
         preencher_DetalhesInteressado(elInteressado, dados);
       },
     });
@@ -101,7 +101,7 @@ function ConsultarInteressado(BaseName) {
   function preencher_DetalhesInteressado(elInteressado, dados) {
     let detalheInteressado = $('<p />', {
       class: 'seipp-detalhe-interessado',
-      text: `${dados.endereco}, ${dados.complemento}, ${dados.bairro}, ${dados.cidade}/${dados.siglaUF}, ${dados.pais}, CEP ${dados.cep}`
+      text: dados.filter(Boolean).join(', '),
     });
     elInteressado.append(detalheInteressado);
   };
