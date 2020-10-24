@@ -130,16 +130,20 @@ function ConsultarInteressado(BaseName) {
     
     /* dados dos interessados */
     $("#seipp_interessados").attr("title", "Interessado(s)");
-    processo.interessados.forEach(function(interessado) {
-      $('#seipp_interessados').append(`
-        <div data-id="${interessado.id}">
-          <p class="seipp-interessado">
-            <img height="10" width="12" src="${browser.extension.getURL('icons/interessado.png')}"/>
-            <span>${interessado.nome}</span>
-          </p>
-        </div>
-      `);
-    });    
+    if (processo.interessados > 0) {
+      processo.interessados.forEach(function(interessado) {
+        $('#seipp_interessados').append(`
+          <div data-id="${interessado.id}">
+            <p class="seipp-interessado">
+              <img height="10" width="12" src="${browser.extension.getURL('icons/interessado.png')}"/>
+              <span>${interessado.nome}</span>
+            </p>
+          </div>
+        `);
+      });
+    } else {
+      $('#seipp_interessados').append(`<p class="seipp-interessado">Nenhum interessado especificado.</p>`);
+    }
   }
 
   function ExibirDadosProcesso($html) {
