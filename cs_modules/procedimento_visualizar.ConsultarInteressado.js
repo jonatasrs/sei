@@ -130,7 +130,7 @@ function ConsultarInteressado(BaseName) {
     
     /* dados dos interessados */
     $("#seipp_interessados").attr("title", "Interessado(s)");
-    if (processo.interessados > 0) {
+    if (processo.interessados.length > 0) {
       processo.interessados.forEach(function(interessado) {
         $('#seipp_interessados').append(`
           <div data-id="${interessado.id}">

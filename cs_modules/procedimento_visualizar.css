@@ -179,14 +179,14 @@ p.seipp-tipo-processo {
 }
 
 p.seipp-interessado {
-  margin: 10px 0 0 0;
+  margin: 15px 0 0 0;
   font-size: 12px;
 }
 
 p.seipp-detalhe-interessado {
   font-size: 11px;
   color: #616161;
-  margin: 6px 0 0 0;
+  margin: 3px 0 0 15px;
 }
 
 /* CSS for Module: ConsultarInteressado END */
