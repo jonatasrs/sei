@@ -23,6 +23,17 @@ function AjustarElementosNativos(BaseName) {
       divRelacionados.after("<div class='seipp-separador'><span>Processos relacionados</span></div>");
       divRelacionados.hide();
     }
+
+    /* adiciona a especificação ao lado do número do processo relacionado */
+    $('.divRelacionadosParcial > a').each(function() {
+      let linkProcesso = $(this);
+      let onMouseOver = linkProcesso.attr('onmouseover');
+      if (!onMouseOver) return true;
+      let regex = /return infraTooltipMostrar\('(.*)'\)/m;
+      let resultado = regex.exec(onMouseOver);
+      if (resultado === null) return true;
+      linkProcesso.after(`<p class="seipp-processo-relacionado-especificacao">${resultado[1]}</span>`);
+    });
   }
 
   /* Adiciona estilo ao botão Consultar Andamento */
