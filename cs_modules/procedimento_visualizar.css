@@ -10,9 +10,8 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-	border-top: 1px dotted;
   margin-top: 10px;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 20px;
@@ -171,16 +170,42 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
 /* CSS for Module: ConsultarInteressado */
 
 p.seipp-tipo-processo {
-  font-size: 1.4em;
+  margin: 0;
+  font-size: 12px;
 }
 
 p.seipp-interessado {
-  margin: 10px 0 0 0;
+  margin: 15px 0 0 0;
+  font-size: 12px;
 }
 
 p.seipp-detalhe-interessado {
   font-size: 11px;
   color: #616161;
-  margin: 6px 0 0 10px;
+  margin: 6px 0 0 15px;
 }
 
+/* CSS for Module: ConsultarInteressado END */
+
+/* CSS separador de funcionalidades */
+div.seipp-separador {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 25px 0 15px 0;
+  padding: 0;
+  border-top: .1em dotted black;
+}
+
+div.seipp-separador > span {
+  position: absolute;
+  top: -6px;
+  background-color: white;
+  margin: 0 0 0 6px;
+  padding: 0 3px 0 3px;
+  text-transform: uppercase;
+  font-size: 9px;
+  font-weight: bold;
+  color: #424242;
+}
+/* CSS separador de funcionalidades END */

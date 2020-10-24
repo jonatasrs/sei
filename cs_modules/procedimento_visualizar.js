@@ -16,6 +16,10 @@ function ExecutarNaArvore(Modlog, func) {
 
 if (ModuleInit(BaseName)) {
 
+
+  /* Fix: esconde a div de processos relacionados se este estiver em branco (previne o separador de aparecer duplamente) */
+  if ($('#divRelacionados').html().trim().length === 0) $('#divRelacionados').hide();
+
   /* Mostra o tipo do processo e interessados */
   if (SavedOptions.CheckTypes.includes('exibeinfointeressado')) ConsultarInteressado(BaseName);
 

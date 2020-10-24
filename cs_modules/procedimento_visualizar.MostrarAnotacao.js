@@ -18,7 +18,10 @@ function MostrarAnotacao(BaseName) {
   mconsole.log(url);
 
   let $element = $("#container").length > 0 ? $("#container") : $("body");
-  $element.append(`<div id='seipp_div_anotacao'></div>`);
+  $element.append(`
+    <div class='seipp-separador'><span>Anotações</span></div>
+    <div id='seipp_div_anotacao'></div>
+  `);
 
   function mostrarNota() {
 
