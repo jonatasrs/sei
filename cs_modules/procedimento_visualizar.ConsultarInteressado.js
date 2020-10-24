@@ -114,7 +114,7 @@ function ConsultarInteressado(BaseName) {
     container.append(`
       <div class='seipp-separador'><span>Tipo do processo</span></div>
       <div id='seipp_tipo'>
-        <p class="seipp-tipo-processo">
+        <p class="seipp-tipo-processo"></p>
       </div>
       <div class='seipp-separador'><span>Interessado(s)</span></div>
       <div id='seipp_interessados'></div>

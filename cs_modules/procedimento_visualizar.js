@@ -22,6 +22,9 @@ if (ModuleInit(BaseName)) {
 
   /* Mostra o tipo do processo e interessados */
   if (SavedOptions.CheckTypes.includes('exibeinfointeressado')) ConsultarInteressado(BaseName);
+  
+  /* Mostra a quem o processo está atribuído */
+  if (SavedOptions.exibeinfoatribuicao) ConsultarAtribuicao(BaseName);
 
   /* Mostra botão atualizar andamento para envido de correspondências */
   if (SavedOptions.CheckTypes.includes('autopreencher')) AutopreencherAndamento(BaseName);

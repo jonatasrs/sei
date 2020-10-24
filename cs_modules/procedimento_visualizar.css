@@ -169,7 +169,8 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
 
 /* CSS for Module: ConsultarInteressado */
 
-div#seipp_tipo, div#seipp_interessados {
+div#seipp_tipo,
+div#seipp_interessados {
   margin-left: 1.2em;
 }
 
@@ -246,3 +247,19 @@ div.seipp-separador > span {
   font-size: 12px !important;
 }
 /* Botão Consultar Andamento END */
+
+/* CSS for Module: ConsultarAtribuicao */
+
+#seipp_atribuicao {
+  margin-left: 1.2em;
+}
+
+p.seipp-atribuido-para {
+  margin: 0;
+  font-size: 12px;
+}
+p.seipp-atribuido-para.seipp-processo-sem-atribuicao {
+  color: red;
+}
+
+/* CSS for Module: ConsultarAtribuicao END*/

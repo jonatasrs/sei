@@ -109,6 +109,7 @@
         "cs_modules/procedimento_visualizar.AlterarTitulo.js",
         "cs_modules/procedimento_visualizar.DocumentoModelo.js",
         "cs_modules/procedimento_visualizar.AjustarElementosNativos.js",
+        "cs_modules/procedimento_visualizar.ConsultarAtribuicao.js",
         "cs_modules/procedimento_visualizar.js"
       ]
     },

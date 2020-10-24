@@ -114,6 +114,7 @@ function Options_ui(BaseName) {
     });
 
     $("input[name='usardocumentocomomodelo']").prop("checked", !!SavedOptions.usardocumentocomomodelo);
+    $("input[name='exibeinfoatribuicao']").prop("checked", !!SavedOptions.exibeinfoatribuicao);
 
     /* Salvar */
     $("#save-button").on("click", OptionsSave);
@@ -191,12 +192,13 @@ function Options_ui(BaseName) {
     var incluirDocAoArrastar_TipoDocPadrao = $("#incluirDocAoArrastar_TipoDocPadrao").val();
     
     const usardocumentocomomodelo = $("input[name='usardocumentocomomodelo']").is(":checked");
+    const exibeinfoatribuicao = $("input[name='exibeinfoatribuicao']").is(":checked");
 
     function onError(error) {
       console.log(`Error: ${error}`);
     }
 
-    var OptionsToSave = { theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias, incluirDocAoArrastar_TipoDocPadrao, usardocumentocomomodelo };
+    var OptionsToSave = { theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias, incluirDocAoArrastar_TipoDocPadrao, usardocumentocomomodelo, exibeinfoatribuicao };
     if (isChrome) {
       browser.storage.local.set(OptionsToSave);
     } else {
