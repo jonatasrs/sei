@@ -107,7 +107,7 @@ function ConsultarInteressado(BaseName) {
     elInteressado.append(detalheInteressado);
   };
 
-  function DetalheProcesso_Criar(params) {
+  function DetalheProcesso_Criar() {
 
     let container = $("#container").length > 0 ? $("#container") : $("body");
 
