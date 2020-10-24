@@ -174,20 +174,24 @@ div#seipp_interessados {
   margin-left: 1.2em;
 }
 
+div#seipp_interessados {
+  margin-top: 10px;
+}
+
 p.seipp-tipo-processo {
   margin: 0;
   font-size: 12px;
 }
 
 p.seipp-interessado {
-  margin: 15px 0 0 0;
+  margin: 3px 0 0 0;
   font-size: 12px;
 }
 
 p.seipp-detalhe-interessado {
   font-size: 11px;
   color: #616161;
-  margin: 3px 0 0 15px;
+  margin: 3px 0 7px 15px;
 }
 
 /* CSS for Module: ConsultarInteressado END */

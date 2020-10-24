@@ -20,7 +20,7 @@ function ConsultarAtribuicao(BaseName) {
 
     if (dadosAtribuicao.login) {
       $('#seipp_atribuicao > p.seipp-atribuido-para').text(dadosAtribuicao.login);
-      $('#seipp_atribuicao > p.seipp-atribuido-para').attr('title', `Atribuído na unidade ${unidadeAtual} para ${dadosAtribuicao.nome} (${dadosAtribuicao.login})`);
+      $('#seipp_atribuicao > p.seipp-atribuido-para').attr('title', `Atribuído na unidade ${unidadeAtual} para ${dadosAtribuicao.nome} (${dadosAtribuicao.login}).`);
     } else {
       $('#seipp_atribuicao > p.seipp-atribuido-para').addClass('seipp-processo-sem-atribuicao');
       $('#seipp_atribuicao > p.seipp-atribuido-para').text('(processo sem atribuição)');
