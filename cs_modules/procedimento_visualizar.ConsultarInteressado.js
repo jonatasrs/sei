@@ -18,6 +18,8 @@ function ConsultarInteressado(BaseName) {
   url = GetBaseUrl() + url;
   mconsole.log(url);
 
+  DetalheProcesso_Criar();
+
   /* Pega o html da pagina de alteração do processo */
   var WebHttp = $.ajax({ url: url });
   WebHttp.done(function (html) {
@@ -27,7 +29,6 @@ function ConsultarInteressado(BaseName) {
     processo.tipo = $html.find("#selTipoProcedimento option[selected='selected']").text();
     processo.interessados = $html.find("#selInteressadosProcedimento option").map(function () { return { id: $(this).val(), nome: $(this).text() }; }).get();
 
-    DetalheProcesso_Criar();
     DetalheProcesso_Preencher();
     ExibirDadosProcesso($html);
 
@@ -107,27 +108,36 @@ function ConsultarInteressado(BaseName) {
   };
 
   function DetalheProcesso_Criar(params) {
-    $("<div id='seipp_divp'/>")
-      .insertAfter("#frmArvore")
-      .append("<div id='seipp_processo'/>")
-      .append("<div id='seipp_tipo'/>")
-      .after("<div id='seipp_interessados' style='text-align:left; font-size:12px; padding-left:5px;'></div>");
-    
-      processo.interessados.forEach(function(interessado) {
-        $('#seipp_interessados').append(`
-          <div data-id="${interessado.id}">
-            <p class="seipp-interessado">
-              <img height="10" width="12" src="${browser.extension.getURL('icons/interessado.png')}"/>
-              <span>${interessado.nome}</span>
-            </p>
-          </div>
-        `);
-      });
+
+    let container = $("#container").length > 0 ? $("#container") : $("body");
+
+    container.append(`
+      <div id='seipp_tipo'>
+        <p class="seipp-tipo-processo">
+      </div>
+      <div id='seipp_interessados'></div>
+    `);
+  
   }
 
   function DetalheProcesso_Preencher() {
+    
+    /* tipo do processo */
+    $("#seipp_tipo").attr("title", "Tipo de processo");
+    $("#seipp_tipo p.seipp-tipo-processo").text(processo.tipo);
+    
+    /* dados dos interessados */
     $("#seipp_interessados").attr("title", "Interessado(s)");
-    $("#seipp_tipo").attr("title", "Tipo de processo").text(processo.tipo);
+    processo.interessados.forEach(function(interessado) {
+      $('#seipp_interessados').append(`
+        <div data-id="${interessado.id}">
+          <p class="seipp-interessado">
+            <img height="10" width="12" src="${browser.extension.getURL('icons/interessado.png')}"/>
+            <span>${interessado.nome}</span>
+          </p>
+        </div>
+      `);
+    });    
   }
 
   function ExibirDadosProcesso($html) {

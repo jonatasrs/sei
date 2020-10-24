@@ -169,6 +169,11 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
 /* CSS for Modules: Dropzone END */
 
 /* CSS for Module: ConsultarInteressado */
+
+p.seipp-tipo-processo {
+  font-size: 1.4em;
+}
+
 p.seipp-interessado {
   margin: 10px 0 0 0;
 }
