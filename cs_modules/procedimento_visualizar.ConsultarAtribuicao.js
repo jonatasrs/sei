@@ -28,7 +28,16 @@ function ConsultarAtribuicao(BaseName) {
       dadosAtribuicao.usuarios.forEach(function(usuario) {
         $('#seipp_atribuicao').append($('<p />', {
           class: 'seipp-atribuido-para',
-          text: usuario.login,
+          append: [
+            $('<img />', {
+              attr: {
+                height: 10,
+                width: 12,
+              },
+              src: browser.extension.getURL('icons/interessado.png')
+            }),
+            $('<span />', { text: usuario.login }),
+          ],
           title: dadosAtribuicao.sigiloso
             ? `Credencial para ${usuario.nome} (${usuario.login}) na unidade ${unidadeAtual}.`
             : `Atribuído na unidade ${unidadeAtual} para ${usuario.nome} (${usuario.login}).`

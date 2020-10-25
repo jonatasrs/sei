@@ -197,6 +197,11 @@ p.seipp-interessado {
   font-size: 12px;
 }
 
+p.seipp-interessado > img {
+  cursor: default;
+  opacity: 0.6;
+}
+
 p.seipp-detalhe-interessado {
   font-size: 11px;
   color: #616161;
@@ -268,9 +273,20 @@ div.seipp-separador > span {
 }
 
 p.seipp-atribuido-para {
-  margin: 0;
+  margin: 3px 0 0 0;
+  padding: 0;
   font-size: 12px;
 }
+
+p.seipp-atribuido-para > img {
+  cursor: default;
+  opacity: 0.6;
+}
+
+p.seipp-atribuido-para > span {
+  margin-left: 3px;
+}
+
 p.seipp-atribuido-para.seipp-processo-sem-atribuicao {
   color: red;
 }
