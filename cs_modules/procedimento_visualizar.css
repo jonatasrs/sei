@@ -275,6 +275,11 @@ p.seipp-atribuido-para.seipp-processo-sem-atribuicao {
   color: red;
 }
 
+p.seipp-atribuido-para.seipp-atribuido-para-mais {
+  font-size: 11px;
+  color: #757575;
+}
+
 /* CSS for Module: ConsultarAtribuicao END*/
 
 /* CSS for Module: Processos Relacionados */
