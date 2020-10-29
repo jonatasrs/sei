@@ -14,9 +14,7 @@ function ConsultarAtribuicao(BaseName) {
  
     container.append(`
       <div class='seipp-separador'><span>${dadosAtribuicao.sigiloso ? "Credencial para" : "Atribuído para"}</span></div>
-      <div id='seipp_atribuicao'>
-        <p class="seipp-atribuido-para" title=""></p>
-      </div>
+      <div id='seipp_atribuicao'></div>
     `);
 
     if (dadosAtribuicao.usuarios.length === 0) {
