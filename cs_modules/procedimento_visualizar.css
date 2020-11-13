@@ -10,9 +10,8 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-	border-top: 1px dotted;
   margin-top: 10px;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 20px;
@@ -43,28 +42,37 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   word-break: break-word;
 }
 
-.seipp_anotacao_btn_editar {
+.seipp_anotacao_botoes {
   display: block;
   position: absolute;
+  margin: 0;
   top: 0px;
   right: 0px;
   padding: 7px;
+}
+
+a.seipp_anotacao_botao {
   width: 18px;
   height: 18px;
   opacity: 0;
+  margin-right: 6px;
   transition: opacity 0.15s ease;
 }
 
-.seipp_anotacao_ic_editar {
+a.seipp_anotacao_botao:last-child {
+  margin-right: 0;
+}
+
+img.seipp_anotacao_icone {
   width: 18px;
   height: 18px;
 }
 
-.seipp_anotacao:hover .seipp_anotacao_btn_editar {
+.seipp_anotacao:hover .seipp_anotacao_botao {
   opacity: 0.5;
 }
 
-.seipp_anotacao_btn_editar:hover {
+.seipp_anotacao_botao:hover {
   opacity: 0.8;
 }
 
@@ -92,10 +100,6 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   margin-left: 0;
 }
 
-.seipp_anotacao_botoes {
-  margin-top: 10px;
-}
-
 .seipp_sem_anotacao {
   display: flex;
   flex-direction: row;
@@ -109,6 +113,10 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
   margin: 0;
   padding: 0;
   font-size: 11px;
+}
+
+.seipp_anotacao_editar_botoes {
+  margin-top: 10px;
 }
 
 .seipp_icone_nota {
@@ -169,13 +177,137 @@ div.infraArvore img[id^="seipp"]:hover, div.infraArvore a[id^="seipp"] > img:hov
 /* CSS for Modules: Dropzone END */
 
 /* CSS for Module: ConsultarInteressado */
+
+div#seipp_tipo,
+div#seipp_interessados {
+  margin-left: 1.2em;
+}
+
+div#seipp_interessados {
+  margin-top: 10px;
+}
+
+p.seipp-tipo-processo {
+  margin: 0;
+  font-size: 12px;
+}
+
 p.seipp-interessado {
-  margin: 10px 0 0 0;
+  margin: 3px 0 0 0;
+  font-size: 12px;
+}
+
+p.seipp-interessado > img {
+  cursor: default;
+  opacity: 0.6;
 }
 
 p.seipp-detalhe-interessado {
   font-size: 11px;
   color: #616161;
-  margin: 6px 0 0 10px;
+  margin: 3px 0 7px 15px;
 }
 
+/* CSS for Module: ConsultarInteressado END */
+
+/* CSS separador de funcionalidades */
+div.seipp-separador {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 25px 0 10px 0;
+  padding: 0;
+  white-space: nowrap;
+  border-top: .1em dotted black;
+}
+
+div.seipp-separador > span {
+  position: absolute;
+  top: -6px;
+  background-color: white;
+  margin: 0 0 0 6px;
+  padding: 0 3px 0 3px;
+  text-transform: uppercase;
+  font-size: 9px;
+  font-weight: bold;
+  color: #424242;
+}
+/* CSS separador de funcionalidades END */
+
+/* Botão Consultar Andamento */
+#divConsultarAndamento.seipp-consultar-andamento {
+  border-top: none;
+  margin-top: 15px;
+}
+
+#divConsultarAndamento.seipp-consultar-andamento > a {
+  background-color: #0494c8;
+  padding: 8px 10px;
+  white-space: nowrap;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .15), inset 1px 1px 2px rgba(0, 0, 0, .15);
+  transition: background-color 0.2s ease;
+}
+
+#divConsultarAndamento.seipp-consultar-andamento > a:hover {
+  background-color: #007eab;
+}
+
+#divConsultarAndamento.seipp-consultar-andamento > a > img {
+  vertical-align: middle;
+}
+
+#divConsultarAndamento.seipp-consultar-andamento > a > span {
+  color: #fff;
+  vertical-align: middle;
+  margin-top: -1px;
+  font-weight: normal;
+  font-size: 12px !important;
+}
+/* Botão Consultar Andamento END */
+
+/* CSS for Module: ConsultarAtribuicao */
+
+#seipp_atribuicao {
+  margin-left: 1.2em;
+}
+
+p.seipp-atribuido-para {
+  margin: 3px 0 0 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+p.seipp-atribuido-para > img {
+  cursor: default;
+  opacity: 0.6;
+}
+
+p.seipp-atribuido-para > span {
+  margin-left: 3px;
+}
+
+p.seipp-atribuido-para.seipp-processo-sem-atribuicao {
+  color: red;
+}
+
+p.seipp-atribuido-para.seipp-atribuido-para-mais {
+  font-size: 11px;
+  color: #757575;
+}
+
+/* CSS for Module: ConsultarAtribuicao END*/
+
+/* CSS for Module: Processos Relacionados */
+
+.seipp-processo-relacionado-especificacao {
+  position: relative;
+  display: inline-block;
+  top: -1px;
+  margin: 0 0 0 2px;
+  padding: 0;
+  font-size: 10px;
+  color: #757575;
+}
+
+/* CSS for Module: Processos Relacionados END*/

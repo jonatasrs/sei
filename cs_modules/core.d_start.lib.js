@@ -30,6 +30,7 @@ var DefaultOptions = {
   ConfDias: {Critico: 30, Alerta: 20},
   incluirDocAoArrastar_TipoDocPadrao: "Anexo",
   usardocumentocomomodelo: true,
+  exibeinfoatribuicao: true,
 };
 
 const CompName = "Seipp";

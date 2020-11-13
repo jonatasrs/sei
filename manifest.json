@@ -108,6 +108,8 @@
         "cs_modules/procedimento_visualizar.Dropzone.js",
         "cs_modules/procedimento_visualizar.AlterarTitulo.js",
         "cs_modules/procedimento_visualizar.DocumentoModelo.js",
+        "cs_modules/procedimento_visualizar.AjustarElementosNativos.js",
+        "cs_modules/procedimento_visualizar.ConsultarAtribuicao.js",
         "cs_modules/procedimento_visualizar.js"
       ]
     },
@@ -177,6 +179,7 @@
     "icons/fileUpload.png",
     "icons/aguarde.gif",
     "icons/editNote.png",
+    "icons/removeNote.png",
     "icons/note.png",
     "icons/interessado.png",
     "cs_modules/procedimento_controlar.AdicionarOrdenacao.js",

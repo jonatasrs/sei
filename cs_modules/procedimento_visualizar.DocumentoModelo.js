@@ -64,10 +64,14 @@ function DocumentoModelo(BaseName) {
             if (iconeCopiar.attr('src') !== 'imagens/sei_documento_interno.gif') return true; /* filtra apenas os documentos internos */
 
             const docId = linkDocumento.attr('id').substr(6);
+            const botaoId = `seipp-dup${docId}`;
+            
+            /* verifica se o botão já existe */
+            if ($(`img#${botaoId}`).length > 0) return true;
 
             /* cria o ícone de documento modelo */
             const linkModelo = $('<img>', {
-                id: `seipp-dup${docId}`,
+                id: botaoId,
                 title: 'Usar documento como modelo',
                 src: browser.extension.getURL('icons/modelo.png'),
             });

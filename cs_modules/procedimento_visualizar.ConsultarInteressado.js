@@ -18,6 +18,8 @@ function ConsultarInteressado(BaseName) {
   url = GetBaseUrl() + url;
   mconsole.log(url);
 
+  DetalheProcesso_Criar();
+
   /* Pega o html da pagina de alteração do processo */
   var WebHttp = $.ajax({ url: url });
   WebHttp.done(function (html) {
@@ -27,7 +29,6 @@ function ConsultarInteressado(BaseName) {
     processo.tipo = $html.find("#selTipoProcedimento option[selected='selected']").text();
     processo.interessados = $html.find("#selInteressadosProcedimento option").map(function () { return { id: $(this).val(), nome: $(this).text() }; }).get();
 
-    DetalheProcesso_Criar();
     DetalheProcesso_Preencher();
     ExibirDadosProcesso($html);
 
@@ -106,13 +107,30 @@ function ConsultarInteressado(BaseName) {
     elInteressado.append(detalheInteressado);
   };
 
-  function DetalheProcesso_Criar(params) {
-    $("<div id='seipp_divp'/>")
-      .insertAfter("#frmArvore")
-      .append("<div id='seipp_processo'/>")
-      .append("<div id='seipp_tipo'/>")
-      .after("<div id='seipp_interessados' style='text-align:left; font-size:12px; padding-left:5px;'></div>");
+  function DetalheProcesso_Criar() {
+
+    let container = $("#container").length > 0 ? $("#container") : $("body");
+
+    container.append(`
+      <div class='seipp-separador'><span>Tipo do processo</span></div>
+      <div id='seipp_tipo'>
+        <p class="seipp-tipo-processo"></p>
+      </div>
+      <div class='seipp-separador'><span>Interessado(s)</span></div>
+      <div id='seipp_interessados'></div>
+    `);
+  
+  }
+
+  function DetalheProcesso_Preencher() {
     
+    /* tipo do processo */
+    $("#seipp_tipo").attr("title", "Tipo de processo");
+    $("#seipp_tipo p.seipp-tipo-processo").text(processo.tipo);
+    
+    /* dados dos interessados */
+    $("#seipp_interessados").attr("title", "Interessado(s)");
+    if (processo.interessados.length > 0) {
       processo.interessados.forEach(function(interessado) {
         $('#seipp_interessados').append(`
           <div data-id="${interessado.id}">
@@ -123,11 +141,9 @@ function ConsultarInteressado(BaseName) {
           </div>
         `);
       });
-  }
-
-  function DetalheProcesso_Preencher() {
-    $("#seipp_interessados").attr("title", "Interessado(s)");
-    $("#seipp_tipo").attr("title", "Tipo de processo").text(processo.tipo);
+    } else {
+      $('#seipp_interessados').append(`<p class="seipp-interessado">Nenhum interessado especificado.</p>`);
+    }
   }
 
   function ExibirDadosProcesso($html) {

@@ -18,7 +18,10 @@ function MostrarAnotacao(BaseName) {
   mconsole.log(url);
 
   let $element = $("#container").length > 0 ? $("#container") : $("body");
-  $element.append(`<div id='seipp_div_anotacao'></div>`);
+  $element.append(`
+    <div class='seipp-separador'><span>Anotações</span></div>
+    <div id='seipp_div_anotacao'></div>
+  `);
 
   function mostrarNota() {
 
@@ -47,7 +50,10 @@ function MostrarAnotacao(BaseName) {
           <p>Este processo não possui anotações. <a href='#' class='seipp_anotacao_criar_nota'>Clique aqui</a> para criar uma nota.</p>
         </div>
         <div class='seipp_anotacao'>
-          <a href='#' class='seipp_anotacao_btn_editar'><img class='seipp_anotacao_ic_editar' src='${browser.extension.getURL('icons/editNote.png')}'/></a>
+          <div class='seipp_anotacao_botoes'>
+            <a href='#' class='seipp_anotacao_botao seipp_anotacao_btn_remover'><img class='seipp_anotacao_icone' src='${browser.extension.getURL('icons/removeNote.png')}'/></a>
+            <a href='#' class='seipp_anotacao_botao seipp_anotacao_btn_editar'><img class='seipp_anotacao_icone' src='${browser.extension.getURL('icons/editNote.png')}'/></a>
+          </div>
           <p class='seipp_anotacao_texto'>${txanotacao}</p>
           <div class='seipp_anotacao_editar'>
             <textarea class='seipp_anotacao_txt_editar' maxlength='500'></textarea>
@@ -55,7 +61,7 @@ function MostrarAnotacao(BaseName) {
               <input type="checkbox" id="chkSinPrioridade" name="chkSinPrioridade" class="infraCheckbox" ${prioridade ? 'checked' : null}>
               <label id="lblSinPrioridade" for="chkSinPrioridade" accesskey="" class="infraLabelCheckbox">Prioridade</label>
             </div>
-            <div class='seipp_anotacao_botoes'>
+            <div class='seipp_anotacao_editar_botoes'>
               <button value="Cancelar" class="infraButton seipp_anotacao_btn_cancelar_editar">Cancelar</button>
               <button value="Salvar" class="infraButton seipp_anotacao_btn_salvar_edicao">Salvar</button>
             </div>
@@ -72,14 +78,19 @@ function MostrarAnotacao(BaseName) {
         editarNota();
         e.preventDefault();
       });
-
+      
       $('button.seipp_anotacao_btn_cancelar_editar').on('click', function(e) { 
         cancelarEditarNota();
         e.preventDefault();
       });
-
+      
       $('button.seipp_anotacao_btn_salvar_edicao').on('click', function(e) { 
         salvarNota();
+        e.preventDefault();
+      });
+      
+      $('a.seipp_anotacao_btn_remover').on('click', function(e) { 
+        removerNota();
         e.preventDefault();
       });
 
@@ -99,7 +110,7 @@ function MostrarAnotacao(BaseName) {
   function editarNota() {
     $('div.seipp_sem_anotacao').hide();
     $('div.seipp_anotacao').show();
-    $('a.seipp_anotacao_btn_editar').hide();
+    $('div.seipp_anotacao_botoes').hide();
     $('textarea.seipp_anotacao_txt_editar').width($('p.seipp_anotacao_texto').width());
     $('p.seipp_anotacao_texto').hide();
     $('textarea.seipp_anotacao_txt_editar').val($('p.seipp_anotacao_texto').text());
@@ -109,10 +120,17 @@ function MostrarAnotacao(BaseName) {
 
   function cancelarEditarNota() {
     esconderSeNaoHaNota();
-    $('a.seipp_anotacao_btn_editar').show();
+    $('div.seipp_anotacao_botoes').show();
     $('p.seipp_anotacao_texto').show();
     $('div.seipp_anotacao_editar').hide();
 
+  }
+
+  function removerNota() {
+    let confirm_ok = confirm('Deseja remover a anotação deste processo?');
+    if (!confirm_ok) return;
+    $('textarea.seipp_anotacao_txt_editar').val('');
+    salvarNota();
   }
 
 	// Kind of encodeURIComponent for ISO-8859-1

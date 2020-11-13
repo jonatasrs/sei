@@ -171,13 +171,35 @@
 <div class="card">
     <div class="container flex-container">
         <label class="toggle-label">
-            Exibir Informações do interessado
+            Exibir tipo do processo, informações do interessado e quadro com dados do processo
             <div class="tooltip">?<span class="tooltiptext">
-                Exibe Informações do interessado na árvore de processo.
+                Exibe tipo do processo e nomes dos interessados na árvore de processo. Além disso, mostra quadro com dados do processo na visualização principal do processo, abaixo dos botões de controle.
             </span></div>
         </label>
         <input class="toggle" type="checkbox" data-type="exibeinfointeressado" />
     </div>
+
+    <div class="container flex-container">
+        <label class="toggle-label">
+          Mostrar mais detalhes dos interessados na árvore
+          <div class="tooltip">
+            ?
+            <span class="tooltiptext">
+              Exibe mais informações (endereço completo) abaixo do nome dos interessados na árvore do processo
+            </span>
+          </div>
+        </label>
+        <input class="toggle" type="checkbox"  data-type="mostrardetalhesinteressados" />
+    </div>
+
+    <div class="container flex-container">
+        <label class="toggle-label">
+          Mostrar para quem o processo está atribuído na árvore
+        </label>
+        <input class="toggle" type="checkbox" name="exibeinfoatribuicao" data-type="exibeinfoatribuicao" />
+    </div>    
+
+
     <div class="container flex-container">
         <label class="toggle-label">
             Exibir botão novo documento
@@ -320,19 +342,6 @@
       </div>
     </label>
     <input class="toggle" type="checkbox" data-type="ordenaratribuirprocesso" />
-  </div>
-
-  <div class="container flex-container">
-    <label class="toggle-label">
-      Mostrar detalhes dos interessados na árvore
-      <div class="tooltip">
-        ?
-        <span class="tooltiptext">
-          Exibe mais informações (endereço completo) abaixo do nome dos interessados na árvore do processo
-        </span>
-      </div>
-    </label>
-    <input class="toggle" type="checkbox" data-type="mostrardetalhesinteressados" />
   </div>
 
 </div>
