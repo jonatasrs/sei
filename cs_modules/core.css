@@ -126,3 +126,21 @@
 .no-image img{
   background-color: white !important;
 }
+
+
+/* CSS for Module: SelecionarDocumentosAssinar*/
+.seipp-selecionar-documentos-assinar {
+  float: left;
+  margin-bottom: 5px;
+}
+
+.seipp-selecionar-documentos-assinar > span {
+  color: #424242;
+  font-size: 12px;
+}
+
+.seipp-selecionar-documentos-assinar > a {
+  color: blue;
+  margin-left: 5px;
+  font-size: 12px;
+}
