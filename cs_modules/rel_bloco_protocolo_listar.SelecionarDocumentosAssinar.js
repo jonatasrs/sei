@@ -4,7 +4,7 @@
 
 function SelecionarDocumentosAssinar(BaseName) {
 
-	/** inicialização do módulo ***************************************************/
+  /** inicialização do módulo ***************************************************/
     const mconsole = new __mconsole(BaseName + ".SelecionarDocumentosAssinar");
 
   /* Verifica se o usuário está em um bloco de assinatura */
@@ -27,60 +27,51 @@ function SelecionarDocumentosAssinar(BaseName) {
     assinaturas: tr.querySelectorAll('td')[6].textContent.trim(),
   }));
 
-	const opcoes = document.createElement('div');
+  const opcoes = document.createElement('div');
   opcoes.classList.add('seipp-selecionar-documentos-assinar');
   opcoes.innerHTML = `
     <span>Selecionar:</span>
-    <a href='#' id='btn-selecionar-todos-documentos'>[Todos]</a>
-    <a href='#' id='btn-selecionar-nenhum-documento'>[Nenhum]</a>
-    <a href='#' id='btn-selecionar-documentos-sem-assinatura'>[Sem nenhuma assinatura]</a>
-    <a href='#' id='btn-selecionar-documentos-sem-minha-assinatura'>[Sem a minha assinatura]</a>
-	`;
+    <a href='#' id='btn-selecionar-todos-documentos'>Todos</a>
+    <a href='#' id='btn-selecionar-nenhum-documento'>Nenhum</a>
+    <a href='#' id='btn-selecionar-sem-assinatura'>Sem nenhuma assinatura</a>
+    <a href='#' id='btn-selecionar-sem-minha-assinatura'>Sem a minha assinatura</a>
+    <a href='#' id='btn-selecionar-com-minha-assinatura'>Com a minha assinatura</a>
+  `;
 
   tabela.querySelector('caption.infraCaption').insertAdjacentElement('beforeend', opcoes);
 
-  opcoes.querySelector('#btn-selecionar-todos-documentos').addEventListener('click', (e) => {
-    selecionarTodosDocumentos();
-    e.preventDefault();
-  });
-  
-  opcoes.querySelector('#btn-selecionar-nenhum-documento').addEventListener('click', (e) => {
-    desselecionarTodosDocumentos();
-    e.preventDefault();
-  });
-  
-  opcoes.querySelector('#btn-selecionar-documentos-sem-assinatura').addEventListener('click', (e) => {
-    selecionarSemAssinatura();
-    e.preventDefault();
-  });
+  opcoes.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') handleClick(e.target.id.replace('btn-selecionar-', ''));
+    e.stopPropagation();
+  }, true)
 
-  opcoes.querySelector('#btn-selecionar-documentos-sem-minha-assinatura').addEventListener('click', (e) => {
-    selecionarSemMinhaAssinatura();
-    e.preventDefault();
-  });
+  const handleClick = (type) => {
+    for (let linha of linhas) {
 
-  const selecionarTodosDocumentos = () => {
-    for (let linha of linhas) {
-      linha.checkbox.checked = true;
-    }
-  }
-  
-  const desselecionarTodosDocumentos = () => {
-    for (let linha of linhas) {
-      linha.checkbox.checked = false;
-    }
-  }
-  
-  const selecionarSemAssinatura = () => {
-    for (let linha of linhas) {
-      linha.checkbox.checked = (linha.assinaturas.length === 0);
-    }
-  }
+      /* seleciona todos documentos */
+      if (type === 'todos-documentos') {
+        linha.checkbox.checked = true;
 
-  const selecionarSemMinhaAssinatura = () => {
-    for (let linha of linhas) {
-      linha.checkbox.checked = !(linha.assinaturas.length > 0 && linha.assinaturas.includes(nomeUsuario));
+      /* desseleciona todos documentos */
+      } else if (type === 'nenhum-documento') {
+        linha.checkbox.checked = false;
+
+      /* seleciona somente os documentos que não possuem assinatura */
+      } else if (type === 'sem-assinatura') {
+        linha.checkbox.checked = (linha.assinaturas.length === 0);
+
+      /* seleciona somente os documentos que não possuem a assinatura do usuário */
+      } else if (type === 'sem-minha-assinatura') {
+        linha.checkbox.checked = !(linha.assinaturas.length > 0 && linha.assinaturas.includes(nomeUsuario));
+
+      /* seleciona somente os documentos que possuem a assinatura do usuário */
+      } else if (type === 'com-minha-assinatura') {
+        linha.checkbox.checked = (linha.assinaturas.length > 0 && linha.assinaturas.includes(nomeUsuario));
+      }
+
+
     }
-  }
+  };
+
 
 }

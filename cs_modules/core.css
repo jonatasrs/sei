@@ -135,12 +135,24 @@
 }
 
 .seipp-selecionar-documentos-assinar > span {
-  color: #424242;
-  font-size: 12px;
+  color: #9E9E9E;
+  font-size: 11px;
 }
 
 .seipp-selecionar-documentos-assinar > a {
-  color: blue;
-  margin-left: 5px;
-  font-size: 12px;
+  display: inline-block;
+  background-color: #F5F5F5;
+  border-radius: 6px;
+  border: 1px solid #E0E0E0;
+  padding: 2px 6px;
+  color: #757575;
+  margin-left: 3px;
+  font-size: 11px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.seipp-selecionar-documentos-assinar > a:hover {
+  text-decoration: none;
+  background-color: #E0E0E0;
 }
