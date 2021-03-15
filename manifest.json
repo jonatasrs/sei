@@ -83,6 +83,7 @@
         "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
         "cs_modules/lib.SelecionarMultiplosProcessos.js",
         "cs_modules/lib.RetirarSobrestamentoReabrirEmBloco.js",
+        "cs_modules/rel_bloco_protocolo_listar.SelecionarDocumentosAssinar.js",
         "cs_modules/rel_bloco_protocolo_listar.js"
       ]
     },
