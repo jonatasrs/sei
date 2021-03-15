@@ -144,7 +144,16 @@
 .option-save {
   width: 40%;
   margin-top: 20px;
+  text-align: center;
 }
 .option-save input {
   border-style: solid;
+}
+
+#save-button {
+  background-color: #008CBA;
+  color:  white;
+  font-size: 20px;
+  border-radius: 12px;
+  cursor: pointer;
 }

@@ -16,14 +16,14 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
 
       /* Inclui o cabeçalho na tabela */
       var h = $("<th/>")
-      .addClass("tituloControle")
-      .text((TipoDeCalculo == "qtddias") ? "Dias":"Prazo");
+        .addClass("tituloControle")
+        .text((TipoDeCalculo == "qtddias") ? "Dias" : "Prazo");
       $(IdTabela + " > thead > tr").append(h);
 
       /* Inclui os itens na tabela */
       $(IdTabela + " > tbody > tr").each(function (index) {
-        var cell = $("<td/>").attr("valign", "center").attr("align", "center")
-                   .text(Calcular(this, TipoDeCalculo));
+        var cell = $("<td/>").attr("valign", "top").attr("align", "center")
+          .text(Calcular(this, TipoDeCalculo));
 
         $(this).append(cell);
 
@@ -35,23 +35,35 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
   /*** Calcula o numero de dias com base no texto do marcador */
   function Calcular(item, TipoDeCalculo) {
     var msecPerDay = 1000 * 60 * 60 * 24;
-    var cel = $(item).find("td > a[href*='acao=andamento_marcador_gerenciar']");
+
+    //CEPESC:
+    //var cel = $(item).find("td > a[href*='acao=andamento_marcador_gerenciar']");
+    var cel = $(item).find("td > a[href*='javascript:void(0);']");
 
     if ($(cel).length > 0) {
       var str = $(cel).attr("onmouseover");
 
+      //CEPESC:
+      /*
       str = str.substring(str.indexOf("'") + 1, str.indexOf("'", str.indexOf("'") + 1));
       str = str.toLowerCase().replace("é", "e");
+      */
+
+      str = str.split(" ")[2];
 
       var hoje = new Date(); // Pega a data atual
       var hojeMsec = hoje.getTime();
 
       if (TipoDeCalculo == "prazo") {
-        if (str.indexOf("ate ") == 0) {
+
+        //CEPESC:
+        return str;
+
+        /*if (str.indexOf("ate ") == 0) {
           str = str.substr(4, 10);
         } else {
           return "";
-        }
+        }*/
       } else {
         str = str.substr(0, 10);
       }
@@ -61,8 +73,10 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
 
         if (!isNaN(datei.getDate())) {
           if (TipoDeCalculo == "qtddias") {
-            var interval = hojeMsec - datei.getTime();
-            var days = Math.floor(interval / msecPerDay);
+
+            // CEPESC:
+            var interval = datei.getTime() - hojeMsec;
+            var days = Math.ceil(interval / msecPerDay);
           } else if (TipoDeCalculo == "prazo") {
             var interval = datei.getTime() - hojeMsec;
             var days = Math.floor(interval / msecPerDay) + 1;
@@ -76,7 +90,7 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
 
   /* Formata a tabela pelos valores */
   function FormatarTabela(Linha, Valor, TipoDeCalculo) {
-    if(Valor === "") return;
+    if (Valor === "") return;
     if (TipoDeCalculo == "qtddias") {
       if (Valor > SavedOptions.ConfDias.Alerta && Valor <= SavedOptions.ConfDias.Critico) {
         $(Linha).attr("class", "infraTrseippalerta");

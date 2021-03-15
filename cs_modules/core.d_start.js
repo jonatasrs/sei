@@ -14,14 +14,10 @@ function Main(Options) {
 
   if (SavedOptions.ConfPrazo == undefined) { SavedOptions.ConfPrazo = DefaultOptions.ConfPrazo }
   if (SavedOptions.ConfDias == undefined) { SavedOptions.ConfDias = DefaultOptions.ConfDias }
-  
+
   if (SavedOptions.theme != "white") {
     Theme(ModName_start, SavedOptions.Theme);
   }
-  
-  /* opção padrão quando o usuário já possui uma configuração salva que não tem esse item */
-  if (SavedOptions.usardocumentocomomodelo == undefined) { SavedOptions.usardocumentocomomodelo = true }
-  if (SavedOptions.exibeinfoatribuicao == undefined) { SavedOptions.exibeinfoatribuicao = true }
 
   if (window.location.href == GetBaseUrl()) {
     setTimeout(function () {

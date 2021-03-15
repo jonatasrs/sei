@@ -2,6 +2,9 @@
 /** Opção padrão caso não exista opções salvas. */
 var DefaultOptions = {
   theme: "white",
+
+  // CEPESC:
+  firstColumn: "NUP",
   CheckTypes: [
     "prazo",
     "qtddias",
@@ -16,7 +19,9 @@ var DefaultOptions = {
     "retirarsobrestamentoreabrirembloco",
     "mostraranotacao",
     "atalhopublicacoeseletronicas",
-    "incluirdocaoarrastar"
+    
+    // CEPESC:
+    "especificacao"
   ],
   InstallOrUpdate: true,
   ConfiguracoesCores: [
@@ -27,10 +32,7 @@ var DefaultOptions = {
     {valor: "", cor: "bfbfbf"}
   ],
   ConfPrazo: {Critico: 0, Alerta: 4},
-  ConfDias: {Critico: 30, Alerta: 20},
-  incluirDocAoArrastar_TipoDocPadrao: "Anexo",
-  usardocumentocomomodelo: true,
-  exibeinfoatribuicao: true,
+  ConfDias: {Critico: 30, Alerta: 20}
 };
 
 const CompName = "Seipp";
@@ -55,20 +57,6 @@ function __mconsole(ModuleName) {
 __mconsole.prototype.log = function(message) {
     console.log("[" + CompName + " " + Date.now() + "]    "+ this.PModuleName+": " + message);
 }
-
-/* adicionar função de log no contexto da página */
-execOnPage(`
-
-  function __mconsole(ModuleName) {
-    this.PModuleName = ModuleName;
-    console.log("[${CompName} " + Date.now() + "]  " + this.PModuleName + ": Loading...");
-  }
-  __mconsole.prototype.log = function(message) {
-      console.log("[${CompName} " + Date.now() + "]    "+ this.PModuleName+": " + message);
-  }
-
-`);
-
 
 function Init(BaseName) {
   console.log("[" + CompName + " " + Date.now() + "]" + BaseName);
@@ -135,42 +123,7 @@ function isNumOnly(str) {
  * @param {HTMLElement} Elem
  */
 function RemoveAllOldEventListener(Elem) {
-  var elementID = Elem.attr('id');
-
-  var codeToRun = `
-    $('#${elementID}').replaceWith($('#${elementID}').clone());
-  `;
-
-  execOnPage(codeToRun);
-
-}
-
-/* Função que permite executar um código arbitrário
-  no contexto da página, e não da extensão */
-function execOnPage(code) {
-  var script = document.createElement('script');
-  script.textContent = code;
-  (document.head||document.documentElement).appendChild(script);
-  script.remove();
-}
-
-/*
-  Função que carrega um script externo
-  no contexto da página, e não da extensão.
-
-  Lembre-se de o script deve ter sua permissão concedida
-  no 'web_accessible_resources' do manifest.
-*/
-function addScriptToPage(scriptName, codeOnLoad) {
-  var script = document.createElement('script');
-  script.async = false;
-  (document.head||document.documentElement).appendChild(script);
-  if (codeOnLoad) { 
-    script.onload = function() {
-      execOnPage(codeOnLoad);
-    }
-  }
-  script.src = chrome.extension.getURL(scriptName);
+  $(Elem).replaceWith($(Elem).clone());
 }
 
 /**
@@ -199,38 +152,4 @@ function EsperaCarregar(Modlog, ElemRaiz, Elem, func, TimeOut = 3000) {
  */
 function AnimacaoFade(Elem) {
   $(Elem).fadeOut(200).fadeIn(200);
-}
-
-/**
- * Carrega dados do storage
- */
-function carregarDadosStorage(dados, fnSucesso, fnErro) {
-  if (isChrome) {
-      chrome.storage.local.get(dados, function(items) {
-        if (chrome.runtime.lastError) {
-          if (fnErro) fnErro();
-        } else {
-          if (fnSucesso) fnSucesso(items);
-        }
-      });
-  } else {
-      browser.storage.local.get(dados).then(fnSucesso, fnErro);
-  }
-}
-
-/**
- * Salva dados do storage
- */
-function salvarDadosStorage(dados, fnSucesso, fnErro) {
-  if (isChrome) {
-      chrome.storage.local.set(dados, function() {
-        if (chrome.runtime.lastError) {
-          if (fnErro) fnErro();
-        } else {
-          if (fnSucesso) fnSucesso();
-        }
-      });
-  } else {
-      browser.storage.local.set(dados).then(fnSucesso, fnErro);
-  }
 }

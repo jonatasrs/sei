@@ -10,7 +10,7 @@
 	background-color: yellow;
 }
 .infraTrseippcritico {
-	background-color: #f60;
+	background-color: red;
 }
 .seipp-assinatura {
     background-color: #cccc63 !important;
@@ -115,6 +115,102 @@
 #seipp_link_novodoc img {
   border: .1em solid white;
 }
+
+/* CEPESC */
+.infraTrClara{ 
+  white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  white-space: pre-wrap;       /* css-3 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  word-break: break-all;
+  white-space: normal;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+#divGerados,
+#divRecebidos{
+  width: 100% !important;
+}
+#btnGerados{
+  padding: 10px 10px 10px 36px;
+  font-family: "Trebuchet MS", Arial, Verdana;   
+  background: #e9e9e9 url(../icons/outbox.png) 15px 4px no-repeat;
+  border-radius: 16px;
+  border: 1px solid;
+  text-shadow: 1px 1px #fff; 
+  box-shadow: 3px 3px #808080;
+  margin-bottom: 30px;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+#btnRecebidos{
+  padding: 10px 10px 10px 36px;
+  font-family: "Trebuchet MS", Arial, Verdana;   
+  background: #e9e9e9 url(../icons/inbox.png) 15px 4px no-repeat;
+  border-radius: 16px;
+  border: 1px solid;
+  text-shadow: 1px 1px #fff; 
+  box-shadow: 3px 3px #808080;
+  margin-bottom: 30px;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+#filtrar{
+  padding: 5px 10px 10px 30px;
+  font-family: "Trebuchet MS", Arial, Verdana;   
+  background: #eff0f1 url(../icons/filter.png) 2px 1px no-repeat;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid;
+  height: 25px;
+  text-shadow: 1px 1px #fff;
+  margin-right: 15px;
+}
+#limpar{
+  padding: 5px 10px 10px 30px;
+  font-family: "Trebuchet MS", Arial, Verdana;   
+  background: #eff0f1 url(../icons/no-filter.png) 2px 1px no-repeat;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid;
+  height: 25px;
+  text-shadow: 1px 1px #fff;
+}
+#ancTipoVisualizacao{
+  border: 1px solid;
+  box-shadow: 3px 3px #808080;
+}
+#theme,
+firstColumn{
+  width: 110px;
+}
+button::-moz-focus-inner{
+  border: 0;
+}
+input::-moz-focus-inner{
+  border: 0;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+div.infraTooltipTexto{
+font-size:1em; 
+padding:.1em;
+white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+white-space: -pre-wrap;      /* Opera 4-6 */
+white-space: -o-pre-wrap;    /* Opera 7 */
+white-space: pre-wrap;       /* css-3 */
+word-wrap: break-word;       /* Internet Explorer 5.5+ */
+word-break: break-all;
+white-space: normal;
+-webkit-hyphens: auto;
+-moz-hyphens: auto;
+-ms-hyphens: auto;
+hyphens: auto;
+}
 /* CSS for Modules: consultas.js END */
 
 /* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js */
@@ -122,7 +218,3 @@
 	color: graytext;
 }
 /* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js END */
-
-.no-image img{
-  background-color: white !important;
-}

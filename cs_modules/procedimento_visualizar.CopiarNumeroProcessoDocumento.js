@@ -48,7 +48,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	}
 
 	function getNumeroDocumento(text) {
-	    var resultIdRegex = /^span([0-9]{1,11})$/g.exec(text);
+	    var resultIdRegex = /^span([0-9]{1,9})$/g.exec(text);
 	    if (resultIdRegex) return resultIdRegex[1];
 	}
 
@@ -68,11 +68,8 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	    spanGeral.style.display = 'none';
 	}
 
-	function iniciar() {		
-		let span = document.querySelector('#divArvore>a>span');
-		if (!span) {
-			span = document.querySelector(".infraArvore > a[target='ifrVisualizacao'] > span");
-		}
+	function iniciar() {
+	    var span = document.querySelector('#divArvore>a>span');
 	    if (span && $("#"+idmod + span.id.substr(4)).length == 0) {
 
 	        var numeroDocumento = getNumeroDocumento(span.id);
@@ -90,7 +87,7 @@ function CopiarNumeroProcessoDocumento(BaseName) {
 	        var numeroDocumento = getNumeroDocumento(element.id);
 
 	        if ($("#"+idmod + element.id.substr(4)).length != 0) return;
-	        var resultNomeRegex = /^(.+)\s+\(?([0-9]{7,11})\)?$/.exec(element.title);
+	        var resultNomeRegex = /^(.+)\s+\(?([0-9]{7,8})\)?$/.exec(element.title);
 	        if (resultNomeRegex) {
 	            nomeDocumento = resultNomeRegex[1];
 	            numeroSei = resultNomeRegex[2];

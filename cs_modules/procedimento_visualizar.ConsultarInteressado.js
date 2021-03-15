@@ -18,132 +18,45 @@ function ConsultarInteressado(BaseName) {
   url = GetBaseUrl() + url;
   mconsole.log(url);
 
-  DetalheProcesso_Criar();
-
   /* Pega o html da pagina de alteração do processo */
   var WebHttp = $.ajax({ url: url });
   WebHttp.done(function (html) {
     let $html = $(html);
-    processo.numero = $(".infraArvoreNoSelecionado").text();
+    processo.numero = $("#divArvore > a > span[id^='span']").text().replace(/\D/g, '');
     mconsole.log("Lendo dados do processo: " + processo.numero);
     processo.tipo = $html.find("#selTipoProcedimento option[selected='selected']").text();
-    processo.interessados = $html.find("#selInteressadosProcedimento option").map(function () { return { id: $(this).val(), nome: $(this).text() }; }).get();
+    processo.interessados = $html.find("#selInteressadosProcedimento option").map(function () { return $(this).text(); }).get();
 
+    DetalheProcesso_Criar();
     DetalheProcesso_Preencher();
     ExibirDadosProcesso($html);
-
-    /* adiciona as informações sobre o interessado */
-    if (SavedOptions.CheckTypes.includes('mostrardetalhesinteressados')) {
-      let urlEditarInteressado = obterUrl_EditarInteressado(html);
-      if (urlEditarInteressado) abrir_EditarInteressado(urlEditarInteressado);
-    }
   });
 
   /** Funções *******************************************************************/
-
-  function obterUrl_EditarInteressado(html) {
-    let regex = /^\s*seiAlterarContato\(valor, 'selInteressadosProcedimento', 'frmProcedimentoCadastro','(.*)'\);/m;
-    let resultado = regex.exec(html);
-    return resultado !== null ? resultado[1] : null;
-  }
-
-  function obterUrl_dadosInteressado(html) {
-    let regex = /^\s*objAjaxDadosContatoAssociado = new infraAjaxComplementar\(null,'(.*)'\);/m;
-    let resultado = regex.exec(html);
-    return resultado !== null ? resultado[1] : null;
-  }
-
-  function abrir_EditarInteressado(urlEditarInteressado) {
-    $.ajax({
-      url: GetBaseUrl() + urlEditarInteressado,
-      success: function(resposta) {
-        let urlCarregarDados = obterUrl_dadosInteressado(resposta);
-        if (urlCarregarDados) abrir_DetalhesInteressados(urlCarregarDados);
-      },
-    });
-  }
-
-  function abrir_DetalhesInteressados(urlCarregarDados) {
-    $('#seipp_interessados > div').each(function() {
-      let elInteressado = $(this);
-      let idContato = elInteressado.data('id');
-      if (!idContato) return;
-      abrir_DetalhesInteressado(urlCarregarDados, idContato, elInteressado);
-    });
-  }
-
-  function ler_campoInteressado(resposta, nomeCampo, prefixo) {
-    let campo = resposta.querySelector(`complemento[nome='${nomeCampo}']`);
-    return campo && campo.textContent.length > 0
-      ? `${prefixo ? prefixo : ''}${campo.textContent}`
-      : null;
-  }
-
-  function abrir_DetalhesInteressado(urlCarregarDados, idContato, elInteressado) {
-    $.ajax({
-      url: GetBaseUrl() + urlCarregarDados,
-      method: 'POST',
-      data: `id_contato_associado=${idContato}`,
-      success: function(resposta) {
-        let dados = [
-          ler_campoInteressado(resposta, 'Endereco'),
-          ler_campoInteressado(resposta, 'Complemento'),
-          ler_campoInteressado(resposta, 'Bairro'),
-          ler_campoInteressado(resposta, 'NomeCidade'),
-          ler_campoInteressado(resposta, 'SiglaUf'),
-          ler_campoInteressado(resposta, 'NomePais'),
-          ler_campoInteressado(resposta, 'Cep', 'CEP '),
-        ];
-        preencher_DetalhesInteressado(elInteressado, dados);
-      },
-    });
-  }
-
-  function preencher_DetalhesInteressado(elInteressado, dados) {
-    let detalheInteressado = $('<p />', {
-      class: 'seipp-detalhe-interessado',
-      text: dados.filter(Boolean).join(', '),
-    });
-    elInteressado.append(detalheInteressado);
-  };
-
-  function DetalheProcesso_Criar() {
-
-    let container = $("#container").length > 0 ? $("#container") : $("body");
-
-    container.append(`
-      <div class='seipp-separador'><span>Tipo do processo</span></div>
-      <div id='seipp_tipo'>
-        <p class="seipp-tipo-processo"></p>
-      </div>
-      <div class='seipp-separador'><span>Interessado(s)</span></div>
-      <div id='seipp_interessados'></div>
-    `);
-  
+  function DetalheProcesso_Criar(params) {
+    $("<div id='seipp_divp'/>")
+      .insertAfter("#frmArvore")
+      .append("<div id='seipp_processo'/>")
+      .append("<div id='seipp_tipo'/>")
+      .append("<div id='seipp_interessados'/>");
   }
 
   function DetalheProcesso_Preencher() {
-    
-    /* tipo do processo */
-    $("#seipp_tipo").attr("title", "Tipo de processo");
-    $("#seipp_tipo p.seipp-tipo-processo").text(processo.tipo);
-    
-    /* dados dos interessados */
-    $("#seipp_interessados").attr("title", "Interessado(s)");
-    if (processo.interessados.length > 0) {
-      processo.interessados.forEach(function(interessado) {
-        $('#seipp_interessados').append(`
-          <div data-id="${interessado.id}">
-            <p class="seipp-interessado">
-              <img height="10" width="12" src="${browser.extension.getURL('icons/interessado.png')}"/>
-              <span>${interessado.nome}</span>
-            </p>
-          </div>
-        `);
-      });
-    } else {
-      $('#seipp_interessados').append(`<p class="seipp-interessado">Nenhum interessado especificado.</p>`);
-    }
+    $("#seipp_processo").attr("value", processo.numero).attr("title", "Número do processo").text(processo.numero);
+    $.each(processo.interessados, function (index, nome) {
+      let sigla = "";
+      mconsole.log(nome);
+
+      a = nome.indexOf('(') + 1;
+      if (a != 0) {
+        b = nome.indexOf(')', a);
+        sigla = nome.substring(a, b);
+        nome = nome.substring(0, a - 2);
+      }
+      $("#seipp_interessados").append("<div class='seipp_interessado' title='Interessado'>" + nome + "</div>");
+      $("#seipp_interessados").append("<div class='seipp_sigla' title='sigla'>" + sigla + "</div>");
+    });
+    $("#seipp_tipo").attr("title", "Tipo de processo").text(processo.tipo);
   }
 
   function ExibirDadosProcesso($html) {
@@ -157,7 +70,7 @@ function ConsultarInteressado(BaseName) {
       if ($iframe.contents().find("#divArvoreHtml iframe").length != 0) {$(this).off("load"); return; }
       else if ($iframe.contents().find("#divInformacao").length == 0) {$(this).off("load"); return; }
 
-      var mask_processo = $(".infraArvoreNoSelecionado").text();
+      var mask_processo = $("#divArvore > a > span[id^='span']").text();
       var interessados = $html.find("#selInteressadosProcedimento option").map(function () { return $(this).text(); }).get();
       var descricao = $html.find("#txtDescricao").val();
       var data = $html.find("#txtDtaGeracaoExibir").val();
@@ -172,7 +85,7 @@ function ConsultarInteressado(BaseName) {
       $("<div id='detalhes' style='margin-left: 300px; border: 1px solid; padding: 2px;'/>")
         .insertAfter($iframe.contents().find("#divInformacao"))
         .append('<div id="divInfraBarraLocalizacao" class="infraBarraLocalizacao" style="display:block;">Dados do Processo</div>')
-        .append('<div id="divProtocoloExibir" class="infraAreaDados" style="height:4.5em; clear: both;"><label id="lblProtocoloExibir" for="txtProtocoloExibir" accesskey="" class="infraLabelObrigatorio">Protocolo:</label><input id="txtProtocoloExibir" name="txtProtocoloExibir" class="infraText infraReadOnly" readonly="readonly" type="text" style="width:150px;" value="' + mask_processo + '"><label id="lblDtaGeracaoExibir" for="txtDtaGeracaoExibir" accesskey="" class="infraLabelObrigatorio" style="margin-left: 20px;">Data de Autuação:</label><input type="text" id="txtDtaGeracaoExibir" name="txtDtaGeracaoExibir" class="infraText infraReadOnly" readonly="readonly" /></div>')
+        .append('<div id="divProtocoloExibir" class="infraAreaDados" style="height:4.5em; clear: both;"><label id="lblProtocoloExibir" for="txtProtocoloExibir" accesskey="" class="infraLabelObrigatorio">Protocolo:</label><input id="txtProtocoloExibir" name="txtProtocoloExibir" class="infraText infraReadOnly" readonly="readonly" type="text" value="' + mask_processo + '"><label id="lblDtaGeracaoExibir" for="txtDtaGeracaoExibir" accesskey="" class="infraLabelObrigatorio" style="margin-left: 20px;">Data de Autuação:</label><input type="text" id="txtDtaGeracaoExibir" name="txtDtaGeracaoExibir" class="infraText infraReadOnly" readonly="readonly" /></div>')
         .append('<div id="divTipoProcedimento" class="infraAreaDados" style="height:4.5em; clear: none;"><label id="lblTipoProcedimento" for="selTipoProcedimento" accesskey="" class="infraLabelObrigatorio">Tipo do Processo:</label><input id="selTipoProcedimento" name="selTipoProcedimento" class="infraText infraReadOnly" readonly="readonly" style="width: 95%;" value="' + processo.tipo + '"></div>')
         .append('<div id="divDescricao" class="infraAreaDados" style="height:4.7em; clear: none;"><label id="lblDescricao" for="txtDescricao" accesskey="" class="infraLabelOpcional">Especificação:</label><input id="txtDescricao" name="txtDescricao" class="infraText infraReadOnly" readonly="readonly" type="text" style="width: 95%;"></div>')
         .append('<div id="divInteressados" class="infraAreaDados" style="height:11em; clear: none;"><label id="lblInteressadosProcedimento" for="txtInteressadoProcedimento" accesskey="I" class="infraLabelOpcional"><span class="infraTeclaAtalho">I</span>nteressados:</label><br/><textarea id="txtInteressadosProcedimento" name="txtInteressadosProcedimento" class="infraText infraReadOnly" readonly="readonly" style="width: 95%";>' + interessados.join("\n") + '</textarea></div>');

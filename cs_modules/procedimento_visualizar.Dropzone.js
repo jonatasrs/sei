@@ -32,12 +32,7 @@ Dropzone.utils = {
 			ret = Math.round(numBytes/1024* 100) / 100 +' Kb';
 		}
 		return ret;
-	},
-
-	// encodeURIComponent para ISO-8859-1
-	escapeComponent: function(str) {  
-		return escape(str).replace(/\+/g, '%2B');
-	}	
+	}  
 };
 
 
@@ -76,15 +71,6 @@ Dropzone.ui = (function() {
 	}
 
 
-	function checkarContemArquivos(dataTransfer) {
-		return (
-			dataTransfer &&
-			dataTransfer.files &&
-			dataTransfer.types &&
-			dataTransfer.types.indexOf('Files') > -1
-		);
-	}
-
 	function adicionarDropzone() {
 
 		mudarTexto('Arraste aqui...');
@@ -94,22 +80,21 @@ Dropzone.ui = (function() {
 
 		window.addEventListener('drop', function(evt) {
 			evt.preventDefault();
-			if (!checkarContemArquivos(evt.dataTransfer)) return;
 			mudarIcone('aguarde.gif');
 			mudarProgresso(0);
+			if (!evt.dataTransfer.files || evt.dataTransfer.files.length === 0) return;
     		for (var i = 0; i < evt.dataTransfer.files.length; i++) {
-				Dropzone.jobs.adicionar(evt.dataTransfer.files[i]);
+    			Dropzone.jobs.adicionar(evt.dataTransfer.files[i]);
     		}
     		Dropzone.jobs.executar();
 		});
-		
+
 		window.addEventListener('dragover', function(evt) {
 			evt.preventDefault();
 		});  
-		
+
 		window.addEventListener('dragenter', function(evt) {
-			evt.preventDefault();
-			if (!checkarContemArquivos(evt.dataTransfer)) return;
+			if (!evt.dataTransfer || !evt.dataTransfer.files) return;
 			ui.wrapper.show();
 		});
 
@@ -181,7 +166,7 @@ Dropzone.jobs = (function() {
 		/* quando há algum erro */
 		if (jobsComErro.length > 0) {
 			var jobsStr = jobsComErro.map(function(job) { return job.nome; }).join(', ');
-			alert('Ocorreu um erro ao incluir documento externo com o(s) seguinte(s) anexo(s): ' + jobsStr + '. Verifique se o processo encontra-se aberto na unidade.')
+			alert('Ocorreu um erro ao incluir documento externo com o(s) seguinte(s) anexo(s): ' + jobsStr + '.')
 		}
 
 		/* recarrega a página sempre que os jobs terminam, independente se erro ou sucesso */
@@ -421,11 +406,12 @@ Dropzone.http.prototype.passos = {
 				hdnAssuntoIdentificador: '',
 			}
 
-			/* montar post body */		
+			/* montar post body */
 			var postData = '';
 			for (var k in postFields) {
 				if (postData !== '') postData = postData + '&';
-				var valor = Dropzone.utils.escapeComponent(postFields[k]);
+				var valor = encodeURIComponent(postFields[k]);
+				if (k === 'hdnAnexos') valor = valor.replace(/%C2/g,''); /* por alguma razão, esse parâmetro vai mal formado para o servidor */
 				postData = postData + k + '=' + valor;
 			}
 			

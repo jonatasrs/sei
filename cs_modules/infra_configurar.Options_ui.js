@@ -8,18 +8,6 @@ function Options_ui(BaseName) {
       $("#divInfraBarraComandosSuperior input").hide();
       $(".seipp-options-title").append(" - Versão: " + browser.runtime.getManifest().version);
 
-      if (!isChrome) {
-        browser.storage.local.get("version").then(function (params) {
-          var version = parseInt(params.version);
-          mconsole.log(version)
-          if (version < 68) {
-            $(".seipp-options-title").append("<div id='seipp-div-options-ui-alert' />")
-            $("#seipp-div-options-ui-alert").append("Firefox " + version + " - Você está utilizando uma versão antiga do Firefox, alguns recursos do SEI++ podem não ser compativeis. Atualize o navegador.")
-              .css({ "font-weight": "bold", "color": "red", "filter": "none", "background-color": "black" });
-          }
-        }, null);
-      }
-
       $("#divInfraBarraLocalizacao").css({
         "padding-left": "10px",
         "margin-top": "10px"
@@ -40,6 +28,10 @@ function Options_ui(BaseName) {
   function OptionsLoad() {
     /* Tema */
     $("#theme").val(SavedOptions.theme);
+
+    // CEPESC:
+    /* Primeira coluna */
+    $("#firstColumn").val(SavedOptions.firstColumn);
 
     /* Checkbox's */
     $("input[type='checkbox']").each(function () {
@@ -71,11 +63,6 @@ function Options_ui(BaseName) {
       $("#divFormato").toggle("fast");
     });
 
-    /* dropzone */
-    $("#incluirdocaoarrastar").prev().on("click", function () {
-      $("#divConfigIncluirDocAoArrastar").toggle("fast");
-    });
-
     $("input[name='formato'][value=" + SavedOptions.formato + "]").attr("checked", true);
     $("input[name='formato']").on("change", MostraTipoConferencia);
     $("#divtipoconferencia").hide();
@@ -88,8 +75,6 @@ function Options_ui(BaseName) {
     MostraRestrito();
 
     $("#hipoteseLegal").val(SavedOptions.hipoteseLegal);
-
-    $("#incluirDocAoArrastar_TipoDocPadrao").val(SavedOptions.incluirDocAoArrastar_TipoDocPadrao || DefaultOptions.incluirDocAoArrastar_TipoDocPadrao);
 
     /* Filtrar por atribuição */
     $("#nomeUsuarioSistema").text(getNomeUsuarioSistema());
@@ -112,9 +97,6 @@ function Options_ui(BaseName) {
     $("input[data-type='qtddias']").prev().on("click", function () {
       $("#qtddiasOptions").toggle("fast");
     });
-
-    $("input[name='usardocumentocomomodelo']").prop("checked", !!SavedOptions.usardocumentocomomodelo);
-    $("input[name='exibeinfoatribuicao']").prop("checked", !!SavedOptions.exibeinfoatribuicao);
 
     /* Salvar */
     $("#save-button").on("click", OptionsSave);
@@ -173,13 +155,16 @@ function Options_ui(BaseName) {
     });
 
     var theme = $("#theme").val();
+
+    // CEPESC:
+    var firstColumn = $("#firstColumn").val();
     var formato = $("input[name='formato']:checked").val();
     var tipoConferencia = $("#tipoconferencia").val();
     var nivelAcesso = $("input[name='nivelAcesso']:checked").val();
     var hipoteseLegal = $("#hipoteseLegal").val();
     var filtraporatribuicao = $("input[name='filtraporatribuicaoRadio']:checked").val();
     mconsole.log(nivelAcesso);
-    
+
     /* Prazo / Dias */
     let ConfPrazo = { Critico: 0, Alerta: 0 };
     let ConfDias = { Critico: 0, Alerta: 0 };
@@ -188,17 +173,13 @@ function Options_ui(BaseName) {
     ConfDias.Alerta = parseInt($("#qtddiasalerta").val());
     ConfDias.Critico = parseInt($("#qtddiascritico").val());
     mconsole.log("CONFDIAS> alerta: " + ConfDias.Alerta + " critico:" + ConfDias.Critico);
-    
-    var incluirDocAoArrastar_TipoDocPadrao = $("#incluirDocAoArrastar_TipoDocPadrao").val();
-    
-    const usardocumentocomomodelo = $("input[name='usardocumentocomomodelo']").is(":checked");
-    const exibeinfoatribuicao = $("input[name='exibeinfoatribuicao']").is(":checked");
 
     function onError(error) {
       console.log(`Error: ${error}`);
     }
 
-    var OptionsToSave = { theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias, incluirDocAoArrastar_TipoDocPadrao, usardocumentocomomodelo, exibeinfoatribuicao };
+    // CEPESC:
+    var OptionsToSave = { theme, firstColumn, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias };
     if (isChrome) {
       browser.storage.local.set(OptionsToSave);
     } else {

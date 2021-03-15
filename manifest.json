@@ -1,11 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "SEI++",
-  "short_name": "SEI++",
-  "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "4.6",
-  "author": "Jonatas Evaristo",
-  "homepage_url": "https://jonatasrs.github.io/sei/",
+  "name": "SEI ++",
+  "short_name": "SEI ++",
+  "description": "SEI ++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
+  "version": "1.0",
+  "author": "(SEI++) Jonatas Evaristo;CEPESC, Gabriel Arquelau",
   "icons": {"48": "icons/sei_++.png"},
   "permissions": ["storage"],
 
@@ -22,7 +21,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
+      "matches": ["*://*/sei/*", "*://*/sip/*", "*://*.ancine.gov/*", "*://*.ans.gov/*"],
       "run_at": "document_start",
       "css": ["cs_modules/core.css"],
       "all_frames": true,
@@ -34,24 +33,23 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=*", "*://*.br/*controlador_externo.php?acao=*"],
+      "matches": ["*://*/*controlador.php?acao=*", "*://*/*controlador_externo.php?acao=*"],
       "run_at": "document_idle",
       "all_frames": true,
       "js": [
         "lib/jquery-3.2.1.min.js",
         "cs_modules/core.d_idle.PontoControleCores.js",
         "cs_modules/core.d_idle.AdicionarIdentificadorSeipp.js",
+        "cs_modules/core.d_idle.AdicionarNomeUsuario.js",
         "cs_modules/core.d_idle.MenuSuspenso.js",
         "cs_modules/core.d_idle.VerificarBlocoAssinatura.js",
         "cs_modules/core.d_idle.IndicarConfiguracao.js",
         "cs_modules/core.d_idle.AtalhoPublicacoesEletronicas.js",
-        "cs_modules/core.d_idle.MostrarEspecificacao.js",
-        "cs_modules/core.d_idle.NoButtons.js",
         "cs_modules/core.d_idle.js"
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=documento_receber*"],
+      "matches": ["*://*/*controlador.php?acao=documento_receber*"],
       "all_frames": true,
       "js": [
         "cs_modules/documento_receber.ForcarReaberturaProcesso.js",
@@ -60,24 +58,29 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=procedimento_controlar*"],
+      "matches": ["*://*/*controlador.php?acao=procedimento_controlar*"],
       "js": [
         "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js",
         "cs_modules/procedimento_controlar.CorrigirTabelas.js",
         "cs_modules/procedimento_controlar.ConfirmarAntesConcluir.js",
         "cs_modules/procedimento_controlar.IncluirCalculoPrazos.js",
+        // CEPESC:
+        "cs_modules/procedimento_controlar.IncluirEspecificacao.js",
+        "cs_modules/procedimento_controlar.IncluirTipo.js",
+        "cs_modules/procedimento_controlar.AdicionarTabs.js",
         "cs_modules/procedimento_controlar.MarcarCorProcesso.js",
+        "cs_modules/procedimento_controlar.AdicionarOrdenacao.js",
+        "cs_modules/procedimento_controlar.OrdenarColunas.js",
         "cs_modules/lib.filtra_processos.js",
         "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
         "cs_modules/procedimento_controlar.filtra_processos.FiltraPorAtribuicao.js",
         "cs_modules/procedimento_controlar.filtra_processos.CarregaInformacaoBlocos.js",
         "cs_modules/lib.SelecionarMultiplosProcessos.js",
-        "cs_modules/procedimento_controlar.ListaPorEspecificacao.js",
         "cs_modules/procedimento_controlar.js"
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=rel_bloco_protocolo_listar*"],
+      "matches": ["*://*/*controlador.php?acao=rel_bloco_protocolo_listar*"],
       "js": [
         "cs_modules/lib.filtra_processos.js",
         "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
@@ -87,7 +90,7 @@
       ]
     },
         {
-      "matches": ["*://*.br/*controlador.php?acao=controle_unidade_gerar*"],
+      "matches": ["*://*/*controlador.php?acao=controle_unidade_gerar*"],
       "js": [
         "cs_modules/lib.SelecionarMultiplosProcessos.js",
         "cs_modules/lib.RetirarSobrestamentoReabrirEmBloco.js",
@@ -95,7 +98,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=procedimento_visualizar*"],
+      "matches": ["*://*/*controlador.php?acao=procedimento_visualizar*"],
       "all_frames": true,
       "css": ["cs_modules/procedimento_visualizar.css"],
       "js": [
@@ -105,25 +108,11 @@
         "cs_modules/procedimento_visualizar.MostrarAnotacao.js",
         "cs_modules/procedimento_visualizar.AbrirDocumentoNovaAba.js",
         "cs_modules/procedimento_visualizar.CopiarLinkInterno.js",
-        "cs_modules/procedimento_visualizar.Dropzone.js",
-        "cs_modules/procedimento_visualizar.AlterarTitulo.js",
-        "cs_modules/procedimento_visualizar.DocumentoModelo.js",
-        "cs_modules/procedimento_visualizar.AjustarElementosNativos.js",
-        "cs_modules/procedimento_visualizar.ConsultarAtribuicao.js",
         "cs_modules/procedimento_visualizar.js"
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=documento_escolher_tipo*"],
-      "all_frames": true,
-      "css": ["cs_modules/documento_escolher_tipo.css"],
-      "js": [
-        "cs_modules/documento_escolher_tipo.EscolherDocumentoComModelo.js",
-        "cs_modules/documento_escolher_tipo.js"
-      ]
-    },
-    {
-      "matches": ["*://*.br/*controlador.php?acao=arvore_visualizar*"],
+      "matches": ["*://*/*controlador.php?acao=arvore_visualizar*"],
       "all_frames": true,
       "js": [
         "cs_modules/arvore_visualizar.NovoDocumento.js",
@@ -131,7 +120,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=anotacao_registrar*"],
+      "matches": ["*://*/*controlador.php?acao=anotacao_registrar*"],
       "all_frames": true,
       "js": [
         "cs_modules/anotacao_registrar.AtualizarAnotacaoNaArvore.js",
@@ -139,7 +128,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=infra_configurar*"],
+      "matches": ["*://*/*controlador.php?acao=infra_configurar*"],
       "css": ["cs_modules/options_ui/options_ui.css"],
       "js": [
         "cs_modules/infra_configurar.Options_ui.js",
@@ -147,20 +136,11 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=documento_gerar*"],
+      "matches": ["*://*/*controlador.php?acao=documento_gerar*"],
       "all_frames": true,
       "js": [
         "cs_modules/documento_gerar.AumentaTamanho.js",
-        "cs_modules/documento_gerar.GerarDocumentoComModelo.js",
         "cs_modules/documento_gerar.js"
-      ]
-    },
-    {
-      "matches": ["*://*.br/*controlador.php?acao=procedimento_atribuicao_cadastrar*"],
-      "all_frames": true,
-      "js": [
-        "cs_modules/procedimento_atribuicao_cadastrar.OrdenarSelect.js",
-        "cs_modules/procedimento_atribuicao_cadastrar.js"
       ]
     }
   ],
@@ -175,15 +155,9 @@
     "icons/iconRed.png",
     "icons/ect.png",
     "icons/link.png",
-    "icons/modelo.png",
-    "icons/fileUpload.png",
-    "icons/aguarde.gif",
-    "icons/editNote.png",
-    "icons/removeNote.png",
-    "icons/note.png",
-    "icons/interessado.png",
-    "cs_modules/procedimento_controlar.AdicionarOrdenacao.js",
-    "lib/jquery.tablesorter.min.js",
-    "lib/jquery.tablesorter.widgets.min.js"
+
+    // CEPESC:
+    "icons/inbox.png",
+    "icons/outbox.png"
   ]
 }

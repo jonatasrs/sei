@@ -1,3 +1,4 @@
+<!-- CEPESC-->
 <div class="flex-container"><h1 class="seipp-options-title">Configurações do complemento SEI++</h1></div>
 <hr>
 
@@ -102,24 +103,6 @@
         </label>
         <input class="toggle" type="checkbox" data-type="chkbloco" />
     </div>
-    <div class="container flex-container">
-        <label class="toggle-label">
-            Mostrar especificação na visualização detalhada
-            <div class="tooltip">?<span class="tooltiptext">
-                Exibe o conteúdo do campo Especificação do processo abaixo do tipo, na tela de visualização detalhada do Controle de Processos.
-            </span></div>
-        </label>
-        <input class="toggle" type="checkbox" data-type="especificacao" />
-    </div>
-    <div class="container flex-container">
-        <label class="toggle-label">
-            Mostrar especificação na visualização resumida
-            <div class="tooltip">?<span class="tooltiptext">
-                Exibe o conteúdo do campo Especificação do processo em vez do número do processo, na tela de especificação resumida
-            </span></div>
-        </label>
-        <input class="toggle" type="checkbox" data-type="especificacaoresumida" />
-    </div>
     <div class="container">
         <div class="flex-container">
             <label class="toggle-label">
@@ -163,7 +146,26 @@
             </table>
           </fieldset>
         </div>
-	  </div>
+      </div>
+      <!-- CEPESC: -->
+    <div class="container flex-container">
+        <label class="toggle-label">
+            Tipo de processo
+            <div class="tooltip">?<span class="tooltiptext">
+                Mostra coluna de Tipo de Processo nas tabelas de processos.
+            </span></div>
+        </label>
+        <input class="toggle" type="checkbox" data-type="tipo" />
+    </div>
+      <div class="container flex-container">
+        <label class="toggle-label">
+            Especificação
+            <div class="tooltip">?<span class="tooltiptext">
+                Mostra coluna de Especificação nas tabelas de processos.
+            </span></div>
+        </label>
+        <input class="toggle" type="checkbox" data-type="especificacao" />
+    </div>
 </div>
 
 <!-- *********************************************************************** -->
@@ -171,35 +173,13 @@
 <div class="card">
     <div class="container flex-container">
         <label class="toggle-label">
-            Exibir tipo do processo, informações do interessado e quadro com dados do processo
+            Exibir Informações do interessado
             <div class="tooltip">?<span class="tooltiptext">
-                Exibe tipo do processo e nomes dos interessados na árvore de processo. Além disso, mostra quadro com dados do processo na visualização principal do processo, abaixo dos botões de controle.
+                Exibe Informações do interessado na árvore de processo.
             </span></div>
         </label>
         <input class="toggle" type="checkbox" data-type="exibeinfointeressado" />
     </div>
-
-    <div class="container flex-container">
-        <label class="toggle-label">
-          Mostrar mais detalhes dos interessados na árvore
-          <div class="tooltip">
-            ?
-            <span class="tooltiptext">
-              Exibe mais informações (endereço completo) abaixo do nome dos interessados na árvore do processo
-            </span>
-          </div>
-        </label>
-        <input class="toggle" type="checkbox"  data-type="mostrardetalhesinteressados" />
-    </div>
-
-    <div class="container flex-container">
-        <label class="toggle-label">
-          Mostrar para quem o processo está atribuído na árvore
-        </label>
-        <input class="toggle" type="checkbox" name="exibeinfoatribuicao" data-type="exibeinfoatribuicao" />
-    </div>    
-
-
     <div class="container flex-container">
         <label class="toggle-label">
             Exibir botão novo documento
@@ -300,50 +280,6 @@
             </fieldset>
         </div>
   </div>
-
-  <div class="container">
-      <div class="flex-container">
-            <label class="toggle-label">
-                Incluir documentos externos ao arrastar arquivos
-                <div class="tooltip">?<span class="tooltiptext">
-                    Cria automaticamente documentos externos quando se arrasta arquivos para dentro da árvore de documentos na visualização do processo.
-                </span></div>
-            </label>
-            <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
-            <input class="toggle" type="checkbox" id="incluirdocaoarrastar" data-type="incluirdocaoarrastar" />
-      </div>
-        <div id="divConfigIncluirDocAoArrastar" class="seipp-fieldset">
-            <fieldset>
-                <legend>Documento Padrão</legend>
-                <input type="input" id="incluirDocAoArrastar_TipoDocPadrao" value="" style="width: 100%;">
-            </fieldset>
-        </div>
-
-  </div>
-  
-  <div class="container flex-container">
-    <label class="toggle-label">
-        Botão usar documento como modelo
-        <div class="tooltip">?<span class="tooltiptext">
-            Exibe um botão que permite criar um novo documento usando o documento como modelo
-        </span></div>
-    </label>
-    <input class="toggle" type="checkbox" name="usardocumentocomomodelo" data-type="usardocumentocomomodelo" />
-  </div>
-
-  <div class="container flex-container">
-    <label class="toggle-label">
-      Ordenar alfabeticamente a lista de atribuição de processo
-      <div class="tooltip">
-        ?
-        <span class="tooltiptext">
-          Exibe a lista de usuários em ordem alfabética na hora de atribuir um processo.
-        </span>
-      </div>
-    </label>
-    <input class="toggle" type="checkbox" data-type="ordenaratribuirprocesso" />
-  </div>
-
 </div>
 
 <!-- *********************************************************************** -->
@@ -369,15 +305,6 @@
             </span></div>
         </label>
         <input class="toggle" type="checkbox" data-type="menususp" />
-	  </div>
-    <div class="container flex-container">
-        <label class="toggle-label">
-            Remover imagens dos botões
-            <div class="tooltip">?<span class="tooltiptext">
-                Mostra o texto ao invés dos ícones dos botões, facilitando a identificação das funcionalidades.
-            </span></div>
-        </label>
-        <input class="toggle" type="checkbox" data-type="no_buttons">
 	  </div>
 </div>
 

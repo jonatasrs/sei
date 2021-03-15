@@ -2,7 +2,11 @@ const BaseName = "procedimento_controlar";
 
 if (ModuleInit(BaseName, true)) {
   CorrigirTabelas(BaseName);
-  SavedOptions.CheckTypes.forEach(function(element) {
+
+  // CEPESC:
+  addTabs(BaseName);
+
+  SavedOptions.CheckTypes.forEach(function (element) {
     switch (element) {
       case "prazo":
       case "qtddias":
@@ -20,26 +24,19 @@ if (ModuleInit(BaseName, true)) {
       case "pesquisarinformacoes":
         PesquisarInformacoes(BaseName);
         break;
-      case "especificacaoresumida":
-        ListaPorEspecificacao(BaseName);
+      // CEPESC:
+      case "especificacao":
+        IncluirEspecificacao(BaseName);
+        break;
+      case "tipo":
+        IncluirTipo(BaseName);
         break;
       default:
         break;
     }
   }, this);
-
-
-  /* Ao invés de injetar este script, carregá-lo via script tag,
-    para que seja acessível pelas funções cujo contexto é a página, e não a extensão. */
-  addScriptToPage('lib/jquery.tablesorter.min.js');
-  addScriptToPage('lib/jquery.tablesorter.widgets.min.js');
-
-  /* Ao invés de injetar o AdicionarOrdenacao, carregá-lo no contexto da página */
-  addScriptToPage(
-    'cs_modules/procedimento_controlar.AdicionarOrdenacao.js',
-    `AdicionarOrdenacao('${BaseName}');`
-  );
-
+  AdicionarOrdenacao(BaseName);
   SelecionarMultiplosProcessos(BaseName);
   ConfirmarAntesConcluir(BaseName);
+  OrdenarColunas(BaseName);
 }
