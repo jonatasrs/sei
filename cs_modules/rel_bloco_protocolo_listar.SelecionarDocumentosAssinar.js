@@ -24,7 +24,7 @@ function SelecionarDocumentosAssinar(BaseName) {
 
   const linhas = [...tabela.querySelectorAll('tbody > tr[id^="trSeq"]')].map((tr) => ({
     checkbox: tr.querySelector('input[type="checkbox"]'),
-    assinaturas: tr.querySelectorAll('td')[6].textContent.trim(),
+    assinaturas: tr.querySelectorAll('td')[6],
   }));
 
   const opcoes = document.createElement('div');
@@ -45,28 +45,34 @@ function SelecionarDocumentosAssinar(BaseName) {
     e.stopPropagation();
   }, true)
 
+  const toggleCheckbox = (checkbox, checked) => {
+     if (checked !== checkbox.checked) checkbox.click();
+  }
+
   const handleClick = (type) => {
     for (let linha of linhas) {
 
+      const assinaturas = linha.assinaturas.textContent.trim();
+
       /* seleciona todos documentos */
       if (type === 'todos-documentos') {
-        linha.checkbox.checked = true;
+	toggleCheckbox(linha.checkbox, true);
 
       /* desseleciona todos documentos */
       } else if (type === 'nenhum-documento') {
-        linha.checkbox.checked = false;
+        toggleCheckbox(linha.checkbox, false);
 
       /* seleciona somente os documentos que não possuem assinatura */
       } else if (type === 'sem-assinatura') {
-        linha.checkbox.checked = (linha.assinaturas.length === 0);
+        toggleCheckbox(linha.checkbox, (assinaturas.length === 0));
 
       /* seleciona somente os documentos que não possuem a assinatura do usuário */
       } else if (type === 'sem-minha-assinatura') {
-        linha.checkbox.checked = !(linha.assinaturas.length > 0 && linha.assinaturas.includes(nomeUsuario));
+	toggleCheckbox(linha.checkbox, !(assinaturas.length > 0 && assinaturas.includes(nomeUsuario)));
 
       /* seleciona somente os documentos que possuem a assinatura do usuário */
       } else if (type === 'com-minha-assinatura') {
-        linha.checkbox.checked = (linha.assinaturas.length > 0 && linha.assinaturas.includes(nomeUsuario));
+	toggleCheckbox(linha.checkbox, (assinaturas.length > 0 && assinaturas.includes(nomeUsuario)));
       }
 
 
