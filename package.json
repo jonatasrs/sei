@@ -1,0 +1,33 @@
+{
+  "name": "seipp",
+  "version": "1.0.0",
+  "description": "Extensão que adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI",
+  "main": "index.js",
+  "repository": "git@github.com:jonatasrs/sei.git",
+  "author": "Jonatas Evaristo <jonatas.eletrica@gmail.com>",
+  "license": "GPL3",
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true,
+      "webextensions": true,
+      "jquery": true
+    },
+    "extends": [
+      "standard",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 12
+    },
+    "rules": {
+    }
+  }
+}
