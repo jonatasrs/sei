@@ -16,8 +16,20 @@ function SelecionarDocumentosAssinar(BaseName) {
   
   if (!blocoDeAssinatura) return;
 
-  /* busca o nome do usuário do cabeçalho */
-  const nomeUsuario = document.querySelector('#lnkUsuarioSistema').getAttribute('title').match(/(.+)\s-\s/)[1];
+  /* Extrai o nome do usuário do ícone superior. Vem em diferentes formatos, a depender da versão do SEI. */
+  const usuarioCompleto = document.querySelector('#lnkUsuarioSistema').getAttribute('title');
+
+  const UsuarioCompletoRE = 
+    usuarioCompleto.match(/(.+)\s-\s/) || /* NOME COMPLETO - usuário */
+    usuarioCompleto.match(/(.+)\s\(.*/) || /* NOME COMPLETO (usuário/órgão) */
+    null;
+
+  if (!UsuarioCompletoRE) {
+    mconsole.log('Erro: não foi possível obter o nome do usuário.');
+    return;
+  }
+
+  const usuario = UsuarioCompletoRE[1];
 
   /* Adiciona os botões */
   const tabela = document.querySelector('#divInfraAreaTabela');
@@ -56,7 +68,7 @@ function SelecionarDocumentosAssinar(BaseName) {
 
       /* seleciona todos documentos */
       if (type === 'todos-documentos') {
-	toggleCheckbox(linha.checkbox, true);
+        toggleCheckbox(linha.checkbox, true);
 
       /* desseleciona todos documentos */
       } else if (type === 'nenhum-documento') {
@@ -68,11 +80,11 @@ function SelecionarDocumentosAssinar(BaseName) {
 
       /* seleciona somente os documentos que não possuem a assinatura do usuário */
       } else if (type === 'sem-minha-assinatura') {
-	toggleCheckbox(linha.checkbox, !(assinaturas.length > 0 && assinaturas.includes(nomeUsuario)));
+        toggleCheckbox(linha.checkbox, !(assinaturas.length > 0 && assinaturas.includes(usuario)));
 
       /* seleciona somente os documentos que possuem a assinatura do usuário */
       } else if (type === 'com-minha-assinatura') {
-	toggleCheckbox(linha.checkbox, (assinaturas.length > 0 && assinaturas.includes(nomeUsuario)));
+        toggleCheckbox(linha.checkbox, (assinaturas.length > 0 && assinaturas.includes(usuario)));
       }
 
 
