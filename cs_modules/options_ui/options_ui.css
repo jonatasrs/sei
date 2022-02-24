@@ -148,3 +148,7 @@
 .option-save input {
   border-style: solid;
 }
+
+.seipp-dialog-alert {
+  background-color: #f6a828;
+}

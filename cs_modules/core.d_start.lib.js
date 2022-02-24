@@ -37,11 +37,11 @@ const CompName = 'Seipp'
 var seiVersion = [0, 0, 0]
 
 /** Options salvas */
-const SavedOptions = DefaultOptions
+var SavedOptions = DefaultOptions
 
 /** * Verifica se está utilizando o navegador chrome ***************************/
 const isChrome = (typeof browser === 'undefined') /* Chrome: */
-if (isChrome) { var browser = chrome } /* Chrome: */
+var browser = isChrome ? chrome : browser
 
 /** * Url base do sei ***********************************************************/
 function GetBaseUrl () {
@@ -77,12 +77,11 @@ function Init (BaseName) {
 function ModuleInit (BaseName, PageReload = false) {
   const ModName = CompName + '.' + BaseName
   const IsModExec = $("head meta[name='" + ModName + "'").attr('value')
-
-  if (IsModExec != 'true') {
+  if (IsModExec !== 'true') {
     $('head').append("<meta name='" + ModName + "' value='true'>")
     console.log('[' + CompName + ' ' + Date.now() + ']' + BaseName)
     return true
-  } else if (IsModExec == 'true' && PageReload) {
+  } else if (IsModExec === 'true' && PageReload) {
     window.location.assign(window.location.href)
     console.log('[' + CompName + ' ' + Date.now() + ']' + BaseName + 'Reload page')
     return false
@@ -96,9 +95,9 @@ function ModuleInit (BaseName, PageReload = false) {
 function format_cpf (cpf) {
   let mask = cpf
 
-  if (cpf.length == 11) {
+  if (cpf.length === 11) {
     mask = cpf.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
-  } else if (cpf.length == 14) {
+  } else if (cpf.length === 14) {
     mask = cpf.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/,
       '$1.$2.$3/$4-$5')
   } else mask = ''
@@ -108,10 +107,10 @@ function format_cpf (cpf) {
 /** Adicionar link css na página */
 function AdicionarLinkCss (doc, id, href) {
   const head = doc.getElementsByTagName('head')[0]
-  if (head == undefined) return
+  if (head === undefined) return
   /* Sai se for o CKEditor */
   const htitle = head.getElementsByTagName('title')[0]
-  if (htitle != undefined) { if (htitle.getAttribute('data-cke-title') != undefined) return }
+  if (htitle !== undefined) { if (htitle.getAttribute('data-cke-title') !== undefined) return }
   const link = doc.createElement('link')
   link.id = id
   link.rel = 'stylesheet'
@@ -182,7 +181,7 @@ function addScriptToPage (scriptName, codeOnLoad) {
 function EsperaCarregar (Modlog, ElemRaiz, Elem, func, TimeOut = 3000) {
   if (TimeOut <= 0) { Modlog.log('Script não executado: TIMEOUT'); return }
   setTimeout(function () {
-    if ($(ElemRaiz).find(Elem).length == 0) {
+    if ($(ElemRaiz).find(Elem).length === 0) {
       // Modlog.log(ElemRaiz + ": find -> " + Elem + " : carregando...");
       EsperaCarregar(Modlog, ElemRaiz, Elem, func, TimeOut - 100)
     } else {

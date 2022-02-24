@@ -4,7 +4,7 @@ function AdicionarIdentificadorSeipp (BaseName) {
 
   /* Adiciona o identificador ++ no logo do SEI */
   console.log(seiVersion);
-  const idLogo = seiVersion > [4, 0, 0] ? '#divInfraBarraSistemaPadraoE' : '#divInfraBarraSistemaE'
+  const idLogo = seiVersion >= [4, 0, 0] ? '#divInfraBarraSistemaPadraoE' : '#divInfraBarraSistemaE'
   $(idLogo).append('<div id="seipp">++</div>')
 
   if (!isChrome) {
