@@ -35,6 +35,14 @@
     },
     {
       "matches": ["*://*/sei/*","*://*/sip/login.php*"],
+      "run_at": "document_end",
+      "all_frames": true,
+      "js": [
+        "cs_modules/core/end/init.js"
+      ]
+    },
+    {
+      "matches": ["*://*/sei/*","*://*/sip/login.php*"],
       "run_at": "document_idle",
       "css": [
         "lib/jquery-ui/jquery-ui.min.css",

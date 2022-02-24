@@ -5,6 +5,7 @@
 	display: inline;
 	font-size: 14px;
 	filter: brightness(50%);
+  align-self: flex-end;
 }
 .infraTrseippalerta {
 	background-color: yellow;
