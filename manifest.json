@@ -60,19 +60,6 @@
       ]
     },
     {
-      "matches": ["*://*/sei/*"],
-      "run_at": "document_idle",
-      "css": [
-        "cs_modules/core.d_idle/NovaTela/ControleGerencial.css"
-      ],
-      "all_frames": true,
-      "js": [
-        "cs_modules/core.d_idle/Lib/ExtWsSei.js",
-        "cs_modules/core.d_idle/NovaTela/ControleGerencial.js",
-        "cs_modules/core.d_idle/NovaTela/NovaTela.js"
-      ]
-    },
-    {
       "matches": ["*://*.br/*controlador.php?acao=*", "*://*.br/*controlador_externo.php?acao=*"],
       "run_at": "document_idle",
       "all_frames": true,
