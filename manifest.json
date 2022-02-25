@@ -43,7 +43,7 @@
     },
     {
       "matches": ["*://*/sei/*","*://*/sip/login.php*"],
-      "run_at": "document_idle",
+      "run_at": "document_end",
       "css": [
         "lib/jquery-ui/jquery-ui.min.css",
         "lib/jquery.tablesorter/theme.blue.min.css", "lib/jquery.tablesorter/theme.dark.min.css"
