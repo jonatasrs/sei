@@ -25,6 +25,7 @@
 .card_label{
   text-align: center;
   font-weight: bold;
+  font-size: 1.5em;
 }
 .card {
     box-shadow: 0 0px 8px 0 gray;

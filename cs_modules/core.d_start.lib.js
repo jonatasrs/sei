@@ -110,7 +110,7 @@ function AdicionarLinkCss (doc, id, href) {
   if (head === undefined) return
   /* Sai se for o CKEditor */
   const htitle = head.getElementsByTagName('title')[0]
-  if (htitle !== undefined) { if (htitle.getAttribute('data-cke-title') !== undefined) return }
+  if (htitle !== undefined) { if (htitle.getAttribute('data-cke-title') !== null) return }
   const link = doc.createElement('link')
   link.id = id
   link.rel = 'stylesheet'
