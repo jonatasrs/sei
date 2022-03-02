@@ -7,13 +7,13 @@ function DocumentoModelo(BaseName) {
 
     /* procura a url de incluir um novo documento */
     function obterURLNovoDoc() {
-		const ultimaScriptTag = document.getElementsByTagName('script')[document.getElementsByTagName('script').length-1];		
+		const ultimaScriptTag = document.getElementsByTagName('script')[document.getElementsByTagName('script').length-1];
         const regex = /^Nos\[0\].acoes = '<a href="(controlador\.php\?acao=documento_escolher_tipo&acao_origem=arvore_visualizar&acao_retorno=arvore_visualizar.*?)"/m
 		const resultado = regex.exec(ultimaScriptTag.innerHTML);
 		if (resultado === null) return null;
 		return resultado[1];
     };
-    
+
     /* extrai os dados do documento SEI do link fornecido (descrição e documento SEI)  */
     function extrairDadosDocSEI(linkDocumento) {
         const span = linkDocumento.find('span');
@@ -41,7 +41,7 @@ function DocumentoModelo(BaseName) {
         salvarDadosStorage({
             'seipp.procedimento_visualizar.DocumentoModelo.documento': null,
             'seipp.procedimento_visualizar.DocumentoModelo.descricao': null,
-        });        
+        });
     }
 
     /* Adiciona ícone para usar documento como modelo */
@@ -51,7 +51,7 @@ function DocumentoModelo(BaseName) {
         const linksDocumentos = $('#divArvore a[id^="anchor"][target="ifrVisualizacao"][href^="controlador.php?acao=arvore_visualizar&acao_origem=procedimento_visualizar&id_procedimento="]');
 
         linksDocumentos.each(function() {
-            
+
             const linkDocumento = $(this);
 
             const dadosDocSEI = extrairDadosDocSEI(linkDocumento);
@@ -65,7 +65,7 @@ function DocumentoModelo(BaseName) {
 
             const docId = linkDocumento.attr('id').substr(6);
             const botaoId = `seipp-dup${docId}`;
-            
+
             /* verifica se o botão já existe */
             if ($(`img#${botaoId}`).length > 0) return true;
 
@@ -73,7 +73,7 @@ function DocumentoModelo(BaseName) {
             const linkModelo = $('<img>', {
                 id: botaoId,
                 title: 'Usar documento como modelo',
-                src: browser.extension.getURL('icons/modelo.png'),
+                src: browser.runtime.getURL('icons/modelo.png'),
             });
 
             /* adiciona o ícone ao lado do link do documento  */
@@ -89,9 +89,9 @@ function DocumentoModelo(BaseName) {
 
         });
     }
-    
+
     ExecutarNaArvore(mconsole, adicionarIcones);
-    
+
     /* toda vez que carrega a árvore, zera a referência do documento modelo */
     limparDocumentoModelo();
 }

@@ -115,7 +115,7 @@ function AdicionarLinkCss (doc, id, href) {
   link.id = id
   link.rel = 'stylesheet'
   link.type = 'text/css'
-  link.href = browser.extension.getURL(href)
+  link.href = browser.runtime.getURL(href)
   link.media = 'all'
   head.appendChild(link)
 }
@@ -168,7 +168,7 @@ function addScriptToPage (scriptName, codeOnLoad) {
       execOnPage(codeOnLoad)
     }
   }
-  script.src = chrome.extension.getURL(scriptName)
+  script.src = chrome.runtime.getURL(scriptName)
 }
 
 /**

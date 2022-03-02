@@ -3,7 +3,7 @@ function Options_ui (BaseName) {
 
   $('#divInfraAreaTelaD').append("<div id='seipp-div-options-ui'/>")
   $('#seipp-div-options-ui').load(
-    browser.extension.getURL('cs_modules/options_ui/options_ui.html'), function () {
+    browser.runtime.getURL('cs_modules/options_ui/options_ui.html'), function () {
       $('#divInfraBarraComandosSuperior input').hide()
       $('.seipp-options-title').append(' - Versão: ' + browser.runtime.getManifest().version)
 

@@ -119,15 +119,15 @@ function ConsultarInteressado(BaseName) {
       <div class='seipp-separador'><span>Interessado(s)</span></div>
       <div id='seipp_interessados'></div>
     `);
-  
+
   }
 
   function DetalheProcesso_Preencher() {
-    
+
     /* tipo do processo */
     $("#seipp_tipo").attr("title", "Tipo de processo");
     $("#seipp_tipo p.seipp-tipo-processo").text(processo.tipo);
-    
+
     /* dados dos interessados */
     $("#seipp_interessados").attr("title", "Interessado(s)");
     if (processo.interessados.length > 0) {
@@ -135,7 +135,7 @@ function ConsultarInteressado(BaseName) {
         $('#seipp_interessados').append(`
           <div data-id="${interessado.id}">
             <p class="seipp-interessado">
-              <img height="10" width="12" src="${browser.extension.getURL('icons/interessado.png')}"/>
+              <img height="10" width="12" src="${browser.runtime.getURL('icons/interessado.png')}"/>
               <span>${interessado.nome}</span>
             </p>
           </div>

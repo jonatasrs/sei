@@ -50,16 +50,16 @@ function VerificarBlocoAssinatura (BaseName) {
 
     if (numBlocos > 0) {
       if (numDispParaArea > 0) {
-        html = '<img src=' + browser.extension.getURL('icons/iconRed.png') + " title='Blocos disponibilizados para minha área: " + numDispParaArea + "'>"
+        html = '<img src=' + browser.runtime.getURL('icons/iconRed.png') + " title='Blocos disponibilizados para minha área: " + numDispParaArea + "'>"
       }
       if (numDispPelaArea > 0) {
-        html += '<img src=' + browser.extension.getURL('icons/iconBlue.png') + " title='Blocos disponibilizados pela minha área: " + numDispPelaArea + "'>"
+        html += '<img src=' + browser.runtime.getURL('icons/iconBlue.png') + " title='Blocos disponibilizados pela minha área: " + numDispPelaArea + "'>"
       }
       if (numRetornado > 0) {
-        html += '<img src=' + browser.extension.getURL('icons/iconGreen.png') + " title='Blocos retornados: " + numRetornado + "'>"
+        html += '<img src=' + browser.runtime.getURL('icons/iconGreen.png') + " title='Blocos retornados: " + numRetornado + "'>"
       }
       if (numAbertos > 0) {
-        html += '<img src=' + browser.extension.getURL('icons/iconYellow.png') + " title='Blocos abertos: " + numAbertos + "'>"
+        html += '<img src=' + browser.runtime.getURL('icons/iconYellow.png') + " title='Blocos abertos: " + numAbertos + "'>"
       }
 
       localizaItemBloco().find('a').html('<b> Blocos de Assinatura </b>' + html)

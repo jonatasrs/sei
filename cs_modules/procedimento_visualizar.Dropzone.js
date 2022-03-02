@@ -1,6 +1,6 @@
 var Dropzone = {};
 
-/* 
+/*
 	Dropzone.utils
 	Objeto com algumas funções úteis
 */
@@ -12,10 +12,10 @@ Dropzone.utils = {
 
 	hoje: function() {
 		var dataHoje = new Date();
-		return Dropzone.utils.formatarNumero(dataHoje.getDate()) + 
-			'/' + 
-			Dropzone.utils.formatarNumero((dataHoje.getMonth() + 1)) + 
-			'/' + 
+		return Dropzone.utils.formatarNumero(dataHoje.getDate()) +
+			'/' +
+			Dropzone.utils.formatarNumero((dataHoje.getMonth() + 1)) +
+			'/' +
 			dataHoje.getFullYear();
 	},
 
@@ -35,13 +35,13 @@ Dropzone.utils = {
 	},
 
 	// encodeURIComponent para ISO-8859-1
-	escapeComponent: function(str) {  
+	escapeComponent: function(str) {
 		return escape(str).replace(/\+/g, '%2B');
-	}	
+	}
 };
 
 
-/* 
+/*
 	Dropzone.ui
 	IIFE que controla o estado da view
 */
@@ -49,7 +49,7 @@ Dropzone.utils = {
 Dropzone.ui = (function() {
 
 	var ui = {};
-	
+
 	ui.wrapper = $(`
 		<div class='dropzone-wrapper'>
 			<div class='dropzone-bg'></div>
@@ -64,12 +64,12 @@ Dropzone.ui = (function() {
 	ui.label = ui.wrapper.find('.dropzone-label');
 
 	function mudarIcone(icone) {
-		ui.icon.attr('src', browser.extension.getURL(`icons/${icone}`));
+		ui.icon.attr('src', browser.runtime.getURL(`icons/${icone}`));
 	}
 
 	function mudarTexto(texto) {
 		ui.label.text(texto);
-	}	
+	}
 
 	function mudarProgresso(progresso) {
 		mudarTexto('Criando documentos...' + progresso + '%');
@@ -102,11 +102,11 @@ Dropzone.ui = (function() {
     		}
     		Dropzone.jobs.executar();
 		});
-		
+
 		window.addEventListener('dragover', function(evt) {
 			evt.preventDefault();
-		});  
-		
+		});
+
 		window.addEventListener('dragenter', function(evt) {
 			evt.preventDefault();
 			if (!checkarContemArquivos(evt.dataTransfer)) return;
@@ -118,7 +118,7 @@ Dropzone.ui = (function() {
 			if (evt.relatedTarget === null) {
 				ui.wrapper.hide();
 			}
-		});		
+		});
 
 	};
 
@@ -130,7 +130,7 @@ Dropzone.ui = (function() {
 })();
 
 
-/* 
+/*
 	Dropzone.jobs
 	IIFE que gerencia os jobs de inserção de documentos
 */
@@ -197,7 +197,7 @@ Dropzone.jobs = (function() {
 })();
 
 
-/* 
+/*
 	Dropzone.http
 	Função que deve ser construída (new) para cada upload.
 	Faz uma série de requisições AJAX que permite criar o documento externo com o anexo informado como parâmetro.
@@ -209,7 +209,7 @@ Dropzone.http = function(arquivoParaUpload, fnNovoStatus) {
 
 Dropzone.http.prototype.passos = {
 
-	/* 
+	/*
 		1º passo:
 			- ler a url que abre a página 'Incluir Documento'
 			- abrir a página
@@ -217,7 +217,7 @@ Dropzone.http.prototype.passos = {
 	'1': {
 
 		obterUrl: function() {
-			var ultimaScriptTag = document.getElementsByTagName('script')[document.getElementsByTagName('script').length-1];		
+			var ultimaScriptTag = document.getElementsByTagName('script')[document.getElementsByTagName('script').length-1];
 			var regex = /^Nos\[0\].acoes = '<a href="(.*?)" tabindex="451"/m;
 			var resultado = regex.exec(ultimaScriptTag.innerHTML);
 			if (resultado === null) return null;
@@ -231,7 +231,7 @@ Dropzone.http.prototype.passos = {
 				this.fnNovoStatus('erro');
 				return;
 			}
-		  	$.ajax({ 
+		  	$.ajax({
 		  		url: GetBaseUrl() + urlDocExterno,
 		  		success: function(resposta) {
 		  			this.passos['2'].abrirPagina.call(this,resposta);
@@ -240,19 +240,19 @@ Dropzone.http.prototype.passos = {
 		  			Dropzone.log("Erro ao inserir documento externo: ocorreu um erro ao abrir a página de inserir documento.");
 					this.fnNovoStatus('erro');
 		  		}.bind(this),
-		  	});		
+		  	});
 		},
 
 	},
 
 
 
-	/* 
+	/*
 		2º passo:
 			- ler a url que aponta para o tipo de documento 'Externo'
 			- abrir a página
 	*/
-	'2': { 
+	'2': {
 
 		obterUrl: function(resposta) {
 			var regex = /<a href="(.*?)" tabindex="1003" class="ancoraOpcao"> Externo<\/a>/m
@@ -288,13 +288,13 @@ Dropzone.http.prototype.passos = {
 			- extrair a url para submeter o upload
 			- faz o upload do arquivo
 	*/
-	'3': { 
+	'3': {
 
 		obterURLUpload: function(resposta) {
 			var regex = /^\s*objUpload = new infraUpload\('frmAnexos','(.+?)'\);/m;
 			var resultado = regex.exec(resposta)
 			if (resultado === null) return null;
-			return resultado[1];			
+			return resultado[1];
 		},
 
 		obterUsuarioEUnidade: function(resposta) {
@@ -324,7 +324,7 @@ Dropzone.http.prototype.passos = {
 				Dropzone.log("Erro ao inserir documento externo: não foi localizada a URL para enviar o arquivo.");
 				this.fnNovoStatus('erro');
 				return;
-			}			
+			}
 			var data = new FormData();
 			data.append('filArquivo', this.arquivoParaUpload, this.arquivoParaUpload.name);
 			$.ajax({
@@ -343,33 +343,33 @@ Dropzone.http.prototype.passos = {
 						}.bind(this);
 					}
 					return xhr;
-				}.bind(this),				
+				}.bind(this),
 				success: function(uploadIdentificador) {
 					var usuarioEUnidade = this.passos['3'].obterUsuarioEUnidade(resposta);
 					if (usuarioEUnidade === null) {
 						Dropzone.log("Erro ao inserir documento externo: não foram localizados dados de usuário/unidade dentro da página.");
 						this.fnNovoStatus('erro');
 						return;
-					}						
+					}
 					var hdnAnexos = this.passos['3'].gerarHdnAnexos(usuarioEUnidade, uploadIdentificador);
 					this.passos['4'].submeterFormulario.call(this, hdnAnexos, resposta);
 				}.bind(this),
 		  		error: function() {
 		  			Dropzone.log("Erro ao inserir documento externo: ocorreu um erro ao realizar a operação de upload.");
 					this.fnNovoStatus('erro');
-		  		}.bind(this),				
-			});			
+		  		}.bind(this),
+			});
 		},
 
 	},
 
 
-	/* 
+	/*
 		4º passo:
 			- setar os dados do formulário da página do novo documento externo
 			- submeter o formulário
 	*/
-	'4': { 
+	'4': {
 
 		/* dá preferência por documento que seja denominado Anexo. Se não, escolhe o primeiro. */
 		escolherTipoDocumentoExterno: function(select) {
@@ -389,7 +389,7 @@ Dropzone.http.prototype.passos = {
 			var form = {};
 			form['hdnInfraTipoPagina'] = $resposta.find('#hdnInfraTipoPagina').attr('value');
 			form['hdnInfraTipoPagina'] = $resposta.find('#hdnInfraTipoPagina').attr('value');
-			form['selSerie'] = this.passos['4'].escolherTipoDocumentoExterno($resposta.find('#selSerie')); 
+			form['selSerie'] = this.passos['4'].escolherTipoDocumentoExterno($resposta.find('#selSerie'));
 			form['hdnStaDocumento'] = $resposta.find('#hdnStaDocumento').attr('value');
 			form['hdnIdUnidadeGeradoraProtocolo'] = $resposta.find('#hdnIdUnidadeGeradoraProtocolo').attr('value');
 			form['hdnIdProcedimento'] = $resposta.find('#hdnIdProcedimento').attr('value');
@@ -421,14 +421,14 @@ Dropzone.http.prototype.passos = {
 				hdnAssuntoIdentificador: '',
 			}
 
-			/* montar post body */		
+			/* montar post body */
 			var postData = '';
 			for (var k in postFields) {
 				if (postData !== '') postData = postData + '&';
 				var valor = Dropzone.utils.escapeComponent(postFields[k]);
 				postData = postData + k + '=' + valor;
 			}
-			
+
 			return {
 				url: urlParaEnvio,
 				data: postData,
@@ -451,16 +451,16 @@ Dropzone.http.prototype.passos = {
 				data: dados.data,
 				success: function(data, textStatus, xhr) {
 					if (this.passos['4'].paginaRetornouCorretamente.call(this, data)) {
-						this.fnNovoStatus('completo', 1);	
+						this.fnNovoStatus('completo', 1);
 					} else {
 		  				Dropzone.log("Erro ao inserir documento externo: ocorreu um erro ao concluir a inserção do novo documento (redirecionou para a página errada).");
-						this.fnNovoStatus('erro');	
+						this.fnNovoStatus('erro');
 					}
 				}.bind(this),
 		  		error: function() {
 		  			Dropzone.log("Erro ao inserir documento externo: ocorreu um erro ao concluir a inserção do novo documento.");
 					this.fnNovoStatus('erro');
-		  		}.bind(this),				
+		  		}.bind(this),
 			});
 		},
 

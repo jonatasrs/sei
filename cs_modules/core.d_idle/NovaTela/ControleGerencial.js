@@ -636,7 +636,7 @@ function ControleGerencial () {
       $tdacoes.find("div[tipo='personalizada']").remove()
       CgpAcoesPersonalizadas.forEach(acao => {
         const $acao_personalizada = $('<div/>').attr('tipo', 'personalizada')
-        $acao_personalizada.append($('<img/>').attr('src', acao.imagem == '' ? browser.extension.getURL('icons/check.png') : acao.imagem))
+        $acao_personalizada.append($('<img/>').attr('src', acao.imagem == '' ? browser.runtime.getURL('icons/check.png') : acao.imagem))
           .attr('title', acao.nome)
           .on('click', function () {
             ExecutarAcoes(acao.cmd_acoes, $tdacoes.parent()).then(r => {

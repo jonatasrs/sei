@@ -23,7 +23,7 @@ function AutopreencherAndamento(BaseName) {
   }
 
   function criaLink() {
-    var link = $('<a><img src="' + browser.extension.getURL("icons/ect.png") + '" title="Preencher atualização de andamento (abra a tela de atualizar andamento antes de clicar!)"> </img></a>');
+    var link = $('<a><img src="' + browser.runtime.getURL("icons/ect.png") + '" title="Preencher atualização de andamento (abra a tela de atualizar andamento antes de clicar!)"> </img></a>');
     var sp = $(this).find("span");
     if (sp.length == 0) return;
     if ($("#" + idmod + $(this).attr("id").substr(6)).length != 0) return;

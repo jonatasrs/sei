@@ -23,7 +23,7 @@ function CopiarLinkInterno (BaseName) {
       $imgCopyLink
         .attr("id", idmod + id)
         .attr("title", "Copiar Link Interno para Processo/Documento")
-        .attr("src", browser.extension.getURL("icons/link.png"))
+        .attr("src", browser.runtime.getURL("icons/link.png"))
         .on("click", function () {
           var $copy = $("<input>");
           $("body").append($copy);

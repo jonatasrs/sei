@@ -5,13 +5,13 @@ function ConsultarAtribuicao(BaseName) {
   let unidadeAtual = obter_UnidadeAtual();
   if (!unidadeAtual) return;
   let dadosAtribuicao = obter_Atribuicao(unidadeAtual);
-  if (!dadosAtribuicao) return;  
+  if (!dadosAtribuicao) return;
   ConsultarInteressado_Criar(unidadeAtual, dadosAtribuicao);
-  
+
   function ConsultarInteressado_Criar(unidadeAtual, dadosAtribuicao) {
 
     const container = $("#container").length > 0 ? $("#container") : $("body");
- 
+
     container.append(`
       <div class='seipp-separador'><span>${dadosAtribuicao.sigiloso ? "Credencial para" : "Atribuído para"}</span></div>
       <div id='seipp_atribuicao'></div>
@@ -32,7 +32,7 @@ function ConsultarAtribuicao(BaseName) {
                 height: 10,
                 width: 12,
               },
-              src: browser.extension.getURL('icons/interessado.png')
+              src: browser.runtime.getURL('icons/interessado.png')
             }),
             $('<span />', { text: usuario.login }),
           ],
@@ -46,7 +46,7 @@ function ConsultarAtribuicao(BaseName) {
           class: 'seipp-atribuido-para seipp-atribuido-para-mais',
           text: `+${dadosAtribuicao.mais}`,
           title: `Mais ${dadosAtribuicao.mais} usuário(s) de outra(s) área(s).`,
-        }));        
+        }));
       }
     }
 
@@ -62,10 +62,10 @@ function ConsultarAtribuicao(BaseName) {
 
   function obter_Atribuicao(unidade) {
     const ultimaScriptTag = document.getElementsByTagName('script')[document.getElementsByTagName('script').length-1];
-    
+
     /* verificar se processo está aberto em alguma unidade */
     if (!/^Nos\[0\].html = 'Processo aberto/m.test(ultimaScriptTag.innerHTML)) return null;
-    
+
     /* extrai o que foi atribuído para a variável Nos[0].html */
     const rUsuarios = /^Nos\[0\].html = '(.*)';/m.exec(ultimaScriptTag.innerHTML);
     if (!rUsuarios || rUsuarios.length !== 2) return null;
@@ -82,7 +82,7 @@ function ConsultarAtribuicao(BaseName) {
       resultado = regex.exec(atribuicaoStr);
       if (resultado === null || resultado.length !== 3) return { sigiloso: false, usuarios: [] }; /* processo está aberto na unidade do usuário, mas sem atribuição */
       return { sigiloso: false, usuarios: [{ nome: resultado[1], login: resultado[2] }] };
-      
+
       /* caso de processos sigilosos, busca pro credenciais */
     } else if (/(Processo aberto com os usuários:|Processo aberto somente com o usuário)/m.test(html)) {
       let regex = /(?<=<a alt=".*?" title="(.*?)" class="ancoraSigla">(.*?))(?=<\/a>&nbsp;\/&nbsp;<a alt=".*?" title=".*?" class="ancoraSigla">(.*?)<\/a>)/g;
@@ -105,5 +105,5 @@ function ConsultarAtribuicao(BaseName) {
       return null;
     }
   }
-   
+
 }

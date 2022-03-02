@@ -43,16 +43,16 @@ function MostrarAnotacao(BaseName) {
       mconsole.log("hdnInfraTipoPagina: " + hdnInfraTipoPagina);
       mconsole.log("frmAnotacaoCadastro: " + hdnInfraTipoPagina);
       mconsole.log("postUrl: " + postUrl);
-     
+
       $('#seipp_div_anotacao').append(`
         <div class='seipp_sem_anotacao'>
-          <img class='seipp_icone_nota' src='${browser.extension.getURL('icons/note.png')}'/>
+          <img class='seipp_icone_nota' src='${browser.runtime.getURL('icons/note.png')}'/>
           <p>Este processo não possui anotações. <a href='#' class='seipp_anotacao_criar_nota'>Clique aqui</a> para criar uma nota.</p>
         </div>
         <div class='seipp_anotacao'>
           <div class='seipp_anotacao_botoes'>
-            <a href='#' class='seipp_anotacao_botao seipp_anotacao_btn_remover'><img class='seipp_anotacao_icone' src='${browser.extension.getURL('icons/removeNote.png')}'/></a>
-            <a href='#' class='seipp_anotacao_botao seipp_anotacao_btn_editar'><img class='seipp_anotacao_icone' src='${browser.extension.getURL('icons/editNote.png')}'/></a>
+            <a href='#' class='seipp_anotacao_botao seipp_anotacao_btn_remover'><img class='seipp_anotacao_icone' src='${browser.runtime.getURL('icons/removeNote.png')}'/></a>
+            <a href='#' class='seipp_anotacao_botao seipp_anotacao_btn_editar'><img class='seipp_anotacao_icone' src='${browser.runtime.getURL('icons/editNote.png')}'/></a>
           </div>
           <p class='seipp_anotacao_texto'>${txanotacao}</p>
           <div class='seipp_anotacao_editar'>
@@ -74,22 +74,22 @@ function MostrarAnotacao(BaseName) {
       if (prioridade) {
         $("div.seipp_anotacao").addClass("seipp-anotacao-red");
       }
-      $('a.seipp_anotacao_btn_editar, a.seipp_anotacao_criar_nota').on('click', function(e) { 
+      $('a.seipp_anotacao_btn_editar, a.seipp_anotacao_criar_nota').on('click', function(e) {
         editarNota();
         e.preventDefault();
       });
-      
-      $('button.seipp_anotacao_btn_cancelar_editar').on('click', function(e) { 
+
+      $('button.seipp_anotacao_btn_cancelar_editar').on('click', function(e) {
         cancelarEditarNota();
         e.preventDefault();
       });
-      
-      $('button.seipp_anotacao_btn_salvar_edicao').on('click', function(e) { 
+
+      $('button.seipp_anotacao_btn_salvar_edicao').on('click', function(e) {
         salvarNota();
         e.preventDefault();
       });
-      
-      $('a.seipp_anotacao_btn_remover').on('click', function(e) { 
+
+      $('a.seipp_anotacao_btn_remover').on('click', function(e) {
         removerNota();
         e.preventDefault();
       });
@@ -103,7 +103,7 @@ function MostrarAnotacao(BaseName) {
       $('div.seipp_sem_anotacao').show();
     } else {
       $('div.seipp_sem_anotacao').hide();
-      $('div.seipp_anotacao').show();       
+      $('div.seipp_anotacao').show();
     }
   }
 
@@ -134,7 +134,7 @@ function MostrarAnotacao(BaseName) {
   }
 
 	// Kind of encodeURIComponent for ISO-8859-1
-	function escapeComponent(str) {  
+	function escapeComponent(str) {
     return escape(str).replace(/\+/g, '%2B');
   }
 
