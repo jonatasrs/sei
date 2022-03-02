@@ -3,7 +3,7 @@
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "4.7.1",
+  "version": "4.8",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/sei_++.png"},
@@ -12,7 +12,7 @@
   "applications": {
     "gecko": {
       "id": "jonatas@gov",
-      "strict_min_version": "52.0"
+      "strict_min_version": "60.0"
     }
   },
 
@@ -34,11 +34,36 @@
       ]
     },
     {
+      "matches": ["*://*/sei/*","*://*/sip/login.php*"],
+      "run_at": "document_end",
+      "all_frames": true,
+      "js": [
+        "cs_modules/core/end/init.js"
+      ]
+    },
+    {
+      "matches": ["*://*/sei/*","*://*/sip/login.php*"],
+      "run_at": "document_end",
+      "css": [
+        "lib/jquery-ui/jquery-ui.min.css",
+        "lib/jquery.tablesorter/theme.blue.min.css", "lib/jquery.tablesorter/theme.dark.min.css"
+      ],
+      "all_frames": true,
+      "js": [
+        "lib/jquery-3.2.1.min.js",
+        "lib/jquery-ui/jquery-ui.min.js",
+        "lib/jquery.tablesorter/jquery.tablesorter.min.js",
+        "lib/jquery.tablesorter/jquery.tablesorter.widgets.min.js",
+        "lib/jquery.tablesorter/widget-columnSelector.min.js",
+        "lib/Chart.min.js",
+        "cs_modules/core.d_idle/Lib/Lib.js"
+      ]
+    },
+    {
       "matches": ["*://*.br/*controlador.php?acao=*", "*://*.br/*controlador_externo.php?acao=*"],
       "run_at": "document_idle",
       "all_frames": true,
       "js": [
-        "lib/jquery-3.2.1.min.js",
         "cs_modules/core.d_idle.PontoControleCores.js",
         "cs_modules/core.d_idle.AdicionarIdentificadorSeipp.js",
         "cs_modules/core.d_idle.MenuSuspenso.js",
@@ -62,7 +87,6 @@
     {
       "matches": ["*://*.br/*controlador.php?acao=procedimento_controlar*"],
       "js": [
-        "lib/jquery.tablesorter.min.js", "lib/jquery.tablesorter.widgets.min.js",
         "cs_modules/procedimento_controlar.CorrigirTabelas.js",
         "cs_modules/procedimento_controlar.ConfirmarAntesConcluir.js",
         "cs_modules/procedimento_controlar.IncluirCalculoPrazos.js",
@@ -184,7 +208,7 @@
     "icons/note.png",
     "icons/interessado.png",
     "cs_modules/procedimento_controlar.AdicionarOrdenacao.js",
-    "lib/jquery.tablesorter.min.js",
-    "lib/jquery.tablesorter.widgets.min.js"
+    "lib/jquery.tablesorter/jquery.tablesorter.min.js",
+    "lib/jquery.tablesorter/jquery.tablesorter.widgets.min.js"
   ]
 }

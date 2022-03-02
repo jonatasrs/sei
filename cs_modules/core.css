@@ -4,8 +4,16 @@
 #seipp {
 	display: inline;
 	font-size: 14px;
-	filter: brightness(50%);
+  align-self: flex-end;
 }
+#seipp a {
+  font-size: unset;
+  font-weight: unset;
+  color: unset;
+  text-decoration: unset;
+  cursor: unset;
+}
+
 .infraTrseippalerta {
 	background-color: yellow;
 }
