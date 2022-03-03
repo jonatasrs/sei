@@ -3,7 +3,7 @@
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "4.8.1",
+  "version": "4.8.2",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/sei_++.png"},
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "matches": ["*://*/sei/*","*://*/sip/login.php*"],
+      "matches": ["*://*.br/sei/*", "*://*.br/sip/*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
       "run_at": "document_end",
       "all_frames": true,
       "js": [
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "matches": ["*://*/sei/*","*://*/sip/login.php*"],
+      "matches": ["*://*.br/sei/*", "*://*.br/sip/*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
       "run_at": "document_end",
       "css": [
         "lib/jquery-ui/jquery-ui.min.css",
