@@ -31,6 +31,8 @@ export async function listarProcessos () {
   const doc = await fetchListaDetalhada()
   const table = doc.querySelector('#tblProcessosDetalhado')
 
+  if (!table) return []
+
   const rows = table.querySelectorAll('tbody > tr[id]')
 
   const json = [...rows].map(row => {
