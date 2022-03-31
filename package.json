@@ -27,7 +27,10 @@
     "parserOptions": {
       "ecmaVersion": 12
     },
-    "rules": {}
+    "rules": {},
+    "globals": {
+      "browser": true
+    }
   },
   "scripts": {
     "start": "web-ext run --keep-profile-changes --firefox-profile=seipp-profile-testes"

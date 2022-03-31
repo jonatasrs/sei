@@ -214,6 +214,8 @@ function Options_ui (BaseName) {
     const usardocumentocomomodelo = $("input[name='usardocumentocomomodelo']").is(':checked')
     const exibeinfoatribuicao = $("input[name='exibeinfoatribuicao']").is(':checked')
 
+    const baseUrl = document.location.origin + document.location.pathname.replace('controlador.php', '')
+
     function onError (error) {
       console.log(`Error: ${error}`)
     }
@@ -221,7 +223,22 @@ function Options_ui (BaseName) {
       console.log('OK')
     }
 
-    const OptionsToSave = { theme, CheckTypes, formato, tipoConferencia, nivelAcesso, hipoteseLegal, filtraporatribuicao, ConfiguracoesCores, ConfPrazo, ConfDias, incluirDocAoArrastar_TipoDocPadrao, usardocumentocomomodelo, exibeinfoatribuicao }
+    const OptionsToSave = {
+      theme,
+      CheckTypes,
+      formato,
+      tipoConferencia,
+      nivelAcesso,
+      hipoteseLegal,
+      filtraporatribuicao,
+      ConfiguracoesCores,
+      ConfPrazo,
+      ConfDias,
+      incluirDocAoArrastar_TipoDocPadrao,
+      usardocumentocomomodelo,
+      exibeinfoatribuicao,
+      baseUrl
+    }
     if (isChrome) {
       browser.storage.local.set(OptionsToSave)
     } else {
