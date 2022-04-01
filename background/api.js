@@ -1,3 +1,4 @@
+import { getLocalStorage } from '../lib/core/tools.js'
 import { fetchSei, getActionUrl } from './fetchSei.js'
 
 async function fetchListaDetalhada (newUrl = null) {
@@ -18,7 +19,7 @@ async function fetchListaDetalhada (newUrl = null) {
   if (tipoVisualizacao === 'D') {
     return doc
   } else if (tipoVisualizacao === 'R' && newUrl === null) {
-    const storage = await browser.storage.local.get()
+    const storage = await getLocalStorage()
 
     const formUrl = storage.baseUrl + form.getAttribute('action')
     return fetchListaDetalhada(formUrl)

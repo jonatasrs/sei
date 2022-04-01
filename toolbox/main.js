@@ -1,19 +1,24 @@
-import '../lib/core.js'
+import '../lib/core/core.js'
+import { getLocalStorage } from '../lib/core/tools.js'
 
 export async function checkEnable () {
-  const storage = await browser.storage.local.get()
+  const storage = await getLocalStorage()
   if (storage.CheckTypes?.includes('notificacoes') && storage.baseUrl) {
-    setStatus(true)
+    setEnabled(true)
+    document.querySelector('#processo-novo > span').textContent = storage.qtdNaoVisualizado || 0
   } else {
-    setStatus(false)
+    setEnabled(false)
   }
 
   if (storage.baseUrl) {
+    document.querySelector('#btn-processos').style.display = null
     document.querySelector('#btn-processos').addEventListener('click', () => openControleProcesso(storage.baseUrl))
+  } else {
+    document.querySelector('#btn-processos').style.display = 'none'
   }
 }
 
-function setStatus (enabled = false) {
+function setEnabled (enabled = false) {
   const status = document.querySelector('#status-notify')
   status.textContent = enabled ? 'Ativado' : 'Desativado'
   status.className = enabled ? 'green' : 'red'

@@ -1,5 +1,5 @@
-import '../lib/core.js'
-import { handleInstalled } from './tools.js'
+import '../lib/core/core.js'
+import { handleInstalled } from '../lib/core/tools.js'
 import { storageServices, initServices } from './services.js'
 
 /******************************************************************************

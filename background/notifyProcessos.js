@@ -1,20 +1,22 @@
+import { browserActionGetBadgeText, getAlarms } from '../lib/core/tools.js'
 import { listarProcessos } from './api.js'
 import { notify } from './notify.js'
 
-const periodInMinutes = 5
+const periodInMinutes = 0.16
 const alarmName = 'notifyProcessos'
 
 async function notifyProcessos () {
   const lista = await listarProcessos()
 
-  const naoVisualizado = lista.some(e => !e.processoVisualizado)
-  if (naoVisualizado) {
-    const count = Number(await browser.browserAction.getBadgeText({}))
+  const qtdNaoVisualizado = lista.filter(e => !e.processoVisualizado).length
+  if (qtdNaoVisualizado) {
+    const count = Number(await browserActionGetBadgeText({}))
     if (!count) {
       notify({ title: 'Processos', description: 'Novo processo' })
       browser.browserAction.setBadgeText({ text: '1' })
     }
   }
+  browser.storage.local.set({ qtdNaoVisualizado })
 }
 
 async function alarmNotifyProcessos (alarmInfo) {
@@ -31,7 +33,7 @@ async function alarmNotifyProcessos (alarmInfo) {
 }
 
 export async function createAlarm () {
-  const alarm = await browser.alarms.get(alarmName)
+  const alarm = await getAlarms(alarmName)
   if (!alarm) {
     browser.alarms.onAlarm.addListener(alarmNotifyProcessos)
     browser.alarms.create(alarmName, { periodInMinutes })

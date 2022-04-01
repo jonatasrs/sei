@@ -1,3 +1,5 @@
+import { getLocalStorage } from '../lib/core/tools.js'
+
 export async function fetchSei (url, options = { method: 'GET' }) {
   const resp = await fetch(url, options)
   if (resp.ok) {
@@ -9,7 +11,7 @@ export async function fetchSei (url, options = { method: 'GET' }) {
 }
 
 export async function getActionUrl (actionName) {
-  const storage = await browser.storage.local.get()
+  const storage = await getLocalStorage()
   const parser = new DOMParser()
   const html = await fetchSei(storage.baseUrl)
   const doc = parser.parseFromString(html, 'text/html')
