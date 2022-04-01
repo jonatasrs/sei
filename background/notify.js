@@ -5,7 +5,7 @@
 export function notify (message) {
   browser.notifications.create({
     type: 'basic',
-    iconUrl: browser.extension.getURL('icons/seipp.png'),
+    iconUrl: browser.runtime.getURL('icons/seipp.png'),
     title: message.title,
     message: message.description
   })
