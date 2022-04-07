@@ -1,8 +1,8 @@
-import { browserActionGetBadgeText, getAlarms } from '../lib/core/tools.js'
+import { browserActionGetBadgeText, clearAlarm, getAlarms } from '../lib/core/tools.js'
 import { listarProcessos } from './api.js'
 import { notify } from './notify.js'
 
-const periodInMinutes = 0.16
+const periodInMinutes = 5
 const alarmName = 'notifyProcessos'
 
 async function notifyProcessos () {
@@ -23,7 +23,7 @@ async function alarmNotifyProcessos (alarmInfo) {
   try {
     await notifyProcessos()
   } catch (error) {
-    const result = await clearAlarm()
+    const result = await disableNotifyProcessos()
     console.error(alarmInfo.name, result, error)
     notify({
       title: 'Erro ao checar processos',
@@ -32,14 +32,17 @@ async function alarmNotifyProcessos (alarmInfo) {
   }
 }
 
-export async function createAlarm () {
+export async function enableNotifyProcessos () {
   const alarm = await getAlarms(alarmName)
   if (!alarm) {
     browser.alarms.onAlarm.addListener(alarmNotifyProcessos)
     browser.alarms.create(alarmName, { periodInMinutes })
+    await alarmNotifyProcessos({ name: alarmName })
   }
+  console.log(alarmName, 'enabled')
 }
 
-export async function clearAlarm () {
-  return await browser.alarms.clear(alarmName)
+export async function disableNotifyProcessos () {
+  console.log(alarmName, 'disabled')
+  return await clearAlarm(alarmName)
 }

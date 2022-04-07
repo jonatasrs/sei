@@ -1,5 +1,5 @@
 import { getLocalStorage } from '../lib/core/tools.js'
-import { createAlarm, clearAlarm } from './notifyProcessos.js'
+import { enableNotifyProcessos, disableNotifyProcessos } from './notifyProcessos.js'
 
 export function storageServices (changes, area) {
   initServices()
@@ -8,8 +8,8 @@ export function storageServices (changes, area) {
 export async function initServices () {
   const storage = await getLocalStorage()
   if (storage.CheckTypes?.includes('notificacoes') && storage.baseUrl) {
-    createAlarm()
+    enableNotifyProcessos()
   } else {
-    clearAlarm()
+    disableNotifyProcessos()
   }
 }
