@@ -217,9 +217,13 @@ Dropzone.http.prototype.passos = {
 	'1': {
 
 		obterUrl: function() {
-			var ultimaScriptTag = document.getElementsByTagName('script')[document.getElementsByTagName('script').length-1];
+			var todasAsScriptTag = document.getElementsByTagName('script');
 			var regex = /^Nos\[0\].acoes = '<a href="(.*?)" tabindex="451"/m;
-			var resultado = regex.exec(ultimaScriptTag.innerHTML);
+			// Procurar a primeira scriptTag que contem o codigo em questao
+			var scriptTagProcurada = Array.from(todasAsScriptTag).find(function (element) {
+				if (regex.exec(element.innerHTML) !== null) return true;
+			});
+			var resultado = regex.exec(scriptTagProcurada.innerHTML);
 			if (resultado === null) return null;
 			return resultado[1];
 		},
