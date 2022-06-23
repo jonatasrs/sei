@@ -7,11 +7,11 @@
   "author": "Jonatas Evaristo <jonatas.eletrica@gmail.com>",
   "license": "GPL3",
   "devDependencies": {
-    "eslint": "^7.27.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.23.3",
+    "eslint": "^8.18.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0"
+    "eslint-plugin-promise": "^6.0.0"
   },
   "eslintConfig": {
     "env": {
