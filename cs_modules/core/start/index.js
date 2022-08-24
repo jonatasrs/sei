@@ -22,12 +22,6 @@ function Main (Options) {
   /* opção padrão quando o usuário já possui uma configuração salva que não tem esse item */
   if (SavedOptions.usardocumentocomomodelo === undefined) { SavedOptions.usardocumentocomomodelo = true }
   if (SavedOptions.exibeinfoatribuicao === undefined) { SavedOptions.exibeinfoatribuicao = true }
-
-  if (window.location.href === GetBaseUrl()) {
-    setTimeout(function () {
-      RedirecionarPagina(ModName_start)
-    }, 500)
-  }
 }
 
 /******************************************************************************

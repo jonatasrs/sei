@@ -1,18 +1,8 @@
 /** Roda quando a o carregamento do html termina */
-
-function getSeiVersion () {
-  var mconsole = new __mconsole('getSeiVersion')
-  try {
-    const script = document.querySelectorAll('script[src^="js/sei.js?"]')[0]
-    const versao = script.getAttribute('src').match(/(?<=\?)([^=-]+)/g)[0]
-    versao.split('.').forEach((value, index) => {
-      seiVersion[index] = Number(value)
-    })
-    mconsole.log(seiVersion.join('.'))
-  } catch (error) {
-    mconsole.error(error)
-  }
-}
+const ModNameEnd = 'core.d_start'
 
 /** Pega a versão atual do SEI */
 getSeiVersion()
+
+/** Redireciona para controle de processos */
+if (window.location.href === GetBaseUrl()) redirecionarPagina(ModName_start)

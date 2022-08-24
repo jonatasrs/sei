@@ -37,7 +37,6 @@
       "all_frames": true,
       "js": [
         "cs_modules/core/start/lib.js",
-        "cs_modules/core/start/RedirecionarPagina.js",
         "cs_modules/core/start/Theme.js",
         "cs_modules/core/start/index.js"
       ]
@@ -47,6 +46,8 @@
       "run_at": "document_end",
       "all_frames": true,
       "js": [
+        "cs_modules/core/end/getSeiVersion.js",
+        "cs_modules/core/end/redirecionarPagina.js",
         "cs_modules/core/end/index.js"
       ]
     },
