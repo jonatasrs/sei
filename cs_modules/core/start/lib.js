@@ -34,7 +34,7 @@ const DefaultOptions = {
 }
 
 const CompName = 'Seipp'
-var seiVersion = [0, 0, 0]
+const seiVersion = [0, 0, 0, 0]
 
 /** Options salvas */
 var SavedOptions = DefaultOptions
@@ -55,6 +55,9 @@ function __mconsole (ModuleName) {
 }
 __mconsole.prototype.log = function (message) {
   console.log('[' + CompName + ' ' + Date.now() + ']    ' + this.PModuleName + ': ' + message)
+}
+__mconsole.prototype.error = function (message) {
+  console.error('[' + CompName + ' ' + Date.now() + ']    ERRO: ' + this.PModuleName + ': ' + message)
 }
 
 /* adicionar função de log no contexto da página */

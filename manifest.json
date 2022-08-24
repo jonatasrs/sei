@@ -36,10 +36,10 @@
       "css": ["cs_modules/core.css"],
       "all_frames": true,
       "js": [
-        "cs_modules/core.d_start.lib.js",
-        "cs_modules/core.d_start.RedirecionarPagina.js",
-        "cs_modules/core.d_start.Theme.js",
-        "cs_modules/core.d_start.js"
+        "cs_modules/core/start/lib.js",
+        "cs_modules/core/start/RedirecionarPagina.js",
+        "cs_modules/core/start/Theme.js",
+        "cs_modules/core/start/index.js"
       ]
     },
     {
@@ -47,7 +47,7 @@
       "run_at": "document_end",
       "all_frames": true,
       "js": [
-        "cs_modules/core/end/init.js"
+        "cs_modules/core/end/index.js"
       ]
     },
     {
