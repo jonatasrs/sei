@@ -67,15 +67,15 @@
       "run_at": "document_idle",
       "all_frames": true,
       "js": [
-        "cs_modules/core.d_idle.PontoControleCores.js",
-        "cs_modules/core.d_idle.AdicionarIdentificadorSeipp.js",
-        "cs_modules/core.d_idle.MenuSuspenso.js",
-        "cs_modules/core.d_idle.VerificarBlocoAssinatura.js",
-        "cs_modules/core.d_idle.IndicarConfiguracao.js",
-        "cs_modules/core.d_idle.AtalhoPublicacoesEletronicas.js",
-        "cs_modules/core.d_idle.MostrarEspecificacao.js",
-        "cs_modules/core.d_idle.NoButtons.js",
-        "cs_modules/core.d_idle.js"
+        "cs_modules/core/idle/pontoControleCores.js",
+        "cs_modules/core/idle/adicionarIdentificadorSeipp.js",
+        "cs_modules/core/idle/menuSuspenso.js",
+        "cs_modules/core/idle/verificarBlocoAssinatura.js",
+        "cs_modules/core/idle/indicarConfiguracao.js",
+        "cs_modules/core/idle/atalhoPublicacoesEletronicas.js",
+        "cs_modules/core/idle/mostrarEspecificacao.js",
+        "cs_modules/core/idle/noButtons.js",
+        "cs_modules/core/idle/index.js"
       ]
     },
     {
