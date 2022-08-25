@@ -124,6 +124,9 @@ function Options_ui (BaseName) {
         $('#dialog-alert').dialog('open')
         e.currentTarget.checked = false
       })
+
+      /* Tema preto (black) */
+      document.querySelector('#theme>Option[value=black]').remove()
     }
 
     /* Salvar */

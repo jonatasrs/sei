@@ -31,21 +31,21 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
+      "matches": ["*://*.br/sei/*", "*://*.br/sip/login.php?sigla_orgao_sistema*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
       "run_at": "document_start",
       "css": ["cs_modules/core.css"],
       "all_frames": true,
       "js": [
         "cs_modules/core/start/lib.js",
-        "cs_modules/core/start/Theme.js",
         "cs_modules/core/start/index.js"
       ]
     },
     {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
+      "matches": ["*://*.br/sei/*", "*://*.br/sip/login.php?sigla_orgao_sistema*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
       "run_at": "document_end",
       "all_frames": true,
       "js": [
+        "cs_modules/core/end/theme.js",
         "cs_modules/core/end/getSeiVersion.js",
         "cs_modules/core/end/redirecionarPagina.js",
         "cs_modules/core/end/index.js"
