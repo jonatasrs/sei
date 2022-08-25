@@ -3,8 +3,7 @@ function AdicionarIdentificadorSeipp (BaseName) {
   const mconsole = new __mconsole(BaseName + '.AdicionarIdentificadorSeipp2')
 
   /* Adiciona o identificador ++ no logo do SEI */
-  console.log(seiVersion);
-  const idLogo = seiVersion >= [4, 0, 0] ? '#divInfraBarraSistemaPadraoE' : '#divInfraBarraSistemaE'
+  const idLogo = seiVersionCompare('>=', '4.0.0.0') ? '#divInfraBarraSistemaPadraoE' : '#divInfraBarraSistemaE'
   $(idLogo).append('<div id="seipp">++</div>')
 
   if (!isChrome) {

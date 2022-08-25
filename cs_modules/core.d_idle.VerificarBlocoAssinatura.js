@@ -10,7 +10,7 @@ function VerificarBlocoAssinatura (BaseName) {
   /** *Verifica a existência de blocos de assinatura e altera a cor do texto no menu, caso exista */
   function localizaItemBloco () {
     let element
-    const menu = (seiVersion >= [4, 0, 0]) ? '#infraMenu li' : '#main-menu li'
+    const menu = (seiVersionCompare('>=', '4.0.0.0')) ? '#infraMenu li' : '#main-menu li'
     $(menu).each(function (index) { if ($(this).text().indexOf('Assinatura') !== -1) element = $(this) })
     return element
   }
@@ -26,8 +26,8 @@ function VerificarBlocoAssinatura (BaseName) {
     let numBlocos = tabela.length // quantidade de linhas da tabela (zero, caso não tenha blocos, numero de blocos + 1 caso tenha)
     if (numBlocos !== 0) { numBlocos-- } // não conta a linha de cabeçalho
 
-    const indexRowEstado = seiVersion >= [4, 0, 0] ? 4 : 2
-    const indexRowDisponibilizacao = seiVersion >= [4, 0, 0] ? 6 : 4
+    const indexRowEstado = seiVersionCompare('>=', '4.0.0.0') ? 4 : 2
+    const indexRowDisponibilizacao = seiVersionCompare('>=', '4.0.0.0') ? 6 : 4
 
     tabela.each(function (index) {
       if (index > 0) { // desconsidera a linha do cabeçalho (index == 0 )

@@ -115,8 +115,9 @@ function Options_ui (BaseName) {
     $("input[name='usardocumentocomomodelo']").prop('checked', !!SavedOptions.usardocumentocomomodelo)
     $("input[name='exibeinfoatribuicao']").prop('checked', !!SavedOptions.exibeinfoatribuicao)
 
-    /* Menu suspenso */
-    if (seiVersion >= [4, 0, 0]) {
+    /** Ajustes para SEI/SUPER 4.0 */
+    if (seiVersionCompare('>=', '4.0.0.0')) {
+      /* Menu suspenso */
       $("input[data-type='menususp']").prop('checked', false)
       $("input[data-type='menususp']").click((e) => {
         e.stopPropagation()

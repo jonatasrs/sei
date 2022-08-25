@@ -34,7 +34,6 @@ const DefaultOptions = {
 }
 
 const CompName = 'Seipp'
-const seiVersion = [0, 0, 0, 0]
 
 /** Options salvas */
 var SavedOptions = DefaultOptions

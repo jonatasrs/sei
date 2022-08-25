@@ -12,7 +12,7 @@ if (ModuleInit(ModName_idle)) {
         VerificarBlocoAssinatura(ModName_idle)
         break
       case 'menususp':
-        if (seiVersion < [4, 0, 0]) {
+        if (seiVersionCompare('<', '4.0.0.0')) {
           MenuSuspenso(ModName_idle)
         }
         break
