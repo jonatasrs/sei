@@ -118,12 +118,7 @@ function Options_ui (BaseName) {
     /** Ajustes para SEI/SUPER 4.0 */
     if (seiVersionCompare('>=', '4.0.0.0')) {
       /* Menu suspenso */
-      $("input[data-type='menususp']").prop('checked', false)
-      $("input[data-type='menususp']").click((e) => {
-        e.stopPropagation()
-        $('#dialog-alert').dialog('open')
-        e.currentTarget.checked = false
-      })
+      document.querySelector('#menususp').remove()
 
       /* Tema preto (black) */
       document.querySelector('#theme>Option[value=black]').remove()
@@ -131,20 +126,6 @@ function Options_ui (BaseName) {
 
     /* Salvar */
     $('#save-button').on('click', OptionsSave)
-
-    /* Dialogo de Alerta */
-    $('#dialog-alert').dialog({
-      autoOpen: false,
-      modal: true,
-      buttons: {
-        Ok: function () {
-          $(this).dialog('close')
-        }
-      },
-      classes: {
-        'ui-dialog-titlebar': 'seipp-dialog-alert'
-      }
-    })
 
     if (SavedOptions.InstallOrUpdate) {
       SavedOptions.InstallOrUpdate = false
