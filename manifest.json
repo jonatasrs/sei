@@ -110,8 +110,8 @@
         "cs_modules/lib/filtra_processos/pesquisarInformacoes.js",
         "cs_modules/lib/selecionarMultiplosProcessos.js",
         "cs_modules/lib/retirarSobrestamentoReabrirEmBloco.js",
-        "cs_modules/rel_bloco_protocolo_listar.SelecionarDocumentosAssinar.js",
-        "cs_modules/rel_bloco_protocolo_listar.js"
+        "cs_modules/rel_bloco_protocolo_listar/selecionarDocumentosAssinar.js",
+        "cs_modules/rel_bloco_protocolo_listar/index.js"
       ]
     },
         {
