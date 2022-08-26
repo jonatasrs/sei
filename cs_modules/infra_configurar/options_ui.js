@@ -127,11 +127,11 @@ function Options_ui (BaseName) {
     /* Salvar */
     $('#save-button').on('click', OptionsSave)
 
-    if (SavedOptions.InstallOrUpdate) {
-      SavedOptions.InstallOrUpdate = false
-      browser.storage.local.set(SavedOptions)
-      $('#lnkConfiguracaoSistema img').css({ animation: 'none' })
-    }
+    // if (SavedOptions.InstallOrUpdate) {
+    //   SavedOptions.InstallOrUpdate = false
+    //   browser.storage.local.set(SavedOptions)
+    //   $('#lnkConfiguracaoSistema img, #lnkConfiguracaoSistema i').css({ animation: 'none' })
+    // }
   }
 
   function getUsuarioSistema () {
