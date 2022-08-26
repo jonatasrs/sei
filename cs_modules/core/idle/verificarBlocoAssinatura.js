@@ -14,6 +14,7 @@ function VerificarBlocoAssinatura (BaseName) {
     $(menu).each(function (index) { if ($(this).text().indexOf('Assinatura') !== -1) element = $(this) })
     return element
   }
+
   function parseResult (data) {
     const htmldata = $($.parseHTML(data))
     const tabela = $(htmldata).find('#divInfraAreaTabela > table > tbody > tr')
@@ -62,8 +63,6 @@ function VerificarBlocoAssinatura (BaseName) {
         html += '<img src=' + browser.runtime.getURL('icons/iconYellow.png') + " title='Blocos abertos: " + numAbertos + "'>"
       }
 
-      localizaItemBloco().find('a').html('<b> Blocos de Assinatura </b>' + html)
-      localizaItemBloco().find('a').attr('class', 'seipp-assinatura')
       $('#seipp').append(
         $('<a>').attr('href', link).append($(html))
       )

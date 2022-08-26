@@ -6,12 +6,17 @@
 	font-size: 14px;
   align-self: flex-end;
 }
-#seipp a {
+#seipp > a {
   font-size: unset;
   font-weight: unset;
   color: unset;
   text-decoration: unset;
   cursor: unset;
+  padding-left: 5px;
+}
+
+#seipp > a > img {
+  height: unset;
 }
 
 .infraTrseippalerta {
