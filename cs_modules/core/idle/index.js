@@ -22,9 +22,6 @@ if (ModuleInit(ModName_idle)) {
       case 'atalhopublicacoeseletronicas':
         AtalhoPublicacoesEletronicas(ModName_idle)
         break
-      case 'especificacao':
-        MostrarEspecificacao(ModName_idle)
-        break
       case 'no_buttons':
         NoButtons(ModName_idle)
         break

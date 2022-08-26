@@ -79,15 +79,15 @@ function IncluirCalculoPrazos(BaseName, TipoDeCalculo) {
     if(Valor === "") return;
     if (TipoDeCalculo == "qtddias") {
       if (Valor > SavedOptions.ConfDias.Alerta && Valor <= SavedOptions.ConfDias.Critico) {
-        $(Linha).attr("class", "infraTrseippalerta");
+        $(Linha).addClass("infraTrseippalerta");
       } else if (Valor > SavedOptions.ConfDias.Critico) {
-        $(Linha).attr("class", "infraTrseippcritico");
+        $(Linha).addClass("infraTrseippcritico");
       }
     } else if (TipoDeCalculo == "prazo") {
       if (Valor >= SavedOptions.ConfPrazo.Critico && Valor < SavedOptions.ConfPrazo.Alerta) {
-        $(Linha).attr("class", "infraTrseippalerta");
+        $(Linha).addClass("infraTrseippalerta");
       } else if (Valor < SavedOptions.ConfPrazo.Critico) {
-        $(Linha).attr("class", "infraTrseippcritico");
+        $(Linha).addClass("infraTrseippcritico");
       }
     }
   }

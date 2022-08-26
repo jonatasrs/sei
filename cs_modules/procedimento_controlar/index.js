@@ -23,6 +23,9 @@ if (ModuleInit(BaseName, true)) {
       case "especificacaoresumida":
         ListaPorEspecificacao(BaseName);
         break;
+      case 'especificacao':
+        mostrarEspecificacao(BaseName)
+        break
       default:
         break;
     }

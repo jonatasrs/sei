@@ -20,10 +20,10 @@
 }
 
 .infraTrseippalerta {
-	background-color: yellow;
+	background-color: yellow !important;
 }
 .infraTrseippcritico {
-	background-color: #f60;
+	background-color: #f60 !important;
 }
 .seipp-assinatura {
     background-color: #cccc63 !important;
@@ -76,7 +76,7 @@
 }
 
 .infraTrClara:hover, .infraTrseippalerta:hover, .infraTrseippcritico:hover {
-	background-color: gray;
+	background-color: gray !important;
 }
 
 .tablesorter-headerAsc, .tablesorter-headerDesc {

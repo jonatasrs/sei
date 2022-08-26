@@ -73,7 +73,6 @@
         "cs_modules/core/idle/verificarBlocoAssinatura.js",
         "cs_modules/core/idle/indicarConfiguracao.js",
         "cs_modules/core/idle/atalhoPublicacoesEletronicas.js",
-        "cs_modules/core/idle/mostrarEspecificacao.js",
         "cs_modules/core/idle/noButtons.js",
         "cs_modules/core/idle/index.js"
       ]
@@ -90,6 +89,7 @@
     {
       "matches": ["*://*.br/*controlador.php?acao=procedimento_controlar*"],
       "js": [
+        "cs_modules/procedimento_controlar/mostrarEspecificacao.js",
         "cs_modules/procedimento_controlar/corrigirTabelas.js",
         "cs_modules/procedimento_controlar/confirmarAntesConcluir.js",
         "cs_modules/procedimento_controlar/incluirCalculoPrazos.js",
