@@ -90,26 +90,26 @@
     {
       "matches": ["*://*.br/*controlador.php?acao=procedimento_controlar*"],
       "js": [
-        "cs_modules/procedimento_controlar.CorrigirTabelas.js",
-        "cs_modules/procedimento_controlar.ConfirmarAntesConcluir.js",
-        "cs_modules/procedimento_controlar.IncluirCalculoPrazos.js",
-        "cs_modules/procedimento_controlar.MarcarCorProcesso.js",
-        "cs_modules/lib.filtra_processos.js",
-        "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
-        "cs_modules/procedimento_controlar.filtra_processos.FiltraPorAtribuicao.js",
-        "cs_modules/procedimento_controlar.filtra_processos.CarregaInformacaoBlocos.js",
-        "cs_modules/lib.SelecionarMultiplosProcessos.js",
-        "cs_modules/procedimento_controlar.ListaPorEspecificacao.js",
-        "cs_modules/procedimento_controlar.js"
+        "cs_modules/procedimento_controlar/corrigirTabelas.js",
+        "cs_modules/procedimento_controlar/confirmarAntesConcluir.js",
+        "cs_modules/procedimento_controlar/incluirCalculoPrazos.js",
+        "cs_modules/procedimento_controlar/marcarCorProcesso.js",
+        "cs_modules/lib/filtra_processos/index.js",
+        "cs_modules/lib/filtra_processos/pesquisarInformacoes.js",
+        "cs_modules/procedimento_controlar/filtra_processos/filtraPorAtribuicao.js",
+        "cs_modules/procedimento_controlar/filtra_processos/carregaInformacaoBlocos.js",
+        "cs_modules/lib/selecionarMultiplosProcessos.js",
+        "cs_modules/procedimento_controlar/listaPorEspecificacao.js",
+        "cs_modules/procedimento_controlar/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=rel_bloco_protocolo_listar*"],
       "js": [
-        "cs_modules/lib.filtra_processos.js",
-        "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
-        "cs_modules/lib.SelecionarMultiplosProcessos.js",
-        "cs_modules/lib.RetirarSobrestamentoReabrirEmBloco.js",
+        "cs_modules/lib/filtra_processos/index.js",
+        "cs_modules/lib/filtra_processos/pesquisarInformacoes.js",
+        "cs_modules/lib/selecionarMultiplosProcessos.js",
+        "cs_modules/lib/retirarSobrestamentoReabrirEmBloco.js",
         "cs_modules/rel_bloco_protocolo_listar.SelecionarDocumentosAssinar.js",
         "cs_modules/rel_bloco_protocolo_listar.js"
       ]
@@ -117,8 +117,8 @@
         {
       "matches": ["*://*.br/*controlador.php?acao=controle_unidade_gerar*"],
       "js": [
-        "cs_modules/lib.SelecionarMultiplosProcessos.js",
-        "cs_modules/lib.RetirarSobrestamentoReabrirEmBloco.js",
+        "cs_modules/lib/selecionarMultiplosProcessos.js",
+        "cs_modules/lib/retirarSobrestamentoReabrirEmBloco.js",
         "cs_modules/controle_unidade_gerar.js"
       ]
     },
