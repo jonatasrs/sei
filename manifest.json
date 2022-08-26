@@ -82,9 +82,9 @@
       "matches": ["*://*.br/*controlador.php?acao=documento_receber*"],
       "all_frames": true,
       "js": [
-        "cs_modules/documento_receber.ForcarReaberturaProcesso.js",
-        "cs_modules/documento_receber.AutopreencherDocumentoExterno.js",
-        "cs_modules/documento_receber.js"
+        "cs_modules/documento_receber/forcarReaberturaProcesso.js",
+        "cs_modules/documento_receber/autopreencherDocumentoExterno.js",
+        "cs_modules/documento_receber/index.js"
       ]
     },
     {
