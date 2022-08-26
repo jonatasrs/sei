@@ -125,20 +125,20 @@
     {
       "matches": ["*://*.br/*controlador.php?acao=procedimento_visualizar*"],
       "all_frames": true,
-      "css": ["cs_modules/procedimento_visualizar.css"],
+      "css": ["cs_modules/procedimento_visualizar/styles.css"],
       "js": [
-        "cs_modules/procedimento_visualizar.ConsultarInteressado.js",
-        "cs_modules/procedimento_visualizar.AutopreencherAndamento.js",
-        "cs_modules/procedimento_visualizar.CopiarNumeroProcessoDocumento.js",
-        "cs_modules/procedimento_visualizar.MostrarAnotacao.js",
-        "cs_modules/procedimento_visualizar.AbrirDocumentoNovaAba.js",
-        "cs_modules/procedimento_visualizar.CopiarLinkInterno.js",
-        "cs_modules/procedimento_visualizar.Dropzone.js",
-        "cs_modules/procedimento_visualizar.AlterarTitulo.js",
-        "cs_modules/procedimento_visualizar.DocumentoModelo.js",
-        "cs_modules/procedimento_visualizar.AjustarElementosNativos.js",
-        "cs_modules/procedimento_visualizar.ConsultarAtribuicao.js",
-        "cs_modules/procedimento_visualizar.js"
+        "cs_modules/procedimento_visualizar/consultarInteressado.js",
+        "cs_modules/procedimento_visualizar/autopreencherAndamento.js",
+        "cs_modules/procedimento_visualizar/copiarNumeroProcessoDocumento.js",
+        "cs_modules/procedimento_visualizar/mostrarAnotacao.js",
+        "cs_modules/procedimento_visualizar/abrirDocumentoNovaAba.js",
+        "cs_modules/procedimento_visualizar/copiarLinkInterno.js",
+        "cs_modules/procedimento_visualizar/dropzone.js",
+        "cs_modules/procedimento_visualizar/alterarTitulo.js",
+        "cs_modules/procedimento_visualizar/documentoModelo.js",
+        "cs_modules/procedimento_visualizar/ajustarElementosNativos.js",
+        "cs_modules/procedimento_visualizar/consultarAtribuicao.js",
+        "cs_modules/procedimento_visualizar/index.js"
       ]
     },
     {
