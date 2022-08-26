@@ -58,7 +58,7 @@ function FiltraPorAtribuicao(BaseName) {
 	function criarTabelaNova(selectNovo) {
 	    let novaTabela = newElement('table').css('width', '100%');
 	    let novoTr = newElement('tr').appendTo(newElement('tbody')).appendTo(novaTabela);
-	    console.log(novoTr);
+	    mconsole.log(novoTr);
 	    novoTr.append(newElement('td').append(selectNovo));
 	    novoTr.append(newElement('td').append($('#divMeusProcessos').css('position', 'initial')));
 	    novoTr.append(newElement('td').append($('#divVerPorMarcadores').css('position', 'initial').css('text-align', 'center')));
@@ -136,6 +136,6 @@ function FiltraPorAtribuicao(BaseName) {
 	function valorSalvoDelete() {
 	}
 
-	
+
 	inicio();
 }

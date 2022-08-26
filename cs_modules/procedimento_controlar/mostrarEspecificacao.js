@@ -19,5 +19,5 @@ function mostrarEspecificacao (BaseName) {
         .attr('title', 'Especificação')
     })
   }
-  console.log('Tchau')
+  mconsole.log('Finalizado.')
 }

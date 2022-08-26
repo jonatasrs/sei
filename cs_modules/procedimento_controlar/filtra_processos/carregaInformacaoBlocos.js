@@ -8,12 +8,12 @@ function CarregaInformacaoBlocos(BaseName) {
 	}
 
 	function imprimirLog(msg) {
-	    console.log(msg);
+	    mconsole.log(msg);
 	    imprimirStatus(msg);
 	}
 
 	function imprimirError(msg) {
-	    console.error(msg);
+	    mconsole.error(msg);
 	    imprimirStatus(msg);
 	}
 

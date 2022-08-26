@@ -166,7 +166,7 @@ function Options_ui (BaseName) {
     $("input[type='checkbox']:checked").each(function () {
       CheckTypes.push($(this).attr('data-type'))
     })
-    console.log(CheckTypes)
+    mconsole.log(CheckTypes)
 
     const ConfiguracoesCores = []
     $("input[type='text']").each(function () {
@@ -202,10 +202,10 @@ function Options_ui (BaseName) {
     const baseUrl = document.location.origin + document.location.pathname.replace('controlador.php', '')
 
     function onError (error) {
-      console.log(`Error: ${error}`)
+      mconsole.log(`Error: ${error}`)
     }
     function setItem () {
-      console.log('OK')
+      mconsole.log('OK')
     }
 
     const OptionsToSave = {
