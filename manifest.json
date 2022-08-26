@@ -154,8 +154,8 @@
       "matches": ["*://*.br/*controlador.php?acao=arvore_visualizar*"],
       "all_frames": true,
       "js": [
-        "cs_modules/arvore_visualizar.NovoDocumento.js",
-        "cs_modules/arvore_visualizar.js"
+        "cs_modules/arvore_visualizar/novoDocumento.js",
+        "cs_modules/arvore_visualizar/index.js"
       ]
     },
     {
