@@ -187,8 +187,8 @@
       "matches": ["*://*.br/*controlador.php?acao=procedimento_atribuicao_cadastrar*"],
       "all_frames": true,
       "js": [
-        "cs_modules/procedimento_atribuicao_cadastrar.OrdenarSelect.js",
-        "cs_modules/procedimento_atribuicao_cadastrar.js"
+        "cs_modules/procedimento_atribuicao_cadastrar/ordenarSelect.js",
+        "cs_modules/procedimento_atribuicao_cadastrar/index.js"
       ]
     }
   ],
