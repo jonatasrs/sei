@@ -23,7 +23,7 @@ if (ModuleInit(ModName_idle)) {
         AtalhoPublicacoesEletronicas(ModName_idle)
         break
       case 'no_buttons':
-        NoButtons(ModName_idle)
+        noButtons(ModName_idle)
         break
       default:
         break
