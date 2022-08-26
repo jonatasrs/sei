@@ -119,7 +119,7 @@
       "js": [
         "cs_modules/lib/selecionarMultiplosProcessos.js",
         "cs_modules/lib/retirarSobrestamentoReabrirEmBloco.js",
-        "cs_modules/controle_unidade_gerar.js"
+        "cs_modules/controle_unidade_gerar/index.js"
       ]
     },
     {
