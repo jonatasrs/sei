@@ -1,6 +1,6 @@
-function AdicionarOrdenacao(BaseName) {
+function adicionarOrdenacao(BaseName) {
   /** inicialização do módulo */
-  var mconsole = new __mconsole(BaseName + ".AdicionarOrdenacao");
+  var mconsole = new __mconsole(BaseName + ".adicionarOrdenacao");
 
   if ($(".infraAreaPaginacao").children().length == 0) { $(".infraAreaPaginacao").hide(); }
 

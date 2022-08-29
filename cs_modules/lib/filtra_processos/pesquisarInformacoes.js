@@ -20,7 +20,7 @@ function PesquisarInformacoes(BaseName) {
         var arrayTermo;
         var texto = this.value.toLowerCase();
 
-        /** Impede o conflito com o script: procedimento_controlar.AdicionarOrdenacao.js */
+        /** Impede o conflito com o script: procedimento_controlar/adicionarOrdenacao.js */
         var tablesorterfilter = false;
         $('#tblProcessosDetalhado, #tblProcessosGerados, #tblProcessosRecebidos').each(function (index, tabela) {
           var filter = $.tablesorter.getFilters($(tabela));

@@ -210,7 +210,7 @@
     "icons/removeNote.png",
     "icons/note.png",
     "icons/interessado.png",
-    "cs_modules/procedimento_controlar.AdicionarOrdenacao.js",
+    "cs_modules/procedimento_controlar/adicionarOrdenacao.js",
     "lib/jquery.tablesorter/jquery.tablesorter.min.js",
     "lib/jquery.tablesorter/jquery.tablesorter.widgets.min.js"
   ]

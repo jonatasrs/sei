@@ -37,10 +37,10 @@ if (ModuleInit(BaseName, true)) {
   addScriptToPage('lib/jquery.tablesorter/jquery.tablesorter.min.js');
   addScriptToPage('lib/jquery.tablesorter/jquery.tablesorter.widgets.min.js');
 
-  /* Ao invés de injetar o AdicionarOrdenacao, carregá-lo no contexto da página */
+  /* Ao invés de injetar o adicionarOrdenacao, carregá-lo no contexto da página */
   addScriptToPage(
-    'cs_modules/procedimento_controlar.AdicionarOrdenacao.js',
-    `AdicionarOrdenacao('${BaseName}');`
+    'cs_modules/procedimento_controlar/adicionarOrdenacao.js',
+    `adicionarOrdenacao('${BaseName}');`
   );
 
   SelecionarMultiplosProcessos(BaseName);
