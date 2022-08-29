@@ -1,8 +1,8 @@
-function CorrigirTabelas(BaseName) {
+function corrigirTabelas (BaseName) {
   /** inicialização do módulo */
-  var mconsole = new __mconsole(BaseName + ".CorrigirTabelas");
+  const mconsole = new __mconsole(BaseName + '.corrigirTabelas')
 
-  $('#tblProcessosDetalhado, #tblProcessosGerados, #tblProcessosRecebidos').each(function(index, tabela) {
-    $("<thead></thead>").insertAfter(tabela.querySelector('caption')).append(tabela.querySelector('tbody>tr:first-child'));
-  });
+  $('#tblProcessosDetalhado, #tblProcessosGerados, #tblProcessosRecebidos').each(function (index, tabela) {
+    $('<thead></thead>').insertAfter(tabela.querySelector('caption')).append(tabela.querySelector('tbody>tr:first-child'))
+  })
 }
