@@ -6,7 +6,7 @@ function AtalhoPublicacoesEletronicas (BaseName) {
   const url = 'publicacoes/controlador_publicacoes.php?acao=publicacao_pesquisar&id_orgao_publicacao=0'
   const txtitle = 'Publicações Eletrônicas'
   const linkStyle = seiVersionCompare('>', '4')
-    ? { alignSelf: 'center', border: 'none', color: 'var(--color-primary-default)', fontSize: '.75rem' }
+    ? 'align-self: center; border: none; color: var(--color-primary-default); font-size: .75rem;'
     : $('#lnkAjuda').attr('style')
   const containerClass = seiVersionCompare('>', '4') ? 'nav-item d-md-flex' : 'infraAcaoBarraSistema'
 
@@ -19,7 +19,7 @@ function AtalhoPublicacoesEletronicas (BaseName) {
       .append($('<a>')
         .attr('href', url)
         .attr('title', txtitle)
-        .css(linkStyle)
+        .attr('style', linkStyle)
         .attr('target', '_blank')
         .text(txtitle)
       )
