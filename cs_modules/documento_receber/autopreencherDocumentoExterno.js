@@ -1,51 +1,56 @@
-function AutopreencherDocumentoExterno(BaseName, settings) {
+function autopreencherDocumentoExterno (BaseName, settings) {
   /** inicialização do módulo */
-  var mconsole = new __mconsole(BaseName + ".AutopreencherDocumentoExterno");
+  const mconsole = new __mconsole(BaseName + '.autopreencherDocumentoExterno')
 
-  function autoFillDocument(formato, tipoConferencia, nivelAcesso, hipoteseLegal) {
-    var data = new Date();
-    var hoje = getFormattedDate(data);
-    $("#txtDataElaboracao").val(hoje);
+  function autoFillDocument (formato, tipoConferencia, nivelAcesso, hipoteseLegal) {
+    const data = new Date()
+    const hoje = getFormattedDate(data)
+    $('#txtDataElaboracao').val(hoje)
 
     setTimeout(function () {
-      if (formato == "N") {
-        $("#optNato").attr('checked','checked');
-        $("#optNato").click();
-      } else if (formato == "D") {
-        $("#optDigitalizado").attr('checked','checked');
-        $("#optDigitalizado").click();
-        $("#selTipoConferencia").val(tipoConferencia);
+      if (formato === 'N') {
+        $('#optNato').attr('checked', 'checked')
+        $('#optNato').click()
+      } else if (formato === 'D') {
+        $('#optDigitalizado').attr('checked', 'checked')
+        $('#optDigitalizado').click()
+        $('#selTipoConferencia').val(tipoConferencia)
       }
-    }, 500);
+    }, 500)
 
-    switch(nivelAcesso) {
-      case "R":
-        $("#optRestrito").click();
-      break;
-      case "S":
-        $("#optSigiloso").click();
-      break;
+    switch (nivelAcesso) {
+      case 'R':
+        $('#optRestrito').click()
+        break
+      case 'S':
+        $('#optSigiloso').click()
+        break
       default:
-        $("#optPublico").click();
+        $('#optPublico').click()
     }
-    if(nivelAcesso == "S" || nivelAcesso == "R")
-      setTimeout(function(){$("#selHipoteseLegal").val(hipoteseLegal);},500);
-    var html = '<span style="background-color:red"> Houve preenchimento de valores pré configurados nesta tela. Verifique se estão corretos! </span>';
-    $("#divInfraBarraComandosInferior #btnSalvar").before(html);
-    $("#divInfraBarraComandosSuperior #btnSalvar").before(html);
-    //console.log($("#divInfraBarraComandosInferior").html());
+    if (nivelAcesso === 'S' || nivelAcesso === 'R') {
+      setTimeout(function () {
+        $('#selHipoteseLegal').val(hipoteseLegal)
+      }, 500)
+    }
+    const html = `<span style="background-color:red">
+      Houve preenchimento de valores pré configurados nesta tela. Verifique se estão corretos!
+    </span>`
 
+    $('#divInfraBarraComandosInferior #btnSalvar').before(html)
+    $('#divInfraBarraComandosSuperior #btnSalvar').before(html)
+    mconsole.log('Finalizado')
   }
-  function getFormattedDate(date) {
-    var year = date.getFullYear();
+  function getFormattedDate (date) {
+    const year = date.getFullYear()
 
-    var month = (1 + date.getMonth()).toString();
-    month = month.length > 1 ? month : '0' + month;
+    let month = (1 + date.getMonth()).toString()
+    month = month.length > 1 ? month : '0' + month
 
-    var day = date.getDate().toString();
-    day = day.length > 1 ? day : '0' + day;
+    let day = date.getDate().toString()
+    day = day.length > 1 ? day : '0' + day
 
-    return day + '/' + month + '/' + year;
+    return day + '/' + month + '/' + year
   }
-  autoFillDocument(settings.formato, settings.tipoConferencia, settings.nivelAcesso, settings.hipoteseLegal);
+  autoFillDocument(settings.formato, settings.tipoConferencia, settings.nivelAcesso, settings.hipoteseLegal)
 }

@@ -6,7 +6,7 @@ if (ModuleInit(BaseName)) {
   SavedOptions.CheckTypes.forEach(function(element) {
     switch (element) {
       case "cliquemenos":
-        AutopreencherDocumentoExterno(BaseName, SavedOptions);
+        autopreencherDocumentoExterno(BaseName, SavedOptions);
         break;
       default:
         break;
