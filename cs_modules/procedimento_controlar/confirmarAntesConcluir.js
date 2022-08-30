@@ -1,14 +1,21 @@
-function ConfirmarAntesConcluir(BaseName) {
+function confirmarAntesConcluir (BaseName) {
   /** inicialização do módulo */
-  var mconsole = new __mconsole(BaseName + ".ConfirmarAntesConcluir");
+  const mconsole = new __mconsole(BaseName + '.ConfirmarAntesConcluir')
+  const selectors = '#divComandos>a[onClick*="controlador.php?acao=procedimento_concluir"]'
+  const botao = document.querySelector(selectors)
 
-  let botao = document.querySelector('img[src="imagens/sei_concluir_processo.gif"]');
   if (botao) {
-    let btnFunction = botao.parentElement.onclick;
-    botao.parentElement.onclick = function() {
-      if (confirm('Deseja mesmo concluir os processos selecionados?')) {
-        btnFunction.call();
+    const action = botao.getAttribute('onclick')
+    const newAction = `
+      if (acaoPendenciaMultipla(true) && confirm('Deseja mesmo concluir os processos selecionados?')) {
+        ${action}
       }
-    };
+    `
+    botao.setAttribute('onclick', newAction)
+
+    RemoveAllOldEventListener(selectors)
+    mconsole.log('Evento click ajustado.')
+  } else {
+    mconsole.log('Botão não encontrado.')
   }
 }

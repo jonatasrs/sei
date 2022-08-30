@@ -133,16 +133,26 @@ function isNumOnly (str) {
 /**
  * PARA CHROME: Remove todos velhos eventos.
  * Necessário ao substutuir os eventos padrão.
- * @param {HTMLElement} Elem
+ * @elemOrSelectors {HTMLElement | string} elemOrSelectors Elemento ou selectors
  */
-function RemoveAllOldEventListener (Elem) {
-  const elementID = Elem.attr('id')
+function RemoveAllOldEventListener (elemOrSelectors) {
+  if (typeof elemOrSelectors === 'object') {
+    const elementID = elemOrSelectors instanceof jQuery
+      ? elemOrSelectors.attr('id')
+      : elemOrSelectors.getAttribute('id')
 
-  const codeToRun = `
-    $('#${elementID}').replaceWith($('#${elementID}').clone());
-  `
+    const codeToRun = `
+      $('#${elementID}').replaceWith($('#${elementID}').clone());
+    `
 
-  execOnPage(codeToRun)
+    execOnPage(codeToRun)
+  } else if (typeof elemOrSelectors === 'string') {
+    const codeToRun = `{
+      const element = document.querySelector('${elemOrSelectors}')
+      element.replaceWith(element.cloneNode(true))
+    }`
+    execOnPage(codeToRun)
+  }
 }
 
 /* Função que permite executar um código arbitrário
