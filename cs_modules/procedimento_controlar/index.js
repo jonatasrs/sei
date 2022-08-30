@@ -9,7 +9,7 @@ if (ModuleInit(BaseName, true)) {
         incluirCalculoPrazos(BaseName, element)
         break
       case 'marcarcorprocesso':
-        MarcarCorProcesso(BaseName)
+        marcarCorProcesso(BaseName)
         break
       case 'filtraporatribuicao':
         FiltraPorAtribuicao(BaseName)

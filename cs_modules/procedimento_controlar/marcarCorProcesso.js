@@ -1,43 +1,39 @@
-function MarcarCorProcesso(BaseName) {
+function marcarCorProcesso (BaseName) {
   /** inicialização do módulo */
 
-  var mconsole = new __mconsole(BaseName + ".MarcarCorProcesso");
+  const mconsole = new __mconsole(BaseName + '.marcarCorProcesso')
 
-  IncluirCorTabela("#tblProcessosDetalhado");
-  IncluirCorTabela("#tblProcessosGerados");
-  IncluirCorTabela("#tblProcessosRecebidos");
+  incluirCorTabela('#tblProcessosDetalhado')
+  incluirCorTabela('#tblProcessosGerados')
+  incluirCorTabela('#tblProcessosRecebidos')
 
-  function IncluirCorTabela(IdTabela) {
-    var tabela = $(IdTabela);
+  function incluirCorTabela (IdTabela) {
+    const rows = document.querySelectorAll(`${IdTabela}>tbody>tr`)
 
-    if ($(IdTabela).length > 0) {
-      tabela = $(IdTabela);
-
-      for (i = 1; i < tabela["0"].rows.length; i++) {
-        var cor = EscolherCor(tabela["0"].rows[i].cells[2].innerHTML);
-        FormatarTabela(tabela["0"].rows[i].cells["2"].children["0"], cor);
-      }
-    }
+    rows.forEach(row => {
+      const processo = row.querySelector('.processoVisualizado, .processoNaoVisualizado')
+      const cor = escolherCor(processo)
+      mconsole.log(`${processo.innerText} - ${cor}`)
+      formatarTabela(processo, cor)
+    })
   }
 
-  function EscolherCor(item) {
-    var Cores = SavedOptions.ConfiguracoesCores;
-    item = item.substring(item.indexOf("onmouseover") + 40);
-    item = item.substring(1, item.indexOf(');" onmouseout='));
-    for (contador = 0; contador < Cores.length; contador++) {
-      if (Cores[contador].valor != "") {
-        if (item.indexOf(Cores[contador].valor) != -1) {
-          return Cores[contador].cor;
-        }
-      }
-    }
-    return "";
+  function escolherCor (processo) {
+    const confCores = SavedOptions.ConfiguracoesCores
+    const texto = processo.getAttribute('onmouseover')
+    const especificacao = texto.substring(texto.indexOf('(\'') + 2, texto.indexOf(',') - 1).toLowerCase()
+
+    return confCores.reduce((p, c) => {
+      return !p && c.valor && especificacao.includes(c.valor.toLowerCase())
+        ? c.cor
+        : p
+    }, '')
   }
 
   /* Formata a tabela pelos valores */
-  function FormatarTabela(Linha, Cor) {
-    if (Cor != "") {
-      $(Linha).attr("style", "background-color: " + Cor + "; padding: 0 1em 0 1em");
+  function formatarTabela (processo, cor) {
+    if (cor) {
+      processo.setAttribute('style', 'background-color: ' + cor + '; padding: 0 1em 0 1em')
     }
   }
 }
