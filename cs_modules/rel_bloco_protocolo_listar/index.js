@@ -7,7 +7,7 @@ if (ModuleInit(BaseName, true)) {
         PesquisarInformacoes(BaseName)
         break
       case 'retirarsobrestamentoreabrirembloco':
-        RetirarSobrestamentoReabrirEmBloco(BaseName)
+        retirarSobrestamentoReabrirEmBloco(BaseName)
         break
       default:
         break

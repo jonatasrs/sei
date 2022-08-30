@@ -4,7 +4,7 @@ if (ModuleInit(BaseName, true)) {
   SavedOptions.CheckTypes.forEach(function (element) {
     switch (element) {
       case 'retirarsobrestamentoreabrirembloco':
-        RetirarSobrestamentoReabrirEmBloco(BaseName)
+        retirarSobrestamentoReabrirEmBloco(BaseName)
         break
       default:
         break
