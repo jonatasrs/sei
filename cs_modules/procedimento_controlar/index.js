@@ -6,7 +6,7 @@ if (ModuleInit(BaseName, true)) {
     switch (element) {
       case 'prazo':
       case 'qtddias':
-        IncluirCalculoPrazos(BaseName, element)
+        incluirCalculoPrazos(BaseName, element)
         break
       case 'marcarcorprocesso':
         MarcarCorProcesso(BaseName)
