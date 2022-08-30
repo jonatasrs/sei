@@ -1,18 +1,18 @@
-const BaseName = "rel_bloco_protocolo_listar";
+const BaseName = 'rel_bloco_protocolo_listar'
 
 if (ModuleInit(BaseName, true)) {
-  SavedOptions.CheckTypes.forEach(function(element) {
+  SavedOptions.CheckTypes.forEach(function (element) {
     switch (element) {
-      case "pesquisarinformacoes":
-        PesquisarInformacoes(BaseName);
-        break;
-      case "retirarsobrestamentoreabrirembloco":
-    	  RetirarSobrestamentoReabrirEmBloco(BaseName);
-          break;
+      case 'pesquisarinformacoes':
+        PesquisarInformacoes(BaseName)
+        break
+      case 'retirarsobrestamentoreabrirembloco':
+        RetirarSobrestamentoReabrirEmBloco(BaseName)
+        break
       default:
-        break;
+        break
     }
-  }, this);
-  SelecionarMultiplosProcessos(BaseName);
-  SelecionarDocumentosAssinar(BaseName);
+  }, this)
+  selecionarMultiplosProcessos(BaseName)
+  SelecionarDocumentosAssinar(BaseName)
 }

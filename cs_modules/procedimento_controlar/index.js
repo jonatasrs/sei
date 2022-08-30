@@ -44,6 +44,6 @@ if (ModuleInit(BaseName, true)) {
     )
   }
 
-  SelecionarMultiplosProcessos(BaseName)
+  selecionarMultiplosProcessos(BaseName)
   confirmarAntesConcluir(BaseName)
 }
