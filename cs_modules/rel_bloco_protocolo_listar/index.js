@@ -14,5 +14,5 @@ if (ModuleInit(BaseName, true)) {
     }
   }, this)
   selecionarMultiplosProcessos(BaseName)
-  SelecionarDocumentosAssinar(BaseName)
+  selecionarDocumentosAssinar(BaseName)
 }
