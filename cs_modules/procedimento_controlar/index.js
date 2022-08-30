@@ -15,7 +15,7 @@ if (ModuleInit(BaseName, true)) {
         FiltraPorAtribuicao(BaseName)
         break
       case 'carregainformacaoblocos':
-        CarregaInformacaoBlocos(BaseName)
+        carregaInformacaoBlocos(BaseName)
         break
       case 'pesquisarinformacoes':
         PesquisarInformacoes(BaseName)
