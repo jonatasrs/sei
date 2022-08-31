@@ -9,8 +9,12 @@ function mainModEnd () {
     redirecionarPagina(ModName_start)
   }
 
-  if (SavedOptions.theme !== 'white' && seiVersionCompare('<', '4')) {
-    theme(ModNameEnd, SavedOptions.Theme)
+  if (SavedOptions.theme !== 'white') {
+    if (SavedOptions.theme === 'super-black' && seiVersionCompare('>=', '4')) {
+      theme(ModNameEnd, SavedOptions.theme)
+    } else if (SavedOptions.theme === 'black' && seiVersionCompare('<', '4')) {
+      theme(ModNameEnd, SavedOptions.theme)
+    }
   }
 }
 

@@ -136,6 +136,10 @@ function Options_ui (BaseName) {
       /** Exibir botão novo documento (Usar Nativo) */
       document.querySelector('#atalhonovodoc').remove()
       mconsole.log('DESATIVADO: Exibir botão novo documento')
+    } else {
+      /* Tema preto (black) */
+      document.querySelector('#theme>Option[value=super-black]').remove()
+      mconsole.log('DESATIVADO: Tema preto (super-black)')
     }
 
     /* Salvar */

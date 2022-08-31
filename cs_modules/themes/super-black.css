@@ -1,0 +1,121 @@
+/* SUPER BLACK 4.0 */
+
+body,
+.divLink,
+.infraAreaTelaDEscondePequeno {
+    background-color: black;
+    color: white;
+}
+
+input, button, textarea, select {
+    background-color: black;
+    color: white
+}
+.infraCheckboxDiv label:focus::before, .infraCheckboxDiv label:hover::before,
+select:focus, textarea:focus, input:focus {
+  background-color: #202020;
+}
+
+.infraCheckboxDiv label::before {
+    background-color: black;
+}
+
+label.infraLabelOpcional, label.infraLabelObrigatorio {
+    color: gray;
+}
+
+.infraCorBarraSistema, .infraCorBarraSuperior {
+    background-color: black !important;
+}
+
+.infraBarraLocalizacao {
+    color: gray;
+}
+
+legend.infraLegend, table.infraTable thead tr, table.infraTable tr > th.infraTh {
+  background: #555;
+}
+
+tr.infraTrClara, td.infraTdClara {
+  background-color: black;
+}
+
+a.processoVisualizado, table.infraTable, a {
+    color: white;
+}
+
+tr.infraTrSelecionada, tr.infraTrSelecionada td, td.infraTdSelecionada {
+  background-color: #555 !important;
+}
+
+tr.infraTrAcessada, tr.infraTrAcessada td, td.infraTdAcessada {
+  background-color: #242400 !important;
+}
+
+#divFiltro {
+    border-bottom: 2px solid;
+}
+
+#btnInfraTopo,
+#divTabelaProcesso img[src*=marcador_preto] {
+    filter: drop-shadow(0px 0px 2px white);
+}
+
+#txtPesquisaRapida {
+    background-color: black;
+    color: white;
+}
+
+span.infraAcaoBarraConjugada, span.infraAcaoBarraConjugada:hover {
+    background-color: black;
+}
+
+#lnkInfraUnidade {
+    background-color: black;
+}
+
+/* Menu */
+.divInfraAreaTelaE, #divInfraPesquisarMenu {
+  background-color: black;
+}
+
+.infraPesquisarMenu, .infraPesquisarMenu:focus {
+    background-color: black;
+    color: white !important;
+}
+
+
+/* Tela do processo */
+div.infraArvore a {
+    color: white;
+}
+
+div.infraArvore .noVisitado {
+  background-color: black;
+  color: #3E8BFF;
+}
+
+div.infraArvore img[src*=assinatura2],
+div.infraArvore img[src*=autenticacao2] {
+    filter: invert(100%);
+}
+
+#divInfraAreaTelaD {
+    background-color: black;
+}
+
+.barraBotoesSEI {
+    border: black !important;
+}
+
+#divArvoreConteudo {
+    background-color: black;
+}
+
+#divArvoreConteudo #divArvoreInformacao {
+    color: white;
+}
+
+#seipp-div-options-ui .card {
+    background-color: black;
+}

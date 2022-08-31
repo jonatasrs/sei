@@ -11,8 +11,13 @@ function theme (BaseName, tema) {
     'procedimento_paginar'
   ]
 
+    console.log(tema)
   if (AplicarLinkCss()) {
-    AdicionarLinkCss(document, 'seipp-theme', 'cs_modules/themes/black.css')
+    if (tema === 'super-black') {
+      AdicionarLinkCss(document, 'seipp-theme', 'cs_modules/themes/super-black.css')
+    } else if (tema === 'black') {
+      AdicionarLinkCss(document, 'seipp-theme', 'cs_modules/themes/black.css')
+    }
     mconsole.log(document.baseURI)
   }
 

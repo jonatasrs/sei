@@ -196,6 +196,7 @@
   "web_accessible_resources": [
     "cs_modules/infra_configurar/options_ui/index.html",
     "cs_modules/themes/black.css",
+    "cs_modules/themes/super-black.css",
     "cs_modules/themes/PontoControleCores_Anatel.css",
     "icons/iconYellow.png",
     "icons/iconBlue.png",
