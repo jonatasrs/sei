@@ -35,8 +35,11 @@ if (ModuleInit(BaseName)) {
   }
 
   /* Mostra botão de copiar o link interno do processo ou de cada documento sem hash */
-  if (SavedOptions.CheckTypes.includes('copiarlinkinterno')) CopiarLinkInterno(BaseName)
-
+  if (SavedOptions.CheckTypes.includes('copiarlinkinterno')) {
+    if (seiVersionCompare('<', '4')) {
+      copiarLinkInterno(BaseName)
+    }
+  }
   /* Mostra o botão de 'usar documento como modelo' */
   if (SavedOptions.usardocumentocomomodelo) DocumentoModelo(BaseName)
 

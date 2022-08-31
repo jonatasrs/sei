@@ -119,12 +119,19 @@ function Options_ui (BaseName) {
     if (seiVersionCompare('>=', '4.0.0.0')) {
       /* Menu suspenso */
       document.querySelector('#menususp').remove()
+      mconsole.log('DESATIVADO: Menu suspenso')
 
       /* Tema preto (black) */
       document.querySelector('#theme>Option[value=black]').remove()
+      mconsole.log('DESATIVADO: Tema preto (black)')
 
       /** Botão copiar o número do processo/documento [C] (Usar Nativo) */
       document.querySelector('#copiarnumeroprocessodocumento').remove()
+      mconsole.log('DESATIVADO: Botão copiar o número do processo/documento [C]')
+
+      /** Botão copiar o link interno do processo sem hash [L] (Usar Nativo) */
+      document.querySelector('#copiarlinkinterno').remove()
+      mconsole.log('DESATIVADO: Botão copiar o link interno do processo sem hash [L]')
     }
 
     /* Salvar */
