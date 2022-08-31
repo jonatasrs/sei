@@ -122,6 +122,9 @@ function Options_ui (BaseName) {
 
       /* Tema preto (black) */
       document.querySelector('#theme>Option[value=black]').remove()
+
+      /** Botão copiar o número do processo/documento [C] (Usar Nativo) */
+      document.querySelector('#copiarnumeroprocessodocumento').remove()
     }
 
     /* Salvar */

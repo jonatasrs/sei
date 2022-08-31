@@ -1,108 +1,107 @@
-function CopiarNumeroProcessoDocumento(BaseName) {
+function copiarNumeroProcessoDocumento (BaseName) {
+  /** inicialização do módulo ***************************************************/
+  const mconsole = new __mconsole(BaseName + '.copiarNumeroProcessoDocumento')
 
-	/** inicialização do módulo ***************************************************/
-	var mconsole = new __mconsole(BaseName + ".CopiarNumeroProcessoDocumento");
+  const srcImgCopiar = 'data:image/gif;base64,R0lGODdhEAAQAMZNAAQCBISCdERCPMzCpGxmVOzixHRyXCQiHKyijNzStGxqXPTu3FxaTMS6nBQWFHx2bPz23ExORNTKrGRmZDQyLOTavGxqZERCRPTq1HRyZMS6pAwKDKSejMzGrGRiXCwqJPz27HR2ZOzizLSqlNzWvGxuXPzy5FxeXCQeHOTaxGxuZERGRMS+pGRmXAQGBJSKdExGPNTGpCwmJPzy3GReVMy6nBwWFHx6bPz25NzOtGxmZDw6NPTu1HxyZAwODKSelNTGrCwuJPz67Hx2ZPTmzLSulOTWvHRuXOTexHRuZExGRMy+pGxmXP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ywAAAAAEAAQAAAHqoAnNEOEhYaEDDsMOCAgOIyOjZAQDAaMODOXlzNCjiFHJjOioQClAJmPISUYrKylrQA8oRklRLZEpbe3GAsZCgXABaXBwCIiGL4VSMulSMrLyyJJCkbVRqXW2SkqTAneCaXf4iQWLRLn56XoAOc55UDw8aYAQDExQBYeAwNL+/z7/Zb00+FhCYsaGhDWMIhQg4YlEwQAaUCx4sSKDYCscHHBg8ePID1e2BAIADs='
+  const srcImgEspaco = '/infra_css/imagens/espaco.gif'
+  const idmod = 'seipp-cnpd'
 
-	var srcImgCopiar = 'data:image/gif;base64,R0lGODdhEAAQAMZNAAQCBISCdERCPMzCpGxmVOzixHRyXCQiHKyijNzStGxqXPTu3FxaTMS6nBQWFHx2bPz23ExORNTKrGRmZDQyLOTavGxqZERCRPTq1HRyZMS6pAwKDKSejMzGrGRiXCwqJPz27HR2ZOzizLSqlNzWvGxuXPzy5FxeXCQeHOTaxGxuZERGRMS+pGRmXAQGBJSKdExGPNTGpCwmJPzy3GReVMy6nBwWFHx6bPz25NzOtGxmZDw6NPTu1HxyZAwODKSelNTGrCwuJPz67Hx2ZPTmzLSulOTWvHRuXOTexHRuZExGRMy+pGxmXP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ywAAAAAEAAQAAAHqoAnNEOEhYaEDDsMOCAgOIyOjZAQDAaMODOXlzNCjiFHJjOioQClAJmPISUYrKylrQA8oRklRLZEpbe3GAsZCgXABaXBwCIiGL4VSMulSMrLyyJJCkbVRqXW2SkqTAneCaXf4iQWLRLn56XoAOc55UDw8aYAQDExQBYeAwNL+/z7/Zb00+FhCYsaGhDWMIhQg4YlEwQAaUCx4sSKDYCscHHBg8ePID1e2BAIADs=';
-	var srcImgEspaco = '/infra_css/imagens/espaco.gif';
-  var idmod = "seipp-cnpd";
+  function gerarInserirLink (element, numeroDocumento, numeroSei, nomeDocumento) {
+    const linkSei = document.createElement('a')
+    linkSei.id = 'lnkSei' + numeroDocumento
+    linkSei.className = 'ancoraSei'
+    $(linkSei).append(numeroSei)
 
-	function gerarInserirLink(element, numeroDocumento, numeroSei, nomeDocumento) {
+    const spanNotEditable = document.createElement('span')
+    spanNotEditable.setAttribute('contenteditable', 'false')
+    spanNotEditable.appendChild(linkSei)
 
-	    var linkSei = document.createElement('a');
-	    linkSei.id = 'lnkSei' + numeroDocumento;
-	    linkSei.className = 'ancoraSei';
-      $(linkSei).append(numeroSei);
+    const spanGeral = document.createElement('span')
+    if (nomeDocumento) $(spanGeral).append(nomeDocumento + ' (')
+    spanGeral.appendChild(spanNotEditable)
+    if (nomeDocumento) $(spanGeral).append(')')
+    spanGeral.style.display = 'none'
 
-	    var spanNotEditable = document.createElement('span');
-	    spanNotEditable.setAttribute('contenteditable', 'false');
-	    spanNotEditable.appendChild(linkSei);
+    const spanParent = element.parentNode
+    spanParent.parentNode.insertBefore(spanGeral, spanParent.nextSibling)
 
-	    var spanGeral = document.createElement('span');
-	    if (nomeDocumento) $(spanGeral).append(nomeDocumento + ' (');
-	    spanGeral.appendChild(spanNotEditable);
-	    if (nomeDocumento) $(spanGeral).append(')');
-	    spanGeral.style.display = 'none';
+    return spanGeral
+  }
 
-	    var spanParent = element.parentNode;
-	    spanParent.parentNode.insertBefore(spanGeral, spanParent.nextSibling);
+  function gerarInserirCopy (span, title) {
+    const imgCopiar = document.createElement('img')
+    imgCopiar.src = srcImgCopiar
+    imgCopiar.title = title
+    imgCopiar.id = idmod + span.id.substr(4)
 
-	    return spanGeral;
-	}
+    const imgEspaco = document.createElement('img')
+    imgEspaco.src = srcImgEspaco
 
-	function gerarInserirCopy(span, title) {
+    const spanParent = span.parentNode
+    spanParent.parentNode.insertBefore(imgCopiar, spanParent.nextSibling)
+    spanParent.parentNode.insertBefore(imgEspaco, spanParent.nextSibling)
+    mconsole.log('Link copiar adicionado: ' + $(span).text())
+    return imgCopiar
+  }
 
-	    var imgCopiar = document.createElement('img');
-	    imgCopiar.src = srcImgCopiar;
-	    imgCopiar.title = title;
-	    imgCopiar.id = idmod + span.id.substr(4);
+  function getNumeroDocumento (text) {
+    const resultIdRegex = /^span([0-9]{1,11})$/g.exec(text)
+    if (resultIdRegex) return resultIdRegex[1]
+  }
 
-	    var imgEspaco = document.createElement('img');
-	    imgEspaco.src = srcImgEspaco;
+  function copiarNumero (spanGeral) {
+    spanGeral.style.display = 'block'
+    const range = document.createRange()
+    range.selectNodeContents(spanGeral)
+    const sel = window.getSelection()
+    sel.removeAllRanges()
+    sel.addRange(range)
+    try {
+      document.execCommand('copy')
+      sel.removeAllRanges()
+    } catch (err) {
+      alert('Infelizmente, seu sistema não permite copiar automaticamente. Pressione Ctrl + C para copiar.')
+    }
+    spanGeral.style.display = 'none'
+  }
 
-	    var spanParent = span.parentNode;
-	    spanParent.parentNode.insertBefore(imgCopiar, spanParent.nextSibling);
-	    spanParent.parentNode.insertBefore(imgEspaco, spanParent.nextSibling);
-	    mconsole.log("Link copiar adicionado: " + $(span).text());
-	    return imgCopiar;
-	}
+  function iniciar () {
+    let span = document.querySelector('#divArvore>a>span')
+    if (!span) {
+      span = document.querySelector(".infraArvore > a[target='ifrVisualizacao'] > span")
+    }
+    if (span && $('#' + idmod + span.id.substr(4)).length === 0) {
+      const numeroDocumento = getNumeroDocumento(span.id)
+      if (numeroDocumento) {
+        const spanGeral = gerarInserirLink(span, numeroDocumento, span.innerHTML.trim())
+        gerarInserirCopy(span, 'Copiar Número do Processo').addEventListener('click', function () {
+          AnimacaoFade(this)
+          copiarNumero(spanGeral)
+        })
+      }
+    }
 
-	function getNumeroDocumento(text) {
-	    var resultIdRegex = /^span([0-9]{1,11})$/g.exec(text);
-	    if (resultIdRegex) return resultIdRegex[1];
-	}
+    $("#divArvore > div a[target='ifrVisualizacao'] > span").each(function (index, element) {
+      let numeroSei
+      let nomeDocumento
+      const numeroDocumento = getNumeroDocumento(element.id)
 
-	function copiarNumero(spanGeral) {
-	    spanGeral.style.display = 'block';
-	    var range = document.createRange();
-	    range.selectNodeContents(spanGeral);
-	    var sel = window.getSelection();
-	    sel.removeAllRanges();
-	    sel.addRange(range);
-	    try {
-          document.execCommand('copy');
-	        sel.removeAllRanges();
-	    } catch (err) {
-	        alert('Infelizmente, seu sistema não permite copiar automaticamente. Pressione Ctrl + C para copiar.');
-	    }
-	    spanGeral.style.display = 'none';
-	}
+      if ($('#' + idmod + element.id.substr(4)).length != 0) return
+      const resultNomeRegex = /^(.+)\s+\(?([0-9]{7,11})\)?$/.exec(element.title)
+      if (resultNomeRegex) {
+        nomeDocumento = resultNomeRegex[1]
+        numeroSei = resultNomeRegex[2]
+      }
 
-	function iniciar() {		
-		let span = document.querySelector('#divArvore>a>span');
-		if (!span) {
-			span = document.querySelector(".infraArvore > a[target='ifrVisualizacao'] > span");
-		}
-	    if (span && $("#"+idmod + span.id.substr(4)).length == 0) {
+      if (numeroSei && numeroDocumento && nomeDocumento) {
+        const spanGeral = gerarInserirLink(element, numeroDocumento, numeroSei, nomeDocumento)
+        gerarInserirCopy(element, 'Copiar Documento').addEventListener('click', function () {
+          AnimacaoFade(this)
+          copiarNumero(spanGeral)
+        })
+      }
+    })
+  }
 
-	        var numeroDocumento = getNumeroDocumento(span.id);
-	        if (numeroDocumento) {
-
-	            var spanGeral = gerarInserirLink(span, numeroDocumento, span.innerHTML.trim());
-	            gerarInserirCopy(span, 'Copiar Número do Processo').addEventListener('click', function() {AnimacaoFade(this); copiarNumero(spanGeral); });
-	        }
-	    }
-
-      $("#divArvore > div a[target='ifrVisualizacao'] > span").each(function(index, element) {
-
-	        var numeroSei;
-	        var nomeDocumento;
-	        var numeroDocumento = getNumeroDocumento(element.id);
-
-	        if ($("#"+idmod + element.id.substr(4)).length != 0) return;
-	        var resultNomeRegex = /^(.+)\s+\(?([0-9]{7,11})\)?$/.exec(element.title);
-	        if (resultNomeRegex) {
-	            nomeDocumento = resultNomeRegex[1];
-	            numeroSei = resultNomeRegex[2];
-	        }
-
-	        if (numeroSei && numeroDocumento && nomeDocumento) {
-
-	            var spanGeral = gerarInserirLink(element, numeroDocumento, numeroSei, nomeDocumento);
-	            gerarInserirCopy(element, 'Copiar Documento').addEventListener('click', function() {AnimacaoFade(this); copiarNumero(spanGeral); });
-	        }
-      });
-	}
-
-	ExecutarNaArvore(mconsole,iniciar);
+  ExecutarNaArvore(mconsole, iniciar)
 }

@@ -53,7 +53,7 @@
         "lib/jquery-ui/jquery-ui.min.css",
         "lib/jquery.tablesorter/theme.blue.min.css", "lib/jquery.tablesorter/theme.dark.min.css"
       ],
-      "all_frames": false,
+      "all_frames": true,
       "js": [
         "cs_modules/core/end/theme.js",
         "cs_modules/core/end/getSeiVersion.js",
