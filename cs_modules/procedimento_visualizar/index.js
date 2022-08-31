@@ -22,7 +22,7 @@ if (ModuleInit(BaseName)) {
   if (SavedOptions.CheckTypes.includes('exibeinfointeressado')) ConsultarInteressado(BaseName)
 
   /* Mostra a quem o processo está atribuído */
-  if (SavedOptions.exibeinfoatribuicao) ConsultarAtribuicao(BaseName)
+  if (SavedOptions.exibeinfoatribuicao) consultarAtribuicao(BaseName)
 
   /* Mostra botão atualizar andamento para envido de correspondências */
   if (SavedOptions.CheckTypes.includes('autopreencher')) AutopreencherAndamento(BaseName)
