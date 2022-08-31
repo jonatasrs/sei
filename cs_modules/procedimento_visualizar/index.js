@@ -41,7 +41,7 @@ if (ModuleInit(BaseName)) {
     }
   }
   /* Mostra o botão de 'usar documento como modelo' */
-  if (SavedOptions.usardocumentocomomodelo) DocumentoModelo(BaseName)
+  if (SavedOptions.usardocumentocomomodelo) documentoModelo(BaseName)
 
   /* Mostra a anotação */
   if (SavedOptions.CheckTypes.includes('mostraranotacao')) MostrarAnotacao(BaseName)
