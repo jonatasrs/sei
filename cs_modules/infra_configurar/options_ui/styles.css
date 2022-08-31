@@ -48,14 +48,14 @@
 }
 
 /* Tooltip container */
-.tooltip {
+.seipp-tooltip {
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black; /* pontilhado sob o texto do link */
 }
 
 /* Tooltip text */
-.tooltip .tooltiptext {
+.seipp-tooltip > .tooltiptext {
     visibility: hidden;
     width: 300px;
     background-color: #fcfc99;
@@ -68,14 +68,20 @@
     z-index: 3;
 }
 
-.tooltip:hover .tooltiptext {
+.seipp-tooltip:hover > .tooltiptext {
     visibility: visible;
 }
-.toggle-label{
+#seipp-div-options-ui .toggle-label{
   font-family: arial;
   width: 100%;
   align-self: center;
 }
+
+#seipp-div-options-ui > .card * {
+  font-family: arial,verdana,helvetica,sans-serif;
+  font-size: 12px;
+}
+
 .toggle-options {
   display: flex;
   color: blue;
@@ -144,8 +150,14 @@
 }
 .option-save {
   width: 40%;
-  margin-top: 20px;
+  margin: 20px auto 0 auto;
 }
 .option-save input {
   border-style: solid;
+  border-radius: 0.25rem;
+}
+.option-save input:hover {
+  color: #fff;
+  background-color: #5992ed;
+  border-color: #1351b4;
 }
