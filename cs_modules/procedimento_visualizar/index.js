@@ -47,7 +47,7 @@ if (ModuleInit(BaseName)) {
   if (SavedOptions.CheckTypes.includes('mostraranotacao')) MostrarAnotacao(BaseName)
 
   /* Adiciona a funcionalidade de incluir documentos externos ao arrastar arquivos  */
-  if (SavedOptions.CheckTypes.includes('incluirdocaoarrastar')) Dropzone.iniciar(BaseName)
+  if (SavedOptions.CheckTypes.includes('incluirdocaoarrastar')) dropzone.iniciar(BaseName)
 
   /* Adiciona a funcionalidade de abrir o documento em nova aba com o ctrl pressionado */
   AbrirDocumentoNovaAba(BaseName)
