@@ -132,16 +132,14 @@ function Options_ui (BaseName) {
       /** Botão copiar o link interno do processo sem hash [L] (Usar Nativo) */
       document.querySelector('#copiarlinkinterno').remove()
       mconsole.log('DESATIVADO: Botão copiar o link interno do processo sem hash [L]')
+
+      /** Exibir botão novo documento (Usar Nativo) */
+      document.querySelector('#atalhonovodoc').remove()
+      mconsole.log('DESATIVADO: Exibir botão novo documento')
     }
 
     /* Salvar */
     $('#save-button').on('click', OptionsSave)
-
-    // if (SavedOptions.InstallOrUpdate) {
-    //   SavedOptions.InstallOrUpdate = false
-    //   browser.storage.local.set(SavedOptions)
-    //   $('#lnkConfiguracaoSistema img, #lnkConfiguracaoSistema i').css({ animation: 'none' })
-    // }
   }
 
   function getUsuarioSistema () {

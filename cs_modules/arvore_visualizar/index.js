@@ -1,11 +1,13 @@
-const BaseName = "arvore_visualizar";
+const BaseName = 'arvore_visualizar'
 
-SavedOptions.CheckTypes.forEach(function(element) {
+SavedOptions.CheckTypes.forEach(function (element) {
   switch (element) {
-    case "atalhonovodoc":
-      NovoDocumento(BaseName);
-      break;
+    case 'atalhonovodoc':
+      if (seiVersionCompare('<', '4')) {
+        novoDocumento(BaseName)
+      }
+      break
     default:
-      break;
+      break
   }
-}, this);
+}, this)
