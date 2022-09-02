@@ -1,15 +1,15 @@
-const BaseName = "documento_receber";
+const BaseName = 'documento_receber'
 
 if (ModuleInit(BaseName)) {
-  ForcarReaberturaProcesso(BaseName);
+  ForcarReaberturaProcesso(BaseName)
 
-  SavedOptions.CheckTypes.forEach(function(element) {
+  SavedOptions.CheckTypes.forEach(function (element) {
     switch (element) {
-      case "cliquemenos":
-        autopreencherDocumentoExterno(BaseName, SavedOptions);
-        break;
+      case 'cliquemenos':
+        autopreencherDocumentoExterno(BaseName, SavedOptions)
+        break
       default:
-        break;
+        break
     }
-  }, this);
+  }, this)
 }

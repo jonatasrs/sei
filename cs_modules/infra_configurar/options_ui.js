@@ -1,5 +1,7 @@
-function Options_ui (BaseName) {
-  const mconsole = new __mconsole(BaseName + '.Options_ui')
+/* global SavedOptions, __mconsole, isChrome, DefaultOptions, seiVersionCompare */
+
+function optionsUi (BaseName) {
+  const mconsole = new __mconsole(BaseName + '.optionsUi')
 
   $('#divInfraAreaTelaD').append("<div id='seipp-div-options-ui'/>")
   $('#seipp-div-options-ui').load(

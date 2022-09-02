@@ -1,8 +1,8 @@
-function AtualizarAnotacaoNaArvore(BaseName) {
+function AtualizarAnotacaoNaArvore (BaseName) {
   /** inicialização do módulo ***************************************************/
-  var mconsole = new __mconsole(BaseName + ".AtualizarAnotacaoNaArvore");
+  const mconsole = new __mconsole(BaseName + '.AtualizarAnotacaoNaArvore')
 
-  $("#divInfraBarraComandosSuperior > button").click(function() {
-    parent.document.getElementById('ifrArvore').contentWindow.location.reload();
-  });
+  $('#divInfraBarraComandosSuperior > button').click(function () {
+    parent.document.getElementById('ifrArvore').contentWindow.location.reload()
+  })
 }

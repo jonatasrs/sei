@@ -1,4 +1,3 @@
-const BaseName = "procedimento_atribuicao_cadastrar";
+const BaseName = 'procedimento_atribuicao_cadastrar'
 
-if (ModuleInit(BaseName))
-  OrdenarSelect(BaseName);
+if (ModuleInit(BaseName)) { OrdenarSelect(BaseName) }
