@@ -10,11 +10,22 @@ export async function fetchSei (url, options = { method: 'GET' }) {
   }
 }
 
+/**
+ *
+ * @param {String} baseUrl URL base do SEI (Default: storage.baseUrl)
+ * @returns {Document} DOM document
+ */
+export async function fetchRoot (baseUrl = null) {
+  const storage = await getLocalStorage()
+  baseUrl = baseUrl || storage.baseUrl
+  const parser = new DOMParser()
+  const html = await fetchSei(baseUrl)
+  return parser.parseFromString(html, 'text/html')
+}
+
 export async function getActionUrl (actionName) {
   const storage = await getLocalStorage()
-  const parser = new DOMParser()
-  const html = await fetchSei(storage.baseUrl)
-  const doc = parser.parseFromString(html, 'text/html')
+  const doc = await fetchRoot()
   const menu = doc.querySelector('#main-menu, #infraMenu')
   const link = menu.querySelector(`li > a[href*="acao=${actionName}"]`)
   return `${storage.baseUrl}${link.getAttribute('href')}`

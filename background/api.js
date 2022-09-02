@@ -1,5 +1,5 @@
 import { getLocalStorage } from '../lib/core/tools.js'
-import { fetchSei, getActionUrl } from './fetchSei.js'
+import { fetchRoot, fetchSei, getActionUrl } from './fetchSei.js'
 
 async function fetchListaDetalhada (newUrl = null) {
   const url = newUrl || await getActionUrl('procedimento_controlar')
@@ -62,4 +62,10 @@ export async function listarProcessos () {
     return result
   })
   return json
+}
+
+export async function isAuthenticated (baseUrl) {
+  const doc = await fetchRoot(baseUrl)
+  const frmLogin = doc.querySelector('#frmLogin')
+  return !frmLogin
 }

@@ -1,6 +1,6 @@
 import '../lib/core/core.js'
 import { handleInstalled } from '../lib/core/tools.js'
-import { storageServices, initServices } from './services.js'
+import { initServices } from './services.js'
 
 /******************************************************************************
  SEI ++: Script que adiciona novas funcionalidades ao SEI
@@ -15,9 +15,4 @@ if (!window.isChrome) {
   })
 }
 
-browser.notifications.onClicked.addListener(function (notificationId) {
-  console.log('Notificação ' + notificationId + ' onClickd')
-})
-
 initServices()
-browser.storage.onChanged.addListener(storageServices)

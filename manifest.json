@@ -16,7 +16,7 @@
   "browser_action": {
     "default_icon": "icons/seipp.png",
     "default_title": "Controle de Processos",
-    "default_popup": "toolbox/index.html"
+    "default_popup": "browser_action/index.html"
   },
   "browser_specific_settings": {
     "gecko": {

@@ -9,6 +9,12 @@ body {
     text-align: center;
 }
 
+#hostname {
+    color: #849513;
+    background-color: #141491;
+    padding: 3px;
+}
+
 #popup-content {
     margin: 15px;
 }

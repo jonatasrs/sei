@@ -42,7 +42,7 @@ function Options_ui (BaseName) {
 
     /* Checkbox's */
     $("input[type='checkbox']").each(function () {
-      if (SavedOptions.CheckTypes.indexOf($(this).attr('data-type')) != -1) {
+      if (SavedOptions.CheckTypes.indexOf($(this).attr('data-type')) !== -1) {
         $(this).attr('checked', true)
         mconsole.log('checked')
       } else {
@@ -161,11 +161,11 @@ function Options_ui (BaseName) {
   }
 
   function MostraTipoConferencia () {
-    toggle($('#divtipoconferencia'), $("input[name='formato']:checked").val() == 'D')
+    toggle($('#divtipoconferencia'), $("input[name='formato']:checked").val() === 'D')
   }
 
   function MostraRestrito () {
-    toggle($('#divhipoteseLegal'), $('#rdRestrito:checked').val() == 'R')
+    toggle($('#divhipoteseLegal'), $('#rdRestrito:checked').val() === 'R')
   }
 
   function toggle (elemento, valor) {
@@ -241,6 +241,13 @@ function Options_ui (BaseName) {
     } else {
       browser.storage.local.set(OptionsToSave).then(setItem, onError)
     }
+
+    /** Notificar background page que as opções foram salvas */
+    browser.runtime.sendMessage({
+      from: 'seippOptionsSave',
+      text: 'OptionsSave'
+    })
+
     alert('Salvo')
     window.location.assign(window.location.href)
   }
