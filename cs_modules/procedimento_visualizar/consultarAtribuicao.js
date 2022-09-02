@@ -1,3 +1,4 @@
+/* global __mconsole, seiVersionCompare */
 function consultarAtribuicao (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.consultarAtribuicao')
@@ -6,6 +7,7 @@ function consultarAtribuicao (BaseName) {
   if (!unidadeAtual) return
   const dadosAtribuicao = obterAtribuicao(unidadeAtual)
   if (!dadosAtribuicao) return
+  mconsole.log(`${unidadeAtual} - ${dadosAtribuicao}`)
   ConsultarInteressadoCriar(unidadeAtual, dadosAtribuicao)
 
   function ConsultarInteressadoCriar (unidadeAtual, dadosAtribuicao) {

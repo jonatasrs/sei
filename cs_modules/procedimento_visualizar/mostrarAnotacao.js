@@ -1,3 +1,4 @@
+/* global __mconsole, GetBaseUrl */
 function MostrarAnotacao (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.MostrarAnotacao')
@@ -124,8 +125,8 @@ function MostrarAnotacao (BaseName) {
   }
 
   function removerNota () {
-    const confirm_ok = confirm('Deseja remover a anotação deste processo?')
-    if (!confirm_ok) return
+    const confirmOk = confirm('Deseja remover a anotação deste processo?')
+    if (!confirmOk) return
     $('textarea.seipp_anotacao_txt_editar').val('')
     salvarNota()
   }

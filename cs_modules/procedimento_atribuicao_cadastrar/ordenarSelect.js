@@ -1,3 +1,4 @@
+/* global SavedOptions */
 function OrdenarSelect () {
   if (!SavedOptions.CheckTypes.includes('ordenaratribuirprocesso')) return
 

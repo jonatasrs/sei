@@ -1,3 +1,4 @@
+/* global SavedOptions, seiVersionCompare, novoDocumento */
 const BaseName = 'arvore_visualizar'
 
 SavedOptions.CheckTypes.forEach(function (element) {

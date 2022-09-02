@@ -1,3 +1,4 @@
+/* global ModuleInit, SavedOptions, AtualizarAnotacaoNaArvore */
 const BaseName = 'anotacao_registrar'
 
 if (ModuleInit(BaseName)) {

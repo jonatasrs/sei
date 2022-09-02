@@ -1,3 +1,4 @@
+/* global __mconsole */
 function AjustarElementosNativos (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.AjustarElementosNativos')
@@ -37,4 +38,5 @@ function AjustarElementosNativos (BaseName) {
   if ($('#divConsultarAndamento').length) {
     $('#divConsultarAndamento').addClass('seipp-consultar-andamento')
   }
+  mconsole.log('concluído')
 }

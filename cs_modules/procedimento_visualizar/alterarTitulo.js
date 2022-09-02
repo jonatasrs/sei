@@ -1,3 +1,4 @@
+/* global __mconsole, ExecutarNaArvore */
 function AlterarTitulo (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.AlterarTitulo')

@@ -1,3 +1,4 @@
+/* global __mconsole, SavedOptions, RemoveAllOldEventListener, isNumOnly, seiVersionCompare */
 function incluirCalculoPrazos (BaseName, TipoDeCalculo) {
   /** inicialização do módulo */
   const mconsole = new __mconsole(BaseName + '.incluirCalculoPrazos')
@@ -61,8 +62,8 @@ function incluirCalculoPrazos (BaseName, TipoDeCalculo) {
       const hoje = new Date() // Pega a data atual
       const hojeMsec = hoje.getTime()
 
-      if (TipoDeCalculo == 'prazo') {
-        if (str.indexOf('ate ') == 0) {
+      if (TipoDeCalculo === 'prazo') {
+        if (str.indexOf('ate ') === 0) {
           str = str.substr(4, 10)
         } else {
           return ''

@@ -1,3 +1,4 @@
+/* global __mconsole, GetBaseUrl, ExecutarNaArvore, AnimacaoFade */
 function copiarLinkInterno (BaseName) {
   const mconsole = new __mconsole(BaseName + '.copiarLinkInterno')
   const linkurl = GetBaseUrl() + 'controlador.php?acao=procedimento_trabalhar&id_procedimento='

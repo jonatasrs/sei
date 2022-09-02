@@ -1,3 +1,4 @@
+/* global __mconsole, seiVersionCompare */
 function retirarSobrestamentoReabrirEmBloco (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.retirarSobrestamentoReabrirEmBloco')

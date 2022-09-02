@@ -1,3 +1,4 @@
+/* global ModuleInit, SavedOptions, ForcarReaberturaProcesso, autopreencherDocumentoExterno */
 const BaseName = 'documento_receber'
 
 if (ModuleInit(BaseName)) {

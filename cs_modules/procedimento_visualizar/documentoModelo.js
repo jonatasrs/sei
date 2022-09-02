@@ -1,3 +1,4 @@
+/* global __mconsole, salvarDadosStorage, salvarDadosStorage, AnimacaoFade, ExecutarNaArvore */
 function documentoModelo (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.documentoModelo')

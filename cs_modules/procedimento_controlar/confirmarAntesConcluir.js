@@ -1,3 +1,4 @@
+/* global __mconsole, RemoveAllOldEventListener */
 function confirmarAntesConcluir (BaseName) {
   /** inicialização do módulo */
   const mconsole = new __mconsole(BaseName + '.ConfirmarAntesConcluir')

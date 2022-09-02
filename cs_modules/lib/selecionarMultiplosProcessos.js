@@ -1,3 +1,4 @@
+/* global __mconsole */
 function selecionarMultiplosProcessos (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.selecionarMultiplosProcessos')
@@ -36,6 +37,7 @@ function selecionarMultiplosProcessos (BaseName) {
 
   $(document).on('keyup keydown', function (e) {
     shifted = e.shiftKey
+    mconsole.log(`shiftKey ${shifted}`)
   })
 
   $.each(elementos, function (index, element) {

@@ -1,3 +1,4 @@
+/* global __mconsole, carregarDadosStorage */
 function EscolherDocumentoComModelo (BaseName) {
   /** inicialização do módulo */
   const mconsole = new __mconsole(BaseName + '.EscolherDocumentoComModelo')

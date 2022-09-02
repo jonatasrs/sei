@@ -1,3 +1,5 @@
+/* global ModuleInit, SavedOptions, PesquisarInformacoes, retirarSobrestamentoReabrirEmBloco,
+selecionarMultiplosProcessos, selecionarDocumentosAssinar */
 const BaseName = 'rel_bloco_protocolo_listar'
 
 if (ModuleInit(BaseName, true)) {

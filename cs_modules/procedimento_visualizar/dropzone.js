@@ -1,3 +1,4 @@
+/* global __mconsole, GetBaseUrl, SavedOptions */
 const dropzone = {}
 
 /*
@@ -491,9 +492,9 @@ dropzone.log = function (mconsole, texto) {
   Dropzone.iniciar
   Função invocada para iniciar a dropzone
 */
-dropzone.iniciar = function (Basename) {
+dropzone.iniciar = function (baseName) {
   dropzone.ui.adicionarDropzone()
 
-  const mconsole = new __mconsole(BaseName + '.Dropzone')
+  const mconsole = new __mconsole(baseName + '.Dropzone')
   dropzone.log = dropzone.log.bind(this, mconsole)
 }

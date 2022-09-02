@@ -1,3 +1,7 @@
+/* global ModuleInit, SavedOptions, corrigirTabelas, incluirCalculoPrazos, marcarCorProcesso,
+FiltraPorAtribuicao, carregaInformacaoBlocos, PesquisarInformacoes, ListaPorEspecificacao,
+mostrarEspecificacao, seiVersionCompare, addScriptToPage, selecionarMultiplosProcessos,
+confirmarAntesConcluir */
 const BaseName = 'procedimento_controlar'
 
 if (ModuleInit(BaseName, true)) {

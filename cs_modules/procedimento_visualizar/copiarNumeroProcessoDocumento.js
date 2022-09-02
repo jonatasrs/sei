@@ -1,3 +1,4 @@
+/* global __mconsole, AnimacaoFade, ExecutarNaArvore */
 function copiarNumeroProcessoDocumento (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.copiarNumeroProcessoDocumento')
@@ -86,7 +87,7 @@ function copiarNumeroProcessoDocumento (BaseName) {
       let nomeDocumento
       const numeroDocumento = getNumeroDocumento(element.id)
 
-      if ($('#' + idmod + element.id.substr(4)).length != 0) return
+      if ($('#' + idmod + element.id.substr(4)).length !== 0) return
       const resultNomeRegex = /^(.+)\s+\(?([0-9]{7,11})\)?$/.exec(element.title)
       if (resultNomeRegex) {
         nomeDocumento = resultNomeRegex[1]

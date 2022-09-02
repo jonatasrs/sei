@@ -1,8 +1,9 @@
+/* global __mconsole, removerFiltroTabela */
 function adicionarOrdenacao (BaseName) {
   /** inicialização do módulo */
   const mconsole = new __mconsole(BaseName + '.adicionarOrdenacao')
 
-  if ($('.infraAreaPaginacao').children().length == 0) { $('.infraAreaPaginacao').hide() }
+  if ($('.infraAreaPaginacao').children().length === 0) { $('.infraAreaPaginacao').hide() }
 
   $('#tblProcessosDetalhado, #tblProcessosGerados, #tblProcessosRecebidos').each(function (index, tabela) {
     const idt = $(tabela).attr('id')
@@ -13,7 +14,7 @@ function adicionarOrdenacao (BaseName) {
         1: function (node, table, cellIndex) {
           const img = node.querySelector('img[src^="imagens/sei_anotacao"]')
           if (img) {
-            const prioridade = img.src.indexOf('prioridade') != -1 ? '1' : '2'
+            const prioridade = img.src.indexOf('prioridade') !== -1 ? '1' : '2'
             const strfuncao = img.parentNode.getAttribute('onmouseover')
             const start = strfuncao.indexOf('infraTooltipMostrar') + 21
             const end = strfuncao.indexOf("'", start)
@@ -67,7 +68,7 @@ function adicionarOrdenacao (BaseName) {
    * @param {*} params
    */
   function RemoverFiltroPesquisa ($tabela) {
-    if ($tabela.attr('data-filtro') != undefined) {
+    if ($tabela.attr('data-filtro') !== undefined) {
       removerFiltroTabela($tabela, $tabela.find('tbody>tr[class^="infraTr"]'), 'PorPesquisa')
     }
   }

@@ -1,3 +1,4 @@
+/* global __mconsole, seiVersionCompare */
 function mostrarEspecificacao (BaseName) {
   /** inicialização do módulo */
   const mconsole = new __mconsole(BaseName + '.mostrarEspecificacao')

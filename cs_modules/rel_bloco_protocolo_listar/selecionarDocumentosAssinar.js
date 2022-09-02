@@ -1,3 +1,4 @@
+/* global __mconsole */
 /**
  * Dentro de um bloco de assinatura, adiciona opções que auxiliam a selecionar os documentos para assinar
  */

@@ -1,3 +1,4 @@
+/* global __mconsole, ExecutarNaArvore, AnimacaoFade */
 function AutopreencherAndamento (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.AutopreencherAndamento')

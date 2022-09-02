@@ -1,3 +1,4 @@
+/* global ModuleInit, SavedOptions, retirarSobrestamentoReabrirEmBloco, selecionarMultiplosProcessos */
 const BaseName = 'controle_unidade_gerar'
 
 if (ModuleInit(BaseName, true)) {

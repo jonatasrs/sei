@@ -1,3 +1,7 @@
+/* global ModuleInit, SavedOptions, seiVersionCompare, EsperaCarregar, AjustarElementosNativos,
+ConsultarInteressado, consultarAtribuicao, AutopreencherAndamento, copiarNumeroProcessoDocumento,
+copiarLinkInterno, documentoModelo, MostrarAnotacao, dropzone, AbrirDocumentoNovaAba,
+AlterarTitulo */
 const BaseName = 'procedimento_visualizar'
 
 function ExecutarNaArvore (Modlog, func) {

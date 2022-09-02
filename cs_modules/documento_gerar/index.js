@@ -1,3 +1,4 @@
+/* global ModuleInit, GerarDocumentoComModelo, AumentaTamanho, SavedOptions */
 const BaseName = 'documento_gerar'
 
 if (ModuleInit(BaseName)) {

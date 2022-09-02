@@ -1,3 +1,4 @@
+/* global __mconsole, SavedOptions */
 function marcarCorProcesso (BaseName) {
   /** inicialização do módulo */
 

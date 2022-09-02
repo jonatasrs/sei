@@ -1,3 +1,4 @@
+/* global __mconsole, GetBaseUrl, RemoveAllOldEventListener */
 /**
  * Força a reabertura do processo no protocolo quando o mesmo não está aberto
  * em nenhuma unidade.
@@ -6,7 +7,7 @@ function ForcarReaberturaProcesso (BaseName) {
   /** inicialização do módulo */
   const mconsole = new __mconsole(BaseName + '.ForcarReaberturaProcesso')
 
-  if ($('#divUnidadesReabertura').css('display') == 'block') {
+  if ($('#divUnidadesReabertura').css('display') === 'block') {
     /* Desabilita o botão de confirmação */
     $('#divInfraBarraComandosSuperior > #btnSalvar').attr('disabled', 'disabled')
     $('#divInfraBarraComandosInferior > #btnSalvar').attr('disabled', 'disabled')
@@ -30,7 +31,7 @@ function ForcarReaberturaProcesso (BaseName) {
       mconsole.log('Total de unidades quo o processo está fechado: ' + TUnidFechado)
 
       /* Se tiver fechado em todas as unidades coloca alerta para reabrir */
-      if (TUnidades == TUnidFechado) {
+      if (TUnidades === TUnidFechado) {
         const NovoConfirmarDados = "if($('#selUnidadesReabertura option').length>0){confirmarDados();} else {alert('O processo não está aberto em nenhuma unidade! Favor verificar');$('#selUnidadesReabertura').prop('style', 'background-color: red !important');}"
         $('#divInfraBarraComandosSuperior > #btnSalvar').attr('onclick', NovoConfirmarDados)
         $('#divInfraBarraComandosInferior > #btnSalvar').attr('onclick', NovoConfirmarDados)

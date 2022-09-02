@@ -1,3 +1,4 @@
+/* global __mconsole */
 function novoDocumento (BaseName) {
   /** inicialização do módulo */
   const mconsole = new __mconsole(BaseName + '.novoDocumento')
@@ -26,10 +27,10 @@ function novoDocumento (BaseName) {
       let tipo = 'documento_escolher_tipo'
       let a = head.indexOf('<a href="controlador.php?acao=' + tipo)
 
-      if (a == -1) {
+      if (a === -1) {
         tipo = 'documento_receber'
         a = head.indexOf('<a href="controlador.php?acao=' + tipo)
-        if (a == -1) {
+        if (a === -1) {
           mconsole.log('Link não encontrado.')
           return
         }

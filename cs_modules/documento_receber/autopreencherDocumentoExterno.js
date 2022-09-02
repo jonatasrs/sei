@@ -1,3 +1,4 @@
+/* global __mconsole */
 function autopreencherDocumentoExterno (BaseName, settings) {
   /** inicialização do módulo */
   const mconsole = new __mconsole(BaseName + '.autopreencherDocumentoExterno')
