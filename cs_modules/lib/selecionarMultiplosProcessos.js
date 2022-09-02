@@ -1,4 +1,4 @@
-/* global __mconsole */
+/* global __mconsole, seiVersionCompare */
 function selecionarMultiplosProcessos (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.selecionarMultiplosProcessos')
@@ -42,8 +42,17 @@ function selecionarMultiplosProcessos (BaseName) {
 
   $.each(elementos, function (index, element) {
     element.selectorCheckbox = 'input:checkbox[id^="' + element.id + '"]'
-    $(element.selectorCheckbox).click(function () {
-      alteradoCheckbox(this, element)
-    })
+    if (seiVersionCompare('<', '4')) {
+      $(element.selectorCheckbox).click(function () {
+        alteradoCheckbox(this, element)
+      })
+    } else {
+      $('.infraCheckboxLabel[for^="' + element.id + '"]').click(function () {
+        const id = this.getAttribute('for')
+        const input = document.querySelector(`#${id}`)
+        if (shifted) { input.click() }
+        alteradoCheckbox(input, element)
+      })
+    }
   })
 }
