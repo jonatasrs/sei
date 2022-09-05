@@ -1,8 +1,13 @@
+/* global __mconsole, seiVersion */
+
 /** Pega a versão atual do SEI */
 function getSeiVersion (baseName) {
   const mconsole = new __mconsole(baseName + '.getSeiVersion')
   try {
     const script = document.querySelectorAll('script[src^="js/sei.js?"]')[0]
+    if (!script) {
+      throw new Error(`versão não localizada: ${document.URL}`)
+    }
     const version = script.getAttribute('src').match(/(?<=\?)([^=-]+)/g)[0]
     const fixedVersion = fixVersionNumber(version)
     mconsole.log(fixedVersion)
