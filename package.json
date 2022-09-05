@@ -5,11 +5,12 @@
   "main": "index.js",
   "repository": "git@github.com:jonatasrs/sei.git",
   "author": "Jonatas Evaristo <jonatas.eletrica@gmail.com>",
-  "license": "GPL3",
+  "license": "GPL-3.0-only",
   "devDependencies": {
     "eslint": "^8.18.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0"
   },
@@ -27,7 +28,10 @@
     "parserOptions": {
       "ecmaVersion": 12
     },
-    "rules": {}
+    "rules": {},
+    "globals": {
+      "browser": true
+    }
   },
   "scripts": {
     "start": "web-ext run --keep-profile-changes --firefox-profile=seipp-profile-testes"

@@ -3,196 +3,200 @@
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "4.8.3",
+  "version": "5.0.0",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
-  "icons": {"48": "icons/sei_++.png"},
-  "permissions": ["storage"],
-
-  "applications": {
+  "icons": {"48": "icons/seipp.png"},
+  "permissions": [
+    "storage",
+    "notifications",
+    "*://*.br/sei/*",
+    "alarms"
+  ],
+  "browser_action": {
+    "default_icon": "icons/seipp.png",
+    "default_title": "Controle de Processos",
+    "default_popup": "browser_action/index.html"
+  },
+  "browser_specific_settings": {
     "gecko": {
       "id": "jonatas@gov",
-      "strict_min_version": "60.0"
+      "strict_min_version": "101.0"
     }
   },
 
   "background": {
-    "scripts": ["background.js"]
+    "page": "background/index.html"
   },
 
   "content_scripts": [
     {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
+      "matches": ["*://*.br/sei/*", "*://*.br/sip/login.php?sigla_orgao_sistema*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
       "run_at": "document_start",
       "css": ["cs_modules/core.css"],
       "all_frames": true,
       "js": [
-        "cs_modules/core.d_start.lib.js",
-        "cs_modules/core.d_start.RedirecionarPagina.js",
-        "cs_modules/core.d_start.Theme.js",
-        "cs_modules/core.d_start.js"
+        "cs_modules/core/start/lib.js",
+        "cs_modules/core/start/index.js",
+        "lib/jquery-3.2.1.min.js",
+        "lib/jquery-ui/jquery-ui.min.js",
+        "lib/jquery.tablesorter/jquery.tablesorter.min.js",
+        "lib/jquery.tablesorter/jquery.tablesorter.widgets.min.js",
+        "lib/jquery.tablesorter/widget-columnSelector.min.js"
       ]
     },
     {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
-      "run_at": "document_end",
-      "all_frames": true,
-      "js": [
-        "cs_modules/core/end/init.js"
-      ]
-    },
-    {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
+      "matches": ["*://*.br/sei/*", "*://*.br/sip/login.php?sigla_orgao_sistema*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
       "run_at": "document_end",
       "css": [
+        "cs_modules/core.css",
         "lib/jquery-ui/jquery-ui.min.css",
         "lib/jquery.tablesorter/theme.blue.min.css", "lib/jquery.tablesorter/theme.dark.min.css"
       ],
       "all_frames": true,
       "js": [
-        "lib/jquery-3.2.1.min.js",
-        "lib/jquery-ui/jquery-ui.min.js",
-        "lib/jquery.tablesorter/jquery.tablesorter.min.js",
-        "lib/jquery.tablesorter/jquery.tablesorter.widgets.min.js",
-        "lib/jquery.tablesorter/widget-columnSelector.min.js",
-        "lib/Chart.min.js",
-        "cs_modules/core.d_idle/Lib/Lib.js"
+        "cs_modules/core/end/theme.js",
+        "cs_modules/core/end/getSeiVersion.js",
+        "cs_modules/core/end/redirecionarPagina.js",
+        "cs_modules/core/end/index.js",
+        "lib/Chart.min.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=*", "*://*.br/*controlador_externo.php?acao=*"],
       "run_at": "document_idle",
-      "all_frames": true,
+      "all_frames": false,
       "js": [
-        "cs_modules/core.d_idle.PontoControleCores.js",
-        "cs_modules/core.d_idle.AdicionarIdentificadorSeipp.js",
-        "cs_modules/core.d_idle.MenuSuspenso.js",
-        "cs_modules/core.d_idle.VerificarBlocoAssinatura.js",
-        "cs_modules/core.d_idle.IndicarConfiguracao.js",
-        "cs_modules/core.d_idle.AtalhoPublicacoesEletronicas.js",
-        "cs_modules/core.d_idle.MostrarEspecificacao.js",
-        "cs_modules/core.d_idle.NoButtons.js",
-        "cs_modules/core.d_idle.js"
+        "cs_modules/core/idle/pontoControleCores.js",
+        "cs_modules/core/idle/adicionarIdentificadorSeipp.js",
+        "cs_modules/core/idle/menuSuspenso.js",
+        "cs_modules/core/idle/verificarBlocoAssinatura.js",
+        "cs_modules/core/idle/indicarConfiguracao.js",
+        "cs_modules/core/idle/atalhoPublicacoesEletronicas.js",
+        "cs_modules/core/idle/noButtons.js",
+        "cs_modules/core/idle/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=documento_receber*"],
       "all_frames": true,
       "js": [
-        "cs_modules/documento_receber.ForcarReaberturaProcesso.js",
-        "cs_modules/documento_receber.AutopreencherDocumentoExterno.js",
-        "cs_modules/documento_receber.js"
+        "cs_modules/documento_receber/forcarReaberturaProcesso.js",
+        "cs_modules/documento_receber/autopreencherDocumentoExterno.js",
+        "cs_modules/documento_receber/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=procedimento_controlar*"],
       "js": [
-        "cs_modules/procedimento_controlar.CorrigirTabelas.js",
-        "cs_modules/procedimento_controlar.ConfirmarAntesConcluir.js",
-        "cs_modules/procedimento_controlar.IncluirCalculoPrazos.js",
-        "cs_modules/procedimento_controlar.MarcarCorProcesso.js",
-        "cs_modules/lib.filtra_processos.js",
-        "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
-        "cs_modules/procedimento_controlar.filtra_processos.FiltraPorAtribuicao.js",
-        "cs_modules/procedimento_controlar.filtra_processos.CarregaInformacaoBlocos.js",
-        "cs_modules/lib.SelecionarMultiplosProcessos.js",
-        "cs_modules/procedimento_controlar.ListaPorEspecificacao.js",
-        "cs_modules/procedimento_controlar.js"
+        "cs_modules/procedimento_controlar/mostrarEspecificacao.js",
+        "cs_modules/procedimento_controlar/corrigirTabelas.js",
+        "cs_modules/procedimento_controlar/confirmarAntesConcluir.js",
+        "cs_modules/procedimento_controlar/incluirCalculoPrazos.js",
+        "cs_modules/procedimento_controlar/marcarCorProcesso.js",
+        "cs_modules/lib/filtra_processos/index.js",
+        "cs_modules/lib/filtra_processos/pesquisarInformacoes.js",
+        "cs_modules/procedimento_controlar/filtra_processos/filtraPorAtribuicao.js",
+        "cs_modules/procedimento_controlar/filtra_processos/carregaInformacaoBlocos.js",
+        "cs_modules/lib/selecionarMultiplosProcessos.js",
+        "cs_modules/procedimento_controlar/listaPorEspecificacao.js",
+        "cs_modules/procedimento_controlar/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=rel_bloco_protocolo_listar*"],
       "js": [
-        "cs_modules/lib.filtra_processos.js",
-        "cs_modules/lib.filtra_processos.PesquisarInformacoes.js",
-        "cs_modules/lib.SelecionarMultiplosProcessos.js",
-        "cs_modules/lib.RetirarSobrestamentoReabrirEmBloco.js",
-        "cs_modules/rel_bloco_protocolo_listar.SelecionarDocumentosAssinar.js",
-        "cs_modules/rel_bloco_protocolo_listar.js"
+        "cs_modules/lib/filtra_processos/index.js",
+        "cs_modules/lib/filtra_processos/pesquisarInformacoes.js",
+        "cs_modules/lib/selecionarMultiplosProcessos.js",
+        "cs_modules/lib/retirarSobrestamentoReabrirEmBloco.js",
+        "cs_modules/rel_bloco_protocolo_listar/selecionarDocumentosAssinar.js",
+        "cs_modules/rel_bloco_protocolo_listar/index.js"
       ]
     },
         {
       "matches": ["*://*.br/*controlador.php?acao=controle_unidade_gerar*"],
       "js": [
-        "cs_modules/lib.SelecionarMultiplosProcessos.js",
-        "cs_modules/lib.RetirarSobrestamentoReabrirEmBloco.js",
-        "cs_modules/controle_unidade_gerar.js"
+        "cs_modules/lib/selecionarMultiplosProcessos.js",
+        "cs_modules/lib/retirarSobrestamentoReabrirEmBloco.js",
+        "cs_modules/controle_unidade_gerar/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=procedimento_visualizar*"],
       "all_frames": true,
-      "css": ["cs_modules/procedimento_visualizar.css"],
+      "css": ["cs_modules/procedimento_visualizar/styles.css"],
       "js": [
-        "cs_modules/procedimento_visualizar.ConsultarInteressado.js",
-        "cs_modules/procedimento_visualizar.AutopreencherAndamento.js",
-        "cs_modules/procedimento_visualizar.CopiarNumeroProcessoDocumento.js",
-        "cs_modules/procedimento_visualizar.MostrarAnotacao.js",
-        "cs_modules/procedimento_visualizar.AbrirDocumentoNovaAba.js",
-        "cs_modules/procedimento_visualizar.CopiarLinkInterno.js",
-        "cs_modules/procedimento_visualizar.Dropzone.js",
-        "cs_modules/procedimento_visualizar.AlterarTitulo.js",
-        "cs_modules/procedimento_visualizar.DocumentoModelo.js",
-        "cs_modules/procedimento_visualizar.AjustarElementosNativos.js",
-        "cs_modules/procedimento_visualizar.ConsultarAtribuicao.js",
-        "cs_modules/procedimento_visualizar.js"
+        "cs_modules/procedimento_visualizar/consultarInteressado.js",
+        "cs_modules/procedimento_visualizar/autopreencherAndamento.js",
+        "cs_modules/procedimento_visualizar/copiarNumeroProcessoDocumento.js",
+        "cs_modules/procedimento_visualizar/mostrarAnotacao.js",
+        "cs_modules/procedimento_visualizar/abrirDocumentoNovaAba.js",
+        "cs_modules/procedimento_visualizar/copiarLinkInterno.js",
+        "cs_modules/procedimento_visualizar/dropzone.js",
+        "cs_modules/procedimento_visualizar/alterarTitulo.js",
+        "cs_modules/procedimento_visualizar/documentoModelo.js",
+        "cs_modules/procedimento_visualizar/ajustarElementosNativos.js",
+        "cs_modules/procedimento_visualizar/consultarAtribuicao.js",
+        "cs_modules/procedimento_visualizar/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=documento_escolher_tipo*"],
       "all_frames": true,
-      "css": ["cs_modules/documento_escolher_tipo.css"],
+      "css": ["cs_modules/documento_escolher_tipo/styles.css"],
       "js": [
-        "cs_modules/documento_escolher_tipo.EscolherDocumentoComModelo.js",
-        "cs_modules/documento_escolher_tipo.js"
+        "cs_modules/documento_escolher_tipo/escolherDocumentoComModelo.js",
+        "cs_modules/documento_escolher_tipo/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=arvore_visualizar*"],
       "all_frames": true,
       "js": [
-        "cs_modules/arvore_visualizar.NovoDocumento.js",
-        "cs_modules/arvore_visualizar.js"
+        "cs_modules/arvore_visualizar/novoDocumento.js",
+        "cs_modules/arvore_visualizar/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=anotacao_registrar*"],
       "all_frames": true,
       "js": [
-        "cs_modules/anotacao_registrar.AtualizarAnotacaoNaArvore.js",
-        "cs_modules/anotacao_registrar.js"
+        "cs_modules/anotacao_registrar/atualizarAnotacaoNaArvore.js",
+        "cs_modules/anotacao_registrar/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=infra_configurar*"],
-      "css": ["cs_modules/options_ui/options_ui.css"],
+      "css": ["cs_modules/infra_configurar/options_ui/styles.css"],
       "js": [
-        "cs_modules/infra_configurar.Options_ui.js",
-        "cs_modules/infra_configurar.js"
+        "cs_modules/infra_configurar/options_ui.js",
+        "cs_modules/infra_configurar/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=documento_gerar*"],
       "all_frames": true,
       "js": [
-        "cs_modules/documento_gerar.AumentaTamanho.js",
-        "cs_modules/documento_gerar.GerarDocumentoComModelo.js",
-        "cs_modules/documento_gerar.js"
+        "cs_modules/documento_gerar/aumentaTamanho.js",
+        "cs_modules/documento_gerar/gerarDocumentoComModelo.js",
+        "cs_modules/documento_gerar/index.js"
       ]
     },
     {
       "matches": ["*://*.br/*controlador.php?acao=procedimento_atribuicao_cadastrar*"],
       "all_frames": true,
       "js": [
-        "cs_modules/procedimento_atribuicao_cadastrar.OrdenarSelect.js",
-        "cs_modules/procedimento_atribuicao_cadastrar.js"
+        "cs_modules/procedimento_atribuicao_cadastrar/ordenarSelect.js",
+        "cs_modules/procedimento_atribuicao_cadastrar/index.js"
       ]
     }
   ],
 
   "web_accessible_resources": [
-    "cs_modules/options_ui/options_ui.html",
+    "cs_modules/infra_configurar/options_ui/index.html",
     "cs_modules/themes/black.css",
+    "cs_modules/themes/super-black.css",
     "cs_modules/themes/PontoControleCores_Anatel.css",
     "icons/iconYellow.png",
     "icons/iconBlue.png",
@@ -207,7 +211,7 @@
     "icons/removeNote.png",
     "icons/note.png",
     "icons/interessado.png",
-    "cs_modules/procedimento_controlar.AdicionarOrdenacao.js",
+    "cs_modules/procedimento_controlar/adicionarOrdenacao.js",
     "lib/jquery.tablesorter/jquery.tablesorter.min.js",
     "lib/jquery.tablesorter/jquery.tablesorter.widgets.min.js"
   ]

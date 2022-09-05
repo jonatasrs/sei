@@ -6,19 +6,24 @@
 	font-size: 14px;
   align-self: flex-end;
 }
-#seipp a {
+#seipp > a {
   font-size: unset;
   font-weight: unset;
   color: unset;
   text-decoration: unset;
   cursor: unset;
+  padding-left: 5px;
+}
+
+#seipp > a > img {
+  height: unset;
 }
 
 .infraTrseippalerta {
-	background-color: yellow;
+	background-color: yellow !important;
 }
 .infraTrseippcritico {
-	background-color: #f60;
+	background-color: #f60 !important;
 }
 .seipp-assinatura {
     background-color: #cccc63 !important;
@@ -71,7 +76,7 @@
 }
 
 .infraTrClara:hover, .infraTrseippalerta:hover, .infraTrseippcritico:hover {
-	background-color: gray;
+	background-color: gray !important;
 }
 
 .tablesorter-headerAsc, .tablesorter-headerDesc {

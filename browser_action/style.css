@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+#title {
+    color: lightgray;
+    background-color: #24292e;
+    margin: 0;
+    text-align: center;
+}
+
+#hostname {
+    color: #849513;
+    background-color: #141491;
+    padding: 3px;
+}
+
+#popup-content {
+    margin: 15px;
+}
+
+.field > label {
+    font-weight: bold;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+#btn-processos {
+    margin: 10px 0;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}

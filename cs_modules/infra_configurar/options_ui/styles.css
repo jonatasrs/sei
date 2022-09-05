@@ -1,0 +1,163 @@
+.seipp-options-title {
+  font-weight: bold;
+}
+
+.seipp-options input{
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.seipp-fieldset {
+  display: none;
+}
+.seipp-fieldset fieldset {
+  margin: 10px auto 10px 45px;
+}
+
+.seipp-options label {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.seipp-options label:hover {
+  background-color: lightblue;
+}
+.card_label{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.card {
+    box-shadow: 0 0px 8px 0 gray;
+    transition: 0.3s;
+    width: 40%;
+  margin: auto;
+  min-width: 430px;
+}
+
+.card:hover {
+    box-shadow: 0 0px 16px 0 gray;
+}
+
+.container {
+    padding: 2px 16px;
+	border-top: 1px solid lightgray;
+}
+.container:hover {
+  box-shadow: inset 0 0 5px blue;
+}
+
+/* Tooltip container */
+.seipp-tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* pontilhado sob o texto do link */
+}
+
+/* Tooltip text */
+.seipp-tooltip > .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #fcfc99;
+    color: black;
+    border: 1px solid darkgray;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 3;
+}
+
+.seipp-tooltip:hover > .tooltiptext {
+    visibility: visible;
+}
+#seipp-div-options-ui .toggle-label{
+  font-family: arial;
+  width: 100%;
+  align-self: center;
+}
+
+#seipp-div-options-ui > .card * {
+  font-family: arial,verdana,helvetica,sans-serif;
+  font-size: 12px;
+}
+
+.toggle-options {
+  display: flex;
+  color: blue;
+  text-decoration: underline;
+  flex-shrink: 0;
+  align-self: center;
+  font-size: 1.2em;
+}
+.toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  width: 62px;
+  height: 32px;
+  display: inline-block;
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: gray !important;
+  transition: background-color ease 0.3s;
+  flex-shrink: 0;
+  align-self: center;
+}
+.toggle:before {
+  content: "on off";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  font: 10px/28px Helvetica;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-indent: -22px;
+  word-spacing: 37px;
+  color: #fff;
+  text-shadow: -1px -1px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+}
+
+.toggle:checked {
+  background-color: green !important;
+}
+.toggle:checked:before {
+  left: 32px;
+}
+.flex-container{
+  display: flex;
+  height: auto;
+  align-items: stretch;
+}
+.toggle-select {
+  height: 24px;
+  margin: 4px;
+  flex-shrink: 0;
+  align-self: center;
+}
+.option-save {
+  width: 40%;
+  margin: 20px auto 0 auto;
+}
+.option-save input {
+  border-style: solid;
+  border-radius: 0.25rem;
+}
+.option-save input:hover {
+  color: #fff;
+  background-color: #5992ed;
+  border-color: #1351b4;
+}
