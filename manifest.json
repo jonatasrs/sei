@@ -10,7 +10,7 @@
   "permissions": [
     "storage",
     "notifications",
-    "*://*.br/sei/*",
+    "*://*.br/*controlador.php?acao=*",
     "alarms"
   ],
   "browser_action": {
@@ -31,7 +31,11 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/login.php?sigla_orgao_sistema*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
+      "matches": [
+        "*://*.gov.br/*controlador.php?acao=*",
+        "*://*.gov.br/*login.php?sigla_orgao_sistema=*",
+        "https://super.presidencia.gov.br/"
+      ],
       "run_at": "document_start",
       "css": ["cs_modules/core.css"],
       "all_frames": true,
@@ -46,7 +50,11 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/login.php?sigla_orgao_sistema*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
+      "matches": [
+        "*://*.gov.br/*controlador.php?acao=*",
+        "*://*.gov.br/*login.php?sigla_orgao_sistema=*",
+        "https://super.presidencia.gov.br/"
+      ],
       "run_at": "document_end",
       "css": [
         "cs_modules/core.css",
@@ -58,6 +66,7 @@
         "cs_modules/core/end/theme.js",
         "cs_modules/core/end/getSeiVersion.js",
         "cs_modules/core/end/redirecionarPagina.js",
+        "cs_modules/core/end/moduleInit.js",
         "cs_modules/core/end/index.js",
         "lib/Chart.min.js"
       ]

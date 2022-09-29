@@ -76,21 +76,6 @@ function Init (BaseName) {
   console.log('[' + CompName + ' ' + Date.now() + ']' + BaseName)
 }
 
-function ModuleInit (BaseName, PageReload = false) {
-  const ModName = CompName + '.' + BaseName
-  const IsModExec = $("head meta[name='" + ModName + "'").attr('value')
-  if (IsModExec !== 'true') {
-    $('head').append("<meta name='" + ModName + "' value='true'>")
-    console.log('[' + CompName + ' ' + Date.now() + ']' + BaseName)
-    return true
-  } else if (IsModExec === 'true' && PageReload) {
-    window.location.assign(window.location.href)
-    console.log('[' + CompName + ' ' + Date.now() + ']' + BaseName + 'Reload page')
-    return false
-  } else {
-    return false
-  }
-}
 /** * Biblioteca de strings *****************************************************/
 
 /** Adiciona a mascara de CPF/CNPJ. */
