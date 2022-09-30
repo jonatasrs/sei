@@ -22,7 +22,7 @@ function marcarCorProcesso (BaseName) {
   function escolherCor (processo) {
     const confCores = SavedOptions.ConfiguracoesCores
     const texto = processo.getAttribute('onmouseover')
-    const especificacao = texto.substring(texto.indexOf('(\'') + 2, texto.indexOf(',') - 1).toLowerCase()
+    const especificacao = texto.substring(texto.indexOf('(\'') + 2, texto.indexOf(')') - 1).toLowerCase()
 
     return confCores.reduce((p, c) => {
       return !p && c.valor && especificacao.includes(c.valor.toLowerCase())
