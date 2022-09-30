@@ -36,7 +36,7 @@ const DefaultOptions = {
 const CompName = 'Seipp'
 
 /** Options salvas */
-var SavedOptions = DefaultOptions
+var SavedOptions = DefaultOptions // eslint-disable-line no-unused-vars, no-var
 
 /** * Verifica se está utilizando o navegador chrome ***************************/
 const isChrome = (typeof browser === 'undefined') /* Chrome: */

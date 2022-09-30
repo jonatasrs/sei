@@ -29,6 +29,10 @@
       "ecmaVersion": 12
     },
     "rules": {},
+    "ignorePatterns": [
+      "lib/*",
+      "cs_modules/core.d_idle/*"
+    ],
     "globals": {
       "browser": true
     }
