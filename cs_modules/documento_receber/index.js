@@ -13,4 +13,4 @@ ModuleInit(BaseName).then((options) => {
         break
     }
   }, this)
-}).catch(e => console.error(e.message))
+}).catch(e => console.log(e.message))

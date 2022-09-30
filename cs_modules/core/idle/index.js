@@ -31,4 +31,4 @@ ModuleInit(ModName_idle).then((options) => {
   }, this)
 
   if (options.InstallOrUpdate) IndicarConfiguracao(ModName_idle)
-}).catch(e => console.error(e.message))
+}).catch(e => console.log(e.message))

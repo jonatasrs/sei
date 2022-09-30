@@ -1,16 +1,14 @@
-/* global __mconsole, seiVersion */
+/* global seiVersion, CompName */
 
 /** Pega a versão atual do SEI */
 function getSeiVersion (baseName) {
-  const mconsole = new __mconsole(baseName + '.getSeiVersion')
   const script = document.querySelectorAll('script[src^="js/sei.js?"]')[0]
   if (!script) {
-    mconsole.log(`versão não localizada: ${document.URL}`)
     return '0.0.0.0'
   }
   const version = script.getAttribute('src').match(/(?<=\?)([^=-]+)/g)[0]
   const fixedVersion = fixVersionNumber(version)
-  mconsole.log(fixedVersion)
+  console.log(`[${CompName} ${Date.now()}]${baseName}.getSeiVersion: ${fixedVersion}`)
   return fixedVersion
 }
 

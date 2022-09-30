@@ -12,4 +12,4 @@ ModuleInit(BaseName).then((options) => {
     }
   }, this)
   selecionarMultiplosProcessos(BaseName)
-}).catch(e => console.error(e.message))
+}).catch(e => console.log(e.message))

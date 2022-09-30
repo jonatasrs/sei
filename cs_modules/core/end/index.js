@@ -1,3 +1,4 @@
+/* global ModuleInit, GetBaseUrl, redirecionarPagina, seiVersionCompare, theme */
 /** Roda quando a o carregamento do html termina */
 const ModNameEnd = 'core.d_end'
 
@@ -17,4 +18,4 @@ ModuleInit(ModNameEnd).then((options) => {
       theme(ModNameEnd, options.theme)
     }
   }
-}).catch(e => console.error(e.message))
+}).catch(e => console.log(e.message))

@@ -50,4 +50,4 @@ ModuleInit(BaseName).then((options) => {
 
   selecionarMultiplosProcessos(BaseName)
   confirmarAntesConcluir(BaseName)
-}).catch(e => console.error(e.message))
+}).catch(e => console.log(e.message))

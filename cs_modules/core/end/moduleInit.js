@@ -1,4 +1,5 @@
-/* global seiVersionCompare, seiVersion */
+/* eslint-disable no-global-assign */
+/* global seiVersionCompare, CompName, SavedOptions */
 
 async function ModuleInit (BaseName, PageReload = false) {
   try {
@@ -9,8 +10,7 @@ async function ModuleInit (BaseName, PageReload = false) {
     const IsModExec = $("head meta[name='" + ModName + "'").attr('value')
 
     if (seiVersionCompare('<', '3')) {
-      console.log(`[${CompName} ${Date.now()}] ${BaseName} Versão incompatível do SEI. (${seiVersion})`)
-      throw new Error('Versão incompatível do SEI')
+      throw new Error('SEI/SUPER não encontrado.')
     }
     if (IsModExec !== 'true') {
       $('head').append("<meta name='" + ModName + "' value='true'>")
@@ -23,9 +23,9 @@ async function ModuleInit (BaseName, PageReload = false) {
     } else {
       throw new Error('Not init')
     }
-  } catch (error) {
-    const errorMsg = `[${CompName} ${Date.now()}] ${BaseName} ERRO: (${error})`
-    throw new Error(errorMsg)
+  } catch (e) {
+    const message = `[${CompName} ${Date.now()}] ${BaseName} ${e.message}`
+    throw new Error(message)
   }
 }
 

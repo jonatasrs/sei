@@ -31,11 +31,7 @@
 
   "content_scripts": [
     {
-      "matches": [
-        "*://*.gov.br/*controlador.php?acao=*",
-        "*://*.gov.br/*login.php?sigla_orgao_sistema=*",
-        "https://super.presidencia.gov.br/"
-      ],
+      "matches": ["*://*.gov.br/*"],
       "run_at": "document_start",
       "css": ["cs_modules/core.css"],
       "all_frames": true,
@@ -49,11 +45,7 @@
       ]
     },
     {
-      "matches": [
-        "*://*.gov.br/*controlador.php?acao=*",
-        "*://*.gov.br/*login.php?sigla_orgao_sistema=*",
-        "https://super.presidencia.gov.br/"
-      ],
+      "matches": ["*://*.gov.br/*"],
       "run_at": "document_end",
       "css": [
         "cs_modules/core.css",

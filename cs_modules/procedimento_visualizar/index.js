@@ -58,4 +58,4 @@ ModuleInit(BaseName).then((options) => {
 
   /* Atualiza o título da janela/aba com os dados do processo  */
   AlterarTitulo(BaseName)
-}).catch(e => console.error(e.message))
+}).catch(e => console.log(e.message))
