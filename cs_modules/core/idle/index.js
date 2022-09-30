@@ -20,7 +20,7 @@ ModuleInit(ModName_idle).then((options) => {
         PontoControleCores(ModName_idle)
         break
       case 'atalhopublicacoeseletronicas':
-        AtalhoPublicacoesEletronicas(ModName_idle)
+        atalhoPublicacoesEletronicas(ModName_idle)
         break
       case 'no_buttons':
         noButtons(ModName_idle)

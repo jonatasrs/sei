@@ -1,12 +1,12 @@
-// AtalhoPublicacoesEletronicas
-function AtalhoPublicacoesEletronicas (BaseName) {
-  const mconsole = new __mconsole(BaseName + '.AtalhoPublicacoesEletronicas')
+// atalhoPublicacoesEletronicas
+function atalhoPublicacoesEletronicas (BaseName) {
+  const mconsole = new __mconsole(BaseName + '.atalhoPublicacoesEletronicas')
 
   // Verifica se o link existe.
   const url = 'publicacoes/controlador_publicacoes.php?acao=publicacao_pesquisar&id_orgao_publicacao=0'
   const txtitle = 'Publicações Eletrônicas'
   const linkStyle = seiVersionCompare('>', '4')
-    ? 'align-self: center; border: none; color: var(--color-primary-default); font-size: .75rem;'
+    ? getProps()
     : $('#lnkAjuda').attr('style')
   const containerClass = seiVersionCompare('>', '4') ? 'nav-item d-md-flex' : 'infraAcaoBarraSistema'
 
@@ -25,4 +25,9 @@ function AtalhoPublicacoesEletronicas (BaseName) {
       )
     )
   }
+}
+
+function getProps () {
+  const style = getComputedStyle(document.querySelector('.power-off-btn'))
+  return `align-self: center; border: none; color: ${style.color}; font-size: ${style.fontSize};`
 }
