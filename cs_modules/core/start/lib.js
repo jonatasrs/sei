@@ -36,7 +36,7 @@ const DefaultOptions = {
 const CompName = 'Seipp'
 
 /** Options salvas */
-var SavedOptions = DefaultOptions
+var SavedOptions = DefaultOptions // eslint-disable-line no-unused-vars, no-var
 
 /** * Verifica se está utilizando o navegador chrome ***************************/
 const isChrome = (typeof browser === 'undefined') /* Chrome: */
@@ -44,7 +44,8 @@ var browser = isChrome ? chrome : browser
 
 /** * Url base do sei ***********************************************************/
 function GetBaseUrl () {
-  return window.location.origin + '/sei/'
+  const pathname = window.location.pathname.replace('controlador.php', '')
+  return `${window.location.origin}${pathname}`
 }
 
 /** * MODULES: Generic class log ************************************************/
@@ -76,21 +77,6 @@ function Init (BaseName) {
   console.log('[' + CompName + ' ' + Date.now() + ']' + BaseName)
 }
 
-function ModuleInit (BaseName, PageReload = false) {
-  const ModName = CompName + '.' + BaseName
-  const IsModExec = $("head meta[name='" + ModName + "'").attr('value')
-  if (IsModExec !== 'true') {
-    $('head').append("<meta name='" + ModName + "' value='true'>")
-    console.log('[' + CompName + ' ' + Date.now() + ']' + BaseName)
-    return true
-  } else if (IsModExec === 'true' && PageReload) {
-    window.location.assign(window.location.href)
-    console.log('[' + CompName + ' ' + Date.now() + ']' + BaseName + 'Reload page')
-    return false
-  } else {
-    return false
-  }
-}
 /** * Biblioteca de strings *****************************************************/
 
 /** Adiciona a mascara de CPF/CNPJ. */

@@ -3,14 +3,14 @@
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "5.0.0",
+  "version": "5.1",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/seipp.png"},
   "permissions": [
     "storage",
     "notifications",
-    "*://*.br/sei/*",
+    "*://*.br/*controlador.php?acao=*",
     "alarms"
   ],
   "browser_action": {
@@ -31,13 +31,12 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/login.php?sigla_orgao_sistema*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
+      "matches": ["*://*.gov.br/*"],
       "run_at": "document_start",
       "css": ["cs_modules/core.css"],
       "all_frames": true,
       "js": [
         "cs_modules/core/start/lib.js",
-        "cs_modules/core/start/index.js",
         "lib/jquery-3.2.1.min.js",
         "lib/jquery-ui/jquery-ui.min.js",
         "lib/jquery.tablesorter/jquery.tablesorter.min.js",
@@ -46,7 +45,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/sei/*", "*://*.br/sip/login.php?sigla_orgao_sistema*", "*://*.ancine.gov.br/*", "*://*.ans.gov.br/*"],
+      "matches": ["*://*.gov.br/*"],
       "run_at": "document_end",
       "css": [
         "cs_modules/core.css",
@@ -58,6 +57,7 @@
         "cs_modules/core/end/theme.js",
         "cs_modules/core/end/getSeiVersion.js",
         "cs_modules/core/end/redirecionarPagina.js",
+        "cs_modules/core/end/moduleInit.js",
         "cs_modules/core/end/index.js",
         "lib/Chart.min.js"
       ]

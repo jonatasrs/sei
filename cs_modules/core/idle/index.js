@@ -4,9 +4,9 @@
 *******************************************************************************/
 const ModName_idle = 'core.d_idle'
 
-if (ModuleInit(ModName_idle)) {
+ModuleInit(ModName_idle).then((options) => {
   AdicionarIdentificadorSeipp(ModName_idle)
-  SavedOptions.CheckTypes.forEach(function (element) {
+  options.CheckTypes.forEach(function (element) {
     switch (element) {
       case 'chkbloco':
         VerificarBlocoAssinatura(ModName_idle)
@@ -20,7 +20,7 @@ if (ModuleInit(ModName_idle)) {
         PontoControleCores(ModName_idle)
         break
       case 'atalhopublicacoeseletronicas':
-        AtalhoPublicacoesEletronicas(ModName_idle)
+        atalhoPublicacoesEletronicas(ModName_idle)
         break
       case 'no_buttons':
         noButtons(ModName_idle)
@@ -30,5 +30,5 @@ if (ModuleInit(ModName_idle)) {
     }
   }, this)
 
-  if (SavedOptions.InstallOrUpdate) IndicarConfiguracao(ModName_idle)
-}
+  if (options.InstallOrUpdate) IndicarConfiguracao(ModName_idle)
+}).catch(e => console.log(e.message))

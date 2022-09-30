@@ -1,12 +1,12 @@
-/* global ModuleInit, SavedOptions, corrigirTabelas, incluirCalculoPrazos, marcarCorProcesso,
+/* global ModuleInit, corrigirTabelas, incluirCalculoPrazos, marcarCorProcesso,
 FiltraPorAtribuicao, carregaInformacaoBlocos, PesquisarInformacoes, ListaPorEspecificacao,
 mostrarEspecificacao, seiVersionCompare, addScriptToPage, selecionarMultiplosProcessos,
 confirmarAntesConcluir */
 const BaseName = 'procedimento_controlar'
 
-if (ModuleInit(BaseName, true)) {
+ModuleInit(BaseName).then((options) => {
   corrigirTabelas(BaseName)
-  SavedOptions.CheckTypes.forEach(function (element) {
+  options.CheckTypes.forEach(function (element) {
     switch (element) {
       case 'prazo':
       case 'qtddias':
@@ -50,4 +50,4 @@ if (ModuleInit(BaseName, true)) {
 
   selecionarMultiplosProcessos(BaseName)
   confirmarAntesConcluir(BaseName)
-}
+}).catch(e => console.log(e.message))

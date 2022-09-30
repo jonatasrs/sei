@@ -3,9 +3,9 @@
  * Força a reabertura do processo no protocolo quando o mesmo não está aberto
  * em nenhuma unidade.
  */
-function ForcarReaberturaProcesso (BaseName) {
+function forcarReaberturaProcesso (BaseName) {
   /** inicialização do módulo */
-  const mconsole = new __mconsole(BaseName + '.ForcarReaberturaProcesso')
+  const mconsole = new __mconsole(BaseName + '.forcarReaberturaProcesso')
 
   if ($('#divUnidadesReabertura').css('display') === 'block') {
     /* Desabilita o botão de confirmação */
@@ -32,13 +32,27 @@ function ForcarReaberturaProcesso (BaseName) {
 
       /* Se tiver fechado em todas as unidades coloca alerta para reabrir */
       if (TUnidades === TUnidFechado) {
-        const NovoConfirmarDados = "if($('#selUnidadesReabertura option').length>0){confirmarDados();} else {alert('O processo não está aberto em nenhuma unidade! Favor verificar');$('#selUnidadesReabertura').prop('style', 'background-color: red !important');}"
+        const NovoConfirmarDados = `
+          if($('#selUnidadesReabertura option').length>0) {
+            confirmarDados()
+          } else {
+            alert('O processo não está aberto em nenhuma unidade! Favor verificar')
+            $('#selUnidadesReabertura').prop('style', 'background-color: red !important')
+            try {
+              infraMoverParaTopo()
+            } catch (e) {
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }
+          }
+        `
+
         $('#divInfraBarraComandosSuperior > #btnSalvar').attr('onclick', NovoConfirmarDados)
         $('#divInfraBarraComandosInferior > #btnSalvar').attr('onclick', NovoConfirmarDados)
 
         /* Remove os eventos antigos: Precisa para funcionar no Chrome */
-        RemoveAllOldEventListener($('#divInfraBarraComandosSuperior > #btnSalvar'))
-        RemoveAllOldEventListener($('#divInfraBarraComandosInferior > #btnSalvar'))
+        RemoveAllOldEventListener('#divInfraBarraComandosSuperior > #btnSalvar')
+        RemoveAllOldEventListener('#divInfraBarraComandosInferior > #btnSalvar')
+        mconsole.log('Fix salvar concluído')
       }
       /* Habilita os botões novamente */
       $('#divInfraBarraComandosSuperior > #btnSalvar').removeAttr('disabled')

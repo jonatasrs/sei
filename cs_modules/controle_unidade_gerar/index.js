@@ -1,8 +1,8 @@
-/* global ModuleInit, SavedOptions, retirarSobrestamentoReabrirEmBloco, selecionarMultiplosProcessos */
+/* global ModuleInit, retirarSobrestamentoReabrirEmBloco, selecionarMultiplosProcessos */
 const BaseName = 'controle_unidade_gerar'
 
-if (ModuleInit(BaseName, true)) {
-  SavedOptions.CheckTypes.forEach(function (element) {
+ModuleInit(BaseName).then((options) => {
+  options.CheckTypes.forEach(function (element) {
     switch (element) {
       case 'retirarsobrestamentoreabrirembloco':
         retirarSobrestamentoReabrirEmBloco(BaseName)
@@ -12,4 +12,4 @@ if (ModuleInit(BaseName, true)) {
     }
   }, this)
   selecionarMultiplosProcessos(BaseName)
-}
+}).catch(e => console.log(e.message))

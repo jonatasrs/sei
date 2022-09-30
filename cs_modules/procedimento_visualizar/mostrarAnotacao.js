@@ -93,6 +93,8 @@ function MostrarAnotacao (BaseName) {
         removerNota()
         e.preventDefault()
       })
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+      mconsole.log(jqXHR, textStatus, errorThrown)
     })
   }
 

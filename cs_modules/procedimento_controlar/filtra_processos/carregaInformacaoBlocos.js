@@ -1,20 +1,21 @@
-function carregaInformacaoBlocos (BaseName) {
+/* global __mconsole, filtrarTabela, removerFiltroTabela, seiVersionCompare */
+function carregaInformacaoBlocos (BaseName) { // eslint-disable-line no-unused-vars
   /** inicialização do módulo ***************************************************/
-  const mconsole = new __mconsole(BaseName + '.carregaInformacaoBlocos')
+  const mconsole = new __mconsole(BaseName + '.carregaInformacaoBlocos') // eslint-disable-line no-unused-vars
 
   function newElement (elemento) {
     return $(document.createElement(elemento))
   }
 
-  function imprimirLog (msg) {
-    mconsole.log(msg)
-    imprimirStatus(msg)
-  }
+  // function imprimirLog (msg) {
+  //   mconsole.log(msg)
+  //   imprimirStatus(msg)
+  // }
 
-  function imprimirError (msg) {
-    mconsole.error(msg)
-    imprimirStatus(msg)
-  }
+  // function imprimirError (msg) {
+  //   mconsole.error(msg)
+  //   imprimirStatus(msg)
+  // }
 
   const idSelectTipoBloco = 'idSelectTipoBloco'
   const idSelectBloco = 'idSelectBloco'
