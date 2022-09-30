@@ -87,7 +87,6 @@ function selecionarDocumentosAssinar (BaseName) {
 
         /* seleciona somente os documentos que possuem a assinatura do usuário */
       } else if (type === 'com-minha-assinatura') {
-        console.log(assinaturas, usuario, linha.assinaturas)
         toggleCheckbox(linha.checkbox, (assinaturas.length > 0 && assinaturas.includes(usuario)))
       }
     }

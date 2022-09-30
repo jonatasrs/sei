@@ -1,16 +1,16 @@
-/* global ModuleInit, SavedOptions, ForcarReaberturaProcesso, autopreencherDocumentoExterno */
+/* global ModuleInit, ForcarReaberturaProcesso, autopreencherDocumentoExterno */
 const BaseName = 'documento_receber'
 
-if (ModuleInit(BaseName)) {
+ModuleInit(BaseName).then((options) => {
   ForcarReaberturaProcesso(BaseName)
 
-  SavedOptions.CheckTypes.forEach(function (element) {
+  options.CheckTypes.forEach(function (element) {
     switch (element) {
       case 'cliquemenos':
-        autopreencherDocumentoExterno(BaseName, SavedOptions)
+        autopreencherDocumentoExterno(BaseName, options)
         break
       default:
         break
     }
   }, this)
-}
+}).catch(e => console.error(e.message))

@@ -1,4 +1,6 @@
 /* global ModuleInit, OrdenarSelect */
 const BaseName = 'procedimento_atribuicao_cadastrar'
 
-if (ModuleInit(BaseName)) { OrdenarSelect(BaseName) }
+ModuleInit(BaseName).then((options) => {
+  OrdenarSelect(BaseName)
+}).catch(e => console.error(e.message))

@@ -41,7 +41,6 @@
       "all_frames": true,
       "js": [
         "cs_modules/core/start/lib.js",
-        "cs_modules/core/start/index.js",
         "lib/jquery-3.2.1.min.js",
         "lib/jquery-ui/jquery-ui.min.js",
         "lib/jquery.tablesorter/jquery.tablesorter.min.js",

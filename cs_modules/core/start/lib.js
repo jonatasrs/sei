@@ -44,7 +44,8 @@ var browser = isChrome ? chrome : browser
 
 /** * Url base do sei ***********************************************************/
 function GetBaseUrl () {
-  return window.location.origin + '/sei/'
+  const pathname = window.location.pathname.replace('controlador.php', '')
+  return `${window.location.origin}${pathname}`
 }
 
 /** * MODULES: Generic class log ************************************************/

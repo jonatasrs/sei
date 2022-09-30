@@ -1,8 +1,8 @@
-/* global ModuleInit, SavedOptions, EscolherDocumentoComModelo */
+/* global ModuleInit, EscolherDocumentoComModelo */
 const BaseName = 'documento_escolher_tipo'
 
-if (ModuleInit(BaseName)) {
-  if (SavedOptions.usardocumentocomomodelo) {
+ModuleInit(BaseName).then((options) => {
+  if (options.usardocumentocomomodelo) {
     EscolherDocumentoComModelo(BaseName)
   }
-}
+}).catch(e => console.error(e.message))

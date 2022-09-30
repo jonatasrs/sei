@@ -1,9 +1,9 @@
-/* global ModuleInit, GerarDocumentoComModelo, AumentaTamanho, SavedOptions */
+/* global ModuleInit, GerarDocumentoComModelo, AumentaTamanho */
 const BaseName = 'documento_gerar'
 
-if (ModuleInit(BaseName)) {
-  if (SavedOptions.usardocumentocomomodelo) {
+ModuleInit(BaseName).then((options) => {
+  if (options.usardocumentocomomodelo) {
     GerarDocumentoComModelo(BaseName)
   }
   AumentaTamanho(BaseName)
-}
+}).catch(e => console.error(e.message))

@@ -1,8 +1,8 @@
-/* global ModuleInit, SavedOptions, AtualizarAnotacaoNaArvore */
+/* global ModuleInit, AtualizarAnotacaoNaArvore */
 const BaseName = 'anotacao_registrar'
 
-if (ModuleInit(BaseName)) {
-  SavedOptions.CheckTypes.forEach(function (element) {
+ModuleInit(BaseName).then((options) => {
+  options.CheckTypes.forEach(function (element) {
     switch (element) {
       case 'mostraranotacao':
         AtualizarAnotacaoNaArvore(BaseName)
@@ -11,4 +11,4 @@ if (ModuleInit(BaseName)) {
         break
     }
   }, this)
-}
+}).catch(e => console.error(e.message))

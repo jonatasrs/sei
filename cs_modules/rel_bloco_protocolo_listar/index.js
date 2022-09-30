@@ -1,9 +1,9 @@
-/* global ModuleInit, SavedOptions, PesquisarInformacoes, retirarSobrestamentoReabrirEmBloco,
+/* global ModuleInit, PesquisarInformacoes, retirarSobrestamentoReabrirEmBloco,
 selecionarMultiplosProcessos, selecionarDocumentosAssinar */
 const BaseName = 'rel_bloco_protocolo_listar'
 
-if (ModuleInit(BaseName, true)) {
-  SavedOptions.CheckTypes.forEach(function (element) {
+ModuleInit(BaseName).then((options) => {
+  options.CheckTypes.forEach(function (element) {
     switch (element) {
       case 'pesquisarinformacoes':
         PesquisarInformacoes(BaseName)
@@ -17,4 +17,4 @@ if (ModuleInit(BaseName, true)) {
   }, this)
   selecionarMultiplosProcessos(BaseName)
   selecionarDocumentosAssinar(BaseName)
-}
+}).catch(e => console.error(e.message))
