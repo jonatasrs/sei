@@ -1,8 +1,8 @@
-/* global ModuleInit, ForcarReaberturaProcesso, autopreencherDocumentoExterno */
+/* global ModuleInit, forcarReaberturaProcesso, autopreencherDocumentoExterno */
 const BaseName = 'documento_receber'
 
 ModuleInit(BaseName).then((options) => {
-  ForcarReaberturaProcesso(BaseName)
+  forcarReaberturaProcesso(BaseName)
 
   options.CheckTypes.forEach(function (element) {
     switch (element) {
