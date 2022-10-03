@@ -3,7 +3,7 @@
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "5.1",
+  "version": "5.1.1",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/seipp.png"},
@@ -31,7 +31,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.gov.br/*"],
+      "matches": ["*://*.br/*"],
       "run_at": "document_start",
       "css": ["cs_modules/core.css"],
       "all_frames": true,
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "matches": ["*://*.gov.br/*"],
+      "matches": ["*://*.br/*"],
       "run_at": "document_end",
       "css": [
         "cs_modules/core.css",
