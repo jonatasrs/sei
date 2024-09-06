@@ -59,6 +59,7 @@
         "cs_modules/core/end/redirecionarPagina.js",
         "cs_modules/core/end/moduleInit.js",
         "cs_modules/core/end/index.js",
+        "cs_modules/core/end/modificarCamposSenha.js",
         "lib/Chart.min.js"
       ]
     },
