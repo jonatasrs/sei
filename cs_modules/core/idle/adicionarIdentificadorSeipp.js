@@ -7,7 +7,7 @@ function AdicionarIdentificadorSeipp (BaseName) {
   $(idLogo).append('<div id="seipp">++</div>')
 
   if (!isChrome) {
-    browser.storage.local.get('version').then(function (params) {
+    currentBrowser.storage.local.get('version').then(function (params) {
       const version = parseInt(params.version)
       mconsole.log(version)
       if (version < 68) {

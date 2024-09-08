@@ -36,9 +36,9 @@ async function loadDefaultOptions (storageData) {
 
 function getLocalStorage (params = null) {
   return new Promise((resolve, reject) => {
-    browser.storage.local.get(params, (storage) => {
-      if (browser.runtime.lastError) {
-        reject(browser.runtime.lastError)
+    currentBrowser.storage.local.get(params, (storage) => {
+      if (currentBrowser.runtime.lastError) {
+        reject(currentBrowser.runtime.lastError)
       }
       resolve(storage)
     })

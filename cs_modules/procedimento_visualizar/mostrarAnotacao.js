@@ -46,13 +46,13 @@ function MostrarAnotacao (BaseName) {
 
       $('#seipp_div_anotacao').append(`
         <div class='seipp_sem_anotacao'>
-          <img class='seipp_icone_nota' src='${browser.runtime.getURL('icons/note.png')}'/>
+          <img class='seipp_icone_nota' src='${currentBrowser.runtime.getURL('icons/note.png')}'/>
           <p>Este processo não possui anotações. <a href='#' class='seipp_anotacao_criar_nota'>Clique aqui</a> para criar uma nota.</p>
         </div>
         <div class='seipp_anotacao'>
           <div class='seipp_anotacao_botoes'>
-            <a href='#' class='seipp_anotacao_botao seipp_anotacao_btn_remover'><img class='seipp_anotacao_icone' src='${browser.runtime.getURL('icons/removeNote.png')}'/></a>
-            <a href='#' class='seipp_anotacao_botao seipp_anotacao_btn_editar'><img class='seipp_anotacao_icone' src='${browser.runtime.getURL('icons/editNote.png')}'/></a>
+            <a href='#' class='seipp_anotacao_botao seipp_anotacao_btn_remover'><img class='seipp_anotacao_icone' src='${currentBrowser.runtime.getURL('icons/removeNote.png')}'/></a>
+            <a href='#' class='seipp_anotacao_botao seipp_anotacao_btn_editar'><img class='seipp_anotacao_icone' src='${currentBrowser.runtime.getURL('icons/editNote.png')}'/></a>
           </div>
           <p class='seipp_anotacao_texto'>${txanotacao}</p>
           <div class='seipp_anotacao_editar'>

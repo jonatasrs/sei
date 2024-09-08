@@ -12,7 +12,7 @@ function IndicarConfiguracao (BaseName) {
 
   if (document.URL.includes('controlador.php?acao=infra_configurar') && SavedOptions.InstallOrUpdate) {
     SavedOptions.InstallOrUpdate = false
-    browser.storage.local.set(SavedOptions)
+    currentBrowser.storage.local.set(SavedOptions)
     $(iconSelector).css({ animation: 'none' })
     mconsole.log('Animação removida')
   }

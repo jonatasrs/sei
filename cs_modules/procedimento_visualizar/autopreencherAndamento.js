@@ -24,7 +24,7 @@ function AutopreencherAndamento (BaseName) {
   }
 
   function criaLink () {
-    const link = $('<a><img src="' + browser.runtime.getURL('icons/ect.png') + '" title="Preencher atualização de andamento (abra a tela de atualizar andamento antes de clicar!)"> </img></a>')
+    const link = $('<a><img src="' + currentBrowser.runtime.getURL('icons/ect.png') + '" title="Preencher atualização de andamento (abra a tela de atualizar andamento antes de clicar!)"> </img></a>')
     const sp = $(this).find('span')
     if (sp.length === 0) return
     if ($('#' + idmod + $(this).attr('id').substr(6)).length !== 0) return

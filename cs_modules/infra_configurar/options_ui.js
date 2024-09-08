@@ -5,12 +5,12 @@ function optionsUi (BaseName) {
 
   $('#divInfraAreaTelaD').append("<div id='seipp-div-options-ui'/>")
   $('#seipp-div-options-ui').load(
-    browser.runtime.getURL('cs_modules/infra_configurar/options_ui/index.html'), function () {
+    currentBrowser.runtime.getURL('cs_modules/infra_configurar/options_ui/index.html'), function () {
       $('#divInfraBarraComandosSuperior input').hide()
-      $('.seipp-options-title').append(' - Versão: ' + browser.runtime.getManifest().version)
+      $('.seipp-options-title').append(' - Versão: ' + currentBrowser.runtime.getManifest().version)
 
       if (!isChrome) {
-        browser.storage.local.get('version').then(function (params) {
+        currentBrowser.storage.local.get('version').then(function (params) {
           const version = parseInt(params.version)
           mconsole.log(version)
           if (version < 68) {
@@ -239,13 +239,13 @@ function optionsUi (BaseName) {
       baseUrl
     }
     if (isChrome) {
-      browser.storage.local.set(OptionsToSave)
+      currentBrowser.storage.local.set(OptionsToSave)
     } else {
-      browser.storage.local.set(OptionsToSave).then(setItem, onError)
+      currentBrowser.storage.local.set(OptionsToSave).then(setItem, onError)
     }
 
     /** Notificar background page que as opções foram salvas */
-    browser.runtime.sendMessage({
+    currentBrowser.runtime.sendMessage({
       from: 'seippOptionsSave',
       text: 'OptionsSave'
     })

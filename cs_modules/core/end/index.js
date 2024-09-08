@@ -1,6 +1,5 @@
 /* global ModuleInit, GetBaseUrl, redirecionarPagina, seiVersionCompare, theme */
 /** Roda quando a o carregamento do html termina */
-import './modificarCamposSenha.js';
 const ModNameEnd = 'core.d_end'
 
 /** Pega a versão atual do SEI */

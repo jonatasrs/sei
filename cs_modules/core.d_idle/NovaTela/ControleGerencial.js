@@ -98,7 +98,7 @@ function ControleGerencial () {
 
     /** Verifica a versão mínima do navegador */
     if (!isChrome) {
-      browser.storage.local.get('version').then(function (params) {
+      currentBrowser.storage.local.get('version').then(function (params) {
         const version = parseInt(params.version)
         if (version < 60) {
           $('#divInfraAreaDados').append('Firefox versão: ' + version + ' - é necessário a versão igual ou maior que 60 do navegador.').css({ backgroundColor: 'red' })
@@ -135,7 +135,7 @@ function ControleGerencial () {
         return listaProcessos
       }),
       /** Carrega as ações personalizadas */
-      browser.storage.local.get({ CgpAcoesPersonalizadas: [] }).then(stor => {
+      currentBrowser.storage.local.get({ CgpAcoesPersonalizadas: [] }).then(stor => {
         CgpAcoesPersonalizadas = stor.CgpAcoesPersonalizadas
         console.log('CgpAcoesPersonalizadas', CgpAcoesPersonalizadas)
       })
@@ -421,7 +421,7 @@ function ControleGerencial () {
                   CgpAcoesPersonalizadas[0] = acao
                 }
 
-                browser.storage.local.set({ CgpAcoesPersonalizadas }).then(() => {
+                currentBrowser.storage.local.set({ CgpAcoesPersonalizadas }).then(() => {
                   console.log('Salvar > CgpAcoesPersonalizadas: ', CgpAcoesPersonalizadas)
                   /** Incluir/excluir/altear das linhas da tabela */
                   $tabela.find('tbody > tr').each(function (i, e) {
@@ -636,7 +636,7 @@ function ControleGerencial () {
       $tdacoes.find("div[tipo='personalizada']").remove()
       CgpAcoesPersonalizadas.forEach(acao => {
         const $acao_personalizada = $('<div/>').attr('tipo', 'personalizada')
-        $acao_personalizada.append($('<img/>').attr('src', acao.imagem == '' ? browser.runtime.getURL('icons/check.png') : acao.imagem))
+        $acao_personalizada.append($('<img/>').attr('src', acao.imagem == '' ? currentBrowser.runtime.getURL('icons/check.png') : acao.imagem))
           .attr('title', acao.nome)
           .on('click', function () {
             ExecutarAcoes(acao.cmd_acoes, $tdacoes.parent()).then(r => {

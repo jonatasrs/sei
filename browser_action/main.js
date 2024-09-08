@@ -19,12 +19,12 @@ export async function checkEnable () {
 }
 
 function openControleProcesso (baseUrl) {
-  browser.tabs.create({ url: baseUrl })
+  currentBrowser.tabs.create({ url: baseUrl })
 }
 
 checkEnable()
 
-browser.runtime.sendMessage({
+currentBrowser.runtime.sendMessage({
   from: 'browserAction',
   text: 'Action Clicked'
 })

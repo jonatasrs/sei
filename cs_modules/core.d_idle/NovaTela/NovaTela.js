@@ -13,7 +13,7 @@ function NovaTela (BaseName) {
   }
 
   function SalvarAcao (Acao) {
-    browser.storage.local.set({ NovaTela: Acao }).then(function (params) {
+    currentBrowser.storage.local.set({ NovaTela: Acao }).then(function (params) {
       mconsole.log('AdicionarNovaTela > Ação acionada no menu: ' + params)
     }, function (err) {
       mconsole.log('AdicionarNovaTela > Ação acionada ERRO: ' + err)
@@ -29,7 +29,7 @@ function NovaTela (BaseName) {
 
   /** Processa a nova tela */
   if (window.location.href === GetBaseUrl().concat('#/gerencial')) {
-    browser.storage.local.get({ NovaTela: null }).then(function (IdTela) {
+    currentBrowser.storage.local.get({ NovaTela: null }).then(function (IdTela) {
       mconsole.log(IdTela.NovaTela)
 
       if (IdTela.NovaTela != null) {

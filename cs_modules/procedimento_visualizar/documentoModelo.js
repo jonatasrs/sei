@@ -70,7 +70,7 @@ function documentoModelo (BaseName) {
       const linkModelo = $('<img>', {
         id: botaoId,
         title: 'Usar documento como modelo',
-        src: browser.runtime.getURL('icons/modelo.png')
+        src: currentBrowser.runtime.getURL('icons/modelo.png')
       })
 
       /* adiciona o ícone ao lado do link do documento  */
