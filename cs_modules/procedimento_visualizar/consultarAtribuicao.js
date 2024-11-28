@@ -33,7 +33,7 @@ function consultarAtribuicao (BaseName) {
                 height: 10,
                 width: 12
               },
-              src: browser.runtime.getURL('icons/interessado.png')
+              src: currentBrowser.runtime.getURL('icons/interessado.png')
             }),
             $('<span />', { text: usuario.login })
           ],

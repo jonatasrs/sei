@@ -63,7 +63,7 @@ dropzone.ui = (function () {
   ui.label = ui.wrapper.find('.dropzone-label')
 
   function mudarIcone (icone) {
-    ui.icon.attr('src', browser.runtime.getURL(`icons/${icone}`))
+    ui.icon.attr('src', currentBrowser.runtime.getURL(`icons/${icone}`))
   }
 
   function mudarTexto (texto) {

@@ -1,32 +1,29 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "5.1.1",
-  "author": "Jonatas Evaristo",
+  "version": "5.1.2",
+  "author": "Jonatas Evaristo / Nicollas Soares",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/seipp.png"},
   "permissions": [
     "storage",
     "notifications",
-    "*://*.br/*controlador.php?acao=*",
     "alarms"
   ],
-  "browser_action": {
+  "host_permissions": [
+    "*://*.br/*controlador.php?acao=*"
+  ],
+  "action": {
     "default_icon": "icons/seipp.png",
     "default_title": "Controle de Processos",
     "default_popup": "browser_action/index.html"
   },
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "jonatas@gov",
-      "strict_min_version": "101.0"
-    }
-  },
 
   "background": {
-    "page": "background/index.html"
+    "service_worker": "background/background.js",
+    "type": "module"
   },
 
   "content_scripts": [
@@ -59,11 +56,12 @@
         "cs_modules/core/end/redirecionarPagina.js",
         "cs_modules/core/end/moduleInit.js",
         "cs_modules/core/end/index.js",
+        "cs_modules/core/end/modificarCamposSenha.js",
         "lib/Chart.min.js"
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=*", "*://*.br/*controlador_externo.php?acao=*"],
+      "matches": ["*://*.br/*/controlador.php?acao=*", "*://*.br/*/controlador_externo.php?acao=*"],
       "run_at": "document_idle",
       "all_frames": false,
       "js": [
@@ -78,7 +76,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=documento_receber*"],
+      "matches": ["*://*.br/*/controlador.php?acao=documento_receber*"],
       "all_frames": true,
       "js": [
         "cs_modules/documento_receber/forcarReaberturaProcesso.js",
@@ -87,7 +85,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=procedimento_controlar*"],
+      "matches": ["*://*.br/*/controlador.php?acao=procedimento_controlar*"],
       "js": [
         "cs_modules/procedimento_controlar/mostrarEspecificacao.js",
         "cs_modules/procedimento_controlar/corrigirTabelas.js",
@@ -104,7 +102,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=rel_bloco_protocolo_listar*"],
+      "matches": ["*://*.br/*/controlador.php?acao=rel_bloco_protocolo_listar*"],
       "js": [
         "cs_modules/lib/filtra_processos/index.js",
         "cs_modules/lib/filtra_processos/pesquisarInformacoes.js",
@@ -115,7 +113,7 @@
       ]
     },
         {
-      "matches": ["*://*.br/*controlador.php?acao=controle_unidade_gerar*"],
+      "matches": ["*://*.br/*/controlador.php?acao=controle_unidade_gerar*"],
       "js": [
         "cs_modules/lib/selecionarMultiplosProcessos.js",
         "cs_modules/lib/retirarSobrestamentoReabrirEmBloco.js",
@@ -123,7 +121,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=procedimento_visualizar*"],
+      "matches": ["*://*.br/*/controlador.php?acao=procedimento_visualizar*"],
       "all_frames": true,
       "css": ["cs_modules/procedimento_visualizar/styles.css"],
       "js": [
@@ -142,7 +140,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=documento_escolher_tipo*"],
+      "matches": ["*://*.br/*/controlador.php?acao=documento_escolher_tipo*"],
       "all_frames": true,
       "css": ["cs_modules/documento_escolher_tipo/styles.css"],
       "js": [
@@ -151,7 +149,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=arvore_visualizar*"],
+      "matches": ["*://*.br/*/controlador.php?acao=arvore_visualizar*"],
       "all_frames": true,
       "js": [
         "cs_modules/arvore_visualizar/novoDocumento.js",
@@ -159,7 +157,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=anotacao_registrar*"],
+      "matches": ["*://*.br/*/controlador.php?acao=anotacao_registrar*"],
       "all_frames": true,
       "js": [
         "cs_modules/anotacao_registrar/atualizarAnotacaoNaArvore.js",
@@ -167,7 +165,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=infra_configurar*"],
+      "matches": ["*://*.br/*/controlador.php?acao=infra_configurar*"],
       "css": ["cs_modules/infra_configurar/options_ui/styles.css"],
       "js": [
         "cs_modules/infra_configurar/options_ui.js",
@@ -175,7 +173,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=documento_gerar*"],
+      "matches": ["*://*.br/*/controlador.php?acao=documento_gerar*"],
       "all_frames": true,
       "js": [
         "cs_modules/documento_gerar/aumentaTamanho.js",
@@ -184,7 +182,7 @@
       ]
     },
     {
-      "matches": ["*://*.br/*controlador.php?acao=procedimento_atribuicao_cadastrar*"],
+      "matches": ["*://*.br/*/controlador.php?acao=procedimento_atribuicao_cadastrar*"],
       "all_frames": true,
       "js": [
         "cs_modules/procedimento_atribuicao_cadastrar/ordenarSelect.js",
@@ -194,25 +192,34 @@
   ],
 
   "web_accessible_resources": [
-    "cs_modules/infra_configurar/options_ui/index.html",
-    "cs_modules/themes/black.css",
-    "cs_modules/themes/super-black.css",
-    "cs_modules/themes/PontoControleCores_Anatel.css",
-    "icons/iconYellow.png",
-    "icons/iconBlue.png",
-    "icons/iconGreen.png",
-    "icons/iconRed.png",
-    "icons/ect.png",
-    "icons/link.png",
-    "icons/modelo.png",
-    "icons/fileUpload.png",
-    "icons/aguarde.gif",
-    "icons/editNote.png",
-    "icons/removeNote.png",
-    "icons/note.png",
-    "icons/interessado.png",
-    "cs_modules/procedimento_controlar/adicionarOrdenacao.js",
-    "lib/jquery.tablesorter/jquery.tablesorter.min.js",
-    "lib/jquery.tablesorter/jquery.tablesorter.widgets.min.js"
+        {
+      "resources": [
+        "cs_modules/infra_configurar/options_ui/index.html",
+        "cs_modules/themes/black.css",
+        "cs_modules/themes/super-black.css",
+        "cs_modules/themes/PontoControleCores_Anatel.css",
+        "cs_modules/core/start/lib.js",
+        "cs_modules/core/start/injectedScript.js",
+        "icons/iconYellow.png",
+        "icons/iconBlue.png",
+        "icons/iconGreen.png",
+        "icons/iconRed.png",
+        "icons/ect.png",
+        "icons/link.png",
+        "icons/modelo.png",
+        "icons/fileUpload.png",
+        "icons/aguarde.gif",
+        "icons/editNote.png",
+        "icons/removeNote.png",
+        "icons/note.png",
+        "icons/interessado.png",
+        "cs_modules/procedimento_controlar/adicionarOrdenacao.js",
+        "lib/jquery.tablesorter/jquery.tablesorter.min.js",
+        "lib/jquery.tablesorter/jquery.tablesorter.widgets.min.js"
+      ],
+      "matches": [
+        "*://*.br/*"
+      ]
+    }
   ]
 }

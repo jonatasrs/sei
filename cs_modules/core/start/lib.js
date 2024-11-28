@@ -144,10 +144,12 @@ function RemoveAllOldEventListener (elemOrSelectors) {
 /* Função que permite executar um código arbitrário
   no contexto da página, e não da extensão */
 function execOnPage (code) {
-  const script = document.createElement('script')
-  script.textContent = code;
-  (document.head || document.documentElement).appendChild(script)
-  script.remove()
+  const script = document.createElement('script');
+  script.src = chrome.runtime.getURL('injectedScript.js');
+  (document.head || document.documentElement).appendChild(script);
+  script.onload = function () {
+    script.remove();
+  };
 }
 
 /*

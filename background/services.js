@@ -1,21 +1,22 @@
-import { notifyOnClicked, notifyReceivedMenssage, serviceNotify } from './notifyProcessos.js'
+import { notifyOnClicked, notifyReceivedMenssage, serviceNotify } from './notifyProcessos.js';
+import { currentBrowser } from '../lib/core/core.js';
+
 
 export async function initServices () {
-  serviceNotify()
+  serviceNotify();
 }
-
 /** Handle de mensagens recebidas */
-browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+(currentBrowser.runtime || chrome.runtime).onMessage.addListener((message, sender, sendResponse) => {
   if (message.from === 'browserAction') {
-    notifyReceivedMenssage(message)
+    notifyReceivedMenssage(message);
   } else if (message.from === 'seippOptionsSave') {
-    notifyReceivedMenssage(message)
+    notifyReceivedMenssage(message);
   }
-})
+});
 
 /** Handle de click nas notificações */
-browser.notifications.onClicked.addListener(function (notificationId) {
+(currentBrowser.notifications || chrome.notifications).onClicked.addListener(function (notificationId) {
   if (notificationId === 'notifyProcessos') {
-    notifyOnClicked()
+    notifyOnClicked();
   }
-})
+});

@@ -133,7 +133,7 @@ function ConsultarInteressado (BaseName) {
         $('#seipp_interessados').append(`
           <div data-id="${interessado.id}">
             <p class="seipp-interessado">
-              <img height="10" width="12" src="${browser.runtime.getURL('icons/interessado.png')}"/>
+              <img height="10" width="12" src="${currentBrowser.runtime.getURL('icons/interessado.png')}"/>
               <span>${interessado.nome}</span>
             </p>
           </div>
