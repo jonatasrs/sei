@@ -2,18 +2,15 @@
 function IndicarConfiguracao (BaseName) {
   /** inicialização do módulo */
   const mconsole = new __mconsole(BaseName + '.IndicarConfiguracao')
-  const iconSelector = '#lnkConfiguracaoSistema img, #lnkConfiguracaoSistema i'
+  const iconSelector = '#lnkConfiguracaoSistema img, #lnkConfiguracaoSistema i, #lnkInfraConfiguracaoSistema img'
 
-  $(iconSelector).css({
-    animation: 'rotation 2s infinite linear',
-    padding: '0px',
-    borderRadius: '7px'
-  })
+  const comp = document.querySelector(iconSelector)
+  comp.classList.add('seipp-Indicar-onfiguracao')
 
   if (document.URL.includes('controlador.php?acao=infra_configurar') && SavedOptions.InstallOrUpdate) {
     SavedOptions.InstallOrUpdate = false
     currentBrowser.storage.local.set(SavedOptions)
-    $(iconSelector).css({ animation: 'none' })
+    comp.classList.remove('seipp-Indicar-onfiguracao')
     mconsole.log('Animação removida')
   }
 }

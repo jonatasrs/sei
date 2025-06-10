@@ -171,3 +171,11 @@
   text-decoration: none;
   background-color: #E0E0E0;
 }
+
+/* CSS for Module: IndicarConfiguracao */
+.seipp-Indicar-onfiguracao {
+  animation: rotation 2s infinite linear;
+  padding: 0px;
+  border-radius: 7px;
+}
+/* CSS for Module: IndicarConfiguracao END */
