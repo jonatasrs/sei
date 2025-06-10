@@ -82,6 +82,7 @@
         "cs_modules/core/idle/atalhoPublicacoesEletronicas.js",
         "cs_modules/core/idle/noButtons.js",
         "cs_modules/core/idle/linkNeutroControleProcessos.js",
+        "cs_modules/core/idle/moveMenu.js",
         "cs_modules/core/idle/index.js"
       ]
     },
@@ -221,6 +222,7 @@
         "icons/removeNote.png",
         "icons/note.png",
         "icons/interessado.png",
+        "icons/menu.svg",
         "cs_modules/procedimento_controlar/adicionarOrdenacao.js",
         "lib/jquery.tablesorter/jquery.tablesorter.min.js",
         "lib/jquery.tablesorter/jquery.tablesorter.widgets.min.js"

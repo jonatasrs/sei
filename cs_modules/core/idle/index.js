@@ -6,6 +6,9 @@ const ModName_idle = 'core.d_idle'
 
 ModuleInit(ModName_idle).then((options) => {
   AdicionarIdentificadorSeipp(ModName_idle)
+
+  moveMenu()
+
   options.CheckTypes.forEach(function (element) {
     switch (element) {
       case 'chkbloco':
