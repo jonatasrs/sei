@@ -28,6 +28,6 @@ function atalhoPublicacoesEletronicas (BaseName) {
 }
 
 function getProps () {
-  const style = getComputedStyle(document.querySelector('.power-off-btn'))
+  const style = getComputedStyle(document.querySelector('.power-off-btn, #lnkInfraSairSistema'))
   return `align-self: center; border: none; color: ${style.color}; font-size: ${style.fontSize};`
 }
