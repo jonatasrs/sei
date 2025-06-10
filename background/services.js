@@ -19,4 +19,4 @@ currentBrowser.notifications.onClicked.addListener(function (notificationId) {
   if (notificationId === 'notifyProcessos') {
     notifyOnClicked()
   }
-});
+})

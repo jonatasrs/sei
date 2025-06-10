@@ -13,9 +13,11 @@ function ListaPorEspecificacao (BaseName) {
     const processoVisualizado = document.querySelectorAll('.processoVisualizado')[i1]
     if (titulo1[1] !== '') {
       processoVisualizado.textContent = titulo1[1]
-    } else (
-      processoVisualizado.append(' (sem especificação)')
-    )
+    } else {
+      (
+        processoVisualizado.append(' (sem especificação)')
+      )
+    }
     i1++
   }
 
@@ -28,9 +30,11 @@ function ListaPorEspecificacao (BaseName) {
     const processoNaoVisualizado = document.querySelectorAll('.processoNaoVisualizado')[i2]
     if (titulo2[1] !== '') {
       processoNaoVisualizado.textContent = titulo2[1]
-    } else (
-      processoNaoVisualizado.append(' (sem especificação)')
-    )
+    } else {
+      (
+        processoNaoVisualizado.append(' (sem especificação)')
+      )
+    }
     i2++
   }
   processosVisualizados.forEach(visualizados)

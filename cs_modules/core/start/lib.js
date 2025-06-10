@@ -40,7 +40,7 @@ var SavedOptions = DefaultOptions // eslint-disable-line no-unused-vars, no-var
 
 /** * Verifica se está utilizando o navegador chrome ***************************/
 const isChrome = (typeof browser === 'undefined') /* Chrome: */
-var currentBrowser = isChrome ? chrome : browser
+const currentBrowser = isChrome ? chrome : browser
 window.currentBrowser = currentBrowser
 
 /** * Url base do sei ***********************************************************/

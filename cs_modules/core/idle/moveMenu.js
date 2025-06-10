@@ -1,4 +1,4 @@
-function moveMenu() {
+function moveMenu () {
   const menu = document.querySelector('#lnkInfraMenuSistema')
   if (menu) {
     const menuContainer = document.querySelector('#divInfraBarraSistemaPadraoE')

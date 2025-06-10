@@ -1,4 +1,4 @@
-async function linkNeutroControleProcessos(BaseName) {
+async function linkNeutroControleProcessos (BaseName) {
   const mconsole = new __mconsole(BaseName + '.linkNeutroControleProcessos')
   const elem = document.querySelector('#frmProcedimentoControlar')
   const link = {

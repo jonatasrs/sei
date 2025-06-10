@@ -1,6 +1,6 @@
 // Description: Permite que o navegador salve a senha do usuário ao fazer login no sistema.
-function permitirSalvarSenhaBrowser() {
-  function changeInput() {
+function permitirSalvarSenhaBrowser () {
+  function changeInput () {
     const pwdSenha = document.querySelector('#frmLogin #divSenha>span.input-group>input#pwdSenha')
     const input = document.querySelector('#frmLogin #divSenha>span.input-group>input[name=pwdSenha]')
     if (pwdSenha && input) {
@@ -13,5 +13,5 @@ function permitirSalvarSenhaBrowser() {
     }
   }
 
-  setTimeout(changeInput, 500);
+  setTimeout(changeInput, 500)
 }

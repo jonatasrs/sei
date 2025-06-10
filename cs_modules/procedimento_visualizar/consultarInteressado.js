@@ -1,4 +1,5 @@
 /* global __mconsole, GetBaseUrl, SavedOptions */
+// eslint-disable-next-line no-unused-vars
 function ConsultarInteressado (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.ConsultarInteressado')
