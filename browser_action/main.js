@@ -1,4 +1,4 @@
-import '../lib/core/core.js'
+import { currentBrowser } from '../lib/core/core.js'
 import { getLocalStorage } from '../lib/core/tools.js'
 
 export async function checkEnable () {

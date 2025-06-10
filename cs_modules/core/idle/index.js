@@ -25,6 +25,9 @@ ModuleInit(ModName_idle).then((options) => {
       case 'no_buttons':
         noButtons(ModName_idle)
         break
+      case 'link_neutro_controle_processos':
+        linkNeutroControleProcessos()
+        break
       default:
         break
     }

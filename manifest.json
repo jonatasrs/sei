@@ -3,8 +3,8 @@
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "5.1.2",
-  "author": "Jonatas Evaristo / Nicollas Soares",
+  "version": "5.99",
+  "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
   "icons": {"48": "icons/seipp.png"},
   "permissions": [
@@ -20,9 +20,18 @@
     "default_title": "Controle de Processos",
     "default_popup": "browser_action/index.html"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "jonatas@gov",
+      "strict_min_version": "128.0"
+    }
+  },
 
   "background": {
     "service_worker": "background/background.js",
+    "scripts": [
+      "background/background.js"
+    ],
     "type": "module"
   },
 
@@ -55,8 +64,8 @@
         "cs_modules/core/end/getSeiVersion.js",
         "cs_modules/core/end/redirecionarPagina.js",
         "cs_modules/core/end/moduleInit.js",
+        "cs_modules/core/end/permitirSalvarSenhaBrowser.js",
         "cs_modules/core/end/index.js",
-        "cs_modules/core/end/modificarCamposSenha.js",
         "lib/Chart.min.js"
       ]
     },
@@ -72,6 +81,7 @@
         "cs_modules/core/idle/indicarConfiguracao.js",
         "cs_modules/core/idle/atalhoPublicacoesEletronicas.js",
         "cs_modules/core/idle/noButtons.js",
+        "cs_modules/core/idle/linkNeutroControleProcessos.js",
         "cs_modules/core/idle/index.js"
       ]
     },
@@ -198,8 +208,6 @@
         "cs_modules/themes/black.css",
         "cs_modules/themes/super-black.css",
         "cs_modules/themes/PontoControleCores_Anatel.css",
-        "cs_modules/core/start/lib.js",
-        "cs_modules/core/start/injectedScript.js",
         "icons/iconYellow.png",
         "icons/iconBlue.png",
         "icons/iconGreen.png",

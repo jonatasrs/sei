@@ -20,9 +20,11 @@
 }
 
 .infraTrseippalerta {
+  color: black;
 	background-color: yellow !important;
 }
 .infraTrseippcritico {
+  color: black;
 	background-color: #f60 !important;
 }
 .seipp-assinatura {

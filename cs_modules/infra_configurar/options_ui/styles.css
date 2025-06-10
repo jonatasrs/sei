@@ -33,6 +33,7 @@
     width: 40%;
   margin: auto;
   min-width: 430px;
+  background-color: inherit;
 }
 
 .card:hover {

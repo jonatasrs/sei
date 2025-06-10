@@ -1,5 +1,6 @@
 import { browserActionGetBadgeText, clearAlarm, getAlarms, getLocalStorage } from '../lib/core/tools.js'
 import { isAuthenticated, listarProcessos } from './api.js'
+import { currentBrowser } from '../lib/core/core.js'
 
 const periodInMinutes = 5
 const alarmName = 'notifyProcessos'
@@ -34,7 +35,7 @@ async function notifyProcessos () {
     const count = Number(await browserActionGetBadgeText({}))
     if (!count) {
       notify({ title: 'Processos', description: 'Novo processo' })
-      currentBrowser.browserAction.setBadgeText({ text: '1' })
+      currentBrowser.action.setBadgeText({ text: '1' })
     }
   }
   currentBrowser.storage.local.set({ browserAction })
@@ -56,7 +57,7 @@ async function alarmNotifyProcessos (alarmInfo) {
           title: 'Erro ao checar processos',
           description: 'Usuário não está autenticado no SEI/SUPER'
         })
-        currentBrowser.browserAction.setBadgeText({ text: 'login' })
+        currentBrowser.action.setBadgeText({ text: 'login' })
       }
     } else {
       const result = await disableNotifyProcessos()
@@ -80,13 +81,13 @@ async function disableNotifyProcessos () {
   browserAction.status = 'Desativado'
   browserAction.qtdNaoVisualizado = 0
   currentBrowser.storage.local.set({ browserAction })
-  currentBrowser.browserAction.setBadgeText({ text: '' })
+  currentBrowser.action.setBadgeText({ text: '' })
   await clearAlarm(alarmName)
 }
 
 export async function notifyReceivedMenssage (message) {
   if (message.from === 'browserAction') {
-    currentBrowser.browserAction.setBadgeText({ text: '' })
+    currentBrowser.action.setBadgeText({ text: '' })
   } else if (message.from === 'seippOptionsSave') {
     const storage = await getLocalStorage()
     if (storage.CheckTypes?.includes('notificacoes')) {

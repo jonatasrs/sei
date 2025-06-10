@@ -5,6 +5,8 @@ const ModNameEnd = 'core.d_end'
 /** Pega a versão atual do SEI */
 const seiVersion = getSeiVersion(ModNameEnd)
 
+permitirSalvarSenhaBrowser()
+
 ModuleInit(ModNameEnd).then((options) => {
   /** Redireciona para controle de processos */
   if (window.location.href === GetBaseUrl()) {

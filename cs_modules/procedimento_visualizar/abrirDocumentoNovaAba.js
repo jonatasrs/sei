@@ -6,7 +6,7 @@ function AbrirDocumentoNovaAba (BaseName) {
   function Executar () {
     execOnPage(`
 
-      $("#divArvore > div a[target='ifrVisualizacao'] > span").each(function () {
+      $("#divArvore > div a[target$='Visualizacao'] > span").each(function () {
         if ($(this).attr("onclick") == undefined) {
           $(this).attr("onclick", "${script}");
         }

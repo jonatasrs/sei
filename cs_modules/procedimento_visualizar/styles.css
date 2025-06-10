@@ -95,6 +95,9 @@ img.seipp_anotacao_icone {
   background-color: #fff;
 }  
 
+.seipp_anotacao_prioridade {
+  color: black;
+}
 
 .seipp_anotacao_prioridade > input.infraCheckbox {
   margin-left: 0;

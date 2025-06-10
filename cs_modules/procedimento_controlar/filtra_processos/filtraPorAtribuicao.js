@@ -1,9 +1,9 @@
 /* global __mconsole, filtrarTabela, removerFiltroTabela, SavedOptions */
-function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
+function FiltraPorAtribuicao(BaseName) { // eslint-disable-line no-unused-vars
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.FiltraPorAtribuicao')
 
-  function inicio () {
+  async function inicio() {
     const idTabelaProcessosRecebidos = 'tblProcessosRecebidos'
     const idTabelaProcessosGerados = 'tblProcessosGerados'
     const idTabelaProcessosDetalhado = 'tblProcessosDetalhado'
@@ -14,6 +14,7 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
 
     if ($('#divInfraBarraLocalizacao').text() === 'Controle de Processos' && (tabelaRecebidos.length > 0 || tabelaGerados.length > 0 || tabelaDetalhado.length > 0)) {
       const keyAtribuido = 'atribuido'
+      const valueAtribuido = { value: '*' }
 
       const trsRecebidos = getProcessos(tabelaRecebidos)
       const trsGerados = getProcessos(tabelaGerados)
@@ -32,6 +33,10 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
           changeSelectVerProcess(this.value, tabelaRecebidos, trsRecebidos, keyAtribuido)
           changeSelectVerProcess(this.value, tabelaGerados, trsGerados, keyAtribuido)
           changeSelectVerProcess(this.value, tabelaDetalhado, trsDetalhado, keyAtribuido)
+          if (valueAtribuido.value !== this.value) {
+            valueAtribuido.value = this.value
+            valorSalvoSet(this.value)
+          }
         }).append([
           newElement('option')
             .attr('value', '*')
@@ -43,17 +48,19 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
 
       adicionarOptionAtribuido(selectVerProcessosDe, trs)
 
-      atualizaSelect(selectVerProcessosDe, keyAtribuido)
+      const value = await valorSalvoGet()
+      valueAtribuido.value = value
+      atualizaSelect(selectVerProcessosDe, value, keyAtribuido)
 
       $('#' + idVerSomenteMeusProcessos).css('height', 'auto').css('font-size', 'smaller').prepend(criarTabelaNova(selectVerProcessosDe))
     }
   }
 
-  function newElement (elemento) {
+  function newElement(elemento) {
     return $(document.createElement(elemento))
   }
 
-  function criarTabelaNova (selectNovo) {
+  function criarTabelaNova(selectNovo) {
     const novaTabela = newElement('table').css('width', '100%')
     const novoTr = newElement('tr').appendTo(newElement('tbody')).appendTo(novaTabela)
     mconsole.log(novoTr)
@@ -64,14 +71,15 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
     return novaTabela
   }
 
-  function atualizaSelect (select, keyAtribuido) {
-    const value = valorSalvoGet()
-    if (typeof value !== 'undefined') {
-      if (select.children("option[value='" + value + "']").length > 0) { select.val(value).change() } else { valorSalvoDelete() }
+  async function atualizaSelect(select, value, keyAtribuido) {
+    if (select.children("option[value='" + value + "']").length > 0) {
+      select.val(value).change()
+    } else {
+      valorSalvoDelete()
     }
   }
 
-  function adicionarOptionAtribuido (select, trs) {
+  function adicionarOptionAtribuido(select, trs) {
     const nomes = {}
     getLinkAtribuido(trs).each(function (index, alink) {
       nomes[alink.innerHTML] = getAtribuido(alink)
@@ -87,7 +95,7 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
 
   const classeFiltro = 'PorAtribuicao'
 
-  function changeSelectVerProcess (value, tabela, trs, keyAtribuido) {
+  function changeSelectVerProcess(value, tabela, trs, keyAtribuido) {
     if (value !== '*') {
       filtrarTabela(tabela, trs, classeFiltro, function (indexTr, tr) {
         const alink = getLinkAtribuido($(tr))
@@ -96,23 +104,22 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
     } else {
       removerFiltroTabela(tabela, trs, classeFiltro)
     }
-    valorSalvoSet(value)
   }
 
-  function getLinkAtribuido (trs) {
+  function getLinkAtribuido(trs) {
     return trs.find('td:nth-child(4) a')
   }
 
-  function getAtribuido (alink) {
+  function getAtribuido(alink) {
     if (SavedOptions.filtraporatribuicao === 'nome') { return alink.title.substr(15) }
     return alink.innerHTML
   }
 
-  function getTabela (idTabelaProcessos) {
+  function getTabela(idTabelaProcessos) {
     return $('#' + idTabelaProcessos).first()
   }
 
-  function getProcessos (tabela) {
+  function getProcessos(tabela) {
     return tabela.children('tbody').first().children('tr[class^="infraTr"]')
   }
 
@@ -120,14 +127,17 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
   //   return tabela.children('caption.infraCaption')
   // }
 
-  function valorSalvoGet () {
-    return null
+  async function valorSalvoGet() {
+    const { moduloFiltraPorAtribuicao: valor } = await currentBrowser.storage.local.get('moduloFiltraPorAtribuicao')
+    return [null, undefined].includes(valor) ? '*' : valor
   }
 
-  function valorSalvoSet (valor) {
+  function valorSalvoSet(valor) {
+    currentBrowser.storage.local.set({ moduloFiltraPorAtribuicao: valor })
   }
 
-  function valorSalvoDelete () {
+  function valorSalvoDelete() {
+    currentBrowser.storage.local.remove('moduloFiltraPorAtribuicao')
   }
 
   inicio()

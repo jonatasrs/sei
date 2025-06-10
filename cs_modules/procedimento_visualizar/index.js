@@ -5,13 +5,13 @@ AlterarTitulo */
 const BaseName = 'procedimento_visualizar'
 
 function ExecutarNaArvore (Modlog, func) {
-  EsperaCarregar(Modlog, '#divArvore > div', "a[target='ifrVisualizacao']", function () {
+  EsperaCarregar(Modlog, '#divArvore > div', "a[target$='Visualizacao']", function () {
     func()
     $('#divArvore > div > div:hidden').each(function () {
       const idPasta = $(this).attr('id').substr(3)
       Modlog.log(idPasta + ' -> evento click adicionado.')
       $('#ancjoin' + idPasta).click(function () {
-        EsperaCarregar(Modlog, '#div' + idPasta, "a[target='ifrVisualizacao']", func)
+        EsperaCarregar(Modlog, '#div' + idPasta, "a[target$='Visualizacao']", func)
         $(this).off('click')
       })
     })
@@ -57,5 +57,7 @@ ModuleInit(BaseName).then((options) => {
   AbrirDocumentoNovaAba(BaseName)
 
   /* Atualiza o título da janela/aba com os dados do processo  */
-  AlterarTitulo(BaseName)
+  if (seiVersionCompare('<', '4')) {
+    AlterarTitulo(BaseName)
+  }
 }).catch(e => console.log(e.message))

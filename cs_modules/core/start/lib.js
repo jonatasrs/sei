@@ -40,7 +40,8 @@ var SavedOptions = DefaultOptions // eslint-disable-line no-unused-vars, no-var
 
 /** * Verifica se está utilizando o navegador chrome ***************************/
 const isChrome = (typeof browser === 'undefined') /* Chrome: */
-var browser = isChrome ? chrome : browser
+var currentBrowser = isChrome ? chrome : browser
+window.currentBrowser = currentBrowser
 
 /** * Url base do sei ***********************************************************/
 function GetBaseUrl () {
@@ -103,7 +104,7 @@ function AdicionarLinkCss (doc, id, href) {
   link.id = id
   link.rel = 'stylesheet'
   link.type = 'text/css'
-  link.href = browser.runtime.getURL(href)
+  link.href = currentBrowser.runtime.getURL(href)
   link.media = 'all'
   head.appendChild(link)
 }
@@ -144,12 +145,10 @@ function RemoveAllOldEventListener (elemOrSelectors) {
 /* Função que permite executar um código arbitrário
   no contexto da página, e não da extensão */
 function execOnPage (code) {
-  const script = document.createElement('script');
-  script.src = chrome.runtime.getURL('injectedScript.js');
-  (document.head || document.documentElement).appendChild(script);
-  script.onload = function () {
-    script.remove();
-  };
+  const script = document.createElement('script')
+  script.textContent = code;
+  (document.head || document.documentElement).appendChild(script)
+  script.remove()
 }
 
 /*
@@ -181,7 +180,8 @@ function addScriptToPage (scriptName, codeOnLoad) {
 function EsperaCarregar (Modlog, ElemRaiz, Elem, func, TimeOut = 3000) {
   if (TimeOut <= 0) { Modlog.log('Script não executado: TIMEOUT'); return }
   setTimeout(function () {
-    if ($(ElemRaiz).find(Elem).length === 0) {
+    const arrElements = document.querySelector(ElemRaiz).querySelectorAll(Elem)
+    if (arrElements.length === 0) {
       // Modlog.log(ElemRaiz + ": find -> " + Elem + " : carregando...");
       EsperaCarregar(Modlog, ElemRaiz, Elem, func, TimeOut - 100)
     } else {
@@ -212,7 +212,7 @@ function carregarDadosStorage (dados, fnSucesso, fnErro) {
       }
     })
   } else {
-    browser.storage.local.get(dados).then(fnSucesso, fnErro)
+    currentBrowser.storage.local.get(dados).then(fnSucesso, fnErro)
   }
 }
 
@@ -229,6 +229,6 @@ function salvarDadosStorage (dados, fnSucesso, fnErro) {
       }
     })
   } else {
-    browser.storage.local.set(dados).then(fnSucesso, fnErro)
+    currentBrowser.storage.local.set(dados).then(fnSucesso, fnErro)
   }
 }
