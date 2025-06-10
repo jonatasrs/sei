@@ -36,14 +36,20 @@ function ConsultarInteressado (BaseName) {
     /* adiciona as informações sobre o interessado */
     if (SavedOptions.CheckTypes.includes('mostrardetalhesinteressados')) {
       const urlEditarInteressado = obterUrlEditarInteressado(html)
-      if (urlEditarInteressado) abrirEditarInteressado(urlEditarInteressado)
+      if (urlEditarInteressado) {
+        mconsole.log('Abrindo detalhes do interessado: ' + urlEditarInteressado)
+        abrirEditarInteressado(urlEditarInteressado)
+      } else {
+        mconsole.log('Não foi possível obter a URL do interessado.')
+        alert(html)
+      }
     }
   })
 
   /** Funções *******************************************************************/
 
   function obterUrlEditarInteressado (html) {
-    const regex = /^\s*seiAlterarContato\(valor, 'selInteressadosProcedimento', 'frmProcedimentoCadastro','(.*)'\);/m
+    const regex = /^\s*seiCadastroContato\(valor, 'selInteressadosProcedimento', 'frmProcedimentoCadastro','(.*)'\);/m
     const resultado = regex.exec(html)
     return resultado !== null ? resultado[1] : null
   }
