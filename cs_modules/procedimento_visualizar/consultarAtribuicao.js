@@ -13,10 +13,11 @@ function consultarAtribuicao (BaseName) {
   function ConsultarInteressadoCriar (unidadeAtual, dadosAtribuicao) {
     const container = $('#container').length > 0 ? $('#container') : $('body')
 
-    container.append(`
-      <div class='seipp-separador'><span>${dadosAtribuicao.sigiloso ? 'Credencial para' : 'Atribuído para'}</span></div>
-      <div id='seipp_atribuicao'></div>
-    `)
+    // Criação segura dos elementos
+    const $separador = $('<div/>').addClass('seipp-separador')
+      .append($('<span/>').text(dadosAtribuicao.sigiloso ? 'Credencial para' : 'Atribuído para'))
+    const $atribuicao = $('<div/>').attr('id', 'seipp_atribuicao')
+    container.append($separador, $atribuicao)
 
     if (dadosAtribuicao.usuarios.length === 0) {
       $('#seipp_atribuicao').append($('<p />', {
@@ -25,22 +26,21 @@ function consultarAtribuicao (BaseName) {
       }))
     } else {
       dadosAtribuicao.usuarios.forEach(function (usuario) {
-        $('#seipp_atribuicao').append($('<p />', {
+        const $p = $('<p />', {
           class: 'seipp-atribuido-para',
-          append: [
-            $('<img />', {
-              attr: {
-                height: 10,
-                width: 12
-              },
-              src: currentBrowser.runtime.getURL('icons/interessado.png')
-            }),
-            $('<span />', { text: usuario.login })
-          ],
           title: dadosAtribuicao.sigiloso
             ? `Credencial para ${usuario.nome} (${usuario.login}) na unidade ${unidadeAtual}.`
             : `Atribuído na unidade ${unidadeAtual} para ${usuario.nome} (${usuario.login}).`
-        }))
+        })
+        $p.append(
+          $('<img />', {
+            height: 10,
+            width: 12,
+            src: currentBrowser.runtime.getURL('icons/interessado.png')
+          }),
+          $('<span />').text(usuario.login)
+        )
+        $('#seipp_atribuicao').append($p)
       })
       if (dadosAtribuicao.sigiloso && typeof dadosAtribuicao.mais !== 'undefined' && dadosAtribuicao.mais > 0) {
         $('#seipp_atribuicao').append($('<p />', {
