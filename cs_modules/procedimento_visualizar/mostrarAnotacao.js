@@ -52,11 +52,11 @@ function MostrarAnotacao (BaseName) {
         hdnInfraTipoPagina = doc.getElementById('hdnInfraTipoPagina')?.value || ''
         postUrl = doc.getElementById('frmAnotacaoCadastro')?.getAttribute('action') || ''
 
-        mconsole.log('Prioridade:', prioridade)
-        mconsole.log('Texto:', txanotacao)
-        mconsole.log('hdnIdProtocolo:', hdnIdProtocolo)
-        mconsole.log('hdnInfraTipoPagina:', hdnInfraTipoPagina)
-        mconsole.log('postUrl:', postUrl)
+        mconsole.log(`Prioridade: ${prioridade}`)
+        mconsole.log(`txanotacao: ${txanotacao}`)
+        mconsole.log(`hdnIdProtocolo: ${hdnIdProtocolo}`)
+        mconsole.log(`hdnInfraTipoPagina: ${hdnInfraTipoPagina}`)
+        mconsole.log(`postUrl: ${postUrl}`)
 
         criarElementoAnotacao()
         esconderSeNaoHaNota()
@@ -200,6 +200,7 @@ function MostrarAnotacao (BaseName) {
     const pTexto = divCom.querySelector('.seipp_anotacao_texto')
     const textarea = divCom.querySelector('.seipp_anotacao_txt_editar')
     const divEditar = divCom.querySelector('.seipp_anotacao_editar')
+    divCom.removeAttribute('style')
     divAnotacao.querySelector('.seipp_sem_anotacao').style.display = 'none'
     divBotoes.style.display = 'none'
     textarea.style.width = `${pTexto.offsetWidth}px`
