@@ -13,7 +13,7 @@ export async function fetchSei (url, options = { method: 'GET' }) {
 /**
  *
  * @param {String} baseUrl URL base do SEI (Default: storage.baseUrl)
- * @returns {Document} DOM document
+ * @returns {Promise<Document>} DOM document
  */
 export async function fetchRoot (baseUrl = null) {
   const storage = await getLocalStorage()

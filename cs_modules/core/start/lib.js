@@ -232,3 +232,13 @@ function salvarDadosStorage (dados, fnSucesso, fnErro) {
     currentBrowser.storage.local.set(dados).then(fnSucesso, fnErro)
   }
 }
+
+async function fetchSei (url, options = { method: 'GET' }) {
+  const resp = await fetch(url, options)
+  if (resp.ok) {
+    // const contentType = resp.headers.get('content-type')
+    const buffer = await resp.arrayBuffer()
+    const body = new TextDecoder('ISO-8859-1').decode(buffer)
+    return body
+  }
+}
