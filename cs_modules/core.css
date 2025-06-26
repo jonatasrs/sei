@@ -179,3 +179,12 @@
   border-radius: 7px;
 }
 /* CSS for Module: IndicarConfiguracao END */
+
+/* CSS for Module: seipp-atalho-publicacoes-eletronicas */
+.seipp-atalho-publicacoes-eletronicas {
+  align-self: center;
+}
+.seipp-atalho-publicacoes-eletronicas > a {
+  color: white;
+  font-weight: bold;
+}
