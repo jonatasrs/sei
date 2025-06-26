@@ -49,25 +49,22 @@ dropzone.utils = {
 dropzone.ui = (function () {
   const ui = {}
 
-  ui.wrapper = $(`
-    <div class='dropzone-wrapper'>
-      <div class='dropzone-bg'></div>
-      <div class='dropzone-ui'>
-      <img class='dropzone-icon'>
-      <p class='dropzone-label'></p>
-      </div>
-    </div>
-  `)
+  // Criação segura dos elementos com jQuery
+  ui.wrapper = $('<div/>').addClass('dropzone-wrapper')
+  const $bg = $('<div/>').addClass('dropzone-bg')
+  const $ui = $('<div/>').addClass('dropzone-ui')
+  const $icon = $('<img/>').addClass('dropzone-icon')
+  const $label = $('<p/>').addClass('dropzone-label')
 
-  ui.icon = ui.wrapper.find('.dropzone-icon')
-  ui.label = ui.wrapper.find('.dropzone-label')
+  $ui.append($icon, $label)
+  ui.wrapper.append($bg, $ui)
 
   function mudarIcone (icone) {
-    ui.icon.attr('src', currentBrowser.runtime.getURL(`icons/${icone}`))
+    $icon.attr('src', currentBrowser.runtime.getURL(`icons/${icone}`))
   }
 
   function mudarTexto (texto) {
-    ui.label.text(texto)
+    $label.text(texto)
   }
 
   function mudarProgresso (progresso) {
