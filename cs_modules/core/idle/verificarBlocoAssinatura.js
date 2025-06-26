@@ -23,7 +23,6 @@ function VerificarBlocoAssinatura (BaseName) {
     let numDispPelaArea = 0
     let numDispParaArea = 0
     let numRetornado = 0
-    let html = ''
     let numBlocos = tabela.length // quantidade de linhas da tabela (zero, caso não tenha blocos, numero de blocos + 1 caso tenha)
     if (numBlocos !== 0) { numBlocos-- } // não conta a linha de cabeçalho
 
@@ -50,21 +49,38 @@ function VerificarBlocoAssinatura (BaseName) {
     })
 
     if (numBlocos > 0) {
+      const $container = $('<span/>')
       if (numDispParaArea > 0) {
-        html = '<img src=' + currentBrowser.runtime.getURL('icons/iconRed.png') + " title='Blocos disponibilizados para minha área: " + numDispParaArea + "'>"
+        $container.append(
+          $('<img/>')
+            .attr('src', currentBrowser.runtime.getURL('icons/iconRed.png'))
+            .attr('title', `Blocos disponibilizados para minha área: ${numDispParaArea}`)
+        )
       }
       if (numDispPelaArea > 0) {
-        html += '<img src=' + currentBrowser.runtime.getURL('icons/iconBlue.png') + " title='Blocos disponibilizados pela minha área: " + numDispPelaArea + "'>"
+        $container.append(
+          $('<img/>')
+            .attr('src', currentBrowser.runtime.getURL('icons/iconBlue.png'))
+            .attr('title', `Blocos disponibilizados pela minha área: ${numDispPelaArea}`)
+        )
       }
       if (numRetornado > 0) {
-        html += '<img src=' + currentBrowser.runtime.getURL('icons/iconGreen.png') + " title='Blocos retornados: " + numRetornado + "'>"
+        $container.append(
+          $('<img/>')
+            .attr('src', currentBrowser.runtime.getURL('icons/iconGreen.png'))
+            .attr('title', `Blocos retornados: ${numRetornado}`)
+        )
       }
       if (numAbertos > 0) {
-        html += '<img src=' + currentBrowser.runtime.getURL('icons/iconYellow.png') + " title='Blocos abertos: " + numAbertos + "'>"
+        $container.append(
+          $('<img/>')
+            .attr('src', currentBrowser.runtime.getURL('icons/iconYellow.png'))
+            .attr('title', `Blocos abertos: ${numAbertos}`)
+        )
       }
 
       $('#seipp').append(
-        $('<a>').attr('href', link).append($(html))
+        $('<a>').attr('href', link).append($container)
       )
     }
   }
