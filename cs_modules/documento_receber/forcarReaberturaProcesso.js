@@ -32,6 +32,12 @@ function forcarReaberturaProcesso (BaseName) {
 
       /* Se tiver fechado em todas as unidades coloca alerta para reabrir */
       if (TUnidades === TUnidFechado) {
+        $('#divInfraBarraComandosSuperior').append(
+          $('<span/>')
+            .attr('id', 'divUnidadesReabertura')
+            .attr('style', 'background-color: yellow; color: black; padding: 5px; float: left;')
+            .text('O processo não está aberto em nenhuma unidade! Favor verificar.')
+        )
         const NovoConfirmarDados = `
           if($('#selUnidadesReabertura option').length>0) {
             confirmarDados()
