@@ -4,9 +4,15 @@ function consultarAtribuicao (BaseName) {
   const mconsole = new __mconsole(BaseName + '.consultarAtribuicao')
 
   const unidadeAtual = obterUnidadeAtual()
-  if (!unidadeAtual) return
+  if (!unidadeAtual) {
+    mconsole.log('Unidade atual não encontrada.')
+    return
+  }
   const dadosAtribuicao = obterAtribuicao(unidadeAtual)
-  if (!dadosAtribuicao) return
+  if (!dadosAtribuicao) {
+    mconsole.log('Atribuição não encontrada.')
+    return
+  }
   mconsole.log(`${unidadeAtual} - ${dadosAtribuicao}`)
   ConsultarInteressadoCriar(unidadeAtual, dadosAtribuicao)
 
@@ -55,7 +61,7 @@ function consultarAtribuicao (BaseName) {
   function obterUnidadeAtual () {
     const sei4 = seiVersionCompare('>=', '4')
     if (sei4) {
-      return window.parent.document.querySelector('#lnkInfraUnidade').innerText
+      return window.parent.document.querySelector('#lnkInfraUnidade')?.innerText
     } else {
       const selInfraUnidades = $("select[name='selInfraUnidades']", window.parent.document)
       if (!selInfraUnidades.length) return null
@@ -66,13 +72,17 @@ function consultarAtribuicao (BaseName) {
   }
 
   function obterAtribuicao (unidade) {
-    const ultimaScriptTag = document.getElementsByTagName('script')[document.getElementsByTagName('script').length - 1]
+    const scriptTag = [...document.querySelectorAll('script')].find(e => e.innerText.indexOf('var objArvore ') !== -1)
+    if (!scriptTag) {
+      mconsole.log('Script tag com atribuição não encontrada.')
+      return null
+    }
 
     /* verificar se processo está aberto em alguma unidade */
-    if (!/^Nos\[0\].html = 'Processo aberto/m.test(ultimaScriptTag.innerHTML)) return null
+    if (!/^Nos\[0\].html = 'Processo aberto/m.test(scriptTag.innerHTML)) return null
 
     /* extrai o que foi atribuído para a variável Nos[0].html */
-    const rUsuarios = /^Nos\[0\].html = '(.*)';/m.exec(ultimaScriptTag.innerHTML)
+    const rUsuarios = /^Nos\[0\].html = '(.*)';/m.exec(scriptTag.innerHTML)
     if (!rUsuarios || rUsuarios.length !== 2) return null
     const html = rUsuarios[1]
 
