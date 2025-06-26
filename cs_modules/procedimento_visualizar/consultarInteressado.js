@@ -118,14 +118,13 @@ function ConsultarInteressado (BaseName) {
   function DetalheProcessoCriar () {
     const container = $('#container').length > 0 ? $('#container') : $('body')
 
-    container.append(`
-      <div class='seipp-separador'><span>Tipo do processo</span></div>
-      <div id='seipp_tipo'>
-        <p class="seipp-tipo-processo"></p>
-      </div>
-      <div class='seipp-separador'><span>Interessado(s)</span></div>
-      <div id='seipp_interessados'></div>
-    `)
+    // Criação segura dos elementos
+    container.append(
+      $('<div/>').addClass('seipp-separador').append($('<span/>').text('Tipo do processo')),
+      $('<div/>').attr('id', 'seipp_tipo').append($('<p/>').addClass('seipp-tipo-processo')),
+      $('<div/>').addClass('seipp-separador').append($('<span/>').text('Interessado(s)')),
+      $('<div/>').attr('id', 'seipp_interessados')
+    )
   }
 
   function DetalheProcessoPreencher () {
@@ -135,19 +134,25 @@ function ConsultarInteressado (BaseName) {
 
     /* dados dos interessados */
     $('#seipp_interessados').attr('title', 'Interessado(s)')
+    $('#seipp_interessados').empty()
     if (processo.interessados.length > 0) {
       processo.interessados.forEach(function (interessado) {
-        $('#seipp_interessados').append(`
-          <div data-id="${interessado.id}">
-            <p class="seipp-interessado">
-              <img height="10" width="12" src="${currentBrowser.runtime.getURL('icons/interessado.png')}"/>
-              <span>${interessado.nome}</span>
-            </p>
-          </div>
-        `)
+        // Criação segura dos elementos
+        const $div = $('<div/>').attr('data-id', interessado.id)
+        const $p = $('<p/>').addClass('seipp-interessado')
+        const $img = $('<img/>')
+          .attr('height', 10)
+          .attr('width', 12)
+          .attr('src', currentBrowser.runtime.getURL('icons/interessado.png'))
+        const $span = $('<span/>').text(interessado.nome)
+        $p.append($img, $span)
+        $div.append($p)
+        $('#seipp_interessados').append($div)
       })
     } else {
-      $('#seipp_interessados').append('<p class="seipp-interessado">Nenhum interessado especificado.</p>')
+      $('#seipp_interessados').append(
+        $('<p/>').addClass('seipp-interessado').text('Nenhum interessado especificado.')
+      )
     }
   }
 
@@ -157,8 +162,6 @@ function ConsultarInteressado (BaseName) {
     const $iframe = $(iframe)
 
     $iframe.on('load', function () {
-      // https://stackoverflow.com/questions/726816/how-to-access-iframe-parent-page-using-jquery/726866
-      // https://stackoverflow.com/questions/6316979/selecting-an-element-in-iframe-jquery
       if ($iframe.contents().find('#divArvoreHtml iframe').length !== 0) { $(this).off('load'); return } else if ($iframe.contents().find('#divInformacao').length === 0) { $(this).off('load'); return }
 
       const maskProcesso = $('.infraArvoreNoSelecionado').text()
@@ -173,13 +176,116 @@ function ConsultarInteressado (BaseName) {
       $iframe.contents().find('#divInformacao').css('width', '300px')
       mconsole.log($iframe.prop('id'))
 
-      $("<div id='detalhes' style='margin-left: 300px; border: 1px solid; padding: 2px;'/>")
-        .insertAfter($iframe.contents().find('#divInformacao'))
-        .append('<div id="divInfraBarraLocalizacao" class="infraBarraLocalizacao" style="display:block;">Dados do Processo</div>')
-        .append('<div id="divProtocoloExibir" class="infraAreaDados" style="height:4.5em; clear: both;"><label id="lblProtocoloExibir" for="txtProtocoloExibir" accesskey="" class="infraLabelObrigatorio">Protocolo:</label><input id="txtProtocoloExibir" name="txtProtocoloExibir" class="infraText infraReadOnly" readonly="readonly" type="text" style="width:150px;" value="' + maskProcesso + '"><label id="lblDtaGeracaoExibir" for="txtDtaGeracaoExibir" accesskey="" class="infraLabelObrigatorio" style="margin-left: 20px;">Data de Autuação:</label><input type="text" id="txtDtaGeracaoExibir" name="txtDtaGeracaoExibir" class="infraText infraReadOnly" readonly="readonly" /></div>')
-        .append('<div id="divTipoProcedimento" class="infraAreaDados" style="height:4.5em; clear: none;"><label id="lblTipoProcedimento" for="selTipoProcedimento" accesskey="" class="infraLabelObrigatorio">Tipo do Processo:</label><input id="selTipoProcedimento" name="selTipoProcedimento" class="infraText infraReadOnly" readonly="readonly" style="width: 95%;" value="' + processo.tipo + '"></div>')
-        .append('<div id="divDescricao" class="infraAreaDados" style="height:4.7em; clear: none;"><label id="lblDescricao" for="txtDescricao" accesskey="" class="infraLabelOpcional">Especificação:</label><input id="txtDescricao" name="txtDescricao" class="infraText infraReadOnly" readonly="readonly" type="text" style="width: 95%;"></div>')
-        .append('<div id="divInteressados" class="infraAreaDados" style="height:11em; clear: none;"><label id="lblInteressadosProcedimento" for="txtInteressadoProcedimento" accesskey="I" class="infraLabelOpcional"><span class="infraTeclaAtalho">I</span>nteressados:</label><br/><textarea id="txtInteressadosProcedimento" name="txtInteressadosProcedimento" class="infraText infraReadOnly" readonly="readonly" style="width: 95%";>' + interessados.join('\n') + '</textarea></div>')
+      // Criação segura dos elementos
+      const $detalhes = $('<div/>', { id: 'detalhes', style: 'margin-left: 300px; border: 1px solid; padding: 2px;' })
+      $detalhes.append(
+        $('<div/>', {
+          id: 'divInfraBarraLocalizacao',
+          class: 'infraBarraLocalizacao',
+          style: 'display:block;'
+        }).text('Dados do Processo'),
+        $('<div/>', {
+          id: 'divProtocoloExibir',
+          class: 'infraAreaDados',
+          style: 'height:4.5em; clear: both;'
+        }).append(
+          $('<label/>', {
+            id: 'lblProtocoloExibir',
+            for: 'txtProtocoloExibir',
+            accesskey: '',
+            class: 'infraLabelObrigatorio'
+          }).text('Protocolo:'),
+          $('<input/>', {
+            id: 'txtProtocoloExibir',
+            name: 'txtProtocoloExibir',
+            class: 'infraText infraReadOnly',
+            readonly: 'readonly',
+            type: 'text',
+            style: 'width:150px;',
+            value: maskProcesso
+          }),
+          $('<label/>', {
+            id: 'lblDtaGeracaoExibir',
+            for: 'txtDtaGeracaoExibir',
+            accesskey: '',
+            class: 'infraLabelObrigatorio',
+            style: 'margin-left: 20px;'
+          }).text('Data de Autuação:'),
+          $('<input/>', {
+            type: 'text',
+            id: 'txtDtaGeracaoExibir',
+            name: 'txtDtaGeracaoExibir',
+            class: 'infraText infraReadOnly',
+            readonly: 'readonly',
+            style: 'width:150px;'
+          })
+        ),
+        $('<div/>', {
+          id: 'divTipoProcedimento',
+          class: 'infraAreaDados',
+          style: 'height:4.5em; clear: none;'
+        }).append(
+          $('<label/>', {
+            id: 'lblTipoProcedimento',
+            for: 'selTipoProcedimento',
+            accesskey: '',
+            class: 'infraLabelObrigatorio'
+          }).text('Tipo do Processo:'),
+          $('<input/>', {
+            id: 'selTipoProcedimento',
+            name: 'selTipoProcedimento',
+            class: 'infraText infraReadOnly',
+            readonly: 'readonly',
+            style: 'width: 95%;',
+            value: processo.tipo
+          })
+        ),
+        $('<div/>', {
+          id: 'divDescricao',
+          class: 'infraAreaDados',
+          style: 'height:4.7em; clear: none;'
+        }).append(
+          $('<label/>', {
+            id: 'lblDescricao',
+            for: 'txtDescricao',
+            accesskey: '',
+            class: 'infraLabelOpcional'
+          }).text('Especificação:'),
+          $('<input/>', {
+            id: 'txtDescricao',
+            name: 'txtDescricao',
+            class: 'infraText infraReadOnly',
+            readonly: 'readonly',
+            type: 'text',
+            style: 'width: 95%;'
+          })
+        ),
+        $('<div/>', {
+          id: 'divInteressados',
+          class: 'infraAreaDados',
+          style: 'height:11em; clear: none;'
+        }).append(
+          $('<label/>', {
+            id: 'lblInteressadosProcedimento',
+            for: 'txtInteressadoProcedimento',
+            accesskey: 'I',
+            class: 'infraLabelOpcional'
+          }).append(
+            $('<span/>', { class: 'infraTeclaAtalho' }).text('I'),
+            document.createTextNode('nteressados:')
+          ),
+          $('<br/>'),
+          $('<textarea/>', {
+            id: 'txtInteressadosProcedimento',
+            name: 'txtInteressadosProcedimento',
+            class: 'infraText infraReadOnly',
+            readonly: 'readonly',
+            style: 'width: 95%;'
+          }).val(interessados.join('\n'))
+        )
+      )
+
+      $detalhes.insertAfter($iframe.contents().find('#divInformacao'))
 
       const newiframe = window.parent.document.getElementById('ifrVisualizacao')
       const $newiframe = $(newiframe)
