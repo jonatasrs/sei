@@ -8,7 +8,7 @@ function incluirCalculoPrazos (BaseName, TipoDeCalculo) {
   IncluirColunaTabela('#tblProcessosRecebidos', TipoDeCalculo)
 
   function IncluirColunaTabela (IdTabela, TipoDeCalculo) {
-    let $table = $(IdTabela)
+    const table = document.querySelector(IdTabela)
 
     /**
      * Na versão 4.0 o controle de prazo já é nativo, no entanto, ainda não
@@ -25,25 +25,26 @@ function incluirCalculoPrazos (BaseName, TipoDeCalculo) {
     }
 
     mconsole.log(`IncluirColunaTabela: ${IdTabela} - ${TipoDeCalculo}`)
-    if ($table.length > 0) {
-      /* Remove os eventos da tabela: Precisa para funcionar no Chrome */
-      RemoveAllOldEventListener($table)
-      $table = $(IdTabela)
-
+    if (table) {
       /* Inclui o cabeçalho na tabela */
-      const h = $('<th/>')
-        .addClass('tituloControle')
-        .text((TipoDeCalculo === 'qtddias') ? 'Dias' : 'Prazo')
-      $(IdTabela + ' > thead > tr').append(h)
+      const theadRow = table.querySelector('thead > tr')
+      if (theadRow) {
+        const th = document.createElement('th')
+        th.className = 'infraTh'
+        th.textContent = (TipoDeCalculo === 'qtddias') ? 'Dias' : 'Prazo'
+        theadRow.appendChild(th)
+        mconsole.log(`Cabeçalho adicionado: ${th.textContent}`)
+      }
 
       /* Inclui os itens na tabela */
-      $(IdTabela + ' > tbody > tr').each(function (index) {
-        const cell = $('<td/>').attr('valign', 'center').attr('align', 'center')
-          .text(Calcular(this, TipoDeCalculo))
-
-        $(this).append(cell)
-
-        FormatarTabela(this, $(cell).text(), TipoDeCalculo)
+      const rows = table.querySelectorAll('tbody > tr')
+      rows.forEach(function (row) {
+        const td = document.createElement('td')
+        td.setAttribute('valign', 'top')
+        td.setAttribute('align', 'center')
+        td.textContent = Calcular(row, TipoDeCalculo)
+        row.appendChild(td)
+        FormatarTabela(row, td.textContent, TipoDeCalculo)
       })
     }
   }
@@ -51,10 +52,10 @@ function incluirCalculoPrazos (BaseName, TipoDeCalculo) {
   /** * Calcula o numero de dias com base no texto do marcador */
   function Calcular (item, TipoDeCalculo) {
     const msecPerDay = 1000 * 60 * 60 * 24
-    const cel = $(item).find("td > a[href*='acao=andamento_marcador_gerenciar']")
+    const cel = item.querySelector("td > a[href*='acao=andamento_marcador_gerenciar']")
 
-    if ($(cel).length > 0) {
-      let str = $(cel).attr('onmouseover')
+    if (cel) {
+      let str = cel.getAttribute('onmouseover')
 
       str = str.substring(str.indexOf("'") + 1, str.indexOf("'", str.indexOf("'") + 1))
       str = str.toLowerCase().replace('é', 'e')
@@ -96,15 +97,15 @@ function incluirCalculoPrazos (BaseName, TipoDeCalculo) {
     if (Valor === '') return
     if (TipoDeCalculo === 'qtddias') {
       if (Valor > SavedOptions.ConfDias.Alerta && Valor <= SavedOptions.ConfDias.Critico) {
-        $(Linha).addClass('infraTrseippalerta')
+        Linha.classList.add('infraTrseippalerta')
       } else if (Valor > SavedOptions.ConfDias.Critico) {
-        $(Linha).addClass('infraTrseippcritico')
+        Linha.classList.add('infraTrseippcritico')
       }
     } else if (TipoDeCalculo === 'prazo') {
       if (Valor >= SavedOptions.ConfPrazo.Critico && Valor < SavedOptions.ConfPrazo.Alerta) {
-        $(Linha).addClass('infraTrseippalerta')
+        Linha.classList.add('infraTrseippalerta')
       } else if (Valor < SavedOptions.ConfPrazo.Critico) {
-        $(Linha).addClass('infraTrseippcritico')
+        Linha.classList.add('infraTrseippcritico')
       }
     }
   }
