@@ -25,9 +25,6 @@ ModuleInit(ModName_idle).then((options) => {
       case 'atalhopublicacoeseletronicas':
         atalhoPublicacoesEletronicas(ModName_idle)
         break
-      case 'no_buttons':
-        noButtons(ModName_idle)
-        break
       case 'link_neutro_controle_processos':
         linkNeutroControleProcessos(ModName_idle)
         break

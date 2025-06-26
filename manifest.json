@@ -75,7 +75,6 @@
         "cs_modules/core/idle/verificarBlocoAssinatura.js",
         "cs_modules/core/idle/indicarConfiguracao.js",
         "cs_modules/core/idle/atalhoPublicacoesEletronicas.js",
-        "cs_modules/core/idle/noButtons.js",
         "cs_modules/core/idle/linkNeutroControleProcessos.js",
         "cs_modules/core/idle/moveMenu.js",
         "cs_modules/core/idle/index.js"
