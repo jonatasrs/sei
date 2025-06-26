@@ -40,5 +40,9 @@
   },
   "scripts": {
     "start": "web-ext run --keep-profile-changes --firefox-profile=seipp-profile-testes"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "jquery-ui": "^1.14.1"
   }
 }
