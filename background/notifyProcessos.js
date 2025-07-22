@@ -15,11 +15,12 @@ const browserAction = {
  * @param {Object} message Mensagem {title: '', description: ''}
  */
 function notify (message) {
+  const manifest = currentBrowser.runtime.getManifest()
   currentBrowser.notifications.create(
     'notifyProcessos',
     {
       type: 'basic',
-      iconUrl: currentBrowser.runtime.getURL('icons/seipp.png'),
+      iconUrl: currentBrowser.runtime.getURL(manifest.action.default_icon),
       title: message.title,
       message: message.description
     }

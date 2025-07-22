@@ -3,10 +3,10 @@
   "name": "SEI++",
   "short_name": "SEI++",
   "description": "SEI++: Adiciona novas funcionalidades ao Sistema Eletrônico de Informações - SEI (Requer uma versão do SEI maior ou igual a 3.0.0).",
-  "version": "5.99",
+  "version": "5.99.2",
   "author": "Jonatas Evaristo",
   "homepage_url": "https://jonatasrs.github.io/sei/",
-  "icons": {"48": "icons/seipp.png"},
+  "icons": {"48": "icons/seipp-new.png"},
   "permissions": [
     "storage",
     "notifications",
@@ -16,7 +16,7 @@
     "*://*.br/*controlador.php?acao=*"
   ],
   "action": {
-    "default_icon": "icons/seipp.png",
+    "default_icon": "icons/seipp-new.png",
     "default_title": "Controle de Processos",
     "default_popup": "browser_action/index.html"
   },
