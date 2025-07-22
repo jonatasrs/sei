@@ -8,6 +8,7 @@ ModuleInit(ModName_idle).then((options) => {
   AdicionarIdentificadorSeipp(ModName_idle)
 
   moveMenu()
+  ocultarMenuAutomaticamente()
 
   options.CheckTypes.forEach(function (element) {
     switch (element) {
