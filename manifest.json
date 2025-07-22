@@ -65,6 +65,13 @@
       ]
     },
     {
+      "matches": ["*://*.br/sip/login.php*"],
+      "run_at": "document_end",
+      "js": [
+        "cs_modules/core/login/index.js"
+      ]
+    },
+    {
       "matches": ["*://*.br/*/controlador.php?acao=*", "*://*.br/*/controlador_externo.php?acao=*"],
       "run_at": "document_idle",
       "all_frames": false,
