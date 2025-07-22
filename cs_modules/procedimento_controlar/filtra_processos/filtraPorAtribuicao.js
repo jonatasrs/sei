@@ -53,6 +53,10 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
       atualizaSelect(selectVerProcessosDe, value, keyAtribuido)
 
       $('#' + idVerSomenteMeusProcessos).css('height', 'auto').css('font-size', 'smaller').prepend(criarTabelaNova(selectVerProcessosDe))
+
+      fixSelectAll(idTabelaProcessosRecebidos)
+      fixSelectAll(idTabelaProcessosGerados)
+      fixSelectAll(idTabelaProcessosDetalhado)
     }
   }
 
@@ -138,6 +142,31 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
 
   function valorSalvoDelete () {
     currentBrowser.storage.local.remove('moduloFiltraPorAtribuicao')
+  }
+
+  function fixSelectAll (tableId) {
+    document.querySelectorAll(`#${tableId}>thead>tr>th>a#lnkInfraCheck`).forEach(e => {
+      e.removeAttribute('onclick')
+      RemoveAllOldEventListener(e)
+    })
+    setTimeout(() => {
+      document.querySelectorAll(`#${tableId}>thead>tr>th>a#lnkInfraCheck`).forEach(e => {
+        e.addEventListener('click', function (event) {
+          event.preventDefault()
+          const checked = event.target.title === 'Selecionar Tudo'
+          event.target.title = checked ? 'Remover Seleção' : 'Selecionar Tudo'
+          event.target.alt = event.target.title
+          document.querySelectorAll(`#${tableId} tbody tr:not([style*="display: none"])`).forEach(e => {
+            if (checked) {
+              e.classList.add('infraTrMarcada')
+            } else {
+              e.classList.remove('infraTrMarcada')
+            }
+            e.querySelector('td > div > input').checked = checked
+          })
+        })
+      })
+    }, 1000)
   }
 
   inicio()
