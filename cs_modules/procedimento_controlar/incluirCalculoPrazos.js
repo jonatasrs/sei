@@ -45,6 +45,7 @@ function incluirCalculoPrazos (BaseName, TipoDeCalculo) {
         td.textContent = Calcular(row, TipoDeCalculo)
         row.appendChild(td)
         FormatarTabela(row, td.textContent, TipoDeCalculo)
+        RemoveAllOldEventListener(row)
       })
     }
   }
