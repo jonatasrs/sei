@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /** * Configurações do sistema *************************************************/
 /** Opção padrão caso não exista opções salvas. */
 const DefaultOptions = {
@@ -81,7 +82,7 @@ function Init (BaseName) {
 /** * Biblioteca de strings *****************************************************/
 
 /** Adiciona a mascara de CPF/CNPJ. */
-function format_cpf (cpf) {
+function formatCpf (cpf) {
   let mask = cpf
 
   if (cpf.length === 11) {
@@ -128,9 +129,10 @@ function RemoveAllOldEventListener (elemOrSelectors) {
       ? elemOrSelectors.attr('id')
       : elemOrSelectors.getAttribute('id')
 
-    const codeToRun = `
-      $('#${elementID}').replaceWith($('#${elementID}').clone());
-    `
+    const codeToRun = `{
+      const element = document.getElementById('${elementID}')
+      element.replaceWith(element.cloneNode(true))
+    }`
 
     execOnPage(codeToRun)
   } else if (typeof elemOrSelectors === 'string') {
