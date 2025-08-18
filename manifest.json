@@ -140,7 +140,6 @@
       "css": ["cs_modules/procedimento_visualizar/styles.css"],
       "js": [
         "cs_modules/procedimento_visualizar/consultarInteressado.js",
-        "cs_modules/procedimento_visualizar/autopreencherAndamento.js",
         "cs_modules/procedimento_visualizar/copiarNumeroProcessoDocumento.js",
         "cs_modules/procedimento_visualizar/mostrarAnotacao.js",
         "cs_modules/procedimento_visualizar/abrirDocumentoNovaAba.js",
@@ -208,7 +207,6 @@
         "icons/iconBlue.png",
         "icons/iconGreen.png",
         "icons/iconRed.png",
-        "icons/ect.png",
         "icons/link.png",
         "icons/modelo.png",
         "icons/fileUpload.png",

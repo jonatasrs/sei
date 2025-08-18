@@ -1,5 +1,5 @@
 /* global ModuleInit, seiVersionCompare, EsperaCarregar, AjustarElementosNativos,
-ConsultarInteressado, consultarAtribuicao, AutopreencherAndamento, copiarNumeroProcessoDocumento,
+ConsultarInteressado, consultarAtribuicao, copiarNumeroProcessoDocumento,
 copiarLinkInterno, documentoModelo, MostrarAnotacao, dropzone, AbrirDocumentoNovaAba,
 AlterarTitulo */
 const BaseName = 'procedimento_visualizar'
@@ -27,9 +27,6 @@ ModuleInit(BaseName).then((options) => {
 
   /* Mostra a quem o processo está atribuído */
   if (options.exibeinfoatribuicao) consultarAtribuicao(BaseName)
-
-  /* Mostra botão atualizar andamento para envido de correspondências */
-  if (options.CheckTypes.includes('autopreencher')) AutopreencherAndamento(BaseName)
 
   /* Mostra botão de copiar o número do processo ou do documento ao lado de cada documento e do processo */
   if (options.CheckTypes.includes('copiarnumeroprocessodocumento')) {
