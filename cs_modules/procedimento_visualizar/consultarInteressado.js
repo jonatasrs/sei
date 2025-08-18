@@ -1,4 +1,4 @@
-/* global __mconsole, GetBaseUrl, SavedOptions */
+/* global __mconsole, GetBaseUrl, SavedOptions, isBackgroundColorDark */
 // eslint-disable-next-line no-unused-vars
 function ConsultarInteressado (BaseName) {
   /** inicialização do módulo ***************************************************/
@@ -29,7 +29,12 @@ function ConsultarInteressado (BaseName) {
     processo.numero = $('.infraArvoreNoSelecionado').text()
     mconsole.log('Lendo dados do processo: ' + processo.numero)
     processo.tipo = $html.find("#selTipoProcedimento option[selected='selected']").text()
-    processo.interessados = $html.find('#selInteressadosProcedimento option').map(function () { return { id: $(this).val(), nome: $(this).text() } }).get()
+    processo.interessados = $html.find('#selInteressadosProcedimento option').map(function () {
+      // Retorna o id, nome e sigla do interessado
+      const regex = /^(.*) \((.*)\)$/
+      const match = regex.exec($(this).text()) || ['', $(this).text(), '']
+      return { id: $(this).val(), nome: match[1].trim(), sigla: match[2].trim() }
+    }).get()
 
     DetalheProcessoPreencher()
     ExibirDadosProcesso($html)
@@ -144,8 +149,14 @@ function ConsultarInteressado (BaseName) {
           .attr('height', 10)
           .attr('width', 12)
           .attr('src', currentBrowser.runtime.getURL('icons/interessado.png'))
-        const $span = $('<span/>').text(interessado.nome)
-        $p.append($img, $span)
+        const $spanNome = $('<span/>').text(interessado.nome)
+        $p.append($img, $spanNome)
+        if (interessado.sigla) {
+          // Colocar a sigla entre parenteses e incluir um ícone para copiar, exibir um feedback visual de que a sigla foi copiada
+          const $spanSigla = $('<span/>').text(' (' + interessado.sigla + ')')
+          const $copyIcon = criarCopyIcon($p, interessado.sigla)
+          $p.append($spanSigla, $copyIcon)
+        }
         $div.append($p)
         $('#seipp_interessados').append($div)
       })
@@ -154,6 +165,34 @@ function ConsultarInteressado (BaseName) {
         $('<p/>').addClass('seipp-interessado').text('Nenhum interessado especificado.')
       )
     }
+  }
+
+  function criarCopyIcon ($p, sigla) {
+    const $copyIcon = $('<img/>')
+      .attr('src', currentBrowser.runtime.getURL('icons/copy.svg'))
+      .css({ filter: isBackgroundColorDark() ? 'invert(1)' : 'none' })
+      .attr('alt', 'Copiar sigla')
+      .css({ cursor: 'pointer', marginLeft: '4px', width: '12px', height: '12px' })
+      .attr('title', 'Copiar sigla do interessado')
+      .on('click', function (e) {
+        e.stopPropagation()
+        navigator.clipboard.writeText(sigla).then(() => {
+          // Cria o tooltip de feedback da cópia
+          const $tooltip = $('<div/>')
+            .addClass('seipp-tooltip')
+            .text('Copiado!')
+            .css({
+              left: $p.offset().left + 6,
+              top: $copyIcon.offset().top - 2
+            })
+          $p.append($tooltip)
+          setTimeout(() => {
+            $tooltip.remove()
+          }, 1000)
+        })
+      })
+
+    return $copyIcon
   }
 
   function ExibirDadosProcesso ($html) {

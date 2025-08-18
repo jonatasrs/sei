@@ -2,11 +2,12 @@
 
 /* CSS for SEI++ */
 #seipp {
-	display: inline;
-	font-size: 14px;
+  display: inline;
+  font-size: 14px;
   align-self: flex-end;
 }
-#seipp > a {
+
+#seipp>a {
   font-size: unset;
   font-weight: unset;
   color: unset;
@@ -15,86 +16,103 @@
   padding-left: 5px;
 }
 
-#seipp > a > img {
+#seipp>a>img {
   height: unset;
 }
 
 .infraTrseippalerta {
   color: black;
-	background-color: yellow !important;
+  background-color: yellow !important;
 }
+
 .infraTrseippcritico {
   color: black;
-	background-color: #f60 !important;
+  background-color: #f60 !important;
 }
+
 .seipp-assinatura {
-    background-color: #cccc63 !important;
+  background-color: #cccc63 !important;
 }
+
 .seipp-menu {
-	box-shadow: 10px 10px 10px black !important;
+  box-shadow: 10px 10px 10px black !important;
 }
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
     background-color: none;
   }
+
   to {
     transform: rotate(359deg);
     background-color: yellow;
   }
 }
+
 /* CSS for SEI++ END */
 
 /* CSS for Tablesorter */
 .tablesorter-default .header,
 .tablesorter-default .tablesorter-header {
-	background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
-	background-position: center left;
-	background-repeat: no-repeat;
-	border-left: 1px dotted darkgray;
+  background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
+  background-position: center left;
+  background-repeat: no-repeat;
+  border-left: 1px dotted darkgray;
 }
+
 .tablesorter-default thead .headerSortUp,
 .tablesorter-default thead .tablesorter-headerSortUp,
 .tablesorter-default thead .tablesorter-headerAsc {
-	background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
+  background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
 }
+
 .tablesorter-default thead .headerSortDown,
 .tablesorter-default thead .tablesorter-headerSortDown,
 .tablesorter-default thead .tablesorter-headerDesc {
-	background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
+  background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
 }
+
 .tablesorter-default thead .sorter-false {
-	background-image: none;
+  background-image: none;
 }
-.sorter-false > .tablesorter-header-inner {
-	padding-left: 0;
+
+.sorter-false>.tablesorter-header-inner {
+  padding-left: 0;
 }
+
 .tablesorter-header-inner {
-	font-size: inherit;
-	font-weight: inherit;
-	text-align: inherit;
-	color: inherit;
-	padding-left: 15px;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: inherit;
+  color: inherit;
+  padding-left: 15px;
 }
 
-.infraTrClara:hover, .infraTrseippalerta:hover, .infraTrseippcritico:hover {
-	background-color: gray !important;
+.infraTrClara:hover,
+.infraTrseippalerta:hover,
+.infraTrseippcritico:hover {
+  background-color: gray !important;
 }
 
-.tablesorter-headerAsc, .tablesorter-headerDesc {
-    background-color: gray !important;
+.tablesorter-headerAsc,
+.tablesorter-headerDesc {
+  background-color: gray !important;
 }
 
 .tablesorter-filter {
   width: 100%;
   border: 1px solid #bbb;
 }
+
 .tablesorter-filter.disabled {
   display: none;
 }
+
 .tablesorter-filter-row.hideme {
   display: none !important;
 }
+
 .tablesorter-filter-row td {
   border-left: 1px dotted darkgray;
   background-color: #dfdfdf;
@@ -109,23 +127,27 @@
   padding: 1em 0 0;
   font-size: 1.4em;
 }
+
 .seipp_interessado {
   padding-left: 0.6em;
   white-space: nowrap;
 }
+
 .seipp_sigla {
   padding-left: 1.2em;
   white-space: nowrap;
 }
+
 /* CSS for Modules: consultas.js END */
 
 /* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js */
 .disabled {
-	color: graytext;
+  color: graytext;
 }
+
 /* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js END */
 
-.no-image img{
+.no-image img {
   background-color: white !important;
 }
 
@@ -136,12 +158,12 @@
   margin-bottom: 5px;
 }
 
-.seipp-selecionar-documentos-assinar > span {
+.seipp-selecionar-documentos-assinar>span {
   color: #9E9E9E;
   font-size: 11px;
 }
 
-.seipp-selecionar-documentos-assinar > a {
+.seipp-selecionar-documentos-assinar>a {
   display: inline-block;
   background-color: #F5F5F5;
   border-radius: 6px;
@@ -154,7 +176,7 @@
   transition: background-color 0.2s ease;
 }
 
-.seipp-selecionar-documentos-assinar > a:hover {
+.seipp-selecionar-documentos-assinar>a:hover {
   text-decoration: none;
   background-color: #E0E0E0;
 }
@@ -165,13 +187,30 @@
   padding: 0px;
   border-radius: 7px;
 }
+
 /* CSS for Module: IndicarConfiguracao END */
 
 /* CSS for Module: seipp-atalho-publicacoes-eletronicas */
 .seipp-atalho-publicacoes-eletronicas {
   align-self: center;
 }
-.seipp-atalho-publicacoes-eletronicas > a {
+
+.seipp-atalho-publicacoes-eletronicas>a {
   color: white;
   font-weight: bold;
 }
+
+/* CSS for Module: seipp-atalho-publicacoes-eletronicas END */
+
+/* CSS for Module: seipp-tooltip */
+.seipp-tooltip {
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 9999;
+}
+
+/* CSS for Module: seipp-tooltip END */

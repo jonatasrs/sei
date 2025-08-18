@@ -243,3 +243,22 @@ async function fetchSei (url, options = { method: 'GET' }) {
     return body
   }
 }
+
+/**
+ * Determines if the background color of the document body is considered dark.
+ * Uses `getComputedStyle` to retrieve the actual background color and calculates its brightness.
+ *
+ * @returns {boolean} Returns `true` if the background color is dark, otherwise `false`.
+ */
+function isBackgroundColorDark () {
+  // Usa getComputedStyle para obter o background real
+  const bgColor = window.getComputedStyle(document.body).backgroundColor
+  if (!bgColor) return false
+  const match = bgColor.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)/i)
+  if (!match) return false
+  const r = parseInt(match[1], 10)
+  const g = parseInt(match[2], 10)
+  const b = parseInt(match[3], 10)
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000
+  return brightness < 128
+}
