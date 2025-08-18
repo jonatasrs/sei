@@ -117,19 +117,6 @@
   padding-left: 1.2em;
   white-space: nowrap;
 }
-#seipp_novodoc {
-  padding-bottom: 1em;
-}
-#seipp_link_novodoc {
-  text-decoration: none;
-}
-#seipp_link_novodoc span {
-  font-size: 1.2em;
-  padding-left: 0.5em;
-}
-#seipp_link_novodoc img {
-  border: .1em solid white;
-}
 /* CSS for Modules: consultas.js END */
 
 /* CSS for Modules: filtra_processos.CarregaInformacaoBlocos.js */

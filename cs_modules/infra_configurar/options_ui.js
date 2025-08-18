@@ -134,10 +134,6 @@ function optionsUi (BaseName) {
       /** Botão copiar o link interno do processo sem hash [L] (Usar Nativo) */
       document.querySelector('#copiarlinkinterno').remove()
       mconsole.log('DESATIVADO: Botão copiar o link interno do processo sem hash [L]')
-
-      /** Exibir botão novo documento (Usar Nativo) */
-      document.querySelector('#atalhonovodoc').remove()
-      mconsole.log('DESATIVADO: Exibir botão novo documento')
     } else {
       /* Tema preto (black) */
       document.querySelector('#theme>Option[value=super-black]').remove()

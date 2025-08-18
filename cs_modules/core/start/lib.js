@@ -8,7 +8,6 @@ const DefaultOptions = {
     'qtddias',
     'chkbloco',
     'exibeinfointeressado',
-    'atalhonovodoc',
     'filtraporatribuicao',
     'carregainformacaoblocos',
     'pesquisarinformacoes',

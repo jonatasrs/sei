@@ -163,14 +163,6 @@
       ]
     },
     {
-      "matches": ["*://*.br/*/controlador.php?acao=arvore_visualizar*"],
-      "all_frames": true,
-      "js": [
-        "cs_modules/arvore_visualizar/novoDocumento.js",
-        "cs_modules/arvore_visualizar/index.js"
-      ]
-    },
-    {
       "matches": ["*://*.br/*/controlador.php?acao=anotacao_registrar*"],
       "all_frames": true,
       "js": [
