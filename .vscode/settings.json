@@ -1,3 +1,4 @@
 {
-    "npm.packageManager": "bun"
+    "npm.packageManager": "bun",
+    "eslint.format.enable": true
 }
