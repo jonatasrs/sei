@@ -39,7 +39,9 @@
     }
   },
   "scripts": {
-    "start": "web-ext run --keep-profile-changes --firefox-profile=seipp-profile-testes"
+    "start": "web-ext run --keep-profile-changes --firefox-profile=seipp-profile-testes",
+    "lint": "bunx eslint .",
+    "prepare": "git config --local core.hooksPath .githooks"
   },
   "dependencies": {
     "jquery": "^3.7.1",

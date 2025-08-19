@@ -1,0 +1,27 @@
+#!/bin/sh
+# pre-commit hook: checa arquivos JS/TS staged com ESLint usando Bun
+
+# Busca arquivos staged que foram modificados/adicionados e têm extensão js/ts/tsx
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|ts|tsx)$')
+
+if [ -z "$STAGED_FILES" ]; then
+  # Nenhum arquivo relevante para checar
+  exit 0
+fi
+
+# Para cada arquivo, checa com ESLint via Bun
+PASS=true
+for file in $STAGED_FILES; do
+  # Usa o conteúdo staged (não o do disco) para garantir que apenas o staged será checado
+  git show :$file | bunx eslint --stdin --stdin-filename "$file"
+  if [ $? -ne 0 ]; then
+    PASS=false
+  fi
+done
+
+if ! $PASS; then
+  echo "Commit bloqueado: Corrija os erros do ESLint nos arquivos staged."
+  exit 1
+fi
+
+exit 0
