@@ -1,3 +1,5 @@
+/* global __mconsole, filtrarTabela, removerFiltroTabela */
+// eslint-disable-next-line no-unused-vars
 function PesquisarInformacoes (BaseName) {
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.PesquisarInformacoes')
@@ -18,19 +20,6 @@ function PesquisarInformacoes (BaseName) {
     let pesquisaGrupo = false
     let arrayTermo
     const texto = this.value.toLowerCase()
-
-    /** Impede o conflito com o script: procedimento_controlar/adicionarOrdenacao.js */
-    let tablesorterfilter = false
-    $('#tblProcessosDetalhado, #tblProcessosGerados, #tblProcessosRecebidos').each(function (index, tabela) {
-      const filter = $.tablesorter.getFilters($(tabela))
-      $.each(filter, function (index, value) {
-        if (value !== '') tablesorterfilter = true
-      })
-    })
-    if (tablesorterfilter) {
-      mconsole.log('Pesquisa de informações não realizada, pois a tabela já exite pesquisa na tabela')
-      return
-    }
 
     if (texto) {
       if (regexPesquisaOu.test(texto)) {

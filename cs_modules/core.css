@@ -46,75 +46,13 @@
   }
 }
 
-/* CSS for SEI++ END */
-
-/* CSS for Tablesorter */
-.tablesorter-default .header,
-.tablesorter-default .tablesorter-header {
-  background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
-  background-position: center left;
-  background-repeat: no-repeat;
-  border-left: 1px dotted darkgray;
-}
-
-.tablesorter-default thead .headerSortUp,
-.tablesorter-default thead .tablesorter-headerSortUp,
-.tablesorter-default thead .tablesorter-headerAsc {
-  background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
-}
-
-.tablesorter-default thead .headerSortDown,
-.tablesorter-default thead .tablesorter-headerSortDown,
-.tablesorter-default thead .tablesorter-headerDesc {
-  background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
-}
-
-.tablesorter-default thead .sorter-false {
-  background-image: none;
-}
-
-.sorter-false>.tablesorter-header-inner {
-  padding-left: 0;
-}
-
-.tablesorter-header-inner {
-  font-size: inherit;
-  font-weight: inherit;
-  text-align: inherit;
-  color: inherit;
-  padding-left: 15px;
-}
-
 .infraTrClara:hover,
 .infraTrseippalerta:hover,
 .infraTrseippcritico:hover {
   background-color: gray !important;
 }
 
-.tablesorter-headerAsc,
-.tablesorter-headerDesc {
-  background-color: gray !important;
-}
-
-.tablesorter-filter {
-  width: 100%;
-  border: 1px solid #bbb;
-}
-
-.tablesorter-filter.disabled {
-  display: none;
-}
-
-.tablesorter-filter-row.hideme {
-  display: none !important;
-}
-
-.tablesorter-filter-row td {
-  border-left: 1px dotted darkgray;
-  background-color: #dfdfdf;
-}
-
-/* CSS for Tablesorter END */
+/* CSS for SEI++ END */
 
 /* CSS for Modules: consultas.js */
 #seipp_divp {
