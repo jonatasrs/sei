@@ -1,13 +1,16 @@
 /* global SavedOptions, __mconsole, isChrome, DefaultOptions, seiVersionCompare */
 
+// eslint-disable-next-line no-unused-vars
 function optionsUi (BaseName) {
   const mconsole = new __mconsole(BaseName + '.optionsUi')
 
   $('#divInfraAreaTelaD').append("<div id='seipp-div-options-ui'/>")
   $('#seipp-div-options-ui').load(
     currentBrowser.runtime.getURL('cs_modules/infra_configurar/options_ui/index.html'), function () {
+      const manifest = currentBrowser.runtime.getManifest()
+
       $('#divInfraBarraComandosSuperior input').hide()
-      $('.seipp-options-title').append(' - Versão: ' + currentBrowser.runtime.getManifest().version)
+      $('.seipp-options-title').append(' - Versão: ' + manifest.version)
 
       if (!isChrome) {
         currentBrowser.storage.local.get('version').then(function (params) {
@@ -118,11 +121,11 @@ function optionsUi (BaseName) {
     $("input[name='exibeinfoatribuicao']").prop('checked', !!SavedOptions.exibeinfoatribuicao)
 
     /** Ajustes para SEI/SUPER 4.0 */
-    if (seiVersionCompare('>=', '4.0.0.0')) {
-      /* Menu suspenso */
-      document.querySelector('#menususp').remove()
-      mconsole.log('DESATIVADO: Menu suspenso')
-
+    if (seiVersionCompare('>=', '5.0')) {
+      /* Move link do Menu (Nativo no sei 5) */
+      document.querySelector('#move_link_menu').remove()
+      mconsole.log('DESATIVADO: move link do menu')
+    } else if (seiVersionCompare('>=', '4.0.0.0')) {
       /* Tema preto (black) */
       document.querySelector('#theme>Option[value=black]').remove()
       mconsole.log('DESATIVADO: Tema preto (black)')
@@ -204,7 +207,7 @@ function optionsUi (BaseName) {
     ConfDias.Critico = parseInt($('#qtddiascritico').val())
     mconsole.log('CONFDIAS> alerta: ' + ConfDias.Alerta + ' critico:' + ConfDias.Critico)
 
-    const incluirDocAoArrastar_TipoDocPadrao = $('#incluirDocAoArrastar_TipoDocPadrao').val()
+    const incluirDocAoArrastarTipoDocPadrao = $('#incluirDocAoArrastar_TipoDocPadrao').val()
 
     const usardocumentocomomodelo = $("input[name='usardocumentocomomodelo']").is(':checked')
     const exibeinfoatribuicao = $("input[name='exibeinfoatribuicao']").is(':checked')
@@ -229,7 +232,7 @@ function optionsUi (BaseName) {
       ConfiguracoesCores,
       ConfPrazo,
       ConfDias,
-      incluirDocAoArrastar_TipoDocPadrao,
+      incluirDocAoArrastar_TipoDocPadrao: incluirDocAoArrastarTipoDocPadrao,
       usardocumentocomomodelo,
       exibeinfoatribuicao,
       baseUrl

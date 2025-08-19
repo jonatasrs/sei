@@ -1,38 +1,39 @@
+/* global AdicionarIdentificadorSeipp, ocultarMenuAutomaticamente,
+  VerificarBlocoAssinatura, moveLinkMenu, PontoControleCores,
+  atalhoPublicacoesEletronicas, linkNeutroControleProcessos,
+  IndicarConfiguracao, ModuleInit */
 /******************************************************************************
  SEI ++: Script que adiciona novas funcionalidades ao SEI
  Autor: Jonatas Evaristo / Diego Rossi / Hebert M. Magalhães
 *******************************************************************************/
-const ModName_idle = 'core.d_idle'
+const ModNameIdle = 'core.d_idle'
 
-ModuleInit(ModName_idle).then((options) => {
-  AdicionarIdentificadorSeipp(ModName_idle)
+ModuleInit(ModNameIdle).then((options) => {
+  AdicionarIdentificadorSeipp(ModNameIdle)
 
-  moveMenu()
   ocultarMenuAutomaticamente()
 
   options.CheckTypes.forEach(function (element) {
     switch (element) {
       case 'chkbloco':
-        VerificarBlocoAssinatura(ModName_idle)
+        VerificarBlocoAssinatura(ModNameIdle)
         break
-      case 'menususp':
-        if (seiVersionCompare('<', '4.0.0.0')) {
-          MenuSuspenso(ModName_idle)
-        }
+      case 'move_link_menu':
+        moveLinkMenu(ModNameIdle)
         break
       case 'pontocoresanatel':
-        PontoControleCores(ModName_idle)
+        PontoControleCores(ModNameIdle)
         break
       case 'atalhopublicacoeseletronicas':
-        atalhoPublicacoesEletronicas(ModName_idle)
+        atalhoPublicacoesEletronicas(ModNameIdle)
         break
       case 'link_neutro_controle_processos':
-        linkNeutroControleProcessos(ModName_idle)
+        linkNeutroControleProcessos(ModNameIdle)
         break
       default:
         break
     }
   }, this)
 
-  if (options.InstallOrUpdate) IndicarConfiguracao(ModName_idle)
+  if (options.InstallOrUpdate) IndicarConfiguracao(ModNameIdle)
 }).catch(e => console.log(e.message))

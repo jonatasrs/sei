@@ -79,12 +79,11 @@
       "js": [
         "cs_modules/core/idle/pontoControleCores.js",
         "cs_modules/core/idle/adicionarIdentificadorSeipp.js",
-        "cs_modules/core/idle/menuSuspenso.js",
         "cs_modules/core/idle/verificarBlocoAssinatura.js",
         "cs_modules/core/idle/indicarConfiguracao.js",
         "cs_modules/core/idle/atalhoPublicacoesEletronicas.js",
         "cs_modules/core/idle/linkNeutroControleProcessos.js",
-        "cs_modules/core/idle/moveMenu.js",
+        "cs_modules/core/idle/moveLinkMenu.js",
         "cs_modules/core/idle/ocultarMenuAutomaticamente.js",
         "cs_modules/core/idle/index.js"
       ]

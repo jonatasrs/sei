@@ -16,7 +16,8 @@ const DefaultOptions = {
     'retirarsobrestamentoreabrirembloco',
     'mostraranotacao',
     'atalhopublicacoeseletronicas',
-    'incluirdocaoarrastar'
+    'incluirdocaoarrastar',
+    'move_link_menu'
   ],
   InstallOrUpdate: true,
   ConfiguracoesCores: [
@@ -261,4 +262,29 @@ function isBackgroundColorDark () {
   const b = parseInt(match[3], 10)
   const brightness = (r * 299 + g * 587 + b * 114) / 1000
   return brightness < 128
+}
+
+/**
+ * Deeply merges properties from the source object into the target object.
+ * - Arrays of primitive values are merged with unique values.
+ * - Nested objects are merged recursively.
+ * - Other values are overwritten.
+ *
+ * @param {Object} target - The target object to merge properties into.
+ * @param {Object} source - The source object whose properties will be merged.
+ * @returns {Object} The merged target object.
+ */
+function deepMerge (target, source) {
+  for (const key in source) {
+    if (Object.prototype.hasOwnProperty.call(source, key)) {
+      if (Array.isArray(source[key]) && source[key].every(e => !(e instanceof Object))) {
+        target[key] = [...(new Set([...target[key] || [], ...source[key]]))]
+      } else if (typeof source[key] === 'object' && source[key] !== null) {
+        target[key] = deepMerge(target[key] || {}, source[key])
+      } else {
+        target[key] = source[key]
+      }
+    }
+  }
+  return target
 }

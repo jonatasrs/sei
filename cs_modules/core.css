@@ -34,10 +34,6 @@
   background-color: #cccc63 !important;
 }
 
-.seipp-menu {
-  box-shadow: 10px 10px 10px black !important;
-}
-
 @keyframes rotation {
   from {
     transform: rotate(0deg);
