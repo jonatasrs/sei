@@ -4,6 +4,7 @@ copiarLinkInterno, documentoModelo, MostrarAnotacao, dropzone, AbrirDocumentoNov
 AlterarTitulo */
 const BaseName = 'procedimento_visualizar'
 
+// eslint-disable-next-line no-unused-vars
 function ExecutarNaArvore (Modlog, func) {
   EsperaCarregar(Modlog, '#divArvore > div', "a[target$='Visualizacao']", function () {
     func()
@@ -53,8 +54,14 @@ ModuleInit(BaseName).then((options) => {
   /* Adiciona a funcionalidade de abrir o documento em nova aba com o ctrl pressionado */
   AbrirDocumentoNovaAba(BaseName)
 
-  /* Atualiza o título da janela/aba com os dados do processo  */
-  if (seiVersionCompare('<', '4')) {
-    AlterarTitulo(BaseName)
-  }
+  options.CheckTypes.forEach(function (e) {
+    switch (e) {
+      case 'alterar_titulo':
+        /* Atualiza o título da janela/aba com os dados do processo  */
+        AlterarTitulo(BaseName)
+        break
+      default:
+        break
+    }
+  })
 }).catch(e => console.log(e.message))
