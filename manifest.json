@@ -180,7 +180,6 @@
       "matches": ["*://*.br/*/controlador.php?acao=documento_gerar*"],
       "all_frames": true,
       "js": [
-        "cs_modules/documento_gerar/aumentaTamanho.js",
         "cs_modules/documento_gerar/gerarDocumentoComModelo.js",
         "cs_modules/documento_gerar/index.js"
       ]
