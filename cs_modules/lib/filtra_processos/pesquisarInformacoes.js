@@ -10,10 +10,7 @@ function PesquisarInformacoes (BaseName) {
 
   $('div.infraAreaTabela table').each(function (indexTabela, itemTabela) {
     const tabela = $(itemTabela)
-    arrayTabela.push({
-      tabela,
-      trs: tabela.find('tbody>tr[class^="infraTr"]')
-    })
+    arrayTabela.push(tabela)
   })
 
   $(document.getElementById('txtPesquisaRapida')).on('input change', function () {
@@ -34,9 +31,9 @@ function PesquisarInformacoes (BaseName) {
 
     const termosEncontrados = []
 
-    $.each(arrayTabela, function (index, itemArrayTabela) {
+    arrayTabela.forEach(function (tabela) {
       if (arrayTermo.length) {
-        filtrarTabela(itemArrayTabela.tabela, itemArrayTabela.trs, classeFiltro, function (indexTr, tr) {
+        filtrarTabela(tabela, null, classeFiltro, function (indexTr, tr) {
           const textoTr = tr.innerHTML.toLowerCase()
           for (let i = 0; i < arrayTermo.length; i++) {
             if (textoTr.indexOf(arrayTermo[i]) !== -1) {
@@ -47,7 +44,7 @@ function PesquisarInformacoes (BaseName) {
           return false
         })
       } else {
-        removerFiltroTabela(itemArrayTabela.tabela, itemArrayTabela.trs, classeFiltro)
+        removerFiltroTabela(tabela, null, classeFiltro)
       }
     })
 

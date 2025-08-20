@@ -1,4 +1,4 @@
-/* global __mconsole, filtrarTabela, removerFiltroTabela, SavedOptions */
+/* global __mconsole, filtrarTabela, removerFiltroTabela, SavedOptions, RemoveAllOldEventListener */
 function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
   /** inicialização do módulo ***************************************************/
   const mconsole = new __mconsole(BaseName + '.FiltraPorAtribuicao')
@@ -12,7 +12,10 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
     const tabelaGerados = getTabela(idTabelaProcessosGerados)
     const tabelaDetalhado = getTabela(idTabelaProcessosDetalhado)
 
-    if ($('#divInfraBarraLocalizacao').text() === 'Controle de Processos' && (tabelaRecebidos.length > 0 || tabelaGerados.length > 0 || tabelaDetalhado.length > 0)) {
+    if (
+      $('#divInfraBarraLocalizacao').text() === 'Controle de Processos' &&
+      (tabelaRecebidos.length > 0 || tabelaGerados.length > 0 || tabelaDetalhado.length > 0)
+    ) {
       const keyAtribuido = 'atribuido'
       const valueAtribuido = { value: '*' }
 
@@ -20,19 +23,15 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
       const trsGerados = getProcessos(tabelaGerados)
       const trsDetalhado = getProcessos(tabelaDetalhado)
 
-      // const captionRecebidos = getTabelaCaption(tabelaRecebidos)
-      // const captionGerados = getTabelaCaption(tabelaGerados)
-      // const captionDetalhado = getTabelaCaption(trsDetalhado)
-
       const trs = trsRecebidos.add(trsGerados).add(trsDetalhado)
 
       const idVerSomenteMeusProcessos = 'divFiltro'
 
       const selectVerProcessosDe = newElement('select')
         .change(function () {
-          changeSelectVerProcess(this.value, tabelaRecebidos, trsRecebidos, keyAtribuido)
-          changeSelectVerProcess(this.value, tabelaGerados, trsGerados, keyAtribuido)
-          changeSelectVerProcess(this.value, tabelaDetalhado, trsDetalhado, keyAtribuido)
+          changeSelectVerProcess(this.value, tabelaRecebidos)
+          changeSelectVerProcess(this.value, tabelaGerados)
+          changeSelectVerProcess(this.value, tabelaDetalhado)
           if (valueAtribuido.value !== this.value) {
             valueAtribuido.value = this.value
             valorSalvoSet(this.value)
@@ -99,14 +98,14 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
 
   const classeFiltro = 'PorAtribuicao'
 
-  function changeSelectVerProcess (value, tabela, trs, keyAtribuido) {
+  function changeSelectVerProcess (value, tabela) {
     if (value !== '*') {
-      filtrarTabela(tabela, trs, classeFiltro, function (indexTr, tr) {
+      filtrarTabela(tabela, null, classeFiltro, function (indexTr, tr) {
         const alink = getLinkAtribuido($(tr))
         return (value === '' && alink.length === 0) || alink.text() === value
       })
     } else {
-      removerFiltroTabela(tabela, trs, classeFiltro)
+      removerFiltroTabela(tabela, null, classeFiltro)
     }
   }
 
@@ -126,10 +125,6 @@ function FiltraPorAtribuicao (BaseName) { // eslint-disable-line no-unused-vars
   function getProcessos (tabela) {
     return tabela.children('tbody').first().children('tr[class^="infraTr"]')
   }
-
-  // function getTabelaCaption (tabela) {
-  //   return tabela.children('caption.infraCaption')
-  // }
 
   async function valorSalvoGet () {
     const { moduloFiltraPorAtribuicao: valor } = await currentBrowser.storage.local.get('moduloFiltraPorAtribuicao')
