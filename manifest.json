@@ -99,6 +99,7 @@
     {
       "matches": ["*://*.br/*/controlador.php?acao=procedimento_controlar*"],
       "js": [
+        "cs_modules/lib/pontoControleCores.js",
         "cs_modules/procedimento_controlar/mostrarEspecificacao.js",
         "cs_modules/procedimento_controlar/corrigirTabelas.js",
         "cs_modules/procedimento_controlar/confirmarAntesConcluir.js",
@@ -137,6 +138,7 @@
       "all_frames": true,
       "css": ["cs_modules/procedimento_visualizar/styles.css"],
       "js": [
+        "cs_modules/lib/pontoControleCores.js",
         "cs_modules/procedimento_visualizar/consultarInteressado.js",
         "cs_modules/procedimento_visualizar/copiarNumeroProcessoDocumento.js",
         "cs_modules/procedimento_visualizar/mostrarAnotacao.js",
@@ -171,6 +173,7 @@
       "matches": ["*://*.br/*/controlador.php?acao=infra_configurar*"],
       "css": ["cs_modules/infra_configurar/options_ui/styles.css"],
       "js": [
+        "cs_modules/lib/colorToFilter.js",
         "cs_modules/infra_configurar/options_ui.js",
         "cs_modules/infra_configurar/index.js"
       ]

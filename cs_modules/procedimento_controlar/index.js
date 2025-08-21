@@ -1,6 +1,6 @@
 /* global ModuleInit, corrigirTabelas, incluirCalculoPrazos, marcarCorProcesso,
 FiltraPorAtribuicao, carregaInformacaoBlocos, PesquisarInformacoes, ListaPorEspecificacao,
-mostrarEspecificacao, selecionarMultiplosProcessos,
+mostrarEspecificacao, selecionarMultiplosProcessos, pontoControleCores,
 confirmarAntesConcluir */
 const BaseName = 'procedimento_controlar'
 
@@ -29,6 +29,9 @@ ModuleInit(BaseName).then((options) => {
         break
       case 'especificacao':
         mostrarEspecificacao(BaseName)
+        break
+      case 'ponto_controle_cores':
+        pontoControleCores(BaseName)
         break
       default:
         break

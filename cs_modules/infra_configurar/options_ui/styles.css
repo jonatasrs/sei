@@ -162,3 +162,12 @@
   background-color: #5992ed;
   border-color: #1351b4;
 }
+
+/* Estilos para a visualização do ponto de controle */
+#tabelaPontoControleCores,
+#tabelaPontoControleCores th,
+#tabelaPontoControleCores td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+  padding: 2px;
+}

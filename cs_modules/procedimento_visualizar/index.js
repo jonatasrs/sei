@@ -1,7 +1,8 @@
 /* global ModuleInit, seiVersionCompare, EsperaCarregar, AjustarElementosNativos,
-ConsultarInteressado, consultarAtribuicao, copiarNumeroProcessoDocumento,
-copiarLinkInterno, documentoModelo, MostrarAnotacao, dropzone, AbrirDocumentoNovaAba,
-AlterarTitulo */
+   ConsultarInteressado, consultarAtribuicao, copiarNumeroProcessoDocumento,
+   copiarLinkInterno, documentoModelo, MostrarAnotacao, dropzone, AbrirDocumentoNovaAba,
+   AlterarTitulo, pontoControleCores
+*/
 const BaseName = 'procedimento_visualizar'
 
 // eslint-disable-next-line no-unused-vars
@@ -59,6 +60,9 @@ ModuleInit(BaseName).then((options) => {
       case 'alterar_titulo':
         /* Atualiza o título da janela/aba com os dados do processo  */
         AlterarTitulo(BaseName)
+        break
+      case 'ponto_controle_cores':
+        pontoControleCores(BaseName)
         break
       default:
         break

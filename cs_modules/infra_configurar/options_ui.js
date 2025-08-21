@@ -1,4 +1,6 @@
-/* global SavedOptions, __mconsole, isChrome, DefaultOptions, seiVersionCompare */
+/* global SavedOptions, __mconsole, isChrome, DefaultOptions, seiVersionCompare
+   colorToFilter
+*/
 
 // eslint-disable-next-line no-unused-vars
 function optionsUi (BaseName) {
@@ -117,6 +119,24 @@ function optionsUi (BaseName) {
       $('#qtddiasOptions').toggle('fast')
     })
 
+    /* ponto_controle_cores */
+    // $('#corPontoControle').val(SavedOptions.corPontoControle)
+    $("input[data-type='ponto_controle_cores']").prev().on('click', function () {
+      $('#divConfigPontoControleCores').toggle('fast')
+    })
+    if (SavedOptions.CheckTypes.includes('ponto_controle_cores')) {
+      console.log('pontoControleCores', SavedOptions.pontoControleCores)
+      SavedOptions.pontoControleCores.forEach(e => {
+        addRowPontoControleCores(e.nome, e.cor, e.filter)
+      })
+    }
+    document.getElementById('rowPontoControleCoresTemplate').style.display = 'none'
+    console.log(document.querySelector('#adicionarPontoControleCores'))
+    document.querySelector('#adicionarPontoControleCores').addEventListener('click', function () {
+      console.log('click')
+      addRowPontoControleCores('', '#0000FF', colorToFilter('#0000FF'))
+    })
+
     $("input[name='usardocumentocomomodelo']").prop('checked', !!SavedOptions.usardocumentocomomodelo)
     $("input[name='exibeinfoatribuicao']").prop('checked', !!SavedOptions.exibeinfoatribuicao)
 
@@ -207,6 +227,17 @@ function optionsUi (BaseName) {
     ConfDias.Critico = parseInt($('#qtddiascritico').val())
     mconsole.log('CONFDIAS> alerta: ' + ConfDias.Alerta + ' critico:' + ConfDias.Critico)
 
+    /* ponto de controle cores */
+    const pontoControleCores = []
+    document.querySelectorAll('.rowPontoControleCores').forEach(function (row) {
+      const cor = row.querySelector('#corPontoControle').value
+      const nome = row.querySelector('#nomePontoControle').value
+      const filter = row.querySelector('#corImgPontoControle').style.filter
+      if (nome) {
+        pontoControleCores.push({ nome, cor, filter })
+      }
+    })
+
     const incluirDocAoArrastarTipoDocPadrao = $('#incluirDocAoArrastar_TipoDocPadrao').val()
 
     const usardocumentocomomodelo = $("input[name='usardocumentocomomodelo']").is(':checked')
@@ -235,7 +266,8 @@ function optionsUi (BaseName) {
       incluirDocAoArrastar_TipoDocPadrao: incluirDocAoArrastarTipoDocPadrao,
       usardocumentocomomodelo,
       exibeinfoatribuicao,
-      baseUrl
+      baseUrl,
+      pontoControleCores
     }
     if (isChrome) {
       currentBrowser.storage.local.set(OptionsToSave)
@@ -251,5 +283,24 @@ function optionsUi (BaseName) {
 
     alert('Salvo')
     window.location.assign(window.location.href)
+  }
+
+  function addRowPontoControleCores (nome, cor, filter) {
+    const newRow = document.querySelector('#rowPontoControleCoresTemplate').cloneNode(true)
+    newRow.removeAttribute('style')
+    newRow.querySelector('#nomePontoControle').value = nome
+    newRow.querySelector('#corPontoControle').value = cor
+    newRow.querySelector('#corImgPontoControle').style.filter = filter
+    newRow.classList.add('rowPontoControleCores')
+    newRow.querySelector('#corImgPontoControle').addEventListener('click', function () {
+      newRow.querySelector('#corPontoControle').click()
+    })
+    newRow.querySelector('#corPontoControle').addEventListener('change', function () {
+      newRow.querySelector('#corImgPontoControle').style.filter = colorToFilter(this.value)
+    })
+    newRow.querySelector('#excluirCorPontoControle').addEventListener('click', function () {
+      newRow.remove()
+    })
+    document.querySelector('#tbodyPontoControleCores').appendChild(newRow)
   }
 }

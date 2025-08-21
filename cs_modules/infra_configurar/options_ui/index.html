@@ -187,6 +187,56 @@
     </label>
     <input class="toggle" type="checkbox" data-type="notificacoes" />
   </div>
+
+  <div class="container">
+    <div class="flex-container">
+      <label class="toggle-label">
+        Cores no Ponto de controle
+        <div class="seipp-tooltip">
+          ?
+          <span class="tooltiptext">
+            Permite personalizar as cores dos pontos de controle.
+          </span>
+        </div>
+      </label>
+      <div class="toggle-options" href="#"><span class="ui-icon ui-icon-gear"></span>Personalizar</div>
+      <input class="toggle" type="checkbox" id="ponto_controle_cores" data-type="ponto_controle_cores" />
+    </div>
+    <div id="divConfigPontoControleCores" class="seipp-fieldset">
+      <fieldset>
+        <div>
+          <span>Configuração das Cores dos Pontos de Controle</span>
+          <button type="button" id="adicionarPontoControleCores"
+            title="Adicionar um novo ponto de controle">Adicionar</button>
+        </div>
+        <table id="tabelaPontoControleCores">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Cor</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyPontoControleCores">
+            <tr id="rowPontoControleCoresTemplate">
+              <td>
+                <input id="nomePontoControle" type="text" placeholder="Nome do ponto de controle" />
+              </td>
+              <td>
+                <img id="corImgPontoControle" src="svg/situacao.svg" class="imagemStatus"
+                  title="Alterar a cor do ponto de controle">
+                <input id="corPontoControle" type="color" style="display: none;" />
+              </td>
+              <td>
+                <button id="excluirCorPontoControle" type="button" class="infraButton"
+                  title="Excluir cor do ponto de controle">Excluir</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </fieldset>
+    </div>
+  </div>
 </div>
 
 <!-- *********************************************************************** -->

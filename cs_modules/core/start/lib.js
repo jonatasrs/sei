@@ -17,7 +17,8 @@ const DefaultOptions = {
     'mostraranotacao',
     'atalhopublicacoeseletronicas',
     'incluirdocaoarrastar',
-    'move_link_menu'
+    'move_link_menu',
+    'ponto_controle_cores'
   ],
   InstallOrUpdate: true,
   ConfiguracoesCores: [
@@ -31,7 +32,8 @@ const DefaultOptions = {
   ConfDias: { Critico: 30, Alerta: 20 },
   incluirDocAoArrastar_TipoDocPadrao: 'Anexo',
   usardocumentocomomodelo: true,
-  exibeinfoatribuicao: true
+  exibeinfoatribuicao: true,
+  pontoControleCores: [] // Cores dos pontos de controle. Ex.: {nome: 'analise', cor: '#0000FF'}
 }
 
 const CompName = 'Seipp'
