@@ -1,7 +1,6 @@
 /* global AdicionarIdentificadorSeipp, ocultarMenuAutomaticamente,
-  VerificarBlocoAssinatura, moveLinkMenu, PontoControleCores,
-  atalhoPublicacoesEletronicas, linkNeutroControleProcessos,
-  IndicarConfiguracao, ModuleInit */
+  VerificarBlocoAssinatura, moveLinkMenu, atalhoPublicacoesEletronicas,
+  linkNeutroControleProcessos, IndicarConfiguracao, ModuleInit */
 /******************************************************************************
  SEI ++: Script que adiciona novas funcionalidades ao SEI
  Autor: Jonatas Evaristo / Diego Rossi / Hebert M. Magalhães
@@ -20,9 +19,6 @@ ModuleInit(ModNameIdle).then((options) => {
         break
       case 'move_link_menu':
         moveLinkMenu(ModNameIdle)
-        break
-      case 'pontocoresanatel':
-        PontoControleCores(ModNameIdle)
         break
       case 'atalhopublicacoeseletronicas':
         atalhoPublicacoesEletronicas(ModNameIdle)
