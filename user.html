@@ -1,26 +1,106 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-	<head>
-		<title>SEI++</title>
-		<link rel="icon" href="icons/favicon.png">
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="index.css">
-	</head>
-	<body>
-		<div id="header">
-			<h1>SEI++: Manuais do usuário</h1>
-		</div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEI++ - Manual do Usuário</title>
+  <link rel="icon" href="icons/favicon.png">
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="page-header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <img src="icons/favicon.png" alt="SEI++" class="nav-logo">
+          <span class="nav-title">SEI++</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="developer.html" class="nav-link">Desenvolvedor</a></li>
+          <li><a href="changelog.html" class="nav-link">Changelog</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+    
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">SEI++</a>
+          <span>Manual do Usuário</span>
+        </div>
+        <h1 class="page-title">
+          <span class="page-icon">📖</span>
+          Manual do Usuário
+        </h1>
+        <p class="page-subtitle">
+          Guias completos para usar todas as funcionalidades do SEI++
+        </p>
+      </div>
+    </div>
+  </header>
 
-		<div id="text">
-      <h1>Manual colaborativo</h1>
+  <main class="page-content">
+    <div class="container">
+      <section class="content-section">
+        <div class="manual-grid">
+          <div class="manual-card">
+            <div class="manual-icon">✒️</div>
+            <h3>Manual Oficial - Wiki Colaborativa</h3>
+            <p>Manual colaborativo mantido pela comunidade com exemplos práticos e dicas de uso</p>
+            <a href="https://github.com/jonatasrs/sei/wiki/Manual" 
+               class="btn btn-primary" target="_blank" rel="noopener">
+              Acessar Manual
+            </a>
+          </div>
+        </div>
+        
+        <div class="info-section">
+          <div class="info-card">
+            <h3>🚀 Como começar</h3>
+            <ol>
+              <li>Instale a extensão no seu navegador</li>
+              <li>Acesse o SEI normalmente</li>
+              <li>Configure as funcionalidades nas preferências</li>
+              <li>Aproveite os recursos extras!</li>
+            </ol>
+          </div>
+          
+          <div class="info-card">
+            <h3>💡 Dicas importantes</h3>
+            <ul>
+              <li>Mantenha sempre a extensão atualizada</li>
+              <li>Consulte o changelog para novidades</li>
+              <li>Reporte bugs no GitHub</li>
+              <li>Contribua com o manual oficial na wiki</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
 
-      <p><a href="https://docs.google.com/document/d/1wVpLY4zoKYbi7yUTgHoEoGrgJR_6zpUwQKsZk-DSGzs/pub">Manual do usuário</a></p>
-      <p><a href="https://github.com/jonatasrs/sei/wiki/Manual">Manual do usuário colaborativo wiki</a></p>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="footer-nav">
+        <a href="index.html" class="btn btn-outline">← Voltar ao Início</a>
+        <div class="footer-links">
+          <a href="developer.html">Manual do Desenvolvedor</a>
+          <a href="changelog.html">Histórico de Versões</a>
+          <a href="https://github.com/jonatasrs/sei">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-		</div>
-
-		<footer>
-			<p><a href=".">Voltar</a></p>
-		</footer>
-	</body>
+  <script src="script.js"></script>
+</body>
 </html>

@@ -1,39 +1,201 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-	<head>
-		<title>SEI++</title>
-		<link rel="icon" href="icons/favicon_dev.png">
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="index.css">
-	</head>
-	<body>
-		<div id="header">
-			<h1>SEI++: Como contribuir com o projeto?</h1>
-		</div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEI++ - Manual do Desenvolvedor</title>
+  <link rel="icon" href="icons/favicon_dev.png">
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="page-header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <img src="icons/favicon_dev.png" alt="SEI++" class="nav-logo">
+          <span class="nav-title">SEI++</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="user.html" class="nav-link">Manual</a></li>
+          <li><a href="changelog.html" class="nav-link">Changelog</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+    
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">SEI++</a>
+          <span>Manual do Desenvolvedor</span>
+        </div>
+        <h1 class="page-title">
+          <span class="page-icon">👨‍💻</span>
+          Manual do Desenvolvedor
+        </h1>
+        <p class="page-subtitle">
+          Como contribuir com o desenvolvimento do projeto SEI++
+        </p>
+      </div>
+    </div>
+  </header>
 
-		<div id="text">
-      <h1>Requisitos</h1>
-      <h2>Conhecimentos mínimos</h2>
-      <p>Fluxo de trabalho no git</p>
-      <p>Programação em javascript</p>
-      <p>WebExtension: https://developer.mozilla.org/en-US/Add-ons/WebExtensions</p>
+  <main class="page-content">
+    <div class="container">
+      <section class="content-section">
+        <div class="requirements-section">
+          <h2 class="section-title">📋 Requisitos</h2>
+          
+          <div class="requirement-cards">
+            <div class="requirement-card">
+              <h3>🧠 Conhecimentos Mínimos</h3>
+              <ul>
+                <li><strong>Git:</strong> Fluxo de trabalho com versionamento</li>
+                <li><strong>JavaScript:</strong> Programação em JavaScript ES6+</li>
+                <li><strong>WebExtensions:</strong> API de extensões para navegadores</li>
+                <li><strong>SEI:</strong> Conhecimento básico do sistema</li>
+              </ul>
+              <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions" 
+                 class="btn btn-outline" target="_blank" rel="noopener">
+                Documentação WebExtensions
+              </a>
+            </div>
+            
+            <div class="requirement-card">
+              <h3>🛠️ Ferramentas Necessárias</h3>
+              <ul>
+                <li><strong>Git:</strong> Controle de versão</li>
+                <li><strong>Node.js:</strong> Ambiente de desenvolvimento</li>
+                <li><strong>VS Code:</strong> Editor recomendado</li>
+                <li><strong>Firefox/Chrome:</strong> Para testes</li>
+                <li><strong>GitHub Desktop:</strong> Interface Git (opcional)</li>
+              </ul>
+              <a href="https://github.com/jonatasrs/sei" 
+                 class="btn btn-outline" target="_blank" rel="noopener">
+                Repositório no GitHub
+              </a>
+            </div>
+          </div>
+        </div>
 
-      <h2>Software</h2>
-      <p>git</p>
-      <p>Tortoise-git (opcional)</p>
-      <p>Firefox</p>
-      <p>Chrome</p>
-      <p>Editor de código fonte: Visual Studio Code, Notpad++, etc...</p>
+        <div class="workflow-section">
+          <h2 class="section-title">🔄 Fluxo de Colaboração</h2>
+          
+          <div class="workflow-steps">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Primeiro Contato</h3>
+                <p>Entre em contato conosco para discutir sua contribuição</p>
+                <a href="mailto:jonatas.eletrica@gmail.com" class="btn btn-primary">
+                  Enviar E-mail
+                </a>
+              </div>
+            </div>
+            
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Fork do Projeto</h3>
+                <p>Crie um fork do repositório oficial em sua conta GitHub</p>
+                <a href="https://github.com/jonatasrs/sei/fork" class="btn btn-primary" target="_blank">
+                  Fazer Fork
+                </a>
+              </div>
+            </div>
+            
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Desenvolvimento</h3>
+                <p>Desenvolva as funcionalidades em uma branch separada</p>
+                <code class="code-snippet">git checkout -b minha-feature</code>
+              </div>
+            </div>
+            
+            <div class="step-card">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3>Pull Request</h3>
+                <p>Submeta suas alterações via Pull Request</p>
+                <a href="https://github.com/jonatasrs/sei/compare" class="btn btn-primary" target="_blank">
+                  Criar Pull Request
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <h1>Fluxo de colaboração</h1>
-      <p>Entrar em contato com o autor do projeto: jonatas.eletrica@gmail.com</p>
-      <p>Criar um fork do projeto oficial no github: https://github.com/jonatasrs/sei</p>
-      <p>Desenvolver as funcionalidades no fork</p>
-      <p>Criar um "Pull request" para o projeto principal</p>
-		</div>
+        <div class="contribution-section">
+          <h2 class="section-title">🤝 Formas de Contribuição</h2>
+          
+          <div class="contribution-grid">
+            <div class="contribution-card">
+              <div class="contribution-icon">🐛</div>
+              <h3>Reportar Bugs</h3>
+              <p>Encontrou um problema? Nos ajude reportando bugs</p>
+              <a href="https://github.com/jonatasrs/sei/issues/new?template=bug_report.md" 
+                 class="btn btn-outline" target="_blank">
+                Reportar Bug
+              </a>
+            </div>
+            
+            <div class="contribution-card">
+              <div class="contribution-icon">💡</div>
+              <h3>Sugerir Features</h3>
+              <p>Tem uma ideia? Sugira novas funcionalidades</p>
+              <a href="https://github.com/jonatasrs/sei/issues/new?template=feature_request.md" 
+                 class="btn btn-outline" target="_blank">
+                Sugerir Feature
+              </a>
+            </div>
+            
+            <div class="contribution-card">
+              <div class="contribution-icon">📝</div>
+              <h3>Melhorar Docs</h3>
+              <p>Ajude a melhorar a documentação do projeto</p>
+              <a href="https://github.com/jonatasrs/sei/wiki" 
+                 class="btn btn-outline" target="_blank">
+                Editar Wiki
+              </a>
+            </div>
+            
+            <div class="contribution-card">
+              <div class="contribution-icon">💻</div>
+              <h3>Contribuir Código</h3>
+              <p>Implemente novas funcionalidades ou correções</p>
+              <a href="https://github.com/jonatasrs/sei/blob/master/CONTRIBUTING.md" 
+                 class="btn btn-outline" target="_blank">
+                Guia de Contribuição
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
 
-		<footer>
-			<p><a href=".">Voltar</a></p>
-		</footer>
-	</body>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="footer-nav">
+        <a href="index.html" class="btn btn-outline">← Voltar ao Início</a>
+        <div class="footer-links">
+          <a href="user.html">Manual do Usuário</a>
+          <a href="changelog.html">Histórico de Versões</a>
+          <a href="https://github.com/jonatasrs/sei">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
