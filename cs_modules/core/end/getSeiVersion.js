@@ -4,7 +4,8 @@
 // eslint-disable-next-line no-unused-vars
 function getSeiVersion (baseName) {
   const script = document.querySelectorAll('script[src^="js/sei.js?"]')[0]
-  const versionText = document.querySelector('#spnInfraIdentificacaoSistema span.infraTituloLogoSistema').innerText
+  const versionEl = document.querySelector('#spnInfraIdentificacaoSistema span.infraTituloLogoSistema')
+  const versionText = versionEl ? versionEl.innerText : null
   if (!script && !versionText) {
     return '0.0.0.0'
   }
